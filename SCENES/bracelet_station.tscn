@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpba5u8id3mkb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png" id="4_4awb4"]
 [ext_resource type="PackedScene" uid="uid://djtrgcksij3rs" path="res://SCENES/submit_button.tscn" id="4_ugfj2"]
 [ext_resource type="Texture2D" uid="uid://eu8kicuvwhb3" path="res://ASSETS/Art/CRAFTSTATION/Discard_Pile.png" id="5_n16vn"]
-[ext_resource type="Texture2D" uid="uid://bfow72ounkx82" path="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png" id="6_v1mrb"]
+[ext_resource type="PackedScene" uid="uid://c1n021prjqmpo" path="res://SCENES/bead_pile.tscn" id="7_atnpg"]
 
 [node name="BraceletStation" type="Node"]
 
@@ -40,6 +40,5 @@ texture = ExtResource("5_n16vn")
 position = Vector2(640, 425)
 texture = ExtResource("4_4awb4")
 
-[node name="DrawPile" type="Sprite2D" parent="PlayingField"]
+[node name="DrawPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(1153, 600)
-texture = ExtResource("6_v1mrb")
