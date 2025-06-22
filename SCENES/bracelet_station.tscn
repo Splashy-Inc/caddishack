@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://j7kdpfxltq4j"]
+
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/craft_station_background.tscn" id="1_8q7v8"]
+[ext_resource type="Texture2D" uid="uid://dy3aamv0vd7qr" path="res://ASSETS/Art/CRAFTSTATION/Current_Run.png" id="2_x0q6a"]
+[ext_resource type="Texture2D" uid="uid://dyuw0o1rsuj8x" path="res://ASSETS/Art/CRAFTSTATION/Run_Display.png" id="3_53qlp"]
+[ext_resource type="Texture2D" uid="uid://cpba5u8id3mkb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png" id="4_4awb4"]
+[ext_resource type="PackedScene" uid="uid://djtrgcksij3rs" path="res://SCENES/submit_button.tscn" id="4_ugfj2"]
+[ext_resource type="Texture2D" uid="uid://eu8kicuvwhb3" path="res://ASSETS/Art/CRAFTSTATION/Discard_Pile.png" id="5_n16vn"]
+[ext_resource type="Texture2D" uid="uid://bfow72ounkx82" path="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png" id="6_v1mrb"]
+
+[node name="BraceletStation" type="Node"]
+
+[node name="Background" parent="." instance=ExtResource("1_8q7v8")]
+
+[node name="PlayingField" type="Node2D" parent="."]
+
+[node name="InfoPanel" type="Sprite2D" parent="PlayingField"]
+position = Vector2(127, 147)
+texture = ExtResource("3_53qlp")
+
+[node name="BraceletPanel" type="Sprite2D" parent="PlayingField"]
+position = Vector2(640, 147)
+texture = ExtResource("2_x0q6a")
+
+[node name="CompleteBraceletPanel" type="Sprite2D" parent="PlayingField"]
+position = Vector2(1153, 147)
+texture = ExtResource("3_53qlp")
+
+[node name="SubmitButton" parent="PlayingField" instance=ExtResource("4_ugfj2")]
+
+[node name="HandPanel" type="Sprite2D" parent="PlayingField"]
+position = Vector2(640, 600)
+texture = ExtResource("4_4awb4")
+
+[node name="DiscardPile" type="Sprite2D" parent="PlayingField"]
+position = Vector2(127, 600)
+texture = ExtResource("5_n16vn")
+
+[node name="SelectionPanel" type="Sprite2D" parent="PlayingField"]
+position = Vector2(640, 425)
+texture = ExtResource("4_4awb4")
+
+[node name="DrawPile" type="Sprite2D" parent="PlayingField"]
+position = Vector2(1153, 600)
+texture = ExtResource("6_v1mrb")
