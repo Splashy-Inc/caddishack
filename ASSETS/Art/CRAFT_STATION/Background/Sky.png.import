@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtvhfr22op0fb"
-path="res://.godot/imported/Bead_Pile.png-d742a1678940cdddddacc9a43c1dea75.ctex"
+uid="uid://dudbevf38apbs"
+path="res://.godot/imported/Sky.png-4a3fc5363c51f1b198359b72e6737425.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png"
-dest_files=["res://.godot/imported/Bead_Pile.png-d742a1678940cdddddacc9a43c1dea75.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/Background/Sky.png"
+dest_files=["res://.godot/imported/Sky.png-4a3fc5363c51f1b198359b72e6737425.ctex"]
 
 [params]
 

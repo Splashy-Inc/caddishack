@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3sldi7g5fcg6"]
 
-[ext_resource type="Script" path="res://SCRIPTS/pause_menu.gd" id="1_kmxbu"]
-[ext_resource type="StyleBox" uid="uid://dgqghfdjm4lce" path="res://button_box.tres" id="2_1q666"]
+[ext_resource type="Script" path="res://SCRIPTS/GUI/pause_menu.gd" id="1_kmxbu"]
+[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://RESOURCES/button_box.tres" id="2_1q666"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3

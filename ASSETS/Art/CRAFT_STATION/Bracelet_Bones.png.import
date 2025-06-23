@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cumj7cih2qhf0"
-path="res://.godot/imported/Current_Run.png-45a8fa482448e77085a59ef26dfad985.ctex"
+uid="uid://bc1xkwvijw6w4"
+path="res://.godot/imported/Bracelet_Bones.png-a440eb33cdea85e41c76921856c97624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFTSTATION/Current_Run.png"
-dest_files=["res://.godot/imported/Current_Run.png-45a8fa482448e77085a59ef26dfad985.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/Bracelet_Bones.png"
+dest_files=["res://.godot/imported/Bracelet_Bones.png-a440eb33cdea85e41c76921856c97624.ctex"]
 
 [params]
 

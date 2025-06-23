@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
-[ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/Terrarium/bead_component.tscn" id="2_8xfat"]
+[ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead_component.tscn" id="2_8xfat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlmxa"]
 atlas = ExtResource("1_gf3mp")

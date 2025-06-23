@@ -1,18 +1,18 @@
 [gd_scene load_steps=5 format=3 uid="uid://buxm1ivhxhxqq"]
 
-[ext_resource type="Script" path="res://SCRIPTS/bead_container.gd" id="1_xhc41"]
-[ext_resource type="PackedScene" path="res://SCENES/bead.tscn" id="4_8ge3d"]
-[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png" id="5_ny4km"]
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bead_container.gd" id="1_n70jm"]
+[ext_resource type="PackedScene" uid="uid://bmbdeihbl5kkc" path="res://SCENES/TERRARIUM/bead.tscn" id="2_641uv"]
+[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="3_6pn7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgq07"]
 radius = 26.0
 
 [node name="BeadContainer" type="Node2D"]
-script = ExtResource("1_xhc41")
-bead_scene = ExtResource("4_8ge3d")
+script = ExtResource("1_n70jm")
+bead_scene = ExtResource("2_641uv")
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("5_ny4km")
+texture = ExtResource("3_6pn7o")
 
 [node name="Beads" type="Area2D" parent="."]
 

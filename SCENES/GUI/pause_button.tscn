@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://l63bub3q0j7s"]
 
-[ext_resource type="Script" path="res://SCRIPTS/pause_button.gd" id="1_0kkv0"]
+[ext_resource type="Script" path="res://SCRIPTS/GUI/pause_button.gd" id="1_0kkv0"]
 
 [node name="PauseButton" type="Button"]
 offset_left = 32.0

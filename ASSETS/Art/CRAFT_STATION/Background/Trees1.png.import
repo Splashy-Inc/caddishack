@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db11hpcy64lw3"
-path="res://.godot/imported/Bead_Play.png-ac3e41a3e3c8ddbf13db63fb7ce2569a.ctex"
+uid="uid://ek6d3qia4020"
+path="res://.godot/imported/Trees1.png-4fed8ee3c6e7bce466063a7b850a615e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png"
-dest_files=["res://.godot/imported/Bead_Play.png-ac3e41a3e3c8ddbf13db63fb7ce2569a.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/Background/Trees1.png"
+dest_files=["res://.godot/imported/Trees1.png-4fed8ee3c6e7bce466063a7b850a615e.ctex"]
 
 [params]
 

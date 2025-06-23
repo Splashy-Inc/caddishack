@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsq1xkr2dc647"
-path="res://.godot/imported/Trees2.png-b656ea18334deac99bc5add7a4d619eb.ctex"
+uid="uid://dcj4vq7jok4lg"
+path="res://.godot/imported/Bead_Hand.png-d7d415f6f841ee1f3294d2ba7f19140e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFTSTATION/Background/Trees2.png"
-dest_files=["res://.godot/imported/Trees2.png-b656ea18334deac99bc5add7a4d619eb.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/Bead_Hand.png"
+dest_files=["res://.godot/imported/Bead_Hand.png-d7d415f6f841ee1f3294d2ba7f19140e.ctex"]
 
 [params]
 

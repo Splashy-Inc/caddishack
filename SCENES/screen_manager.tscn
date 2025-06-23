@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/screen_manager.gd" id="1_7yicb"]
 [ext_resource type="PackedScene" uid="uid://do7dpbgd6ku6n" path="res://SCENES/GUI/hud.tscn" id="2_3khgq"]
-[ext_resource type="PackedScene" uid="uid://j7kdpfxltq4j" path="res://SCENES/bracelet_station.tscn" id="2_apl4c"]
+[ext_resource type="PackedScene" uid="uid://j7kdpfxltq4j" path="res://SCENES/CRAFT_STATION/bracelet_station.tscn" id="2_apl4c"]
 
 [node name="ScreenManager" type="Node"]
 process_mode = 3

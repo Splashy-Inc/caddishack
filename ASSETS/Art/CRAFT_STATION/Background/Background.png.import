@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpvuqi0o2dysk"
-path="res://.godot/imported/GrassWithPuffs.png-2130b6460fa8bdec2c04b8dbca845704.ctex"
+uid="uid://dw3cyfwmtnl30"
+path="res://.godot/imported/Background.png-835f9d98e6b1de76dedddacb14afbdd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFTSTATION/Background/GrassWithPuffs.png"
-dest_files=["res://.godot/imported/GrassWithPuffs.png-2130b6460fa8bdec2c04b8dbca845704.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/Background/Background.png"
+dest_files=["res://.godot/imported/Background.png-835f9d98e6b1de76dedddacb14afbdd5.ctex"]
 
 [params]
 

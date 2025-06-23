@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6tdu4r5v8bbs"]
 
-[ext_resource type="Script" path="res://SCRIPTS/controls_screen.gd" id="1_tvbxo"]
-[ext_resource type="Script" path="res://SCRIPTS/controls_tab_container.gd" id="2_pnoft"]
-[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://button_box.tres" id="2_tn6xa"]
+[ext_resource type="Script" path="res://SCRIPTS/GUI/controls_screen.gd" id="1_tvbxo"]
+[ext_resource type="Script" path="res://SCRIPTS/GUI/controls_tab_container.gd" id="2_pnoft"]
+[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://RESOURCES/button_box.tres" id="2_tn6xa"]
 [ext_resource type="Texture2D" uid="uid://bsnl2lvtbxral" path="res://ASSETS/Art/joystick/Joystick.png" id="3_1l55u"]
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="4_lo2b3"]
 

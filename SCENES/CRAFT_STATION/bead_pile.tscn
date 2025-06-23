@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cmerjff0e20um"]
 
-[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png" id="1_ac3d7"]
-[ext_resource type="Script" path="res://SCRIPTS/bead_pile.gd" id="1_jsg61"]
+[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="1_ac3d7"]
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bead_pile.gd" id="1_jsg61"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_tn0dp"]
-[ext_resource type="PackedScene" path="res://SCENES/bead.tscn" id="3_gj5l4"]
+[ext_resource type="PackedScene" uid="uid://bmbdeihbl5kkc" path="res://SCENES/TERRARIUM/bead.tscn" id="3_gj5l4"]
 [ext_resource type="Script" path="res://RESOURCES/bead_pile_info.gd" id="3_uy6ti"]
 
 [sub_resource type="Resource" id="Resource_dgg8q"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://d1fnfg5c0hmib"]
 
-[ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/Terrarium/tilemap_bugbox.tres" id="1_53fmq"]
+[ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/TERRARIUM/tilemap_bugbox.tres" id="1_53fmq"]
 
 [node name="TileMapBackground" type="Node2D"]
 
