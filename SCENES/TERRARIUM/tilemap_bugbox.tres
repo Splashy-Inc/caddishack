@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b7e0txfs5ai47" path="res://ASSETS/Art/TERRARIUM/TerrariumTileSet.png" id="1_teqnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7p61"]
+resource_name = "TileSetLightGreen"
 texture = ExtResource("1_teqnh")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -71,4 +72,5 @@ texture_region_size = Vector2i(64, 64)
 7:7/0 = 0
 
 [resource]
+tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_q7p61")

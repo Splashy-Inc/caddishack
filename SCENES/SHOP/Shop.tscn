@@ -1,0 +1,136 @@
+[gd_scene load_steps=24 format=3 uid="uid://b4x5r54x0yddx"]
+
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="1_aeeak"]
+[ext_resource type="Texture2D" uid="uid://mmbbe0gyx2ma" path="res://ASSETS/Art/SHOP/Shop_Menu_Bar.png" id="2_dpnme"]
+[ext_resource type="Texture2D" uid="uid://clvx76dl1p1ur" path="res://ASSETS/Art/SHOP/Shelf_Slot.png" id="3_iqkrp"]
+[ext_resource type="Texture2D" uid="uid://co782a1kb662s" path="res://ASSETS/Art/SHOP/Shelf_Slot_Highlight.png" id="4_rj5kl"]
+[ext_resource type="Texture2D" uid="uid://b5ma7ih2u3ksd" path="res://ASSETS/Art/SHOP/Snail.png" id="5_6wdwm"]
+[ext_resource type="Texture2D" uid="uid://bwg84lhbhmwg5" path="res://ASSETS/Art/SHOP/Jimmie.png" id="6_gv83n"]
+[ext_resource type="Texture2D" uid="uid://buwiyssv2nqp4" path="res://ASSETS/Art/SHOP/CyanSand.png" id="7_384k6"]
+[ext_resource type="Texture2D" uid="uid://drt2n8e1dimyq" path="res://ASSETS/Art/SHOP/MagentaSand.png" id="8_46y8i"]
+[ext_resource type="Texture2D" uid="uid://cc228ds1xvnir" path="res://ASSETS/Art/SHOP/YellowSand.png" id="9_il3sw"]
+[ext_resource type="Texture2D" uid="uid://b3545rtb6mb4a" path="res://ASSETS/Art/SHOP/Basic_Egg.png" id="10_x8p7k"]
+[ext_resource type="Texture2D" uid="uid://cmgs2mrejs6mo" path="res://ASSETS/Art/SHOP/Special_Egg.png" id="11_gx2yf"]
+[ext_resource type="Texture2D" uid="uid://sb7tifljc8cf" path="res://ASSETS/Art/SHOP/Goed_Egg.png" id="12_f5bcm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68qjt"]
+texture = ExtResource("4_rj5kl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hbynr"]
+texture = ExtResource("3_iqkrp")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6sm6c"]
+load_path = "res://.godot/imported/Pearl.png-01c2360d7cd1b607fda553bdf3683f22.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv51o"]
+atlas = SubResource("CompressedTexture2D_6sm6c")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efejj"]
+atlas = ExtResource("5_6wdwm")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p47mi"]
+atlas = ExtResource("6_gv83n")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcgvi"]
+atlas = ExtResource("7_384k6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbafb"]
+atlas = ExtResource("8_46y8i")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvmmr"]
+atlas = ExtResource("9_il3sw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwj76"]
+atlas = ExtResource("10_x8p7k")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufxp3"]
+atlas = ExtResource("11_gx2yf")
+
+[node name="Shop" type="Node2D"]
+
+[node name="Craft_station_background" parent="." instance=ExtResource("1_aeeak")]
+
+[node name="ShopMenuBar" type="Sprite2D" parent="."]
+position = Vector2(1006, 363)
+texture = ExtResource("2_dpnme")
+
+[node name="Pearl" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 32.0
+offset_right = 235.0
+offset_bottom = 232.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_hv51o")
+
+[node name="Snail" type="Button" parent="."]
+offset_left = 262.0
+offset_top = 32.0
+offset_right = 462.0
+offset_bottom = 232.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_efejj")
+
+[node name="Jimmie" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 32.0
+offset_right = 689.0
+offset_bottom = 232.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_p47mi")
+
+[node name="CyanSand" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 253.0
+offset_right = 235.0
+offset_bottom = 453.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_mcgvi")
+
+[node name="MagentaSand" type="Button" parent="."]
+offset_left = 262.0
+offset_top = 253.0
+offset_right = 462.0
+offset_bottom = 453.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_pbafb")
+
+[node name="YellowSand" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 253.0
+offset_right = 689.0
+offset_bottom = 453.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_hvmmr")
+
+[node name="BasicEgg" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 480.0
+offset_right = 235.0
+offset_bottom = 680.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_lwj76")
+
+[node name="SpecialEgg" type="Button" parent="."]
+offset_left = 262.0
+offset_top = 480.0
+offset_right = 462.0
+offset_bottom = 680.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = SubResource("AtlasTexture_ufxp3")
+
+[node name="GoedEgg" type="Button" parent="."]
+offset_left = 489.0
+offset_top = 480.0
+offset_right = 689.0
+offset_bottom = 680.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_68qjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hbynr")
+icon = ExtResource("12_f5bcm")
