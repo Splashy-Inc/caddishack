@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RunInfo" load_steps=4 format=3 uid="uid://b58t7gjanwb6w"]
+
+[ext_resource type="Resource" uid="uid://bsvf5p0v0rvxl" path="res://RESOURCES/new_bead_pile.tres" id="1_1s7ve"]
+[ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="1_uoxr8"]
+[ext_resource type="Script" path="res://RESOURCES/run_info.gd" id="2_c0gfi"]
+
+[resource]
+script = ExtResource("2_c0gfi")
+money = 10
+bead_pile = ExtResource("1_1s7ve")
+bracelets = Array[ExtResource("1_uoxr8")]([])

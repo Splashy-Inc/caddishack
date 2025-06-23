@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djtrgcksij3rs"]
+
+[sub_resource type="Gradient" id="Gradient_gts8a"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yasr5"]
+gradient = SubResource("Gradient_gts8a")
+width = 128
+height = 128
+
+[node name="SubmitButton" type="Sprite2D"]
+position = Vector2(640, 286)
+texture = SubResource("GradientTexture2D_yasr5")

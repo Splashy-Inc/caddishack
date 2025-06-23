@@ -10,6 +10,22 @@ var joystick: JoyStick
 
 var info = 10 # Example info to track for level UI
 
+var run_info := RunInfo.new()
+
+enum MaterialColor {
+	COLORLESS,
+	CYAN,
+	MAGENTA,
+	YELLOW,
+}
+
+enum MaterialType {
+	BASIC,
+	PEARL,
+	SHELL,
+	JIMMIE,
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
