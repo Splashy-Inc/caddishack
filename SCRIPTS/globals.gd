@@ -13,14 +13,14 @@ var info = 10 # Example info to track for level UI
 var run_info := RunInfo.new()
 
 enum MaterialColor {
-	NONE,
+	COLORLESS,
 	CYAN,
 	MAGENTA,
 	YELLOW,
 }
 
 enum MaterialType {
-	NONE,
+	BASIC,
 	PEARL,
 	SHELL,
 	JIMMIE,

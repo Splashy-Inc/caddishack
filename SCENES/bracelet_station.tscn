@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/craft_station_background.tscn" id="1_8q7v8"]
-[ext_resource type="Texture2D" uid="uid://dy3aamv0vd7qr" path="res://ASSETS/Art/CRAFTSTATION/Current_Run.png" id="2_x0q6a"]
-[ext_resource type="Texture2D" uid="uid://dyuw0o1rsuj8x" path="res://ASSETS/Art/CRAFTSTATION/Run_Display.png" id="3_53qlp"]
-[ext_resource type="Texture2D" uid="uid://cpba5u8id3mkb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png" id="4_4awb4"]
+[ext_resource type="Texture2D" uid="uid://cumj7cih2qhf0" path="res://ASSETS/Art/CRAFTSTATION/Current_Run.png" id="2_x0q6a"]
+[ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFTSTATION/Run_Display.png" id="3_53qlp"]
+[ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png" id="4_4awb4"]
 [ext_resource type="PackedScene" uid="uid://djtrgcksij3rs" path="res://SCENES/submit_button.tscn" id="4_ugfj2"]
-[ext_resource type="Texture2D" uid="uid://eu8kicuvwhb3" path="res://ASSETS/Art/CRAFTSTATION/Discard_Pile.png" id="5_n16vn"]
+[ext_resource type="Texture2D" uid="uid://b2bl16u55te7o" path="res://ASSETS/Art/CRAFTSTATION/Discard_Pile.png" id="5_n16vn"]
 [ext_resource type="PackedScene" uid="uid://c1n021prjqmpo" path="res://SCENES/bead_pile.tscn" id="7_atnpg"]
 
 [node name="BraceletStation" type="Node"]
