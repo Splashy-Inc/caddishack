@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqmajrx8iugsy"]
+
+[ext_resource type="Texture2D" uid="uid://b3545rtb6mb4a" path="res://ASSETS/Art/SHOP/Basic_Egg.png" id="1_80ib8"]
+[ext_resource type="Texture2D" uid="uid://sb7tifljc8cf" path="res://ASSETS/Art/SHOP/Goed_Egg.png" id="2_6wuhv"]
+[ext_resource type="Texture2D" uid="uid://cmgs2mrejs6mo" path="res://ASSETS/Art/SHOP/Special_Egg.png" id="3_2vvy1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqpjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_80ib8")
+}],
+"loop": true,
+"name": &"basic_egg",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6wuhv")
+}],
+"loop": true,
+"name": &"goed_egg",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2vvy1")
+}],
+"loop": true,
+"name": &"special_egg",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_f2fd3"]
+resource_name = "Idle_Squish"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1, 1), Vector2(0.9, 1.1)]
+}
+
+[sub_resource type="Animation" id="Animation_lg70q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_boixm"]
+_data = {
+"Idle_Squish": SubResource("Animation_f2fd3"),
+"RESET": SubResource("Animation_lg70q")
+}
+
+[node name="Egg" type="Node2D"]
+
+[node name="Idle" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_eqpjt")
+animation = &"basic_egg"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Idle"]
+libraries = {
+"": SubResource("AnimationLibrary_boixm")
+}
+autoplay = "Idle_Squish"
