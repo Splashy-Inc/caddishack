@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://k7ghjsy8g1k0"]
+[gd_scene load_steps=4 format=3 uid="uid://k7ghjsy8g1k0"]
 
 [ext_resource type="Script" path="res://SCRIPTS/main_menu.gd" id="1_vkagb"]
+[ext_resource type="PackedScene" uid="uid://dx3s73knm5n1u" path="res://SCENES/parallax_background.tscn" id="2_5thag"]
 [ext_resource type="StyleBox" uid="uid://dgqghfdjm4lce" path="res://button_box.tres" id="2_y3ir5"]
 
 [node name="MainMenu" type="Control"]
@@ -12,6 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vkagb")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_5thag")]
+position = Vector2(640, 361)
 
 [node name="MenuContent" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(640, 360)
