@@ -23,11 +23,5 @@ func generate_beads():
 func position_bead(bead: Bead):
 	if bead_container_shape.shape is CircleShape2D:
 		var placement_radius = bead_container_shape.shape.radius
-		bead.position = Vector2(1000, 1000)
+		bead.travel_to(to_global(Vector2(randi_range(-placement_radius, placement_radius), randi_range(-placement_radius, placement_radius))))
 		bead.rotation = randf_range(0.0, PI*2)
-		while bead.global_position.distance_to(bead_container.global_position) > placement_radius:
-			bead.position = Vector2(randi_range(-placement_radius, placement_radius), randi_range(-placement_radius, placement_radius))
-
-func draw_bead() -> Bead:
-	var bead = bead_container.get_children().pick_random()
-	return bead

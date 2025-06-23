@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://4neqlhsx5fcs"]
+
+[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/bead.gd" id="1_626lo"]
+[ext_resource type="Texture2D" uid="uid://cnj4ifvuc17dr" path="res://ASSETS/Art/TERRARIUM/CyanSand.png" id="2_10j57"]
+
+[node name="Bead" type="Node2D"]
+script = ExtResource("1_626lo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_10j57")
