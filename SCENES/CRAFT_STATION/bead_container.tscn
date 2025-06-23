@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://buxm1ivhxhxqq"]
+
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bead_container.gd" id="1_n70jm"]
+[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="3_6pn7o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgq07"]
+radius = 26.0
+
+[node name="BeadContainer" type="Node2D"]
+script = ExtResource("1_n70jm")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("3_6pn7o")
+
+[node name="Beads" type="Area2D" parent="."]
+
+[node name="Container" type="Node2D" parent="Beads"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beads"]
+shape = SubResource("CircleShape2D_cgq07")

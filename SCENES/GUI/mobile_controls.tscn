@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b77mh17y84d50"]
 
-[ext_resource type="Script" path="res://SCRIPTS/mobile_controls.gd" id="1_qatij"]
+[ext_resource type="Script" path="res://SCRIPTS/GUI/mobile_controls.gd" id="1_qatij"]
 [ext_resource type="PackedScene" uid="uid://doayqux8rw3nv" path="res://SCENES/GUI/joystick.tscn" id="1_x3fcn"]
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="3_tmh5b"]
 

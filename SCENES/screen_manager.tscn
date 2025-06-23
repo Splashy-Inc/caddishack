@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/screen_manager.gd" id="1_7yicb"]
 [ext_resource type="PackedScene" uid="uid://do7dpbgd6ku6n" path="res://SCENES/GUI/hud.tscn" id="2_3khgq"]
-[ext_resource type="PackedScene" uid="uid://dhvgc0glasyim" path="res://SCENES/playground.tscn" id="2_ovxmg"]
+[ext_resource type="PackedScene" uid="uid://j7kdpfxltq4j" path="res://SCENES/CRAFT_STATION/bracelet_station.tscn" id="2_apl4c"]
 
 [node name="ScreenManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_7yicb")
-level_scene = ExtResource("2_ovxmg")
+station_scene = ExtResource("2_apl4c")
 
 [node name="HUD" parent="." instance=ExtResource("2_3khgq")]
 

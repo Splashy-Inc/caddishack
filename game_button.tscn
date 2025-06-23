@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmhofry2jjrqd"]
+
+[ext_resource type="StyleBox" uid="uid://cvciu8qyek2eg" path="res://RESOURCES/button_box_hover.tres" id="1_swb31"]
+[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://RESOURCES/button_box_normal.tres" id="2_wtxya"]
+
+[node name="DiscardButton" type="Button"]
+custom_minimum_size = Vector2(0, 110)
+offset_left = 47.0
+offset_top = 370.0
+offset_right = 207.0
+offset_bottom = 480.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 55
+theme_override_styles/hover = ExtResource("1_swb31")
+theme_override_styles/normal = ExtResource("2_wtxya")
+text = "Discard"
