@@ -1,6 +1,6 @@
-extends Level
+extends Station
 
-func _level_ready():
+func _station_ready():
 	var new_timer := Timer.new()
 	new_timer.one_shot = true
 	add_child(new_timer)

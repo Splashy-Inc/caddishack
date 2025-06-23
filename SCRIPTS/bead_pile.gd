@@ -1,12 +1,8 @@
-extends Node2D
+extends BeadContainer
 
 class_name BeadPile
 
 @export var info : BeadPileInfo
-@export var bead_scene : PackedScene
-
-@onready var bead_container: Node2D = $Beads/Container
-@onready var bead_container_shape: CollisionShape2D = $Beads/CollisionShape2D
 
 func _ready() -> void:
 	generate_beads()
@@ -24,19 +20,13 @@ func generate_beads():
 		new_bead.initialize(bead_info)
 		add_bead(new_bead)
 
-func add_bead(new_bead: Bead):
-	if new_bead in bead_container.get_children():
-		print("Bead already in pile!", new_bead, " ", self)
-		return
-	if new_bead.get_parent():
-		new_bead.reparent(bead_container)
-	else:
-		bead_container.add_child(new_bead)
+func position_bead(bead: Bead):
 	if bead_container_shape.shape is CircleShape2D:
-		new_bead.position = Vector2(1000, 1000)
-		new_bead.rotation = randf_range(0.0, PI*2)
-		while new_bead.global_position.distance_to(bead_container.global_position) > bead_container_shape.shape.radius:
-			new_bead.position = Vector2(randi_range(-bead_container_shape.shape.radius, bead_container_shape.shape.radius), randi_range(-bead_container_shape.shape.radius, bead_container_shape.shape.radius))
+		var placement_radius = bead_container_shape.shape.radius
+		bead.position = Vector2(1000, 1000)
+		bead.rotation = randf_range(0.0, PI*2)
+		while bead.global_position.distance_to(bead_container.global_position) > placement_radius:
+			bead.position = Vector2(randi_range(-placement_radius, placement_radius), randi_range(-placement_radius, placement_radius))
 
 func draw_bead() -> Bead:
 	var bead = bead_container.get_children().pick_random()

@@ -1,6 +1,6 @@
 extends Node
 
-class_name Level
+class_name Station
 
 @export var dialog_box: DialogBox
 @export var mobile_controls: MobileControls
@@ -13,9 +13,9 @@ func _ready() -> void:
 			mobile_controls.show()
 		else:
 			mobile_controls.hide()
-	_level_ready()
+	_station_ready()
 
-func _level_ready():
+func _station_ready():
 	pass
 
 func _process(delta: float) -> void:

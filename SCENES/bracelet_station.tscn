@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://SCRIPTS/bracelet_station.gd" id="1_opsq7"]
 [ext_resource type="Texture2D" uid="uid://cumj7cih2qhf0" path="res://ASSETS/Art/CRAFTSTATION/Current_Run.png" id="2_x0q6a"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFTSTATION/Run_Display.png" id="3_53qlp"]
-[ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFTSTATION/Bead_Play.png" id="4_4awb4"]
 [ext_resource type="PackedScene" uid="uid://djtrgcksij3rs" path="res://SCENES/submit_button.tscn" id="4_ugfj2"]
-[ext_resource type="PackedScene" uid="uid://c1n021prjqmpo" path="res://SCENES/bead_pile.tscn" id="7_atnpg"]
+[ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/bead_set.tscn" id="6_kjoem"]
+[ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/bead_pile.tscn" id="7_atnpg"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="8_5kaso"]
 [ext_resource type="Script" path="res://RESOURCES/bead_pile_info.gd" id="9_7ytnn"]
 
@@ -140,16 +140,14 @@ texture = ExtResource("3_53qlp")
 
 [node name="SubmitButton" parent="PlayingField" instance=ExtResource("4_ugfj2")]
 
-[node name="HandPanel" type="Sprite2D" parent="PlayingField"]
+[node name="HandPanel" parent="PlayingField" instance=ExtResource("6_kjoem")]
 position = Vector2(640, 600)
-texture = ExtResource("4_4awb4")
 
 [node name="DiscardPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(127, 600)
 
-[node name="SelectionPanel" type="Sprite2D" parent="PlayingField"]
+[node name="SelectionPanel" parent="PlayingField" instance=ExtResource("6_kjoem")]
 position = Vector2(640, 425)
-texture = ExtResource("4_4awb4")
 
 [node name="DrawPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(1153, 600)

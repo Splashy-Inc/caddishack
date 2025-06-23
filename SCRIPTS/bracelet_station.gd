@@ -1,9 +1,10 @@
-extends Node
+extends Station
 
 class_name BraceletStation
 
 @onready var draw_pile: BeadPile = $PlayingField/DrawPile
 @onready var discard_pile: BeadPile = $PlayingField/DiscardPile
+@onready var hand_panel: BeadSet = $PlayingField/HandPanel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _on_button_pressed() -> void:
 	var new_draw := draw_pile.draw_bead()
 	print(new_draw)
 	if new_draw:
-		discard_pile.add_bead(new_draw)
+		if not hand_panel.add_bead(new_draw):
+			print("Failed to add bead to ", hand_panel)
 	else:
 		print("No more beads!")

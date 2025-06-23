@@ -1,10 +1,10 @@
 extends Node
 
-@export var level_scene: PackedScene
+@export var station_scene: PackedScene
 
 @onready var hud: HUD = $HUD
 
-var level: Level
+var station: Station
 var game_ended = false
 var paused = true
 
@@ -19,20 +19,20 @@ func _process(delta):
 func _resume_play(mouse_mode: int = Input.MOUSE_MODE_VISIBLE):
 	paused = false
 	hud.hide_menus()
-	if level and level.has_method("resume_play"):
-		level.resume_play(mouse_mode)
+	if station and station.has_method("resume_play"):
+		station.resume_play(mouse_mode)
 
 func _pause_play():
 	paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if level and level.has_method("pause_play"):
-		level.pause_play()
+	if station and station.has_method("pause_play"):
+		station.pause_play()
 
 func show_main_menu():
 	_pause_play()
-	if level:
-		level.queue_free()
-		level = null
+	if station:
+		station.queue_free()
+		station = null
 	hud.show_main_menu()
 
 func toggle_pause_menu():
@@ -47,7 +47,7 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_play_pressed():
-	if game_ended or not level:
+	if game_ended or not station:
 		_on_restart_pressed()
 	else:
 		_resume_play()
@@ -56,48 +56,48 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		toggle_pause_menu()
 
-func _restart_level():
+func _restart_station():
 	game_ended = false
-	if level:
-		level.free()
+	if station:
+		station.free()
 	
-	var new_level = level_scene.instantiate()
-	add_child(new_level)
-	for sig in new_level.get_signal_list():
+	var new_station = station_scene.instantiate()
+	add_child(new_station)
+	for sig in new_station.get_signal_list():
 		match sig["name"]:
 			"lost":
-				new_level.lost.connect(_on_level_lost)
+				new_station.lost.connect(_on_station_lost)
 			"won":
-				new_level.won.connect(_on_level_won)
+				new_station.won.connect(_on_station_won)
 	
-	# Sample code in case there's a tutorial level in the game that would use it
-	#for sig in new_level.get_signal_list():
+	# Sample code in case there's a tutorial station in the game that would use it
+	#for sig in new_station.get_signal_list():
 		#if sig["name"] == "tutorial_completed":
-			#new_level.tutorial_completed.connect(_on_tutorial_won)
+			#new_station.tutorial_completed.connect(_on_tutorial_won)
 			#break
 	
-	level = new_level
+	station = new_station
 
 func _on_restart_pressed():
-	_restart_level()
+	_restart_station()
 	_resume_play()
 
-func _on_level_lost():
+func _on_station_lost():
 	game_ended = true
 	hud.show_loss_screen()
 
-func _on_level_won():
+func _on_station_won():
 	game_ended = true
 	_pause_play()
 	hud.show_win_screen()
 
-func _on_level_selected(new_level_scene: PackedScene):
-	_set_level(new_level_scene)
+func _on_station_selected(new_station_scene: PackedScene):
+	_set_station(new_station_scene)
 
-func _set_level(new_level_scene: PackedScene):
-	level_scene = new_level_scene
-	Globals.cur_level_scene = level_scene
-	_restart_level()
+func _set_station(new_station_scene: PackedScene):
+	station_scene = new_station_scene
+	Globals.cur_station_scene = station_scene
+	_restart_station()
 	_resume_play()
 
 func _on_main_menu_pressed() -> void:

@@ -18,7 +18,7 @@ func _on_info_updated(new_info):
 	text = str(new_info)
 "
 
-[node name="LevelUI" type="Control"]
+[node name="StationUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
