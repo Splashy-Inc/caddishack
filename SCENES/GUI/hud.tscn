@@ -12,7 +12,6 @@ layer = 2
 script = ExtResource("1_w38b1")
 
 [node name="MenuScreens" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -21,8 +20,8 @@ focus_mode = 2
 
 [node name="MenuBackGround" type="ColorRect" parent="MenuScreens"]
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_right = 1280.0
+offset_bottom = 720.0
 color = Color(0, 0, 0, 0.662745)
 
 [node name="MainMenu" parent="MenuScreens" instance=ExtResource("4_f58rm")]
@@ -42,13 +41,8 @@ visible = false
 [node name="PauseMenu" parent="MenuScreens" instance=ExtResource("6_k66bl")]
 visible = false
 layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_right = 640.0
 offset_bottom = 360.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [connection signal="button_pressed" from="MenuScreens/MainMenu" to="." method="_on_game_menu_button_pressed"]
 [connection signal="exited" from="MenuScreens/ControlsScreen" to="." method="_on_controls_screen_exited"]

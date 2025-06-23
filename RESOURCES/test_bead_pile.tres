@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BeadPileInfo" load_steps=33 format=3 uid="uid://cgse7tlxe4lns"]
+[gd_resource type="Resource" script_class="BeadPileInfo" load_steps=33 format=3 uid="uid://c81ojbagj28o1"]
 
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_r46yr"]
 [ext_resource type="Script" path="res://RESOURCES/bead_pile_info.gd" id="2_qyj6v"]
