@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bavo2v0il8e4"]
+
+[ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
+[ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/Terrarium/bead_component.tscn" id="2_8xfat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlmxa"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afe6s"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0t0u"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(0, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u8m0"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(128, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdwy0"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(256, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oxgv"]
+atlas = ExtResource("1_gf3mp")
+region = Rect2(384, 64, 128, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ula2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlmxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afe6s")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0t0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u8m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdwy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oxgv")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 4.0
+}]
+
+[node name="Caddisfly" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_ula2e")
+animation = &"Move"
+autoplay = "Idle"
+frame_progress = 0.491019
+
+[node name="BeadComponent" parent="." instance=ExtResource("2_8xfat")]
+position = Vector2(0, 36)
+rotation = 1.5708
