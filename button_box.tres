@@ -1,4 +1,13 @@
-[gd_resource type="StyleBoxFlat" format=3 uid="uid://1mss4twkxib3"]
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://dgqghfdjm4lce"]
+
+[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFTSTATION/Bead_Pile.png" id="1_nnhh7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vpjn"]
+atlas = ExtResource("1_nnhh7")
 
 [resource]
-bg_color = Color(0.780392, 0.780392, 0.780392, 0.113725)
+texture = SubResource("AtlasTexture_7vpjn")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0

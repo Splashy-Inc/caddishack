@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwiyssv2nqp4"
-path="res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"
+uid="uid://ek6d3qia4020"
+path="res://.godot/imported/Trees1.png-2e14905441a81e78956c7c30f285a2da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/SHOP/CyanSand.png"
-dest_files=["res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"]
+source_file="res://ASSETS/Art/CRAFTSTATION/Background/Trees1.png"
+dest_files=["res://.godot/imported/Trees1.png-2e14905441a81e78956c7c30f285a2da.ctex"]
 
 [params]
 

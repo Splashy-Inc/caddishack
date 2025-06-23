@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwiyssv2nqp4"
-path="res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"
+uid="uid://sb7tifljc8cf"
+path="res://.godot/imported/Goed_Egg.png-e96483e0300e3dd4a56fa25e363b2cb0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/SHOP/CyanSand.png"
-dest_files=["res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"]
+source_file="res://ASSETS/Art/SHOP/Goed_Egg.png"
+dest_files=["res://.godot/imported/Goed_Egg.png-e96483e0300e3dd4a56fa25e363b2cb0.ctex"]
 
 [params]
 

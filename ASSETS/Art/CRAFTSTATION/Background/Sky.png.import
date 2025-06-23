@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwiyssv2nqp4"
-path="res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"
+uid="uid://dudbevf38apbs"
+path="res://.godot/imported/Sky.png-0d89d93581f7d5e64d2cadedb975b9b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/SHOP/CyanSand.png"
-dest_files=["res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"]
+source_file="res://ASSETS/Art/CRAFTSTATION/Background/Sky.png"
+dest_files=["res://.godot/imported/Sky.png-0d89d93581f7d5e64d2cadedb975b9b3.ctex"]
 
 [params]
 

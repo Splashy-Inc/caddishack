@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buwiyssv2nqp4"
-path="res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"
+uid="uid://gy38xl0qd8wc"
+path="res://.godot/imported/GoddLight.png-87f06b179e6e1aaca97f8ee458ba0bb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/SHOP/CyanSand.png"
-dest_files=["res://.godot/imported/CyanSand.png-20c10312be47a75269ab87297619c1a3.ctex"]
+source_file="res://ASSETS/Art/CRAFTSTATION/Background/GoddLight.png"
+dest_files=["res://.godot/imported/GoddLight.png-87f06b179e6e1aaca97f8ee458ba0bb7.ctex"]
 
 [params]
 
