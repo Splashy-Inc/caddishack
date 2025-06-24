@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc1xkwvijw6w4"
-path="res://.godot/imported/Bracelet_Bones.png-a440eb33cdea85e41c76921856c97624.ctex"
+path="res://.godot/imported/bracelet_string.png-1f07a5fecc7c8ce1b42d25149058ea62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/CRAFT_STATION/Bracelet_Bones.png"
-dest_files=["res://.godot/imported/Bracelet_Bones.png-a440eb33cdea85e41c76921856c97624.ctex"]
+source_file="res://ASSETS/Art/CRAFT_STATION/bracelet_string.png"
+dest_files=["res://.godot/imported/bracelet_string.png-1f07a5fecc7c8ce1b42d25149058ea62.ctex"]
 
 [params]
 

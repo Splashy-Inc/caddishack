@@ -1,6 +1,6 @@
 extends Resource
 
-class_name BeadPileInfo
+class_name BeadArrayInfo
 
 @export var beads : Array[BeadInfo]
 
