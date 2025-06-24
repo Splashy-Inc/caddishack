@@ -23,11 +23,15 @@ func calculate_value() -> int:
 		match bead.info.special:
 			Globals.MaterialType.BASIC:
 				points += 1
+				check_chain(cur_special_chain, null, "special")
 			_:
 				points += 3
+				mult += check_chain(cur_special_chain, bead, "special")
 		
-		mult += check_chain(cur_color_chain, bead, "color")
-		mult += check_chain(cur_special_chain, bead, "special")
+		if bead.info.color != Globals.MaterialColor.COLORLESS:
+			mult += check_chain(cur_color_chain, bead, "color")
+		else:
+			check_chain(cur_color_chain, null, "color")
 	
 	mult += check_chain(cur_color_chain, null, "color")
 	mult += check_chain(cur_special_chain, null, "special")
@@ -64,6 +68,8 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 	else:
 		mult = 0
 	chain.clear()
+	if bead:
+		chain.append(bead)
 	return mult
 
 func is_complete() -> bool:
