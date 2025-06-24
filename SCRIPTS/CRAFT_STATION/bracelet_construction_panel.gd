@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name BraceletContructionPanel
+
 @export var bracelet : Bracelet
 
 # Called when the node enters the scene tree for the first time.

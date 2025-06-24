@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://8vogira8ngwj"]
+[gd_scene load_steps=8 format=3 uid="uid://8vogira8ngwj"]
 
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet.gd" id="1_exnw4"]
 [ext_resource type="Texture2D" uid="uid://bc1xkwvijw6w4" path="res://ASSETS/Art/CRAFT_STATION/bracelet_string.png" id="1_gi2vd"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_ojmal"]
 [ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
+[ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="5_wlesl"]
 
 [sub_resource type="Resource" id="Resource_uch7e"]
 script = ExtResource("3_vwui2")
@@ -27,35 +28,55 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Container" type="Node2D" parent="Beads"]
 
-[node name="Slot1" type="Node2D" parent="Beads/Container"]
+[node name="Slot1" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-567, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot2" type="Node2D" parent="Beads/Container"]
+[node name="Slot2" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-441, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot3" type="Node2D" parent="Beads/Container"]
+[node name="Slot3" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-315, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot4" type="Node2D" parent="Beads/Container"]
+[node name="Slot4" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-189, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot5" type="Node2D" parent="Beads/Container"]
+[node name="Slot5" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(-63, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot6" type="Node2D" parent="Beads/Container"]
+[node name="Slot6" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(63, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot7" type="Node2D" parent="Beads/Container"]
+[node name="Slot7" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(189, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot8" type="Node2D" parent="Beads/Container"]
+[node name="Slot8" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(315, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot9" type="Node2D" parent="Beads/Container"]
+[node name="Slot9" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(441, 0)
+texture = ExtResource("5_wlesl")
 
-[node name="Slot10" type="Node2D" parent="Beads/Container"]
+[node name="Slot10" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
 position = Vector2(567, 0)
+texture = ExtResource("5_wlesl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beads"]
 position = Vector2(-15, 1)
