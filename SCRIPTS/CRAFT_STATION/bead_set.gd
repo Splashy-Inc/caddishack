@@ -25,15 +25,18 @@ func set_bead_parent(bead: Bead) -> bool:
 		else:
 			
 			if bead.get_parent():
-				var old_global_position = bead.get_parent().global_position
+				var old_global_transform = bead.global_transform
 				bead.reparent(slot, false)
-				bead.global_position = old_global_position
+				bead.global_transform = old_global_transform
 			else:
 				slot.add_child(bead)
 			bead.set_clickable(true)
 			bead.clicked.connect(_on_bead_clicked.bind(bead))
 			return true
 	return false
+
+func position_bead(bead: Bead):
+	bead.travel_to(bead.get_parent().global_position, bead.global_scale, bead.rotation)
 
 func get_beads():
 	var cur_beads : Array[Bead]

@@ -15,5 +15,6 @@ func get_pile_stats() -> Dictionary:
 func position_bead(bead: Bead):
 	if bead_container_shape.shape is CircleShape2D:
 		var placement_radius = bead_container_shape.shape.radius
-		bead.travel_to(to_global(Vector2(randi_range(-placement_radius, placement_radius), randi_range(-placement_radius, placement_radius))))
+		var global_pile_placement_position = to_global(Vector2(randi_range(-placement_radius, placement_radius), randi_range(-placement_radius, placement_radius)))
 		bead.rotation = randf_range(0.0, PI*2)
+		bead.travel_to(global_pile_placement_position, bead.scale, randf_range(0.0, PI*2))

@@ -12,9 +12,11 @@ beads = Array[ExtResource("2_tn0dp")]([])
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgq07"]
 radius = 52.0
 
-[node name="BeadPile" type="Node2D"]
+[node name="BeadPile" type="Node2D" node_paths=PackedStringArray("bead_container", "bead_container_shape")]
 script = ExtResource("1_jsg61")
 bead_array_info = SubResource("Resource_2x6a5")
+bead_container = NodePath("Beads/Container")
+bead_container_shape = NodePath("Beads/CollisionShape2D")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_ac3d7")

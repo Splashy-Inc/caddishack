@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlvsne80igil2"]
+
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_construction_panel.gd" id="1_s0p0p"]
+[ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFT_STATION/Bead_Play.png" id="1_welei"]
+[ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="2_5dtdn"]
+
+[node name="BraceletContructionPanel" type="Node2D" node_paths=PackedStringArray("bracelet")]
+position = Vector2(640, 147)
+script = ExtResource("1_s0p0p")
+bracelet = NodePath("Bracelet")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_welei")
+
+[node name="Bracelet" parent="." instance=ExtResource("2_5dtdn")]
