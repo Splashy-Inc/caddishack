@@ -1,8 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqmajrx8iugsy"]
+[gd_scene load_steps=15 format=3 uid="uid://bqmajrx8iugsy"]
 
 [ext_resource type="Texture2D" uid="uid://b3545rtb6mb4a" path="res://ASSETS/Art/SHOP/Basic_Egg.png" id="1_80ib8"]
 [ext_resource type="Texture2D" uid="uid://sb7tifljc8cf" path="res://ASSETS/Art/SHOP/Goed_Egg.png" id="2_6wuhv"]
 [ext_resource type="Texture2D" uid="uid://cmgs2mrejs6mo" path="res://ASSETS/Art/SHOP/Special_Egg.png" id="3_2vvy1"]
+[ext_resource type="Texture2D" uid="uid://do40gmxsu5pmn" path="res://ASSETS/Art/TERRARIUM/Eggs/Basic_Egg_T.png" id="4_wsbn7"]
+[ext_resource type="Texture2D" uid="uid://cr7pb2xto2s8g" path="res://ASSETS/Art/TERRARIUM/Eggs/Basic_Egg_B.png" id="5_dnf48"]
+[ext_resource type="Texture2D" uid="uid://mttjvvwcrp46" path="res://ASSETS/Art/TERRARIUM/Eggs/Special_Egg_T.png" id="6_w45qc"]
+[ext_resource type="Texture2D" uid="uid://csiwghiovc6km" path="res://ASSETS/Art/TERRARIUM/Eggs/Special_Egg_B.png" id="7_5vt0r"]
+[ext_resource type="Texture2D" uid="uid://k1wvv3gspc5d" path="res://ASSETS/Art/TERRARIUM/Eggs/Goed_Egg_T.png" id="8_e2wbc"]
+[ext_resource type="Texture2D" uid="uid://g0772w5rwvak" path="res://ASSETS/Art/TERRARIUM/Eggs/Goed_Egg_B.png" id="9_lggtr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ri0fl"]
+radius = 55.0
+height = 140.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eqpjt"]
 animations = [{
@@ -70,7 +80,12 @@ _data = {
 
 [node name="Egg" type="Node2D"]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 10)
+shape = SubResource("CapsuleShape2D_ri0fl")
+
 [node name="Idle" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_eqpjt")
 animation = &"goed_egg"
 
@@ -79,3 +94,33 @@ libraries = {
 "": SubResource("AnimationLibrary_boixm")
 }
 autoplay = "Idle_Squish"
+
+[node name="Basic_Egg_T" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Basic_Egg_T"]
+texture = ExtResource("4_wsbn7")
+
+[node name="Basic_Egg_B" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Basic_Egg_B"]
+texture = ExtResource("5_dnf48")
+
+[node name="Special_Egg_T" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Special_Egg_T"]
+texture = ExtResource("6_w45qc")
+
+[node name="Special_Egg_B" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Special_Egg_B"]
+texture = ExtResource("7_5vt0r")
+
+[node name="Goed_Egg_T" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Goed_Egg_T"]
+texture = ExtResource("8_e2wbc")
+
+[node name="Goed_Egg_B" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Goed_Egg_B"]
+texture = ExtResource("9_lggtr")
