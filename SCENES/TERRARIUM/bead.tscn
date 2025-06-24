@@ -12,8 +12,6 @@
 
 [sub_resource type="Resource" id="Resource_nfgpl"]
 script = ExtResource("2_i8ivb")
-color = 0
-special = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ld082"]
 animations = [{

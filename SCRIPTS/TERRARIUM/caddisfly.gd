@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 var speed_mod := 1.0
 var direction : Vector2
 
+@export var bead : Bead
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _physics_process(delta: float) -> void:	
