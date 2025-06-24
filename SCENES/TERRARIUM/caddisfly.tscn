@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bavo2v0il8e4"]
+[gd_scene load_steps=12 format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
+[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/caddisfly.gd" id="1_yra40"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="2_8xfat"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlmxa"]
@@ -58,15 +59,22 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Caddisfly" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gxko"]
+height = 44.0
+
+[node name="Caddisfly" type="CharacterBody2D"]
+script = ExtResource("1_yra40")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_ula2e")
 animation = &"Move"
 autoplay = "Idle"
 frame_progress = 0.491019
 
 [node name="BeadComponent" parent="." instance=ExtResource("2_8xfat")]
-position = Vector2(0, 36)
+position = Vector2(0, 61)
 rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0gxko")

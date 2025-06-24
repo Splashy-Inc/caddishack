@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://jgbstmjjwptw" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
 [ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
 [ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/SHOP/bead_material.tscn" id="3_ec5by"]
-[ext_resource type="PackedScene" uid="uid://b82jc7xj380lx" path="res://SCENES/TERRARIUM/larva.tscn" id="4_1q2m0"]
+[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/caddisfly.tscn" id="6_an2ti"]
 
 [node name="TerrariumStation" type="Node"]
 script = ExtResource("1_6dh60")
@@ -20,6 +20,6 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="Materials" type="Node2D" parent="PlayingField"]
 
-[node name="Larva" parent="PlayingField" instance=ExtResource("4_1q2m0")]
+[node name="Caddisfly" parent="PlayingField" instance=ExtResource("6_an2ti")]
 
-[node name="Camera2D" type="Camera2D" parent="PlayingField/Larva"]
+[node name="Camera2D" type="Camera2D" parent="PlayingField/Caddisfly"]
