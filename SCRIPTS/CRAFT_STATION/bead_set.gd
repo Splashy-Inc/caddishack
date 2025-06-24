@@ -7,9 +7,8 @@ signal bead_clicked(bead: Bead)
 var bead_slots : Array[Node2D]
 
 func _container_ready():
-	for child in bead_container.get_children():
-		if child is Node2D:
-			bead_slots.append(child)
+	bead_slots = get_bead_slots()
+	generate_beads()
 
 func is_bead_in_container(bead: Bead):
 	for slot in bead_slots:
@@ -36,7 +35,7 @@ func set_bead_parent(bead: Bead) -> bool:
 	return false
 
 func position_bead(bead: Bead):
-	bead.travel_to(bead.get_parent().global_position, bead.global_scale, bead.rotation)
+	bead.travel_to(bead.get_parent().global_position, bead.global_scale, randf_range(0.0, 2*PI))
 
 func get_beads():
 	var cur_beads : Array[Bead]
@@ -52,3 +51,10 @@ func _on_bead_clicked(bead: Bead):
 		bead_clicked.emit(bead)
 	else:
 		bead.clicked.disconnect(_on_bead_clicked)
+
+func get_bead_slots() -> Array[Node2D]:
+	var slots: Array[Node2D]
+	for child in bead_container.get_children():
+		if child is Node2D:
+			slots.append(child)
+	return slots

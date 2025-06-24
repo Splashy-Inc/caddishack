@@ -49,6 +49,10 @@ func play_selection():
 	if bracelet_panel.bracelet.is_complete():
 		print("Bracelet completed!")
 		print(bracelet_panel.bracelet.calculate_value())
+		print(bracelet_panel.bracelet.info.points)
+		print(bracelet_panel.bracelet.info.mult)
+		print(bracelet_panel.bracelet.info.color_chains)
+		print(bracelet_panel.bracelet.info.special_chains)
 	else:
 		fill_hand()
 

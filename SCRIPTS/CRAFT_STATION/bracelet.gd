@@ -2,8 +2,16 @@ extends BeadSet
 
 class_name Bracelet
 
+@export var info : BraceletInfo
+
+func _container_ready():
+	bead_array_info = info.bead_array_info
+	bead_slots = get_bead_slots()
+	generate_beads()
+
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position)
+	calculate_value()
 
 func get_open_slot_count():
 	var num_open_slots = 0
@@ -13,8 +21,10 @@ func get_open_slot_count():
 	return num_open_slots
 
 func calculate_value() -> int:
-	var points = 0
-	var mult = 0
+	info.color_chains.clear()
+	info.special_chains.clear()
+	info.update_points(0, true)
+	info.update_mult(1, true)
 	
 	var cur_color_chain: Array[Bead]
 	var cur_special_chain: Array[Bead]
@@ -22,20 +32,20 @@ func calculate_value() -> int:
 		# Add points to tally
 		match bead.info.special:
 			Globals.MaterialType.BASIC:
-				points += 1
-				check_chain(cur_special_chain, null, "special")
+				info.update_points(1)
+				info.update_mult(check_chain(cur_special_chain, null, "special"))
 			_:
-				points += 3
-				mult += check_chain(cur_special_chain, bead, "special")
+				info.update_points(3)
+				info.update_mult(check_chain(cur_special_chain, bead, "special"))
 		
 		if bead.info.color != Globals.MaterialColor.COLORLESS:
-			mult += check_chain(cur_color_chain, bead, "color")
+			info.update_mult(check_chain(cur_color_chain, bead, "color"))
 		else:
 			check_chain(cur_color_chain, null, "color")
 	
-	mult += check_chain(cur_color_chain, null, "color")
-	mult += check_chain(cur_special_chain, null, "special")
-	return points * mult
+	info.update_mult(check_chain(cur_color_chain, null, "color"))
+	info.update_mult(check_chain(cur_special_chain, null, "special"))
+	return info.get_value()
 
 func check_chain(chain: Array[Bead], bead: Bead, type: String):
 	if bead:
@@ -43,7 +53,7 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 		if chain.is_empty():
 			chain.append(bead)
 			return 0
-		
+	
 		# If chain has something in it, check if bead matches chain
 		var bead_info
 		var chain_info
@@ -60,16 +70,25 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 	
 	var mult
 	if chain.size() >= 5:
-		print("5+ " + type + " chain: ", chain)
 		mult = 4
 	elif chain.size() >= 3:
-		print("3+ " + type + " chain: ", chain)
 		mult = 2
 	else:
 		mult = 0
+	
+	if mult > 0:
+		match type:
+			"color":
+				if not chain in info.color_chains:
+					info.color_chains.append(chain.duplicate())
+			"special":
+				if not chain in info.special_chains:
+					info.special_chains.append(chain.duplicate())
+	
 	chain.clear()
 	if bead:
 		chain.append(bead)
+	
 	return mult
 
 func is_complete() -> bool:

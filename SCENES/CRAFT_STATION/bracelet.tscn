@@ -1,21 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://8vogira8ngwj"]
+[gd_scene load_steps=10 format=3 uid="uid://8vogira8ngwj"]
 
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet.gd" id="1_exnw4"]
 [ext_resource type="Texture2D" uid="uid://bc1xkwvijw6w4" path="res://ASSETS/Art/CRAFT_STATION/bracelet_string.png" id="1_gi2vd"]
+[ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="2_1i8yt"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_ojmal"]
 [ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
 [ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="5_wlesl"]
 
-[sub_resource type="Resource" id="Resource_uch7e"]
+[sub_resource type="Resource" id="Resource_dmabb"]
 script = ExtResource("3_vwui2")
 beads = Array[ExtResource("2_ojmal")]([])
+
+[sub_resource type="Resource" id="Resource_1aj4p"]
+script = ExtResource("2_1i8yt")
+bead_array_info = SubResource("Resource_dmabb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nso2t"]
 size = Vector2(1394, 102)
 
 [node name="Bracelet" type="Node2D" node_paths=PackedStringArray("bead_container", "bead_container_shape")]
 script = ExtResource("1_exnw4")
-bead_array_info = SubResource("Resource_uch7e")
+info = SubResource("Resource_1aj4p")
 bead_container = NodePath("Beads/Container")
 bead_container_shape = NodePath("Beads/CollisionShape2D")
 
