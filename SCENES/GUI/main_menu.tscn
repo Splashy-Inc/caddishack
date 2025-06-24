@@ -2,10 +2,37 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/main_menu.gd" id="1_vkagb"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="2_t4ldj"]
-[ext_resource type="StyleBox" uid="uid://gum5o8ixae8" path="res://RESOURCES/button_box.tres" id="2_y3ir5"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_y3ir5"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
+
+[sub_resource type="Animation" id="Animation_rdm25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(649, -110)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-2.54432]
+}
 
 [sub_resource type="Animation" id="Animation_bvbi1"]
 resource_name = "new_animation"
@@ -36,7 +63,13 @@ tracks/1/keys = {
 "values": [-2.54432, -2.54432]
 }
 
-[sub_resource type="Animation" id="Animation_rdm25"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bvdr"]
+_data = {
+"RESET": SubResource("Animation_rdm25"),
+"new_animation": SubResource("Animation_bvbi1")
+}
+
+[sub_resource type="Animation" id="Animation_m02rk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -48,25 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(649, -110)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-2.54432]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6bvdr"]
-_data = {
-"RESET": SubResource("Animation_rdm25"),
-"new_animation": SubResource("Animation_bvbi1")
+"values": [Vector2(418, 811)]
 }
 
 [sub_resource type="Animation" id="Animation_shjmo"]
@@ -86,7 +101,13 @@ tracks/0/keys = {
 "values": [Vector2(418, 811), Vector2(418, 811), Vector2(1433, 265), Vector2(1433, 265)]
 }
 
-[sub_resource type="Animation" id="Animation_m02rk"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ape8"]
+_data = {
+"RESET": SubResource("Animation_m02rk"),
+"new_animation": SubResource("Animation_shjmo")
+}
+
+[sub_resource type="Animation" id="Animation_4repx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -98,13 +119,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(418, 811)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ape8"]
-_data = {
-"RESET": SubResource("Animation_m02rk"),
-"new_animation": SubResource("Animation_shjmo")
+"values": [Vector2(1359, 595)]
 }
 
 [sub_resource type="Animation" id="Animation_qpge4"]
@@ -122,21 +137,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1359, 595), Vector2(1359, 595), Vector2(268, -81)]
-}
-
-[sub_resource type="Animation" id="Animation_4repx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1359, 595)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_126tu"]
@@ -160,15 +160,9 @@ position = Vector2(592, 288)
 
 [node name="MenuContent" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(640, 360)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -149.0
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
 theme_override_constants/separation = 10
 alignment = 1
 
