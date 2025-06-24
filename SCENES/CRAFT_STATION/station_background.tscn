@@ -46,7 +46,9 @@ _data = {
 "new_animation_2": SubResource("Animation_n71ar")
 }
 
-[node name="StationBackgroun" type="Node2D"]
+[node name="StationBackgroun" type="Parallax2D"]
+repeat_size = Vector2(2560, 1440)
+repeat_times = 2
 
 [node name="big_brown" type="Sprite2D" parent="."]
 texture = ExtResource("1_mi816")

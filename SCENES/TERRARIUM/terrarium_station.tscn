@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://tqqmiv2c35y1"]
+[gd_scene load_steps=7 format=3 uid="uid://tqqmiv2c35y1"]
 
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_cb6xo"]
+[ext_resource type="Resource" uid="uid://jgbstmjjwptw" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
 [ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
+[ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/SHOP/bead_material.tscn" id="3_ec5by"]
 [ext_resource type="PackedScene" uid="uid://b82jc7xj380lx" path="res://SCENES/TERRARIUM/larva.tscn" id="4_1q2m0"]
 
 [node name="TerrariumStation" type="Node"]
 script = ExtResource("1_6dh60")
+info = ExtResource("2_fhknv")
+material_scene = ExtResource("3_ec5by")
 
 [node name="StationBackground" parent="." instance=ExtResource("2_cb6xo")]
 
 [node name="PlayingField" type="Node2D" parent="."]
 
-[node name="TileMapBackground" parent="PlayingField" instance=ExtResource("3_0ejnt")]
+[node name="ContainerLayer" parent="PlayingField" instance=ExtResource("3_0ejnt")]
+
+[node name="Materials" type="Node2D" parent="PlayingField"]
 
 [node name="Larva" parent="PlayingField" instance=ExtResource("4_1q2m0")]
 

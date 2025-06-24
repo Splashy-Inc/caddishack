@@ -1,12 +1,35 @@
-[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=4 format=3 uid="uid://jgbstmjjwptw"]
+[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=11 format=3 uid="uid://jgbstmjjwptw"]
 
 [ext_resource type="Script" path="res://RESOURCES/terrarium_info.gd" id="1_5yrpj"]
 [ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="1_tu3qe"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_f1hoh"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_ajqpt"]
 
-[sub_resource type="Resource" id="Resource_qdvrv"]
-script = ExtResource("1_tu3qe")
-category = null
+[sub_resource type="Resource" id="Resource_331ma"]
+script = ExtResource("2_f1hoh")
+color = 1
+
+[sub_resource type="Resource" id="Resource_lv5vn"]
+script = ExtResource("2_f1hoh")
+color = 2
+
+[sub_resource type="Resource" id="Resource_f3267"]
+script = ExtResource("2_f1hoh")
+color = 3
+
+[sub_resource type="Resource" id="Resource_rmpa7"]
+script = ExtResource("3_ajqpt")
+type = 1
+
+[sub_resource type="Resource" id="Resource_uks66"]
+script = ExtResource("3_ajqpt")
+type = 2
+
+[sub_resource type="Resource" id="Resource_33lr6"]
+script = ExtResource("3_ajqpt")
+type = 3
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_5yrpj")
-materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_qdvrv")])
+materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_331ma"), SubResource("Resource_lv5vn"), SubResource("Resource_f3267"), SubResource("Resource_rmpa7"), SubResource("Resource_uks66"), SubResource("Resource_33lr6")])

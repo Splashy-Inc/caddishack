@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwb2j4yxpjeoo"]
+
+[ext_resource type="Texture2D" uid="uid://buwiyssv2nqp4" path="res://ASSETS/Art/SHOP/CyanSand.png" id="1_luwx1"]
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/bead_material.gd" id="1_q86yt"]
+
+[node name="BeadMaterial" type="Node2D"]
+script = ExtResource("1_q86yt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -41)
+texture = ExtResource("1_luwx1")
