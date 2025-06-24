@@ -2,5 +2,5 @@ extends Resource
 
 class_name BeadInfo
 
-@export var color := Globals.MaterialColor.COLORLESS
-@export var special := Globals.MaterialType.BASIC
+@export var sand := SandMaterialInfo.new()
+@export var special := SpecialMaterialInfo.new()

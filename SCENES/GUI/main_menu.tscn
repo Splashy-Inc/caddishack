@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://k7ghjsy8g1k0"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/main_menu.gd" id="1_vkagb"]
-[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="2_t4ldj"]
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_t4ldj"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_y3ir5"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]

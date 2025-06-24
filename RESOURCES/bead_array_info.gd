@@ -7,7 +7,7 @@ class_name BeadArrayInfo
 func get_pile_stats() -> Dictionary:
 	var bead_stats: Dictionary
 	for bead in beads:
-		var bead_type = Globals.MaterialColor.keys()[bead.color] + "_" + Globals.MaterialType.keys()[bead.special]
+		var bead_type = SandMaterialInfo.SandColor.keys()[bead.sand.color] + "_" + SpecialMaterialInfo.SpecialType.keys()[bead.special.type]
 		if bead_type in bead_stats:
 			bead_stats[bead_type] += 1
 		else:

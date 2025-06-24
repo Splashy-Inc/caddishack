@@ -1,10 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2yq3p28g16yq"]
 
-[sub_resource type="GDScript" id="GDScript_7veua"]
-script/source = "extends Node
-
-class_name Station
-"
+[ext_resource type="Script" path="res://SCRIPTS/station.gd" id="1_prdx8"]
 
 [node name="Station" type="Node"]
-script = SubResource("GDScript_7veua")
+script = ExtResource("1_prdx8")

@@ -34,8 +34,8 @@ func initialize(new_info: BeadInfo):
 	if not is_node_ready():
 		await ready
 	info = new_info
-	sand_sprite.animation = Globals.MaterialColor.keys()[info.color]
-	item_sprite.animation = Globals.MaterialType.keys()[info.special]
+	sand_sprite.animation = SandMaterialInfo.SandColor.keys()[info.sand.color]
+	item_sprite.animation = SpecialMaterialInfo.SpecialType.keys()[info.special.type]
 
 func set_clickable(new_clickable: bool):
 	clickable_shape.disabled = not new_clickable
