@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://j7kdpfxltq4j"]
+[gd_scene load_steps=10 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
@@ -7,39 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="7_atnpg"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
-[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="9_bgkjx"]
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
-[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="10_nn762"]
-
-[sub_resource type="Resource" id="Resource_4cb2r"]
-script = ExtResource("9_bgkjx")
-color = 0
-special = 1
-
-[sub_resource type="Resource" id="Resource_ntevm"]
-script = ExtResource("9_bgkjx")
-color = 0
-special = 1
-
-[sub_resource type="Resource" id="Resource_bqiit"]
-script = ExtResource("9_bgkjx")
-color = 0
-special = 1
-
-[sub_resource type="Resource" id="Resource_2nl44"]
-script = ExtResource("9_bgkjx")
-color = 0
-special = 2
-
-[sub_resource type="Resource" id="Resource_efc4o"]
-script = ExtResource("9_bgkjx")
-color = 0
-special = 2
-
-[sub_resource type="Resource" id="Resource_8x8vd"]
-script = ExtResource("10_nn762")
-beads = Array[ExtResource("9_bgkjx")]([SubResource("Resource_4cb2r"), SubResource("Resource_ntevm"), SubResource("Resource_bqiit"), SubResource("Resource_2nl44"), SubResource("Resource_efc4o")])
 
 [node name="BraceletStation" type="Node"]
 script = ExtResource("1_opsq7")
@@ -96,7 +65,6 @@ modulate = Color(0.281187, 0.281187, 0.281187, 1)
 
 [node name="HandPanel" parent="PlayingField" instance=ExtResource("6_kjoem")]
 position = Vector2(640, 600)
-bead_array_info = SubResource("Resource_8x8vd")
 
 [node name="DrawPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(1153, 600)
