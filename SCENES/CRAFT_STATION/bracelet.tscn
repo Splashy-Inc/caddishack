@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://8vogira8ngwj"]
+
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet.gd" id="1_exnw4"]
+[ext_resource type="Texture2D" uid="uid://bc1xkwvijw6w4" path="res://ASSETS/Art/CRAFT_STATION/bracelet_string.png" id="1_gi2vd"]
+[ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="2_1i8yt"]
+[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_ojmal"]
+[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
+[ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="5_wlesl"]
+
+[sub_resource type="Resource" id="Resource_dmabb"]
+script = ExtResource("3_vwui2")
+beads = Array[ExtResource("2_ojmal")]([])
+
+[sub_resource type="Resource" id="Resource_1aj4p"]
+script = ExtResource("2_1i8yt")
+bead_array_info = SubResource("Resource_dmabb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nso2t"]
+size = Vector2(1394, 102)
+
+[node name="Bracelet" type="Node2D" node_paths=PackedStringArray("bead_container", "bead_container_shape")]
+script = ExtResource("1_exnw4")
+info = SubResource("Resource_1aj4p")
+bead_container = NodePath("Beads/Container")
+bead_container_shape = NodePath("Beads/CollisionShape2D")
+
+[node name="String" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+texture = ExtResource("1_gi2vd")
+
+[node name="Beads" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="Container" type="Node2D" parent="Beads"]
+
+[node name="Slot1" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-567, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot2" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-441, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot3" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-315, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot4" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-189, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot5" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(-63, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot6" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(63, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot7" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(189, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot8" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(315, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot9" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(441, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="Slot10" type="Sprite2D" parent="Beads/Container"]
+self_modulate = Color(0, 0, 0, 0.498039)
+position = Vector2(567, 0)
+texture = ExtResource("5_wlesl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beads"]
+position = Vector2(-15, 1)
+shape = SubResource("RectangleShape2D_nso2t")

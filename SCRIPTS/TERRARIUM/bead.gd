@@ -6,6 +6,7 @@ signal clicked
 
 @export var info : BeadInfo
 var travel_target_global_position : Vector2
+var travel_target_rotation : float
 var is_travelling := false
 
 @onready var sand_sprite: AnimatedSprite2D = $SandSprite
@@ -21,9 +22,13 @@ func _process(delta: float) -> void:
 	if is_travelling:
 		if global_position.distance_to(travel_target_global_position) < 10:
 			global_position = travel_target_global_position
+			rotation = travel_target_rotation
+			scale = Vector2(1.0, 1.0)
 			is_travelling = false
 		else:
-			global_position = global_position.lerp(travel_target_global_position, .5)
+			global_position = global_position.lerp(travel_target_global_position, .25)
+			rotation = lerpf(rotation, travel_target_rotation, .25)
+			scale = scale.lerp(Vector2(1.0, 1.0), .25)
 
 func initialize(new_info: BeadInfo):
 	if not is_node_ready():
@@ -39,6 +44,8 @@ func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx
 	if event.is_action_pressed("select"):
 		clicked.emit()
 
-func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(1.0,1.0)):
+func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(1.0,1.0), target_rotation: float = 0.0):
 	travel_target_global_position = target_global_position
+	scale = target_scale
+	travel_target_rotation = target_rotation
 	is_travelling = true

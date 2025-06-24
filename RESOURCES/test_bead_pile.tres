@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="BeadPileInfo" load_steps=33 format=3 uid="uid://c81ojbagj28o1"]
+[gd_resource type="Resource" script_class="BeadArrayInfo" load_steps=33 format=3 uid="uid://c81ojbagj28o1"]
 
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_r46yr"]
-[ext_resource type="Script" path="res://RESOURCES/bead_pile_info.gd" id="2_qyj6v"]
+[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="2_jmi0o"]
 
 [sub_resource type="Resource" id="Resource_pbe3k"]
 script = ExtResource("1_r46yr")
@@ -154,5 +154,5 @@ color = 3
 special = 3
 
 [resource]
-script = ExtResource("2_qyj6v")
+script = ExtResource("2_jmi0o")
 beads = Array[ExtResource("1_r46yr")]([SubResource("Resource_pbe3k"), SubResource("Resource_jo1ge"), SubResource("Resource_s0p10"), SubResource("Resource_mn63i"), SubResource("Resource_nxl4s"), SubResource("Resource_c8ti3"), SubResource("Resource_0jpff"), SubResource("Resource_jjpkw"), SubResource("Resource_17tff"), SubResource("Resource_56mah"), SubResource("Resource_4828u"), SubResource("Resource_4r0y3"), SubResource("Resource_h8q2e"), SubResource("Resource_amlv0"), SubResource("Resource_aaif6"), SubResource("Resource_nnny1"), SubResource("Resource_682o1"), SubResource("Resource_mcseb"), SubResource("Resource_g3egp"), SubResource("Resource_c0hu8"), SubResource("Resource_bidtv"), SubResource("Resource_s6673"), SubResource("Resource_qywlc"), SubResource("Resource_vulvb"), SubResource("Resource_oi4yl"), SubResource("Resource_qewlk"), SubResource("Resource_eoxid"), SubResource("Resource_c8ot8"), SubResource("Resource_gdmka"), SubResource("Resource_g8foo")])

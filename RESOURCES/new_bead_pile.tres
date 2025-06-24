@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="BeadPileInfo" load_steps=24 format=3 uid="uid://bsvf5p0v0rvxl"]
+[gd_resource type="Resource" script_class="BeadArrayInfo" load_steps=24 format=3 uid="uid://bsvf5p0v0rvxl"]
 
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_5t0sc"]
-[ext_resource type="Script" path="res://RESOURCES/bead_pile_info.gd" id="2_n01sj"]
+[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="2_n01sj"]
 
 [sub_resource type="Resource" id="Resource_pbe3k"]
 script = ExtResource("1_5t0sc")
