@@ -3,6 +3,7 @@ extends Node2D
 class_name BeadContainer
 
 @export var bead_scene := preload("res://SCENES/TERRARIUM/bead.tscn")
+@export var bead_array_info : BeadArrayInfo
 
 @onready var bead_container: Node2D = $Beads/Container
 @onready var bead_container_shape: CollisionShape2D = $Beads/CollisionShape2D
@@ -19,6 +20,12 @@ func _process(delta: float) -> void:
 
 func _container_process(delta: float):
 	pass
+
+func generate_beads():
+	for bead_info in bead_array_info.get_beads():
+		var new_bead = bead_scene.instantiate()
+		new_bead.initialize(bead_info)
+		add_bead(new_bead)
 
 func add_bead(new_bead: Bead) -> bool:
 	if is_bead_in_container(new_bead):

@@ -2,4 +2,4 @@ extends Resource
 
 class_name BraceletInfo
 
-@export var beads : Array[BeadInfo]
+@export var bead_array_info : BeadArrayInfo

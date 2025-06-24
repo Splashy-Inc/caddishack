@@ -2,8 +2,6 @@ extends BeadContainer
 
 class_name BeadPile
 
-@export var info : BeadPileInfo
-
 func _ready() -> void:
 	generate_beads()
 
@@ -12,13 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 func get_pile_stats() -> Dictionary:
-	return info.get_pile_stats()
-
-func generate_beads():
-	for bead_info in info.get_beads():
-		var new_bead = bead_scene.instantiate()
-		new_bead.initialize(bead_info)
-		add_bead(new_bead)
+	return bead_array_info.get_pile_stats()
 
 func position_bead(bead: Bead):
 	if bead_container_shape.shape is CircleShape2D:

@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
-[ext_resource type="Texture2D" uid="uid://cumj7cih2qhf0" path="res://ASSETS/Art/CRAFT_STATION/Current_Run.png" id="2_x0q6a"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="3_53qlp"]
+[ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_holder.tscn" id="4_2dhfs"]
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="7_atnpg"]
-[ext_resource type="StyleBox" uid="uid://cvciu8qyek2eg" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
-[ext_resource type="Resource" uid="uid://cgse7tlxe4lns" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
-[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
+[ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
 
 [node name="BraceletStation" type="Node"]
 script = ExtResource("1_opsq7")
@@ -21,9 +21,7 @@ script = ExtResource("1_opsq7")
 position = Vector2(127, 147)
 texture = ExtResource("3_53qlp")
 
-[node name="BraceletPanel" type="Sprite2D" parent="PlayingField"]
-position = Vector2(640, 147)
-texture = ExtResource("2_x0q6a")
+[node name="BraceletPanel" parent="PlayingField" instance=ExtResource("4_2dhfs")]
 
 [node name="CompleteBraceletPanel" type="Sprite2D" parent="PlayingField"]
 position = Vector2(1153, 147)
@@ -70,7 +68,7 @@ position = Vector2(640, 600)
 
 [node name="DrawPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(1153, 600)
-info = ExtResource("9_crcei")
+bead_array_info = ExtResource("9_crcei")
 
 [connection signal="pressed" from="PlayingField/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="bead_clicked" from="PlayingField/SelectionPanel" to="." method="_on_selection_panel_bead_clicked"]
