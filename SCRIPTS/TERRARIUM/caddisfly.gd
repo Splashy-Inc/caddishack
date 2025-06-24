@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+class_name CaddisFly
+
+signal died(caddis_fly: CaddisFly)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -8,10 +11,19 @@ var speed_mod := 1.0
 var direction : Vector2
 
 @export var bead : Bead
+@export var camera : Camera2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var bead_center: Marker2D = $BeadCenter
+@onready var bead_bar: TextureProgressBar = $BeadBar
+@onready var lifespan_timer: Timer = $LifespanTimer
 
-func _physics_process(delta: float) -> void:	
+func _ready() -> void:
+	bead_bar.max_value = lifespan_timer.wait_time
+	bead_bar.value = 0
+
+func _physics_process(delta: float) -> void:
+	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
 	var new_direction = Vector2.ZERO
 	if Globals.is_mobile and Globals.joystick:
 		new_direction = Globals.joystick.direction
@@ -30,3 +42,13 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED * speed_mod
 		
 	move_and_slide()
+
+func _on_lifespan_timer_timeout() -> void:
+	died.emit(self)
+
+func _on_died(caddis_fly: CaddisFly) -> void:
+	camera.reparent(caddis_fly.get_parent())
+	bead.position = Vector2.ZERO
+	bead.reparent(caddis_fly.bead_center, false)
+	bead.reparent(caddis_fly.get_parent())
+	caddis_fly.queue_free()

@@ -20,6 +20,7 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="Materials" type="Node2D" parent="PlayingField"]
 
-[node name="Caddisfly" parent="PlayingField" instance=ExtResource("6_an2ti")]
+[node name="Caddisfly" parent="PlayingField" node_paths=PackedStringArray("camera") instance=ExtResource("6_an2ti")]
+camera = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="PlayingField/Caddisfly"]

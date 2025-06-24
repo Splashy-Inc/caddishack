@@ -115,11 +115,11 @@ _data = {
 }
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("BeadView")
 
 [node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
 script = ExtResource("1_yra40")
-bead = NodePath("SubViewport/Bead")
+bead = NodePath("BeadView/Bead")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
@@ -137,18 +137,31 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="BeadCenter" type="Marker2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="BeadBar" type="TextureProgressBar" parent="."]
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 128.0
+step = 0.01
 value = 100.0
 fill_mode = 3
 texture_progress = SubResource("ViewportTexture_33qiq")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="BeadView" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(64, 128)
 
-[node name="Bead" parent="SubViewport" instance=ExtResource("2_8xfat")]
+[node name="Bead" parent="BeadView" instance=ExtResource("2_8xfat")]
 position = Vector2(32, 64)
 rotation = 1.5708
+
+[node name="LifespanTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="died" from="." to="." method="_on_died"]
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timer_timeout"]
