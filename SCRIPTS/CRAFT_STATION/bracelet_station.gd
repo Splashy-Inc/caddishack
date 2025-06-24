@@ -45,7 +45,12 @@ func play_selection():
 	for bead in selection_panel.get_beads():
 		bracelet_panel.bracelet.add_bead(bead)
 		await get_tree().create_timer(.05).timeout
-	fill_hand()
+	
+	if bracelet_panel.bracelet.is_complete():
+		print("Bracelet completed!")
+		print(bracelet_panel.bracelet.calculate_value())
+	else:
+		fill_hand()
 
 func _on_discard_pressed() -> void:
 	discard_selection()
