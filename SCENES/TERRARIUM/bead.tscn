@@ -1,17 +1,29 @@
-[gd_scene load_steps=14 format=3 uid="uid://bb4x60rlbdvlv"]
+[gd_scene load_steps=18 format=3 uid="uid://bb4x60rlbdvlv"]
 
 [ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="1_dkdrh"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/bead.gd" id="1_p27p0"]
 [ext_resource type="Texture2D" uid="uid://cnj4ifvuc17dr" path="res://ASSETS/Art/TERRARIUM/CyanSand.png" id="2_534fm"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_lpouj"]
 [ext_resource type="Texture2D" uid="uid://c0585iajy3qyf" path="res://ASSETS/Art/TERRARIUM/Jimmie.png" id="3_1e667"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_5eegf"]
 [ext_resource type="Texture2D" uid="uid://bf642koe0lfad" path="res://ASSETS/Art/TERRARIUM/MagentaSand.png" id="4_ljqsm"]
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="6_g04xw"]
 [ext_resource type="Texture2D" uid="uid://kbqij5w8t1ci" path="res://ASSETS/Art/TERRARIUM/YellowSand.png" id="7_femc1"]
 
+[sub_resource type="Resource" id="Resource_e4f7f"]
+script = ExtResource("2_lpouj")
+color = 0
+
+[sub_resource type="Resource" id="Resource_nseg5"]
+script = ExtResource("4_5eegf")
+type = 0
+
 [sub_resource type="Resource" id="Resource_nfgpl"]
 script = ExtResource("2_i8ivb")
+sand = SubResource("Resource_e4f7f")
+special = SubResource("Resource_nseg5")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ld082"]
 animations = [{

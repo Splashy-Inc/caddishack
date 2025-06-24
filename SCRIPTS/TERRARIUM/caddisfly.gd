@@ -52,3 +52,12 @@ func _on_died(caddis_fly: CaddisFly) -> void:
 	bead.reparent(caddis_fly.bead_center, false)
 	bead.reparent(caddis_fly.get_parent())
 	caddis_fly.queue_free()
+
+func _on_collection_area_body_entered(body: Node2D) -> void:
+	if body is BeadMaterial:
+		if body.info is SandMaterialInfo and bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
+			bead.info.sand.color = body.info.color
+			body.queue_free()
+		if body.info is SpecialMaterialInfo and bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
+			bead.info.special.type = body.info.type
+			body.queue_free()
