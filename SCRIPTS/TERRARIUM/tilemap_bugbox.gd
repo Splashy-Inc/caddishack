@@ -2,7 +2,9 @@ extends Node2D
 
 class_name TerrariumBackground
 
-@onready var spawnable_layer: TileMapLayer = $SpawnableLayer
+@onready var material_layer: TileMapLayer = $MaterialLayer
+@onready var egg_layer: TileMapLayer = $EggLayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,5 +15,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func get_spawnable_cell_center() -> Vector2:
-	return to_global(spawnable_layer.map_to_local(spawnable_layer.get_used_cells().pick_random()))
+func get_spawnable_material_cell_center() -> Vector2:
+	return to_global(material_layer.map_to_local(material_layer.get_used_cells().pick_random()))
+
+func get_spawnable_egg_cell_center() -> Vector2:
+	return to_global(egg_layer.map_to_local(egg_layer.get_used_cells().pick_random()))

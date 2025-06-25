@@ -14,6 +14,16 @@ var info = 10 # Example info to track for level UI
 
 var run_info := RunInfo.new()
 
+const material_scenes = {
+	"sand": preload("res://SCENES/SHOP/sand_material.tscn"),
+	"pearl": preload("res://SCENES/SHOP/pearl_material.tscn"),
+	"shell": preload("res://SCENES/SHOP/shell_material.tscn"),
+	"jimmie": preload("res://SCENES/SHOP/jimmie_material.tscn"),
+	"egg": preload("res://SCENES/SHOP/egg_material.tscn"),
+}
+
+const larva_scene := preload("res://SCENES/TERRARIUM/caddisfly.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
@@ -32,3 +42,24 @@ func _on_joy_connection_changed(device, connected):
 func update_info(new_info):
 	info = new_info
 	info_updated.emit(info)
+
+func generate_material(material_info: MaterialInfo) -> BeadMaterial:
+	var new_material: BeadMaterial
+	if material_info is SandMaterialInfo:
+		new_material = material_scenes["sand"].instantiate()
+	elif material_info is SpecialMaterialInfo:
+		match material_info.type:
+			SpecialMaterialInfo.SpecialType.PEARL:
+				new_material = material_scenes["pearl"].instantiate()
+			SpecialMaterialInfo.SpecialType.SHELL:
+				new_material = material_scenes["shell"].instantiate()
+			SpecialMaterialInfo.SpecialType.JIMMIE:
+				new_material = material_scenes["jimmie"].instantiate()
+	elif material_info is EggMaterialInfo:
+		new_material = material_scenes["egg"].instantiate()
+	
+	new_material.info = material_info
+	return new_material
+
+func generate_larva() -> CaddisFly:
+	return larva_scene.instantiate()

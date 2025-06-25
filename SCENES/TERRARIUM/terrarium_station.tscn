@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://jgbstmjjwptw" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
 [ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
 [ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/SHOP/bead_material.tscn" id="3_ec5by"]
-[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/caddisfly.tscn" id="6_an2ti"]
+[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/larva_camera.gd" id="7_l05fv"]
 
 [node name="TerrariumStation" type="Node"]
 script = ExtResource("1_6dh60")
@@ -18,9 +18,11 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="ContainerLayer" parent="PlayingField" instance=ExtResource("3_0ejnt")]
 
-[node name="Materials" type="Node2D" parent="PlayingField"]
+[node name="Materials" type="Node" parent="PlayingField"]
 
-[node name="Caddisfly" parent="PlayingField" node_paths=PackedStringArray("camera") instance=ExtResource("6_an2ti")]
-camera = NodePath("Camera2D")
+[node name="Eggs" type="Node" parent="PlayingField"]
 
-[node name="Camera2D" type="Camera2D" parent="PlayingField/Caddisfly"]
+[node name="Beads" type="Node" parent="PlayingField"]
+
+[node name="LarvaCamera" type="Camera2D" parent="PlayingField"]
+script = ExtResource("7_l05fv")
