@@ -18,6 +18,8 @@ var direction : Vector2
 @onready var bead_bar: TextureProgressBar = $BeadBar
 @onready var lifespan_timer: Timer = $LifespanTimer
 
+var material_queue : Array[MaterialInfo]
+
 func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
@@ -26,7 +28,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
-	if not lifespan_timer.is_stopped():
+	if not (lifespan_timer.is_stopped() or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
 		var new_direction = Vector2.ZERO
 		if Globals.is_mobile and Globals.joystick:
 			new_direction = Globals.joystick.direction
@@ -62,12 +64,23 @@ func _on_died(caddis_fly: CaddisFly) -> void:
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body is BeadMaterial:
 		if body.info is SandMaterialInfo:
-			if bead.set_color(body.info.color):
+			if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
+				material_queue.append(body.info)
 				body.queue_free()
+				animation_player.play("collect")
 		
 		if body.info is SpecialMaterialInfo:
-			if bead.set_special(body.info.type):
+			if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
+				material_queue.append(body.info)
 				body.queue_free()
+				animation_player.play("collect")
+
+func place_material_from_queue():
+	var material_to_place = material_queue.pop_front()
+	if material_to_place is SandMaterialInfo:
+		bead.set_color(material_to_place.color)
+	elif material_to_place is SpecialMaterialInfo:
+		bead.set_special(material_to_place.type)
 
 func _on_bead_completed():
 	lifespan_timer.stop()
