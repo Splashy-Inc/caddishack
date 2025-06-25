@@ -32,4 +32,4 @@ type = 3
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_5yrpj")
-materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_331ma"), SubResource("Resource_lv5vn"), SubResource("Resource_f3267"), SubResource("Resource_rmpa7"), SubResource("Resource_uks66"), SubResource("Resource_33lr6")])
+materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_331ma"), SubResource("Resource_lv5vn"), SubResource("Resource_f3267"), SubResource("Resource_rmpa7"), SubResource("Resource_uks66"), SubResource("Resource_33lr6"), SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_331ma")])

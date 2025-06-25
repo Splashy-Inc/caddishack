@@ -15,7 +15,7 @@ var is_travelling := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	initialize(info)
+	set_info(BeadInfo.new())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -56,14 +56,14 @@ func set_info(new_info: BeadInfo):
 		set_special(new_info.special.type)
 
 func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
-	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
+	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
 		info.sand.color = new_color
 		sand_sprite.play(SandMaterialInfo.SandColor.keys()[info.sand.color])
 		return true
 	return false
 
 func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
-	if info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
+	if info.special.type == SpecialMaterialInfo.SpecialType.BASIC or new_special_type == SpecialMaterialInfo.SpecialType.BASIC:
 		info.special.type = new_special_type
 		item_sprite.play(SpecialMaterialInfo.SpecialType.keys()[info.special.type])
 		return true
