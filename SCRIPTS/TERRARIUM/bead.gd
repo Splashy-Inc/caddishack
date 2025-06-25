@@ -3,6 +3,7 @@ extends Node2D
 class_name Bead
 
 signal clicked
+signal completed
 
 @export var info : BeadInfo
 var travel_target_global_position : Vector2
@@ -59,6 +60,7 @@ func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
 	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
 		info.sand.color = new_color
 		sand_sprite.play(SandMaterialInfo.SandColor.keys()[info.sand.color])
+		check_completed()
 		return true
 	return false
 
@@ -66,5 +68,10 @@ func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
 	if info.special.type == SpecialMaterialInfo.SpecialType.BASIC or new_special_type == SpecialMaterialInfo.SpecialType.BASIC:
 		info.special.type = new_special_type
 		item_sprite.play(SpecialMaterialInfo.SpecialType.keys()[info.special.type])
+		check_completed()
 		return true
 	return false
+
+func check_completed():
+	if info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC:
+		completed.emit()
