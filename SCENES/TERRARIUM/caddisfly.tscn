@@ -1,9 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://bavo2v0il8e4"]
+[gd_scene load_steps=34 format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
 [ext_resource type="Texture2D" uid="uid://cw0mol22xbie8" path="res://ASSETS/Art/TERRARIUM/BugBody.png" id="1_n3c84"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/caddisfly.gd" id="1_yra40"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="2_8xfat"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="5_je05u"]
+[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="6_n4n1d"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="7_evvrj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l13m"]
 atlas = ExtResource("1_gf3mp")
@@ -207,6 +210,19 @@ _data = {
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
 viewport_path = NodePath("BeadView")
 
+[sub_resource type="Resource" id="Resource_irq37"]
+script = ExtResource("5_je05u")
+color = 0
+
+[sub_resource type="Resource" id="Resource_gmqog"]
+script = ExtResource("7_evvrj")
+type = 0
+
+[sub_resource type="Resource" id="Resource_i5yw8"]
+script = ExtResource("6_n4n1d")
+sand = SubResource("Resource_irq37")
+special = SubResource("Resource_gmqog")
+
 [node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
 collision_layer = 2
 script = ExtResource("1_yra40")
@@ -260,6 +276,7 @@ size = Vector2i(64, 128)
 [node name="Bead" parent="BeadView" instance=ExtResource("2_8xfat")]
 position = Vector2(32, 64)
 rotation = 1.5708
+info = SubResource("Resource_i5yw8")
 
 [node name="LifespanTimer" type="Timer" parent="."]
 process_callback = 0

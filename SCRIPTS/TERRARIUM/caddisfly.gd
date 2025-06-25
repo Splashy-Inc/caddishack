@@ -55,10 +55,10 @@ func _on_died(caddis_fly: CaddisFly) -> void:
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body is BeadMaterial:
-		if body.info is SandMaterialInfo and bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
-			bead.set_color(body.info.color)
-			body.queue_free()
+		if body.info is SandMaterialInfo:
+			if bead.set_color(body.info.color):
+				body.queue_free()
 		
-		if body.info is SpecialMaterialInfo and bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
-			bead.set_special(body.info.type)
-			body.queue_free()
+		if body.info is SpecialMaterialInfo:
+			if bead.set_special(body.info.type):
+				body.queue_free()
