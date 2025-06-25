@@ -4,14 +4,12 @@ class_name CaddisFly
 
 signal died(caddis_fly: CaddisFly)
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 900.0
 
 var speed_mod := 1.0
 var direction : Vector2
 
 @export var bead : Bead
-@export var camera : Camera2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bead_center: Marker2D = $BeadCenter
@@ -52,13 +50,12 @@ func _on_lifespan_timer_timeout() -> void:
 	animation_player.play("retract")
 
 func die():
+	bead.position = Vector2.ZERO
+	bead.reparent(bead_center, false)
+	bead.reparent(get_parent())
 	died.emit(self)
 
 func _on_died(caddis_fly: CaddisFly) -> void:
-	camera.reparent(caddis_fly.get_parent())
-	bead.position = Vector2.ZERO
-	bead.reparent(caddis_fly.bead_center, false)
-	bead.reparent(caddis_fly.get_parent())
 	caddis_fly.queue_free()
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
