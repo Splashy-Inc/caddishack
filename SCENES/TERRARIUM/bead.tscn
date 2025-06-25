@@ -104,12 +104,12 @@ info = SubResource("Resource_nfgpl")
 
 [node name="SandSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ld082")
-animation = &"YELLOW"
+animation = &"COLORLESS"
 autoplay = "COLORLESS"
 
 [node name="ItemSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mxfaq")
-animation = &"SHELL"
+animation = &"BASIC"
 autoplay = "BASIC"
 
 [node name="ClickableArea" type="Area2D" parent="."]

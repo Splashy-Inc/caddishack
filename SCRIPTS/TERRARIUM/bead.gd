@@ -49,3 +49,18 @@ func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(
 	scale = target_scale
 	travel_target_rotation = target_rotation
 	is_travelling = true
+
+func set_info(new_info: BeadInfo):
+	if info.sand.color != new_info.sand.color:
+		set_color(new_info.sand.color)
+	
+	if info.special.type != new_info.special.type:
+		set_special(new_info.special.type)
+
+func set_color(new_color: SandMaterialInfo.SandColor):
+	info.sand.color = new_color
+	sand_sprite.play(SandMaterialInfo.SandColor.keys()[info.sand.color])
+
+func set_special(new_special_type: SpecialMaterialInfo.SpecialType):
+	info.special.type = new_special_type
+	item_sprite.play(SpecialMaterialInfo.SpecialType.keys()[info.special.type])
