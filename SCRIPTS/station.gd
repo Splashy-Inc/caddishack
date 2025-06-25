@@ -20,7 +20,7 @@ func _station_ready():
 
 func _process(delta: float) -> void:
 	# Ensure that the mobile controls are not visible if the dialog box is present
-	if mobile_controls.visible and dialog_box.visible:
+	if mobile_controls and mobile_controls.visible and dialog_box.visible:
 		mobile_controls.hide()
 
 func _physics_process(delta: float) -> void:

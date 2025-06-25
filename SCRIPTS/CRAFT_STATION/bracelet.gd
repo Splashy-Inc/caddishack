@@ -30,15 +30,15 @@ func calculate_value() -> int:
 	var cur_special_chain: Array[Bead]
 	for bead in get_beads():
 		# Add points to tally
-		match bead.info.special:
-			Globals.MaterialType.BASIC:
+		match bead.info.special.type:
+			SpecialMaterialInfo.SpecialType.BASIC:
 				info.update_points(1)
 				info.update_mult(check_chain(cur_special_chain, null, "special"))
 			_:
 				info.update_points(3)
 				info.update_mult(check_chain(cur_special_chain, bead, "special"))
 		
-		if bead.info.color != Globals.MaterialColor.COLORLESS:
+		if bead.info.sand.color != SandMaterialInfo.SandColor.COLORLESS:
 			info.update_mult(check_chain(cur_color_chain, bead, "color"))
 		else:
 			check_chain(cur_color_chain, null, "color")
@@ -59,11 +59,11 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 		var chain_info
 		match type:
 			"color":
-				bead_info = bead.info.color
-				chain_info = chain.back().info.color
+				bead_info = bead.info.sand.color
+				chain_info = chain.back().info.sand.color
 			"special":
-				bead_info = bead.info.special
-				chain_info = chain.back().info.special
+				bead_info = bead.info.special.type
+				chain_info = chain.back().info.special.type
 		if chain_info == bead_info:
 			chain.append(bead)
 			return 0

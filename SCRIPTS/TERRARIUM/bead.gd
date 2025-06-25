@@ -3,6 +3,7 @@ extends Node2D
 class_name Bead
 
 signal clicked
+signal completed
 
 @export var info : BeadInfo
 var travel_target_global_position : Vector2
@@ -15,7 +16,7 @@ var is_travelling := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_info(BeadInfo.new())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,9 +34,7 @@ func _process(delta: float) -> void:
 func initialize(new_info: BeadInfo):
 	if not is_node_ready():
 		await ready
-	info = new_info
-	sand_sprite.animation = Globals.MaterialColor.keys()[info.color]
-	item_sprite.animation = Globals.MaterialType.keys()[info.special]
+	set_info(new_info)
 
 func set_clickable(new_clickable: bool):
 	clickable_shape.disabled = not new_clickable
@@ -49,3 +48,30 @@ func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(
 	scale = target_scale
 	travel_target_rotation = target_rotation
 	is_travelling = true
+
+func set_info(new_info: BeadInfo):
+	if info.sand.color != new_info.sand.color:
+		set_color(new_info.sand.color)
+	
+	if info.special.type != new_info.special.type:
+		set_special(new_info.special.type)
+
+func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
+	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
+		info.sand.color = new_color
+		sand_sprite.play(SandMaterialInfo.SandColor.keys()[info.sand.color])
+		check_completed()
+		return true
+	return false
+
+func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
+	if info.special.type == SpecialMaterialInfo.SpecialType.BASIC or new_special_type == SpecialMaterialInfo.SpecialType.BASIC:
+		info.special.type = new_special_type
+		item_sprite.play(SpecialMaterialInfo.SpecialType.keys()[info.special.type])
+		check_completed()
+		return true
+	return false
+
+func check_completed():
+	if info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC:
+		completed.emit()
