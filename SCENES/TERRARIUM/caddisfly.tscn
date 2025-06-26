@@ -382,7 +382,7 @@ script = ExtResource("6_n4n1d")
 sand = SubResource("Resource_irq37")
 special = SubResource("Resource_gmqog")
 
-[node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead") groups=["Larvae"]]
+[node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
 collision_layer = 2
 script = ExtResource("1_yra40")
 bead = NodePath("BeadView/Bead")
