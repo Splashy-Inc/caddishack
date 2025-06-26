@@ -13,6 +13,7 @@ signal eggs_depleted
 @onready var materials_container: Node = $PlayingField/Materials
 @onready var beads_container: Node = $PlayingField/Beads
 @onready var eggs_container: Node = $PlayingField/Eggs
+@onready var larvae_container: Node = $PlayingField/Larvae
 @onready var larva_camera: Camera2D = $PlayingField/LarvaCamera
 
 func _station_ready():
@@ -34,7 +35,7 @@ func hatch_next_egg():
 
 func _on_egg_hatched(new_larva: CaddisFly, spawn_point: Vector2):
 	if is_instance_valid(new_larva):
-		playing_field.add_child(new_larva)
+		larvae_container.add_child(new_larva)
 		new_larva.died.connect(_on_larva_died)
 		new_larva.global_position = spawn_point
 		larva_camera.larva = new_larva
@@ -59,18 +60,26 @@ func _on_eggs_depleted() -> void:
 	won.emit(self)
 
 func generate_materials():
-	for material in materials_container.get_children():
-		material.queue_free()
-	for egg in eggs_container.get_children():
-		egg.queue_free()
-	for bead in beads_container.get_children():
-		bead.queue_free()
-	for larva in get_tree().get_nodes_in_group("Larvae"):
-		larva.queue_free()
-		
+	await clear_playing_field()
+	
 	for material_info in info.materials:
 		spawn_material(material_info)
 
+func clear_playing_field():
+	for material in materials_container.get_children():
+		materials_container.remove_child(material)
+		material.queue_free()
+	for egg in eggs_container.get_children():
+		eggs_container.remove_child(egg)
+		egg.queue_free()
+	for bead in beads_container.get_children():
+		beads_container.remove_child(bead)
+		bead.queue_free()
+	for larva in larvae_container.get_children():
+		larvae_container.remove_child(larva)
+		larva.queue_free()
+
 func load_run_info():
 	info = Globals.run_info.terrarium
-	_station_ready()
+	await generate_materials()
+	hatch_next_egg()
