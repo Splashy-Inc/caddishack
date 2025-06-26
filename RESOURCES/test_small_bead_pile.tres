@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="BeadArrayInfo" load_steps=14 format=3 uid="uid://bwa147eeuky3a"]
+
+[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_ox7l5"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_v0jpj"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_bkjvx"]
+[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="4_ppuae"]
+
+[sub_resource type="Resource" id="Resource_pq472"]
+script = ExtResource("2_v0jpj")
+color = 1
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_xgcfv"]
+script = ExtResource("3_bkjvx")
+type = 0
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_abu36"]
+script = ExtResource("1_ox7l5")
+sand = SubResource("Resource_pq472")
+special = SubResource("Resource_xgcfv")
+
+[sub_resource type="Resource" id="Resource_y33a4"]
+script = ExtResource("2_v0jpj")
+color = 2
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_s2ept"]
+script = ExtResource("3_bkjvx")
+type = 0
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_m2ehs"]
+script = ExtResource("1_ox7l5")
+sand = SubResource("Resource_y33a4")
+special = SubResource("Resource_s2ept")
+
+[sub_resource type="Resource" id="Resource_ui00h"]
+script = ExtResource("2_v0jpj")
+color = 3
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_g7s60"]
+script = ExtResource("3_bkjvx")
+type = 0
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_36pyc"]
+script = ExtResource("1_ox7l5")
+sand = SubResource("Resource_ui00h")
+special = SubResource("Resource_g7s60")
+
+[resource]
+script = ExtResource("4_ppuae")
+beads = Array[ExtResource("1_ox7l5")]([SubResource("Resource_abu36"), SubResource("Resource_m2ehs"), SubResource("Resource_36pyc")])

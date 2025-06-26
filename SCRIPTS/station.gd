@@ -2,6 +2,8 @@ extends Node
 
 class_name Station
 
+signal won(station: Station)
+
 @export var dialog_box: DialogBox
 @export var mobile_controls: MobileControls
 
@@ -20,7 +22,7 @@ func _station_ready():
 
 func _process(delta: float) -> void:
 	# Ensure that the mobile controls are not visible if the dialog box is present
-	if mobile_controls.visible and dialog_box.visible:
+	if mobile_controls and mobile_controls.visible and dialog_box.visible:
 		mobile_controls.hide()
 
 func _physics_process(delta: float) -> void:
@@ -38,3 +40,6 @@ func resume_play(new_mouse_mode: int = Input.MOUSE_MODE_VISIBLE):
 	process_mode = ProcessMode.PROCESS_MODE_INHERIT
 	if dialog_box:
 		dialog_box.process_mode = ProcessMode.PROCESS_MODE_ALWAYS
+
+func load_run_info():
+	pass
