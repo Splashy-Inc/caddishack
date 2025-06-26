@@ -80,6 +80,7 @@ func _restart_station():
 	station.load_run_info()
 
 func _on_restart_pressed():
+	# TODO: Get resetting to behave as expected (doesn't actually reset run at this point)
 	Globals.reset_run()
 	_restart_station()
 	_resume_play()
