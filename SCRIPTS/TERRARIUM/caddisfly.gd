@@ -4,7 +4,7 @@ class_name CaddisFly
 
 signal died(caddis_fly: CaddisFly)
 
-const SPEED = 900.0
+const SPEED = 650.0
 
 var speed_mod := 1.0
 var direction : Vector2

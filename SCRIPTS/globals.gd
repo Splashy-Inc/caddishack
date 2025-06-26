@@ -2,7 +2,13 @@ extends Node
 
 signal info_updated
 
-var cur_level_scene: PackedScene
+const ordered_stations := [
+	preload("res://SCENES/SHOP/Shop.tscn"),
+	preload("res://SCENES/TERRARIUM/terrarium_station.tscn"),
+	preload("res://SCENES/CRAFT_STATION/bracelet_station.tscn"),
+]
+
+var cur_station_scene: PackedScene
 
 var joypad_connected := false
 
@@ -31,6 +37,8 @@ func _ready() -> void:
 	
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		is_mobile = true
+	
+	reset_run()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -63,3 +71,6 @@ func generate_material(material_info: MaterialInfo) -> BeadMaterial:
 
 func generate_larva() -> CaddisFly:
 	return larva_scene.instantiate()
+
+func reset_run():
+	run_info = load("res://RESOURCES/test_run.tres").duplicate()

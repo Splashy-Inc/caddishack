@@ -2,6 +2,8 @@ extends Node
 
 class_name Station
 
+signal won(station: Station)
+
 @export var dialog_box: DialogBox
 @export var mobile_controls: MobileControls
 
@@ -38,3 +40,6 @@ func resume_play(new_mouse_mode: int = Input.MOUSE_MODE_VISIBLE):
 	process_mode = ProcessMode.PROCESS_MODE_INHERIT
 	if dialog_box:
 		dialog_box.process_mode = ProcessMode.PROCESS_MODE_ALWAYS
+
+func load_run_info():
+	pass

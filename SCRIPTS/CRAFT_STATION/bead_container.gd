@@ -22,6 +22,9 @@ func _container_process(delta: float):
 	pass
 
 func generate_beads():
+	for bead in get_beads():
+		bead.queue_free()
+	
 	for bead_info in bead_array_info.get_beads():
 		var new_bead = bead_scene.instantiate()
 		new_bead.initialize(bead_info)

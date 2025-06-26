@@ -1,112 +1,84 @@
-[gd_resource type="Resource" script_class="BeadArrayInfo" load_steps=24 format=3 uid="uid://bsvf5p0v0rvxl"]
+[gd_resource type="Resource" script_class="BeadArrayInfo" load_steps=28 format=3 uid="uid://bsvf5p0v0rvxl"]
 
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_5t0sc"]
 [ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="2_n01sj"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_ocxlj"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_572ut"]
+
+[sub_resource type="Resource" id="Resource_ebqje"]
+script = ExtResource("2_ocxlj")
+color = 0
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_b5wsf"]
+script = ExtResource("3_572ut")
+type = 0
+cell = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_pbe3k"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
+sand = SubResource("Resource_ebqje")
+special = SubResource("Resource_b5wsf")
 
 [sub_resource type="Resource" id="Resource_jo1ge"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_s0p10"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_mn63i"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_nxl4s"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_c8ti3"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_0jpff"]
 script = ExtResource("1_5t0sc")
-color = 1
-special = 0
 
 [sub_resource type="Resource" id="Resource_jjpkw"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_17tff"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_56mah"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_4828u"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_4r0y3"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_h8q2e"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_amlv0"]
 script = ExtResource("1_5t0sc")
-color = 2
-special = 0
 
 [sub_resource type="Resource" id="Resource_aaif6"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_nnny1"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_682o1"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_mcseb"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_g3egp"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_c0hu8"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [sub_resource type="Resource" id="Resource_bidtv"]
 script = ExtResource("1_5t0sc")
-color = 3
-special = 0
 
 [resource]
 script = ExtResource("2_n01sj")

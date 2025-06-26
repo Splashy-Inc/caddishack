@@ -26,3 +26,5 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="LarvaCamera" type="Camera2D" parent="PlayingField"]
 script = ExtResource("7_l05fv")
+
+[connection signal="eggs_depleted" from="." to="." method="_on_eggs_depleted"]

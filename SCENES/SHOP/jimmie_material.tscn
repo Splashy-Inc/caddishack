@@ -7,6 +7,7 @@
 [sub_resource type="Resource" id="Resource_4onm5"]
 script = ExtResource("2_qbjo6")
 type = 3
+cell = Vector2i(0, 0)
 
 [node name="JimmieMaterial" type="StaticBody2D"]
 collision_layer = 4

@@ -37,6 +37,10 @@ folder_colors={
 "res://SCRIPTS/": "yellow"
 }
 
+[global_group]
+
+Larvae=""
+
 [gui]
 
 theme/custom_font="res://ASSETS/Font/m5x7.ttf"

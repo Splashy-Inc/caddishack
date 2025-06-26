@@ -59,7 +59,7 @@ func _input(event):
 func _restart_station():
 	game_ended = false
 	if station:
-		station.free()
+		station.queue_free()
 	
 	var new_station = station_scene.instantiate()
 	add_child(new_station)
@@ -77,8 +77,10 @@ func _restart_station():
 			#break
 	
 	station = new_station
+	station.load_run_info()
 
 func _on_restart_pressed():
+	Globals.reset_run()
 	_restart_station()
 	_resume_play()
 
@@ -86,13 +88,17 @@ func _on_station_lost():
 	game_ended = true
 	hud.show_loss_screen()
 
-func _on_station_won():
-	game_ended = true
-	_pause_play()
-	hud.show_win_screen()
+func _on_station_won(station: Station):
+	#game_ended = true
+	#_pause_play()
+	#hud.show_win_screen()
+	next_station()
 
 func _on_station_selected(new_station_scene: PackedScene):
 	_set_station(new_station_scene)
+
+func next_station():
+	_set_station(Globals.ordered_stations[(Globals.ordered_stations.find(station_scene) + 1) % Globals.ordered_stations.size()])
 
 func _set_station(new_station_scene: PackedScene):
 	station_scene = new_station_scene

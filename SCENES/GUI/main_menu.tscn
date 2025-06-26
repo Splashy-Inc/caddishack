@@ -156,7 +156,6 @@ grow_vertical = 2
 script = ExtResource("1_vkagb")
 
 [node name="Craft_station_background" parent="." instance=ExtResource("2_t4ldj")]
-position = Vector2(592, 288)
 
 [node name="MenuContent" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(640, 360)

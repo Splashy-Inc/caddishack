@@ -64,3 +64,7 @@ func discard_selection():
 		discard_pile.add_bead(bead)
 		await get_tree().create_timer(.05).timeout
 	fill_hand()
+
+func load_run_info():
+	draw_pile.bead_array_info = Globals.run_info.bead_pile
+	draw_pile.generate_beads()

@@ -1,4 +1,4 @@
-extends Resource
+extends StationInfo
 
 class_name BraceletInfo
 
