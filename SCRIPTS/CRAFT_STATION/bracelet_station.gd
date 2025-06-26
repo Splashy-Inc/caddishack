@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 func fill_hand():
 	for i in (5 - get_beads_in_play().size()):
 		var new_draw := draw_pile.draw_bead()
-		print(new_draw)
 		if new_draw:
 			if not hand_panel.add_bead(new_draw):
 				print("Failed to add bead to ", hand_panel)
@@ -74,3 +73,4 @@ func load_run_info():
 	hand_panel.clear_beads()
 	discard_pile.clear_beads()
 	draw_pile.set_beads(Globals.run_info.bead_pile)
+	fill_hand()
