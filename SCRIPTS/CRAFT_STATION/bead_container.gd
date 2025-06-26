@@ -22,8 +22,7 @@ func _container_process(delta: float):
 	pass
 
 func generate_beads():
-	for bead in get_beads():
-		bead.queue_free()
+	clear_beads()
 	
 	for bead_info in bead_array_info.get_beads():
 		var new_bead = bead_scene.instantiate()
@@ -72,3 +71,11 @@ func get_beads() -> Array[Bead]:
 		if child is Bead and not child in cur_beads:
 			cur_beads.append(child)
 	return cur_beads
+
+func set_beads(new_bead_array_info: BeadArrayInfo):
+	bead_array_info = new_bead_array_info
+	generate_beads()
+
+func clear_beads():
+	for bead in get_beads():
+		bead.queue_free()

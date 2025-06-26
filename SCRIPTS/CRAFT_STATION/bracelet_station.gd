@@ -2,6 +2,8 @@ extends Station
 
 class_name BraceletStation
 
+@export var bead_pile: BeadArrayInfo
+
 @onready var draw_pile: BeadPile = $PlayingField/DrawPile
 @onready var discard_pile: BeadPile = $PlayingField/DiscardPile
 @onready var hand_panel: BeadSet = $PlayingField/HandPanel
@@ -10,6 +12,8 @@ class_name BraceletStation
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if bead_pile:
+		draw_pile.set_beads(bead_pile)
 	fill_hand()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +29,6 @@ func fill_hand():
 				print("Failed to add bead to ", hand_panel)
 		else:
 			print("No more beads!")
-		print(hand_panel.get_beads())
 		await get_tree().create_timer(.05).timeout
 
 func get_beads_in_play():
@@ -66,5 +69,8 @@ func discard_selection():
 	fill_hand()
 
 func load_run_info():
-	draw_pile.bead_array_info = Globals.run_info.bead_pile
-	draw_pile.generate_beads()
+	bracelet_panel.bracelet.clear_beads()
+	selection_panel.clear_beads()
+	hand_panel.clear_beads()
+	discard_pile.clear_beads()
+	draw_pile.set_beads(Globals.run_info.bead_pile)
