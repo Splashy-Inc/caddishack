@@ -43,6 +43,7 @@ animations = [{
 [node name="MenuLarva_1" type="Node2D"]
 
 [node name="Head" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0.576471, 0.576471, 0.576471, 1)
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_gqgmn")
 autoplay = "default"
