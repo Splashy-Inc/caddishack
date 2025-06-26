@@ -2,4 +2,4 @@ extends Resource
 
 class_name MaterialInfo
 
-var global_positon : Vector2
+@export var cell : Vector2i

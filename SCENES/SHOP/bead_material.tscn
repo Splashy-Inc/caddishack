@@ -2,17 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://buwiyssv2nqp4" path="res://ASSETS/Art/SHOP/CyanSand.png" id="1_luwx1"]
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/bead_material.gd" id="1_q86yt"]
-[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_mkfsj"]
+[ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="2_dkf7y"]
 
-[sub_resource type="Resource" id="Resource_jeoaf"]
-script = ExtResource("2_mkfsj")
-color = 1
+[sub_resource type="Resource" id="Resource_vtin3"]
+script = ExtResource("2_dkf7y")
+cell = Vector2i(0, 0)
 
 [node name="BeadMaterial" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_q86yt")
-info = SubResource("Resource_jeoaf")
+info = SubResource("Resource_vtin3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -41)

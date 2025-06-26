@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=15 format=3 uid="uid://jgbstmjjwptw"]
+[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=27 format=3 uid="uid://jgbstmjjwptw"]
 
 [ext_resource type="Script" path="res://RESOURCES/terrarium_info.gd" id="1_5yrpj"]
 [ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="1_tu3qe"]
@@ -6,43 +6,112 @@
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_ajqpt"]
 [ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="4_ro4fx"]
 
-[sub_resource type="Resource" id="Resource_331ma"]
+[sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("2_f1hoh")
 color = 1
+cell = Vector2i(0, 0)
 
-[sub_resource type="Resource" id="Resource_lv5vn"]
+[sub_resource type="Resource" id="Resource_jh2q2"]
+script = ExtResource("2_f1hoh")
+color = 1
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_lu261"]
+script = ExtResource("2_f1hoh")
+color = 1
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_06vpu"]
 script = ExtResource("2_f1hoh")
 color = 2
+cell = Vector2i(0, 0)
 
-[sub_resource type="Resource" id="Resource_f3267"]
+[sub_resource type="Resource" id="Resource_aypll"]
+script = ExtResource("2_f1hoh")
+color = 2
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_ct105"]
+script = ExtResource("2_f1hoh")
+color = 2
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_fnkbk"]
 script = ExtResource("2_f1hoh")
 color = 3
+cell = Vector2i(0, 0)
 
-[sub_resource type="Resource" id="Resource_rmpa7"]
+[sub_resource type="Resource" id="Resource_a2n2k"]
+script = ExtResource("2_f1hoh")
+color = 3
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_f7u7g"]
+script = ExtResource("2_f1hoh")
+color = 3
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_8ls7a"]
 script = ExtResource("3_ajqpt")
 type = 1
+cell = Vector2i(0, 0)
 
-[sub_resource type="Resource" id="Resource_uks66"]
+[sub_resource type="Resource" id="Resource_2bpk4"]
+script = ExtResource("3_ajqpt")
+type = 1
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_g2uq7"]
+script = ExtResource("3_ajqpt")
+type = 1
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_ybw82"]
 script = ExtResource("3_ajqpt")
 type = 2
+cell = Vector2i(0, 0)
 
-[sub_resource type="Resource" id="Resource_33lr6"]
+[sub_resource type="Resource" id="Resource_xq384"]
+script = ExtResource("3_ajqpt")
+type = 2
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_qn30w"]
+script = ExtResource("3_ajqpt")
+type = 2
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_nqhej"]
 script = ExtResource("3_ajqpt")
 type = 3
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_ttxry"]
+script = ExtResource("3_ajqpt")
+type = 3
+cell = Vector2i(0, 0)
+
+[sub_resource type="Resource" id="Resource_ka58w"]
+script = ExtResource("3_ajqpt")
+type = 3
+cell = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_kgi7a"]
 script = ExtResource("4_ro4fx")
 type = 2
+cell = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_6kvfs"]
 script = ExtResource("4_ro4fx")
 type = 1
+cell = Vector2i(0, 0)
 
 [sub_resource type="Resource" id="Resource_df02x"]
 script = ExtResource("4_ro4fx")
 type = 0
+cell = Vector2i(0, 0)
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_5yrpj")
-materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_331ma"), SubResource("Resource_lv5vn"), SubResource("Resource_lv5vn"), SubResource("Resource_lv5vn"), SubResource("Resource_f3267"), SubResource("Resource_f3267"), SubResource("Resource_f3267"), SubResource("Resource_rmpa7"), SubResource("Resource_rmpa7"), SubResource("Resource_rmpa7"), SubResource("Resource_uks66"), SubResource("Resource_uks66"), SubResource("Resource_uks66"), SubResource("Resource_33lr6"), SubResource("Resource_33lr6"), SubResource("Resource_33lr6"), SubResource("Resource_kgi7a"), SubResource("Resource_6kvfs"), SubResource("Resource_df02x")])
+materials = Array[ExtResource("1_tu3qe")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_kgi7a"), SubResource("Resource_6kvfs"), SubResource("Resource_df02x")])
