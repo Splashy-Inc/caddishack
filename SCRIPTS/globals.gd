@@ -3,7 +3,7 @@ extends Node
 signal info_updated
 
 const ordered_stations := [
-	preload("res://SCENES/SHOP/Shop.tscn"),
+	preload("res://SCENES/SHOP/shop_station.tscn"),
 	preload("res://SCENES/TERRARIUM/terrarium_station.tscn"),
 	preload("res://SCENES/CRAFT_STATION/bracelet_station.tscn"),
 ]

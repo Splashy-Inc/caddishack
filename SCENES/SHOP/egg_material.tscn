@@ -12,6 +12,8 @@
 [sub_resource type="Resource" id="Resource_vj1ys"]
 script = ExtResource("2_yvutb")
 type = 0
+cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsxm"]
 animations = [{
@@ -78,6 +80,7 @@ script = ExtResource("1_nqqwi")
 info = SubResource("Resource_vj1ys")
 
 [node name="Top" type="RigidBody2D" parent="."]
+position = Vector2(3, -14)
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.0
@@ -92,6 +95,7 @@ polygon = PackedVector2Array(-5, -53, -5, -52, -9, -52, -9, -51, -14, -51, -14, 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Top"]
 
 [node name="Bottom" type="RigidBody2D" parent="."]
+position = Vector2(3, -14)
 collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.0
@@ -106,5 +110,4 @@ polygon = PackedVector2Array(-42, 1, -42, 2, -43, 2, -43, 4, -44, 4, -44, 5, -45
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Bottom"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 14)
 shape = SubResource("CapsuleShape2D_k14k8")
