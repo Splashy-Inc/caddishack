@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4x5r54x0yddx"]
+
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_ndlt6"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="5_xuy2j"]
+[ext_resource type="PackedScene" uid="uid://bp7okqg1ne0u7" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytrc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntu3u"]
+
+[sub_resource type="Theme" id="Theme_5cxui"]
+HBoxContainer/constants/separation = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5rb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ytvl"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_n8e4a")
+
+[node name="Craft_station_background" parent="." instance=ExtResource("2_ndlt6")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ytrc2")
+
+[node name="ShopHBox" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Spacer" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ItemsPanel" type="PanelContainer" parent="PanelContainer/ShopHBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ntu3u")
+
+[node name="ShopShelves" type="VBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="SandBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+theme = SubResource("Theme_5cxui")
+alignment = 1
+
+[node name="ItemSlot1" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton1" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot1" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot2" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton2" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot2" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot3" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton3" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot3" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="SpecialBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemSlot4" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton4" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot4" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot5" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton5" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot5" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot6" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton6" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot6" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="EggBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemSlot7" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton7" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot7" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot8" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton8" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot8" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="ItemSlot9" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton9" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot9" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="CartPanel" type="PanelContainer" parent="PanelContainer/ShopHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6ytvl")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/ShopHBox/CartPanel"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_xuy2j")
+
+[node name="Spacer3" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2

@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp7okqg1ne0u7"]
+
+[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
+[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_button.gd" id="3_03m4k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6sm6c"]
+load_path = "res://.godot/imported/Pearl.png-01c2360d7cd1b607fda553bdf3683f22.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv51o"]
+atlas = SubResource("CompressedTexture2D_6sm6c")
+
+[node name="ShopButton" type="Button"]
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = ExtResource("1_iqs27")
+theme_override_styles/normal = ExtResource("2_8ilcs")
+icon = SubResource("AtlasTexture_hv51o")
+script = ExtResource("3_03m4k")
