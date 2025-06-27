@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("2_c0gfi")
-money = 100
+money = 500
 terrarium = ExtResource("4_3pcvd")
 bead_pile = ExtResource("1_1s7ve")
 bracelets = Array[ExtResource("1_uoxr8")]([])
