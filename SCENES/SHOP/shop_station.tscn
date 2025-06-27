@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4x5r54x0yddx"]
+[gd_scene load_steps=9 format=3 uid="uid://b4x5r54x0yddx"]
 
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_ndlt6"]
-[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="5_xuy2j"]
+[ext_resource type="PackedScene" uid="uid://b1ml0sgcgl8q7" path="res://SCENES/SHOP/cart_panel.tscn" id="4_7awj6"]
 [ext_resource type="PackedScene" uid="uid://bp7okqg1ne0u7" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytrc2"]
@@ -13,8 +13,6 @@
 HBoxContainer/constants/separation = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5rb4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ytvl"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_n8e4a")
@@ -131,14 +129,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[node name="CartPanel" type="PanelContainer" parent="PanelContainer/ShopHBox"]
+[node name="CartPanel" parent="PanelContainer/ShopHBox" instance=ExtResource("4_7awj6")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_6ytvl")
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/ShopHBox/CartPanel"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_xuy2j")
 
 [node name="Spacer3" type="Control" parent="PanelContainer/ShopHBox"]
 custom_minimum_size = Vector2(32, 0)
