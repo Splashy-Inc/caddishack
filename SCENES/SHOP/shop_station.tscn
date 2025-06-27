@@ -1,0 +1,232 @@
+[gd_scene load_steps=31 format=3 uid="uid://b4x5r54x0yddx"]
+
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
+[ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="2_gkn5u"]
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_ndlt6"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="3_px7e6"]
+[ext_resource type="PackedScene" uid="uid://b1ml0sgcgl8q7" path="res://SCENES/SHOP/cart_panel.tscn" id="4_7awj6"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_7e1c6"]
+[ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_a3lc4"]
+[ext_resource type="PackedScene" uid="uid://bp7okqg1ne0u7" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
+
+[sub_resource type="Resource" id="Resource_naty8"]
+script = ExtResource("3_px7e6")
+color = 1
+cell = Vector2i(0, 0)
+price = 10
+
+[sub_resource type="Resource" id="Resource_6icfv"]
+script = ExtResource("3_px7e6")
+color = 2
+cell = Vector2i(0, 0)
+price = 10
+
+[sub_resource type="Resource" id="Resource_nj2v3"]
+script = ExtResource("3_px7e6")
+color = 3
+cell = Vector2i(0, 0)
+price = 10
+
+[sub_resource type="Resource" id="Resource_jrmxc"]
+script = ExtResource("4_7e1c6")
+type = 1
+cell = Vector2i(0, 0)
+price = 20
+
+[sub_resource type="Resource" id="Resource_b387r"]
+script = ExtResource("4_7e1c6")
+type = 2
+cell = Vector2i(0, 0)
+price = 20
+
+[sub_resource type="Resource" id="Resource_qua0e"]
+script = ExtResource("4_7e1c6")
+type = 3
+cell = Vector2i(0, 0)
+price = 20
+
+[sub_resource type="Resource" id="Resource_p5e2k"]
+script = ExtResource("5_a3lc4")
+type = 0
+cell = Vector2i(0, 0)
+price = 10
+
+[sub_resource type="Resource" id="Resource_6poxn"]
+script = ExtResource("5_a3lc4")
+type = 1
+cell = Vector2i(0, 0)
+price = 20
+
+[sub_resource type="Resource" id="Resource_4kbpk"]
+script = ExtResource("5_a3lc4")
+type = 2
+cell = Vector2i(0, 0)
+price = 40
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytrc2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntu3u"]
+
+[sub_resource type="Theme" id="Theme_5cxui"]
+HBoxContainer/constants/separation = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5rb4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tmub8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yj4ny"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2xopu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cf3y3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h3pps"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_73j65"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n222k"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mlo7d"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kbptc"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Shop" type="Node"]
+script = ExtResource("1_n8e4a")
+available_items = Array[ExtResource("2_gkn5u")]([SubResource("Resource_naty8"), SubResource("Resource_6icfv"), SubResource("Resource_nj2v3"), SubResource("Resource_jrmxc"), SubResource("Resource_b387r"), SubResource("Resource_qua0e"), SubResource("Resource_p5e2k"), SubResource("Resource_6poxn"), SubResource("Resource_4kbpk")])
+
+[node name="Craft_station_background" parent="." instance=ExtResource("2_ndlt6")]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ytrc2")
+
+[node name="ShopHBox" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Spacer" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="ItemsPanel" type="PanelContainer" parent="PanelContainer/ShopHBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ntu3u")
+
+[node name="ShopShelves" type="VBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel"]
+layout_mode = 2
+alignment = 1
+
+[node name="SandBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+theme = SubResource("Theme_5cxui")
+alignment = 1
+
+[node name="ItemSlot1" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton1" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot1" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_tmub8")
+
+[node name="ItemSlot2" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton2" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot2" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_yj4ny")
+
+[node name="ItemSlot3" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton3" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SandBox/ItemSlot3" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_2xopu")
+
+[node name="SpecialBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemSlot4" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton4" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot4" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_cf3y3")
+
+[node name="ItemSlot5" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton5" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot5" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_h3pps")
+
+[node name="ItemSlot6" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton6" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/SpecialBox/ItemSlot6" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_73j65")
+
+[node name="EggBox" type="HBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves"]
+layout_mode = 2
+alignment = 1
+
+[node name="ItemSlot7" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton7" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot7" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_n222k")
+
+[node name="ItemSlot8" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton8" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot8" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_mlo7d")
+
+[node name="ItemSlot9" type="PanelContainer" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h5rb4")
+
+[node name="ShopButton9" parent="PanelContainer/ShopHBox/ItemsPanel/ShopShelves/EggBox/ItemSlot9" instance=ExtResource("9_nklkk")]
+layout_mode = 2
+icon = SubResource("ViewportTexture_kbptc")
+
+[node name="Spacer2" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="CartPanel" parent="PanelContainer/ShopHBox" instance=ExtResource("4_7awj6")]
+layout_mode = 2
+
+[node name="Spacer3" type="Control" parent="PanelContainer/ShopHBox"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
