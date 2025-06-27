@@ -3,11 +3,11 @@
 [ext_resource type="Resource" uid="uid://bsvf5p0v0rvxl" path="res://RESOURCES/new_bead_pile.tres" id="1_1s7ve"]
 [ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="1_uoxr8"]
 [ext_resource type="Script" path="res://RESOURCES/run_info.gd" id="2_c0gfi"]
-[ext_resource type="Resource" uid="uid://jgbstmjjwptw" path="res://RESOURCES/test_terrarium.tres" id="4_dog2i"]
+[ext_resource type="Resource" uid="uid://b8ei6u4b6qch5" path="res://RESOURCES/new_terrarium.tres" id="4_3pcvd"]
 
 [resource]
 script = ExtResource("2_c0gfi")
-money = 10
-terrarium = ExtResource("4_dog2i")
+money = 500
+terrarium = ExtResource("4_3pcvd")
 bead_pile = ExtResource("1_1s7ve")
 bracelets = Array[ExtResource("1_uoxr8")]([])

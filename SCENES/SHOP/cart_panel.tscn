@@ -1,13 +1,161 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1ml0sgcgl8q7"]
+[gd_scene load_steps=16 format=3 uid="uid://b1ml0sgcgl8q7"]
 
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="1_kjj1m"]
+[ext_resource type="PackedScene" uid="uid://b358wok1iumr3" path="res://SCENES/SHOP/cart_material_count.tscn" id="2_27fqm"]
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/cart_panel.gd" id="2_aqbl0"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="3_jhsvw"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_e64o0"]
+[ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_7uv2r"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ytvl"]
+[sub_resource type="Resource" id="Resource_2sr7l"]
+script = ExtResource("3_jhsvw")
+color = 1
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_qcesx"]
+script = ExtResource("3_jhsvw")
+color = 2
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_sgoay"]
+script = ExtResource("3_jhsvw")
+color = 3
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_r6k66"]
+script = ExtResource("4_e64o0")
+type = 1
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_hwisu"]
+script = ExtResource("4_e64o0")
+type = 2
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_ry62r"]
+script = ExtResource("4_e64o0")
+type = 3
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_3jrxa"]
+script = ExtResource("5_7uv2r")
+type = 0
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_xomr7"]
+script = ExtResource("5_7uv2r")
+type = 1
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_o6nmk"]
+script = ExtResource("5_7uv2r")
+type = 2
+cell = Vector2i(0, 0)
+price = 0
 
 [node name="CartPanel" type="PanelContainer"]
+offset_right = 528.0
+offset_bottom = 680.0
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_6ytvl")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
 theme_override_styles/panel = ExtResource("1_kjj1m")
+script = ExtResource("2_aqbl0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CurrentMoneyRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CurrentMoneyRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Current Money: "
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="VBoxContainer/CurrentMoneyRow"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="MaterialGrid" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="MaterialCount1" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_2sr7l")
+
+[node name="MaterialCount2" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_qcesx")
+
+[node name="MaterialCount3" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_sgoay")
+
+[node name="MaterialCount4" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_r6k66")
+
+[node name="MaterialCount5" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_hwisu")
+
+[node name="MaterialCount6" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_ry62r")
+
+[node name="MaterialCount7" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_3jrxa")
+
+[node name="MaterialCount8" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_xomr7")
+
+[node name="MaterialCount9" parent="VBoxContainer/MaterialGrid" instance=ExtResource("2_27fqm")]
+layout_mode = 2
+material_info = SubResource("Resource_o6nmk")
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CurrentCostRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/CurrentCostRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Cost: "
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="VBoxContainer/CurrentCostRow"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[node name="CheckoutButton" type="Button" parent="VBoxContainer/CurrentCostRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 64
+text = "Check out"
+
+[connection signal="pressed" from="VBoxContainer/CurrentCostRow/CheckoutButton" to="." method="_on_checkout_button_pressed"]

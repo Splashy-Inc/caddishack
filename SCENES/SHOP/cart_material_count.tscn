@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://b358wok1iumr3"]
+
+[ext_resource type="Script" path="res://SCRIPTS/SHOP/cart_material_count.gd" id="1_emd06"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_gw3tw"]
+[ext_resource type="PackedScene" uid="uid://bhkodgqmnjxl" path="res://SCENES/SHOP/egg_material.tscn" id="3_jq6yo"]
+
+[sub_resource type="Resource" id="Resource_fr41t"]
+script = ExtResource("2_gw3tw")
+color = 0
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe7m3"]
+bg_color = Color(0.815686, 0, 0.0588235, 0.486275)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnpmx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o5ulu"]
+viewport_path = NodePath("CartItem/SubViewport")
+
+[node name="MaterialCount" type="VBoxContainer"]
+offset_right = 48.0
+offset_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("1_emd06")
+material_info = SubResource("Resource_fr41t")
+
+[node name="CartItem" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover = SubResource("StyleBoxFlat_fe7m3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rnpmx")
+icon = SubResource("ViewportTexture_o5ulu")
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="SubViewport" type="SubViewport" parent="CartItem"]
+transparent_bg = true
+size = Vector2i(200, 135)
+
+[node name="MaterialSlot" type="Marker2D" parent="CartItem/SubViewport"]
+position = Vector2(100, 67)
+
+[node name="EggMaterial" parent="CartItem/SubViewport/MaterialSlot" instance=ExtResource("3_jq6yo")]
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="x" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "x
+"
+
+[node name="Count" type="Label" parent="HBox"]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[connection signal="pressed" from="CartItem" to="." method="_on_cart_item_pressed"]

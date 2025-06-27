@@ -7,11 +7,17 @@ class_name SandMaterial
 # Called when the node enters the scene tree for the first time.
 func _material_ready() -> void:
 	if info is SandMaterialInfo:
-		sprites.play(SandMaterialInfo.SandColor.keys()[info.color])
+		set_color(info.color)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func set_color(new_color: SandMaterialInfo.SandColor):
-	sprites.play(SandMaterialInfo.SandColor.keys()[new_color])
+	if info is SandMaterialInfo:
+		info.color = new_color
+	else:
+		info = SandMaterialInfo.new()
+	
+	if info.color != SandMaterialInfo.SandColor.COLORLESS:
+			sprites.play(SandMaterialInfo.SandColor.keys()[info.color])

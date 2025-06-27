@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=3 format=3 uid="uid://b8ei6u4b6qch5"]
+
+[ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="1_nah7q"]
+[ext_resource type="Script" path="res://RESOURCES/terrarium_info.gd" id="5_7udvv"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("5_7udvv")
+materials = Array[ExtResource("1_nah7q")]([])
