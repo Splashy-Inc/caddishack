@@ -1,10 +1,10 @@
 [gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://b4ohcrep4kgqi"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bwwcu"]
-load_path = "res://.godot/imported/Bead_Pile.png-7114a18bab8c406107ab4824a380acc2.ctex"
+[ext_resource type="Texture2D" uid="uid://dnphrsff37rd1" path="res://ASSETS/Art/GUI/Green_HighLight_Background.png" id="1_ei878"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l2us8"]
-atlas = SubResource("CompressedTexture2D_bwwcu")
+atlas = ExtResource("1_ei878")
+region = Rect2(0, 0, 200, 200)
 
 [resource]
 texture = SubResource("AtlasTexture_l2us8")

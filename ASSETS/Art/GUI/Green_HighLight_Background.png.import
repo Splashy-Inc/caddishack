@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx7ahtbs8sfsk"
-path="res://.godot/imported/Tutorial_Gif_Outline.png-42b043298c462206592082256e37c8b4.ctex"
+uid="uid://dnphrsff37rd1"
+path="res://.godot/imported/Green_HighLight_Background.png-d13376e500c8888b1542a95db1959a92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/GIMP/Tutorials/Tutorial_Gif_Outline.png"
-dest_files=["res://.godot/imported/Tutorial_Gif_Outline.png-42b043298c462206592082256e37c8b4.ctex"]
+source_file="res://ASSETS/Art/GUI/Green_HighLight_Background.png"
+dest_files=["res://.godot/imported/Green_HighLight_Background.png-d13376e500c8888b1542a95db1959a92.ctex"]
 
 [params]
 
