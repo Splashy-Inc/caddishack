@@ -10,106 +10,127 @@
 script = ExtResource("2_f1hoh")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_jh2q2"]
 script = ExtResource("2_f1hoh")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_lu261"]
 script = ExtResource("2_f1hoh")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_06vpu"]
 script = ExtResource("2_f1hoh")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_aypll"]
 script = ExtResource("2_f1hoh")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ct105"]
 script = ExtResource("2_f1hoh")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_fnkbk"]
 script = ExtResource("2_f1hoh")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_a2n2k"]
 script = ExtResource("2_f1hoh")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_f7u7g"]
 script = ExtResource("2_f1hoh")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_8ls7a"]
 script = ExtResource("3_ajqpt")
 type = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_2bpk4"]
 script = ExtResource("3_ajqpt")
 type = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_g2uq7"]
 script = ExtResource("3_ajqpt")
 type = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ybw82"]
 script = ExtResource("3_ajqpt")
 type = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_xq384"]
 script = ExtResource("3_ajqpt")
 type = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_qn30w"]
 script = ExtResource("3_ajqpt")
 type = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_nqhej"]
 script = ExtResource("3_ajqpt")
 type = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ttxry"]
 script = ExtResource("3_ajqpt")
 type = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ka58w"]
 script = ExtResource("3_ajqpt")
 type = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_kgi7a"]
 script = ExtResource("4_ro4fx")
 type = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_6kvfs"]
 script = ExtResource("4_ro4fx")
 type = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_df02x"]
 script = ExtResource("4_ro4fx")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [resource]
 resource_local_to_scene = true

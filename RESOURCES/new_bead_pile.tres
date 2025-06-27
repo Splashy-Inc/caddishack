@@ -9,11 +9,13 @@
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_5etht"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ien65"]
 script = ExtResource("1_5t0sc")
@@ -24,11 +26,13 @@ special = SubResource("Resource_5etht")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_eoq3g"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_bjd0r"]
 script = ExtResource("1_5t0sc")
@@ -39,11 +43,13 @@ special = SubResource("Resource_eoq3g")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_uxm6n"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_aikxy"]
 script = ExtResource("1_5t0sc")
@@ -54,11 +60,13 @@ special = SubResource("Resource_uxm6n")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_betjb"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_sga6k"]
 script = ExtResource("1_5t0sc")
@@ -69,11 +77,13 @@ special = SubResource("Resource_betjb")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_bkfoh"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_qx4x3"]
 script = ExtResource("1_5t0sc")
@@ -84,11 +94,13 @@ special = SubResource("Resource_bkfoh")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_2o3uf"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_pdr84"]
 script = ExtResource("1_5t0sc")
@@ -99,11 +111,13 @@ special = SubResource("Resource_2o3uf")
 script = ExtResource("2_ocxlj")
 color = 1
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_yke1y"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_o7ami"]
 script = ExtResource("1_5t0sc")
@@ -114,11 +128,13 @@ special = SubResource("Resource_yke1y")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_fyq12"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_wwsjg"]
 script = ExtResource("1_5t0sc")
@@ -129,11 +145,13 @@ special = SubResource("Resource_fyq12")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_gg1v6"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_2p5rb"]
 script = ExtResource("1_5t0sc")
@@ -144,11 +162,13 @@ special = SubResource("Resource_gg1v6")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_t72xt"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_bmwra"]
 script = ExtResource("1_5t0sc")
@@ -159,11 +179,13 @@ special = SubResource("Resource_t72xt")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_am86y"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_tdvxc"]
 script = ExtResource("1_5t0sc")
@@ -174,11 +196,13 @@ special = SubResource("Resource_am86y")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_ub7y4"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_jqwgd"]
 script = ExtResource("1_5t0sc")
@@ -189,11 +213,13 @@ special = SubResource("Resource_ub7y4")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_uy0cc"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_d5x4r"]
 script = ExtResource("1_5t0sc")
@@ -204,11 +230,13 @@ special = SubResource("Resource_uy0cc")
 script = ExtResource("2_ocxlj")
 color = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_qq6ee"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_bd2c5"]
 script = ExtResource("1_5t0sc")
@@ -219,11 +247,13 @@ special = SubResource("Resource_qq6ee")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_2jwbp"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_m1rrr"]
 script = ExtResource("1_5t0sc")
@@ -234,11 +264,13 @@ special = SubResource("Resource_2jwbp")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_xlssh"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_hcgio"]
 script = ExtResource("1_5t0sc")
@@ -249,11 +281,13 @@ special = SubResource("Resource_xlssh")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_85sfq"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_4csth"]
 script = ExtResource("1_5t0sc")
@@ -264,11 +298,13 @@ special = SubResource("Resource_85sfq")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_i6l42"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_qyodd"]
 script = ExtResource("1_5t0sc")
@@ -279,11 +315,13 @@ special = SubResource("Resource_i6l42")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_3dils"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_gon8o"]
 script = ExtResource("1_5t0sc")
@@ -294,11 +332,13 @@ special = SubResource("Resource_3dils")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_4xsbb"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_esb0t"]
 script = ExtResource("1_5t0sc")
@@ -309,11 +349,13 @@ special = SubResource("Resource_4xsbb")
 script = ExtResource("2_ocxlj")
 color = 3
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_esf5a"]
 script = ExtResource("3_572ut")
 type = 0
 cell = Vector2i(0, 0)
+price = 0
 
 [sub_resource type="Resource" id="Resource_bidtv"]
 script = ExtResource("1_5t0sc")

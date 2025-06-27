@@ -19,7 +19,6 @@ signal eggs_depleted
 func _station_ready():
 	await generate_materials()
 	hatch_next_egg()
-	Globals.run_info.terrarium = info
 
 func _on_larva_died(larva: CaddisFly):
 	larva.bead.reparent(beads_container)
@@ -57,6 +56,8 @@ func _on_eggs_depleted() -> void:
 	for child in beads_container.get_children():
 		if child is Bead:
 			Globals.run_info.bead_pile.beads.append(child.info)
+	
+	Globals.run_info.terrarium = get_terrarium_state()
 	won.emit(self)
 
 func generate_materials():
@@ -66,15 +67,14 @@ func generate_materials():
 		spawn_material(material_info)
 
 func clear_playing_field():
-	for material in materials_container.get_children():
-		materials_container.remove_child(material)
+	for material in get_materials():
+		material.get_parent().remove_child(material)
 		material.queue_free()
-	for egg in eggs_container.get_children():
-		eggs_container.remove_child(egg)
-		egg.queue_free()
+	
 	for bead in beads_container.get_children():
 		beads_container.remove_child(bead)
 		bead.queue_free()
+	
 	for larva in larvae_container.get_children():
 		larvae_container.remove_child(larva)
 		larva.queue_free()
@@ -83,3 +83,20 @@ func load_run_info():
 	info = Globals.run_info.terrarium
 	await generate_materials()
 	hatch_next_egg()
+
+func get_materials() -> Array[BeadMaterial]:
+	var materials: Array[BeadMaterial]
+	for material in materials_container.get_children():
+		materials.append(material)
+	
+	for egg in eggs_container.get_children():
+		materials.append(egg)
+	
+	return materials
+
+func get_terrarium_state() -> TerrariumInfo:
+	var new_info := TerrariumInfo.new()
+	for material in get_materials():
+		new_info.materials.append(material.info)
+	
+	return new_info

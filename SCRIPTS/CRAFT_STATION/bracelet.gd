@@ -4,6 +4,11 @@ class_name Bracelet
 
 @export var info : BraceletInfo
 
+const BASIC_POINTS = 1
+const SPECIAL_POINTS = 3
+const THREE_CHAIN_MULT = 2
+const FIVE_CHAIN_MULT = 4
+
 func _container_ready():
 	bead_array_info = info.bead_array_info
 	bead_slots = get_bead_slots()
@@ -32,10 +37,10 @@ func calculate_value() -> int:
 		# Add points to tally
 		match bead.info.special.type:
 			SpecialMaterialInfo.SpecialType.BASIC:
-				info.update_points(1)
+				info.update_points(BASIC_POINTS)
 				info.update_mult(check_chain(cur_special_chain, null, "special"))
 			_:
-				info.update_points(3)
+				info.update_points(SPECIAL_POINTS)
 				info.update_mult(check_chain(cur_special_chain, bead, "special"))
 		
 		if bead.info.sand.color != SandMaterialInfo.SandColor.COLORLESS:
@@ -70,9 +75,9 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 	
 	var mult
 	if chain.size() >= 5:
-		mult = 4
+		mult = FIVE_CHAIN_MULT
 	elif chain.size() >= 3:
-		mult = 2
+		mult = THREE_CHAIN_MULT
 	else:
 		mult = 0
 	

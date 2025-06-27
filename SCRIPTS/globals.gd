@@ -74,3 +74,6 @@ func generate_larva() -> CaddisFly:
 
 func reset_run():
 	run_info = load("res://RESOURCES/new_run.tres").duplicate()
+
+func change_run_money(amount: int):
+	run_info.money += amount

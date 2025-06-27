@@ -49,7 +49,7 @@ price = 20
 script = ExtResource("5_a3lc4")
 type = 0
 cell = Vector2i(0, 0)
-price = 10
+price = 0
 
 [sub_resource type="Resource" id="Resource_6poxn"]
 script = ExtResource("5_a3lc4")
@@ -68,7 +68,6 @@ price = 40
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntu3u"]
 
 [sub_resource type="Theme" id="Theme_5cxui"]
-HBoxContainer/constants/separation = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h5rb4"]
 
@@ -111,6 +110,7 @@ offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ytrc2")
 
 [node name="ShopHBox" type="HBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(0, 680)
 layout_mode = 2
 size_flags_vertical = 4
 
@@ -120,6 +120,7 @@ layout_mode = 2
 
 [node name="ItemsPanel" type="PanelContainer" parent="PanelContainer/ShopHBox"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ntu3u")
 
 [node name="ShopShelves" type="VBoxContainer" parent="PanelContainer/ShopHBox/ItemsPanel"]
@@ -226,7 +227,10 @@ layout_mode = 2
 
 [node name="CartPanel" parent="PanelContainer/ShopHBox" instance=ExtResource("4_7awj6")]
 layout_mode = 2
+current_money = 1000
 
 [node name="Spacer3" type="Control" parent="PanelContainer/ShopHBox"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+
+[connection signal="checkout_pressed" from="PanelContainer/ShopHBox/CartPanel" to="." method="_on_cart_panel_checkout_pressed"]
