@@ -1,13 +1,13 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4x5r54x0yddx"]
+[gd_scene load_steps=31 format=3 uid="uid://vx8qbmw15ue4"]
 
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
 [ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="2_gkn5u"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_ndlt6"]
 [ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="3_px7e6"]
-[ext_resource type="PackedScene" uid="uid://b1ml0sgcgl8q7" path="res://SCENES/SHOP/cart_panel.tscn" id="4_7awj6"]
+[ext_resource type="PackedScene" path="res://SCENES/SHOP/cart_panel.tscn" id="4_7awj6"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_7e1c6"]
 [ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_a3lc4"]
-[ext_resource type="PackedScene" uid="uid://bp7okqg1ne0u7" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
+[ext_resource type="PackedScene" uid="uid://c8wg5hnnu4iug" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
 
 [sub_resource type="Resource" id="Resource_naty8"]
 script = ExtResource("3_px7e6")
