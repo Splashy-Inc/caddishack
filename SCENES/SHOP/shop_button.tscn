@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp7okqg1ne0u7"]
+[gd_scene load_steps=7 format=3 uid="uid://c8wg5hnnu4iug"]
 
-[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
-[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
+[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
+[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_button.gd" id="3_03m4k"]
 [ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/SHOP/sand_material.tscn" id="4_meg3e"]
 

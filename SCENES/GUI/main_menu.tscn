@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://k7ghjsy8g1k0"]
+[gd_scene load_steps=18 format=3 uid="uid://k7ghjsy8g1k0"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/main_menu.gd" id="1_vkagb"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_t4ldj"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_y3ir5"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="3_0jmcg"]
+[ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="3_13olo"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
@@ -199,6 +201,9 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = ExtResource("3_13olo")
+theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
+theme_override_styles/hover = ExtResource("3_0jmcg")
 theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Play"
 
@@ -206,6 +211,9 @@ text = "Play"
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = ExtResource("3_13olo")
+theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
+theme_override_styles/hover = ExtResource("3_0jmcg")
 theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Controls"
 
@@ -214,6 +222,9 @@ custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 36
+theme_override_styles/disabled = ExtResource("3_13olo")
+theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
+theme_override_styles/hover = ExtResource("3_0jmcg")
 theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Quit"
 
