@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dv0vrqts35we6"]
 
-[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/craft_station_background.tscn" id="1_mlufi"]
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_mlufi"]
 [ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/TERRARIUM/tilemap_bugbox.tres" id="2_4baol"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="3_dgqsp"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_318al"]
@@ -8,7 +8,6 @@
 [node name="OpeningScene" type="Node2D"]
 
 [node name="Craft_station_background" parent="." instance=ExtResource("1_mlufi")]
-position = Vector2(669, 299)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 2)

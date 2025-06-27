@@ -27,6 +27,7 @@ color = Color(0, 0, 0, 0.662745)
 
 [node name="MainMenu" parent="MenuScreens" instance=ExtResource("4_f58rm")]
 visible = false
+layout_mode = 1
 offset_right = 640.0
 offset_bottom = 360.0
 
