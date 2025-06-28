@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BraceletInfo" load_steps=10 format=3 uid="uid://bqabh8t0cmf7w"]
+[gd_resource type="Resource" script_class="BraceletInfo" load_steps=10 format=3 uid="uid://co71rcrxq8h4k"]
 
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_337hf"]
 [ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_8wy5v"]
