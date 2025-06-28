@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=27 format=3 uid="uid://jgbstmjjwptw"]
+[gd_resource type="Resource" script_class="TerrariumInfo" load_steps=27 format=3 uid="uid://wd77aaw0xcp5"]
 
 [ext_resource type="Script" path="res://RESOURCES/terrarium_info.gd" id="1_5yrpj"]
 [ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="1_tu3qe"]
