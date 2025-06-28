@@ -2,7 +2,7 @@ extends Resource
 
 class_name BraceletInfo
 
-@export var bead_array_info : BeadArrayInfo
+@export var bead_array_info := BeadArrayInfo.new()
 var points := 0
 var mult := 1
 var value := 0
