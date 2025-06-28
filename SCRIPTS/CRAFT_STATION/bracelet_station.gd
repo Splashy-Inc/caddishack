@@ -57,7 +57,7 @@ func play_selection():
 		print(bracelet_panel.bracelet.info.special_chains)
 		Globals.change_run_money(bracelet_panel.bracelet.calculate_value())
 		Globals.run_info.bead_pile.beads = []
-		for bead in draw_pile.get_beads() + get_beads_in_play():
+		for bead in draw_pile.get_beads() + discard_pile.get_beads() + get_beads_in_play() :
 			if bead is Bead:
 				Globals.run_info.bead_pile.beads.append(bead.info)
 		won.emit(self)
