@@ -16,27 +16,27 @@ texture = ExtResource("1_rt5fe")
 [node name="Slot1" type="Node2D" parent="BraceletSlots"]
 position = Vector2(-75, 2)
 rotation = 1.5708
-scale = Vector2(0.325, 0.325)
+scale = Vector2(0.335, 0.335)
 
 [node name="Bracelet" parent="BraceletSlots/Slot1" instance=ExtResource("2_nkcb3")]
 
 [node name="Slot2" type="Node2D" parent="BraceletSlots"]
 position = Vector2(-25, 2)
 rotation = 1.5708
-scale = Vector2(0.325, 0.325)
+scale = Vector2(0.335, 0.335)
 
 [node name="Bracelet" parent="BraceletSlots/Slot2" instance=ExtResource("2_nkcb3")]
 
 [node name="Slot3" type="Node2D" parent="BraceletSlots"]
 position = Vector2(25, 2)
 rotation = 1.5708
-scale = Vector2(0.325, 0.325)
+scale = Vector2(0.335, 0.335)
 
 [node name="Bracelet" parent="BraceletSlots/Slot3" instance=ExtResource("2_nkcb3")]
 
 [node name="Slot4" type="Node2D" parent="BraceletSlots"]
 position = Vector2(75, 2)
 rotation = 1.5708
-scale = Vector2(0.325, 0.325)
+scale = Vector2(0.335, 0.335)
 
 [node name="Bracelet" parent="BraceletSlots/Slot4" instance=ExtResource("2_nkcb3")]
