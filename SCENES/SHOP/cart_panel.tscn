@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b1ml0sgcgl8q7"]
+[gd_scene load_steps=19 format=3 uid="uid://b1ml0sgcgl8q7"]
 
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="1_kjj1m"]
 [ext_resource type="PackedScene" uid="uid://b358wok1iumr3" path="res://SCENES/SHOP/cart_material_count.tscn" id="2_27fqm"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="3_jhsvw"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_e64o0"]
 [ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_7uv2r"]
+[ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="7_8retm"]
+[ext_resource type="StyleBox" uid="uid://djqiuusgpwpce" path="res://RESOURCES/brown_button_hover_box_texture.tres" id="8_8rwvf"]
+[ext_resource type="StyleBox" uid="uid://b5qasew2vnpnv" path="res://RESOURCES/brown_button_box_texture.tres" id="9_bhpnm"]
 
 [sub_resource type="Resource" id="Resource_2sr7l"]
 script = ExtResource("3_jhsvw")
@@ -156,6 +159,10 @@ text = "100"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 64
+theme_override_styles/disabled = ExtResource("7_8retm")
+theme_override_styles/hover_pressed = ExtResource("8_8rwvf")
+theme_override_styles/hover = ExtResource("8_8rwvf")
+theme_override_styles/normal = ExtResource("9_bhpnm")
 text = "Check out"
 
 [connection signal="pressed" from="VBoxContainer/CurrentCostRow/CheckoutButton" to="." method="_on_checkout_button_pressed"]
