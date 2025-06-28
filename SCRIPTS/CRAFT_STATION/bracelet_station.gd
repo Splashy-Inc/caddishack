@@ -50,20 +50,24 @@ func play_selection():
 		await get_tree().create_timer(.05).timeout
 	
 	if bracelet_panel.bracelet.is_complete():
-		await get_tree().create_timer(.5).timeout
-		complete_bracelet_panel.add_bracelet(bracelet_panel.bracelet)
 		print("Bracelet completed!")
 		print(bracelet_panel.bracelet.calculate_value())
 		print(bracelet_panel.bracelet.info.points)
 		print(bracelet_panel.bracelet.info.mult)
 		print(bracelet_panel.bracelet.info.color_chains)
 		print(bracelet_panel.bracelet.info.special_chains)
+		
+		await get_tree().create_timer(.5).timeout
 		Globals.change_run_money(bracelet_panel.bracelet.calculate_value())
+		complete_bracelet_panel.add_bracelet(bracelet_panel.bracelet)
+		Globals.run_info.bracelets = complete_bracelet_panel.get_bracelets_info()
+		await get_tree().create_timer(.5).timeout
+		
 		Globals.run_info.bead_pile.beads = []
 		for bead in draw_pile.get_beads() + discard_pile.get_beads() + get_beads_in_play() :
 			if bead is Bead:
 				Globals.run_info.bead_pile.beads.append(bead.info)
-		await get_tree().create_timer(.5).timeout
+		
 		won.emit(self)
 	else:
 		fill_hand()
