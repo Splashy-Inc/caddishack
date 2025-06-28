@@ -364,25 +364,25 @@ height = 44.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
 viewport_path = NodePath("BeadView")
 
-[sub_resource type="Resource" id="Resource_irq37"]
+[sub_resource type="Resource" id="Resource_o0fji"]
 resource_local_to_scene = true
 script = ExtResource("5_je05u")
 color = 0
 cell = Vector2i(0, 0)
 price = 0
 
-[sub_resource type="Resource" id="Resource_gmqog"]
+[sub_resource type="Resource" id="Resource_f5h1g"]
 resource_local_to_scene = true
 script = ExtResource("7_evvrj")
 type = 0
 cell = Vector2i(0, 0)
 price = 0
 
-[sub_resource type="Resource" id="Resource_i5yw8"]
+[sub_resource type="Resource" id="Resource_hc010"]
 resource_local_to_scene = true
 script = ExtResource("6_n4n1d")
-sand = SubResource("Resource_irq37")
-special = SubResource("Resource_gmqog")
+sand = SubResource("Resource_o0fji")
+special = SubResource("Resource_f5h1g")
 
 [node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
 collision_layer = 2
@@ -437,7 +437,7 @@ size = Vector2i(64, 126)
 [node name="Bead" parent="BeadView" instance=ExtResource("2_8xfat")]
 position = Vector2(32, 63)
 rotation = 1.5708
-info = SubResource("Resource_i5yw8")
+info = SubResource("Resource_hc010")
 
 [node name="LifespanTimer" type="Timer" parent="."]
 process_callback = 0

@@ -1,16 +1,19 @@
-[gd_resource type="Resource" script_class="RunInfo" load_steps=6 format=3 uid="uid://bogklb8arhn1d"]
+[gd_resource type="Resource" script_class="RunInfo" load_steps=8 format=3 uid="uid://lddhka87hyh8"]
 
-[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_o7yod"]
-[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="2_7x45k"]
+[ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="1_nh32b"]
 [ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="2_qnisi"]
 [ext_resource type="Script" path="res://RESOURCES/run_info.gd" id="3_41am5"]
+[ext_resource type="Resource" uid="uid://bqabh8t0cmf7w" path="res://RESOURCES/test_bracelet.tres" id="3_x6kvo"]
+[ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="5_mx8o2"]
+[ext_resource type="Script" path="res://RESOURCES/terrarium_info.gd" id="6_wyki2"]
 
-[sub_resource type="Resource" id="Resource_51uju"]
-script = ExtResource("2_7x45k")
-beads = Array[ExtResource("1_o7yod")]([])
+[sub_resource type="Resource" id="Resource_73nt0"]
+script = ExtResource("6_wyki2")
+materials = Array[ExtResource("5_mx8o2")]([])
 
 [resource]
 script = ExtResource("3_41am5")
-money = 10
-bead_pile = SubResource("Resource_51uju")
-bracelets = Array[ExtResource("2_qnisi")]([])
+money = 500
+terrarium = SubResource("Resource_73nt0")
+bead_pile = ExtResource("1_nh32b")
+bracelets = Array[ExtResource("2_qnisi")]([ExtResource("3_x6kvo")])

@@ -9,6 +9,7 @@ class_name BraceletStation
 @onready var hand_panel: BeadSet = $PlayingField/HandPanel
 @onready var selection_panel: BeadSet = $PlayingField/SelectionPanel
 @onready var bracelet_panel: BraceletContructionPanel = $PlayingField/BraceletPanel
+@onready var complete_bracelet_panel: BraceletContainer = $PlayingField/CompleteBraceletPanel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,11 +56,18 @@ func play_selection():
 		print(bracelet_panel.bracelet.info.mult)
 		print(bracelet_panel.bracelet.info.color_chains)
 		print(bracelet_panel.bracelet.info.special_chains)
+		
+		await get_tree().create_timer(.5).timeout
 		Globals.change_run_money(bracelet_panel.bracelet.calculate_value())
+		complete_bracelet_panel.add_bracelet(bracelet_panel.bracelet)
+		Globals.run_info.bracelets = complete_bracelet_panel.get_bracelets_info()
+		await get_tree().create_timer(.5).timeout
+		
 		Globals.run_info.bead_pile.beads = []
 		for bead in draw_pile.get_beads() + discard_pile.get_beads() + get_beads_in_play() :
 			if bead is Bead:
 				Globals.run_info.bead_pile.beads.append(bead.info)
+		
 		won.emit(self)
 	else:
 		fill_hand()
@@ -79,4 +87,5 @@ func load_run_info():
 	hand_panel.clear_beads()
 	discard_pile.clear_beads()
 	draw_pile.set_beads(Globals.run_info.bead_pile)
+	complete_bracelet_panel.fill_bracelets(Globals.run_info.bracelets)
 	fill_hand()

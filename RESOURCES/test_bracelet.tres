@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BraceletInfo" load_steps=10 format=3 uid="uid://bqabh8t0cmf7w"]
+
+[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_337hf"]
+[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_8wy5v"]
+[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_lo4mr"]
+[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="4_8yelv"]
+[ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="5_f6gqg"]
+
+[sub_resource type="Resource" id="Resource_85v6i"]
+script = ExtResource("2_8wy5v")
+color = 0
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_f80xw"]
+script = ExtResource("3_lo4mr")
+type = 0
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="Resource" id="Resource_tfs0a"]
+script = ExtResource("1_337hf")
+sand = SubResource("Resource_85v6i")
+special = SubResource("Resource_f80xw")
+
+[sub_resource type="Resource" id="Resource_qsshp"]
+script = ExtResource("4_8yelv")
+beads = Array[ExtResource("1_337hf")]([SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a"), SubResource("Resource_tfs0a")])
+
+[resource]
+script = ExtResource("5_f6gqg")
+bead_array_info = SubResource("Resource_qsshp")
