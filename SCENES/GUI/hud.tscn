@@ -41,11 +41,13 @@ visible = false
 visible = false
 
 [node name="PauseMenu" parent="MenuScreens" instance=ExtResource("6_k66bl")]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 
 [node name="RunInfoMenu" parent="MenuScreens" instance=ExtResource("7_te3by")]
+visible = false
 layout_mode = 1
 
 [connection signal="button_pressed" from="MenuScreens/MainMenu" to="." method="_on_game_menu_button_pressed"]
