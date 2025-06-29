@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvp1lppkqj5qi"]
+[gd_scene load_steps=4 format=3 uid="uid://b0qf7jypiefqa"]
 
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="1_l6r4l"]
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="1_xharn"]
@@ -44,5 +44,3 @@ theme_override_font_sizes/font_size = 32
 text = "10"
 horizontal_alignment = 2
 script = SubResource("GDScript_prxe1")
-
-[connection signal="pressed" from="PauseButton" to="PauseButton" method="_on_pressed"]
