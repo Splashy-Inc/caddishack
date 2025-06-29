@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cnkctrxffor63"]
 
 [ext_resource type="Texture2D" uid="uid://bnp2q0bxwdejl" path="res://ASSETS/Art/GUI/Black_Semi_Trans.png" id="1_qu5lf"]
-[ext_resource type="LabelSettings" uid="uid://g4m3njhms570" path="res://RESOURCES/text_title.tres" id="2_e7rc2"]
-[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
+[ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_e7rc2"]
+[ext_resource type="LabelSettings" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_grp5l"]
 [ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFT_STATION/Bead_Play.png" id="5_wqhf1"]
 [ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="6_pevv7"]
