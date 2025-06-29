@@ -2,11 +2,14 @@ extends AnimatedSprite2D
 
 @export var parent : BeadMaterial
 
+var cur_larva : CaddisFly
+
 var camera : Camera2D
 var viewport_rect : Rect2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = false
 	viewport_rect = get_viewport_rect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,7 +21,20 @@ func _process(delta: float) -> void:
 				camera = node
 				break
 	
-	if camera and parent:
+	if (camera and is_instance_valid(camera)) and (parent and is_instance_valid(parent)):
+		if cur_larva and is_instance_valid(cur_larva):
+			if parent.info is SandMaterialInfo and (cur_larva.egg_info.type == EggMaterialInfo.EggType.SANDY or cur_larva.egg_info.type == EggMaterialInfo.EggType.GOED):
+				visible = true
+			elif parent.info is SpecialMaterialInfo and cur_larva.egg_info.type == EggMaterialInfo.EggType.GOED:
+				visible = true
+			else:
+				visible = false
+		else:
+			for larva in get_tree().get_nodes_in_group("larvae"):
+				if larva is CaddisFly and is_instance_valid(larva):
+					cur_larva = larva
+					break
+		
 		if parent.info is SandMaterialInfo:
 			play(SandMaterialInfo.SandColor.keys()[parent.info.color])
 		elif parent.info is SpecialMaterialInfo:

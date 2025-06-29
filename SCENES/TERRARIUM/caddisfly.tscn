@@ -420,7 +420,7 @@ script = ExtResource("6_n4n1d")
 sand = SubResource("Resource_o0fji")
 special = SubResource("Resource_f5h1g")
 
-[node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
+[node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead") groups=["larvae"]]
 collision_layer = 2
 script = ExtResource("1_yra40")
 egg_info = SubResource("Resource_78r23")

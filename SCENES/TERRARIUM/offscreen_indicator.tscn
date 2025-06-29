@@ -47,7 +47,7 @@ animations = [{
 "texture": ExtResource("5_o78wo")
 }],
 "loop": true,
-"name": &"SNAIL",
+"name": &"SHELL",
 "speed": 5.0
 }, {
 "frames": [{
@@ -62,6 +62,7 @@ animations = [{
 [node name="OffscreenIndicator" type="AnimatedSprite2D"]
 z_index = 50
 z_as_relative = false
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_guseo")
 animation = &"CYAN"
 autoplay = "CYAN"
