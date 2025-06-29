@@ -10,6 +10,7 @@ class_name BraceletStation
 @onready var selection_panel: BeadSet = $PlayingField/SelectionPanel
 @onready var bracelet_panel: BraceletContructionPanel = $PlayingField/BraceletPanel
 @onready var complete_bracelet_panel: BraceletContainer = $PlayingField/CompleteBraceletPanel
+@onready var info_panel: BraceletInfoPanel = $PlayingField/InfoPanel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,7 +48,8 @@ func _on_play_pressed() -> void:
 func play_selection():
 	for bead in selection_panel.get_beads():
 		bracelet_panel.bracelet.add_bead(bead)
-		await get_tree().create_timer(.05).timeout
+		await get_tree().create_timer(.1).timeout
+		info_panel.update_bracelet_info(bracelet_panel.bracelet)
 	
 	if bracelet_panel.bracelet.is_complete():
 		print("Bracelet completed!")
