@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxq56d6rma7gn"]
+[gd_scene load_steps=5 format=3 uid="uid://bxq56d6rma7gn"]
 
 [ext_resource type="Script" path="res://SCRIPTS/screen_manager.gd" id="1_7yicb"]
 [ext_resource type="PackedScene" uid="uid://do7dpbgd6ku6n" path="res://SCENES/GUI/hud.tscn" id="2_3khgq"]
 [ext_resource type="PackedScene" uid="uid://j7kdpfxltq4j" path="res://SCENES/CRAFT_STATION/bracelet_station.tscn" id="2_ip14d"]
+[ext_resource type="AudioStream" uid="uid://bw0vctd5gj8gp" path="res://ASSETS/Audio/Cozy Bug.mp3" id="4_6scp0"]
 
 [node name="ScreenManager" type="Node"]
 process_mode = 3
@@ -10,6 +11,11 @@ script = ExtResource("1_7yicb")
 station_scene = ExtResource("2_ip14d")
 
 [node name="HUD" parent="." instance=ExtResource("2_3khgq")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6scp0")
+volume_db = -25.0
+autoplay = true
 
 [connection signal="main_menu_pressed" from="HUD" to="." method="_on_main_menu_pressed"]
 [connection signal="play_pressed" from="HUD" to="." method="_on_play_pressed"]
