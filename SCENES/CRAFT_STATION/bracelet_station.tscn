@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://j7kdpfxltq4j"]
+[gd_scene load_steps=14 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
 [ext_resource type="PackedScene" uid="uid://dgcnerkvrs865" path="res://SCENES/run_info_button.tscn" id="12_b481e"]
+[ext_resource type="PackedScene" uid="uid://b0qf7jypiefqa" path="res://SCENES/GUI/station_ui.tscn" id="13_vg1c5"]
 
 [node name="BraceletStation" type="Node"]
 script = ExtResource("1_opsq7")
@@ -81,6 +82,8 @@ offset_left = 1081.0
 offset_top = 396.0
 offset_right = 1217.0
 offset_bottom = 457.0
+
+[node name="StationUI" parent="." instance=ExtResource("13_vg1c5")]
 
 [connection signal="pressed" from="PlayingField/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="bead_clicked" from="PlayingField/SelectionPanel" to="." method="_on_selection_panel_bead_clicked"]

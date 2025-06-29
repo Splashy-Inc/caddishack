@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://2tvle0b4ckdc"]
+[gd_scene load_steps=8 format=3 uid="uid://2tvle0b4ckdc"]
 
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_cb6xo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
 [ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/SHOP/bead_material.tscn" id="3_ec5by"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/larva_camera.gd" id="7_l05fv"]
+[ext_resource type="PackedScene" uid="uid://b0qf7jypiefqa" path="res://SCENES/GUI/station_ui.tscn" id="7_qsx03"]
 
 [node name="TerrariumStation" type="Node"]
 script = ExtResource("1_6dh60")
@@ -28,5 +29,7 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="LarvaCamera" type="Camera2D" parent="PlayingField"]
 script = ExtResource("7_l05fv")
+
+[node name="StationUI" parent="." instance=ExtResource("7_qsx03")]
 
 [connection signal="eggs_depleted" from="." to="." method="_on_eggs_depleted"]

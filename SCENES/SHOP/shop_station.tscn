@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4x5r54x0yddx"]
+[gd_scene load_steps=32 format=3 uid="uid://b4x5r54x0yddx"]
 
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
 [ext_resource type="Script" path="res://RESOURCES/material_info.gd" id="2_gkn5u"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1ml0sgcgl8q7" path="res://SCENES/SHOP/cart_panel.tscn" id="4_7awj6"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_7e1c6"]
 [ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_a3lc4"]
+[ext_resource type="PackedScene" uid="uid://b0qf7jypiefqa" path="res://SCENES/GUI/station_ui.tscn" id="9_f773f"]
 [ext_resource type="PackedScene" uid="uid://bp7okqg1ne0u7" path="res://SCENES/SHOP/shop_button.tscn" id="9_nklkk"]
 
 [sub_resource type="Resource" id="Resource_naty8"]
@@ -232,5 +233,7 @@ current_money = 1000
 [node name="Spacer3" type="Control" parent="PanelContainer/ShopHBox"]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
+
+[node name="StationUI" parent="." instance=ExtResource("9_f773f")]
 
 [connection signal="checkout_pressed" from="PanelContainer/ShopHBox/CartPanel" to="." method="_on_cart_panel_checkout_pressed"]
