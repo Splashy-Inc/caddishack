@@ -1,10 +1,29 @@
 extends AnimatedSprite2D
 
+@export var parent : Node2D
+
+var camera : Camera2D
+var viewport_rect : Rect2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	viewport_rect = get_viewport_rect()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var viewport_size = get_viewport_rect().size
-	position = Vector2(clamp(position.x, 0 + (16 * scale.x), viewport_size.x - (16 * scale.x)), clamp(position.y, 0 + (16 * scale.y), viewport_size.y - (16 * scale.y)))
+	if not camera:
+		var camera_nodes = get_tree().get_nodes_in_group("camera")
+		for node in camera_nodes:
+			if node is Camera2D:
+				camera = node
+				break
+	
+	if camera and parent:
+		
+		global_position = parent.global_position
+		
+		var x_distance_limit = viewport_rect.size.x/2 - (16 * scale.x)
+		global_position.x = clamp(global_position.x, camera.global_position.x - x_distance_limit, camera.global_position.x + x_distance_limit)
+		
+		var y_distance_limit = viewport_rect.size.y/2 - (16 * scale.y)
+		global_position.y = clamp(global_position.y, camera.global_position.y - y_distance_limit, camera.global_position.y + y_distance_limit)

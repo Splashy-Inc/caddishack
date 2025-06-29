@@ -27,7 +27,7 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="Larvae" type="Node" parent="PlayingField"]
 
-[node name="LarvaCamera" type="Camera2D" parent="PlayingField"]
+[node name="LarvaCamera" type="Camera2D" parent="PlayingField" groups=["camera"]]
 script = ExtResource("7_l05fv")
 
 [node name="StationUI" parent="." instance=ExtResource("7_qsx03")]
