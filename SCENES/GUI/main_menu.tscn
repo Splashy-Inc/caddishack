@@ -7,7 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="3_10o7g"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="3_13olo"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
-[ext_resource type="LabelSettings" path="res://RESOURCES/text_subtitle.tres" id="4_opdua"]
+[ext_resource type="LabelSettings" uid="uid://drl3m8g6bkhol" path="res://RESOURCES/text_subtitle.tres" id="4_opdua"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
 

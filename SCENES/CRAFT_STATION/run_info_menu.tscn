@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnkctrxffor63"]
+[gd_scene load_steps=12 format=3 uid="uid://cnkctrxffor63"]
 
 [ext_resource type="Texture2D" uid="uid://bnp2q0bxwdejl" path="res://ASSETS/Art/GUI/Black_Semi_Trans.png" id="1_qu5lf"]
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/run_info_menu.gd" id="1_vgp1s"]
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_e7rc2"]
-[ext_resource type="LabelSettings" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
+[ext_resource type="LabelSettings" uid="uid://drl3m8g6bkhol" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_grp5l"]
 [ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFT_STATION/Bead_Play.png" id="5_wqhf1"]
-[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="6_pevv7"]
+[ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="6_8qbhg"]
+[ext_resource type="PackedScene" uid="uid://bqmyglx3n5yyp" path="res://SCENES/CRAFT_STATION/complete_bracelet_panel.tscn" id="8_kiesg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xkpss"]
 font = ExtResource("4_grp5l")
@@ -14,9 +16,16 @@ font_color = Color(0.941176, 0.827451, 0.760784, 1)
 outline_size = 5
 outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 
-[node name="RunInfoMenu" type="Node2D"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_qdeey"]
+viewport_path = NodePath("VBoxContainer/HBoxContainer/BeadPileBox/BeadPile_Background/SubViewport")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[sub_resource type="ViewportTexture" id="ViewportTexture_028eo"]
+viewport_path = NodePath("VBoxContainer/HBoxContainer/BraceletsBox/Bracelet_Background/SubViewport")
+
+[node name="RunInfoMenu" type="CanvasLayer"]
+script = ExtResource("1_vgp1s")
+
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,115 +39,95 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_qu5lf")
 
-[node name="Run Info" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -155.5
-offset_top = -351.0
-offset_right = 155.5
-offset_bottom = -265.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 0
 text = "Run Info"
 label_settings = ExtResource("2_e7rc2")
+horizontal_alignment = 1
 
-[node name="Money" type="Node" parent="."]
+[node name="MoneyBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Money_label" type="Label" parent="Money"]
-offset_left = -135.0
-offset_top = -236.0
-offset_right = -39.0
-offset_bottom = -198.0
+[node name="Label" type="Label" parent="VBoxContainer/MoneyBox"]
+layout_mode = 2
 text = "Money"
 label_settings = ExtResource("3_diuyp")
 
-[node name="#" type="Label" parent="Money"]
-offset_left = 77.0
-offset_top = -236.0
-offset_right = 117.0
-offset_bottom = -198.0
+[node name="Value" type="Label" parent="VBoxContainer/MoneyBox"]
+layout_mode = 2
 text = "#"
 label_settings = ExtResource("3_diuyp")
 
-[node name="Materials" type="Node" parent="."]
+[node name="MaterialsBox" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 
-[node name="Materials_label" type="Label" parent="Materials"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -784.0
-offset_top = -551.0
-offset_right = -496.0
-offset_bottom = -475.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="VBoxContainer/MaterialsBox"]
+layout_mode = 2
 text = "Materials"
 label_settings = SubResource("LabelSettings_xkpss")
-metadata/_edit_use_anchors_ = true
+horizontal_alignment = 1
 
-[node name="container_background" type="Sprite2D" parent="Materials"]
-position = Vector2(0, -57)
-scale = Vector2(1.65, 1)
+[node name="Panel" type="TextureRect" parent="VBoxContainer/MaterialsBox"]
+layout_mode = 2
 texture = ExtResource("5_wqhf1")
 
-[node name="Materials_Panel_Container" type="PanelContainer" parent="Materials"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1254.5
-offset_top = -454.0
-offset_right = -35.5
-offset_bottom = -380.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
 
-[node name="Bead_Pile" type="Node" parent="."]
+[node name="BeadPileBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Bead_Pile_Label" type="Label" parent="Bead_Pile"]
-offset_left = -392.0
-offset_top = 23.0
-offset_right = -251.0
-offset_bottom = 61.0
+[node name="Bead_Pile_Label" type="Label" parent="VBoxContainer/HBoxContainer/BeadPileBox"]
+layout_mode = 2
 text = "Bead Pile"
 label_settings = ExtResource("3_diuyp")
+horizontal_alignment = 1
 
-[node name="BeadPile_Background" type="Sprite2D" parent="Bead_Pile"]
-position = Vector2(-317, 204)
-scale = Vector2(3, 1.25)
-texture = ExtResource("6_pevv7")
+[node name="BeadPile_Background" type="TextureRect" parent="VBoxContainer/HBoxContainer/BeadPileBox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_qdeey")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="Bead_Pile_Panel_Container" type="PanelContainer" parent="Bead_Pile"]
-offset_left = -585.0
-offset_top = 92.0
-offset_right = -48.0
-offset_bottom = 314.0
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/HBoxContainer/BeadPileBox/BeadPile_Background"]
+size = Vector2i(200, 200)
 
-[node name="Bracelets" type="Node" parent="."]
+[node name="BeadPile" parent="VBoxContainer/HBoxContainer/BeadPileBox/BeadPile_Background/SubViewport" instance=ExtResource("6_8qbhg")]
+position = Vector2(100, 100)
 
-[node name="Bracelets_Label" type="Label" parent="Bracelets"]
-offset_left = 250.0
-offset_top = 25.0
-offset_right = 394.0
-offset_bottom = 63.0
+[node name="BraceletsBox" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bracelets_Label" type="Label" parent="VBoxContainer/HBoxContainer/BraceletsBox"]
+layout_mode = 2
 text = "Bracelets"
 label_settings = ExtResource("3_diuyp")
+horizontal_alignment = 1
 
-[node name="Bracelet_Background" type="Sprite2D" parent="Bracelets"]
-position = Vector2(317, 204)
-scale = Vector2(3, 1.25)
-texture = ExtResource("6_pevv7")
+[node name="Bracelet_Background" type="TextureRect" parent="VBoxContainer/HBoxContainer/BraceletsBox"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_028eo")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="Bracelet_Panel_Container" type="PanelContainer" parent="Bracelets"]
-offset_left = 49.0
-offset_top = 92.0
-offset_right = 586.0
-offset_bottom = 314.0
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/HBoxContainer/BraceletsBox/Bracelet_Background"]
+size = Vector2i(214, 254)
+
+[node name="CompleteBraceletPanel" parent="VBoxContainer/HBoxContainer/BraceletsBox/Bracelet_Background/SubViewport" instance=ExtResource("8_kiesg")]
+position = Vector2(107, 127)
