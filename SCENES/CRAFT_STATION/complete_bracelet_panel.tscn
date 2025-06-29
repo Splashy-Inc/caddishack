@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="2_nkcb3"]
 
 [node name="CompleteBraceletPanel" type="Node2D"]
-position = Vector2(142, 141)
 script = ExtResource("1_wr2mv")
 
 [node name="Background" type="Sprite2D" parent="."]

@@ -43,6 +43,15 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_1q666")
 text = "Resume"
 
+[node name="RunInfoButton" type="Button" parent="MenuContent/MenuButtons"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_t0bl3")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_1q666")
+text = "Run Info"
+
 [node name="RestartButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
@@ -50,7 +59,7 @@ size_flags_horizontal = 4
 theme = ExtResource("3_t0bl3")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_1q666")
-text = "Restart"
+text = "Restart Run"
 
 [node name="ControlsButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
@@ -72,6 +81,7 @@ theme_override_styles/normal = ExtResource("2_1q666")
 text = "Main Menu"
 
 [connection signal="pressed" from="MenuContent/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MenuContent/MenuButtons/RunInfoButton" to="." method="_on_run_info_button_pressed"]
 [connection signal="pressed" from="MenuContent/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="MenuContent/MenuButtons/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MenuContent/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

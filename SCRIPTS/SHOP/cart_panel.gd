@@ -25,10 +25,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func add_material(material: MaterialInfo):
-	if not material in materials:
-		materials.append(material)
+func add_material(new_material_info: MaterialInfo):
+	if not new_material_info in materials:
+		materials.append(new_material_info)
 	update_materials_display()
+
+func set_materials(materials_info: Array[MaterialInfo]):
+	clear_cart()
+	for material_info in materials_info:
+		add_material(material_info)
 
 func remove_material(material: MaterialInfo):
 	materials.erase(material)
@@ -45,6 +50,10 @@ func reset_cart():
 	materials.clear()
 	for i in clamp(10 - Globals.run_info.bead_pile.get_beads().size(), 0, 10) - get_eggs(materials).size():
 		materials.append(EggMaterialInfo.new())
+	update_materials_display()
+
+func clear_cart():
+	materials.clear()
 	update_materials_display()
 
 func _on_checkout_button_pressed() -> void:

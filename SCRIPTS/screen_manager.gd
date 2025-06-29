@@ -43,6 +43,14 @@ func toggle_pause_menu():
 		else:
 			_resume_play()
 
+func toggle_run_info():
+	if hud.cur_menu != HUD.Menus.MAIN and hud.cur_menu != HUD.Menus.CONTROLS:
+		if not paused:
+			_pause_play()
+			hud._show_run_info()
+		else:
+			_resume_play()
+
 func _on_quit_pressed():
 	get_tree().quit()
 
@@ -55,6 +63,9 @@ func _on_play_pressed():
 func _input(event):
 	if event.is_action_pressed("pause"):
 		toggle_pause_menu()
+	elif event.is_action_pressed("run_info"):
+		toggle_run_info()
+		get_viewport().set_input_as_handled()
 
 func _restart_station():
 	game_ended = false
@@ -82,6 +93,7 @@ func _restart_station():
 func _on_restart_pressed():
 	# TODO: Get resetting to behave as expected (doesn't actually reset run at this point)
 	Globals.reset_run()
+	_set_station(Globals.ordered_stations.back())
 	_restart_station()
 	_resume_play()
 
