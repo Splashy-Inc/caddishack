@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2s6ijb7ethvd"]
+
+[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="1_dwyw3"]
+[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="2_revxf"]
+[ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="3_jterx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fd0g"]
+font = ExtResource("3_jterx")
+font_size = 21
+font_color = Color(0.941176, 0.827451, 0.760784, 1)
+outline_size = 5
+outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rj2k0"]
+font = ExtResource("3_jterx")
+font_size = 21
+font_color = Color(0.941176, 0.827451, 0.760784, 1)
+outline_size = 5
+outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+
+[node name="ItemInfoBox" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwyw3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -88.0
+offset_right = 89.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="item_name_label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Item Name"
+label_settings = ExtResource("2_revxf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label1" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Lable 1"
+label_settings = SubResource("LabelSettings_3fd0g")
+
+[node name="Value1" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Value 1"
+label_settings = SubResource("LabelSettings_rj2k0")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Lable 2"
+label_settings = SubResource("LabelSettings_3fd0g")
+
+[node name="Value2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Value 2"
+label_settings = SubResource("LabelSettings_rj2k0")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Lable 3"
+label_settings = SubResource("LabelSettings_3fd0g")
+
+[node name="Value3" type="Label" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Value 3"
+label_settings = SubResource("LabelSettings_rj2k0")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Lable 4"
+label_settings = SubResource("LabelSettings_3fd0g")
+
+[node name="Value4" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Value 4"
+label_settings = SubResource("LabelSettings_rj2k0")
