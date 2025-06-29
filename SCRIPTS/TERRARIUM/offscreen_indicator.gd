@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-@export var parent : Node2D
+@export var parent : BeadMaterial
 
 var camera : Camera2D
 var viewport_rect : Rect2
@@ -19,6 +19,10 @@ func _process(delta: float) -> void:
 				break
 	
 	if camera and parent:
+		if parent.info is SandMaterialInfo:
+			play(SandMaterialInfo.SandColor.keys()[parent.info.color])
+		elif parent.info is SpecialMaterialInfo:
+			play(SpecialMaterialInfo.SpecialType.keys()[parent.info.type])
 		
 		global_position = parent.global_position
 		
