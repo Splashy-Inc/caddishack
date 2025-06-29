@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://k7ghjsy8g1k0"]
+[gd_scene load_steps=27 format=3 uid="uid://k7ghjsy8g1k0"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/main_menu.gd" id="1_vkagb"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_t4ldj"]
@@ -7,10 +7,72 @@
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="3_10o7g"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="3_13olo"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
-[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="4_opdua"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]
-[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="5_t46o3"]
+[ext_resource type="Texture2D" uid="uid://bnp2q0bxwdejl" path="res://ASSETS/Art/GUI/Black_Semi_Trans.png" id="5_tkm0o"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
+[ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="12_1tren"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2mwv2"]
+font = ExtResource("12_1tren")
+font_size = 40
+font_color = Color(0.941176, 0.827451, 0.760784, 1)
+outline_size = 5
+outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+
+[sub_resource type="Theme" id="Theme_o2nxr"]
+default_font = ExtResource("12_1tren")
+default_font_size = 32
+Button/colors/font_color = Color(0.941176, 0.827451, 0.760784, 1)
+Button/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+Button/constants/outline_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_ucu1t"]
+font = ExtResource("12_1tren")
+font_size = 32
+font_color = Color(0.117647, 0.321569, 0.223529, 1)
+outline_size = 5
+outline_color = Color(0.054902, 0.14902, 0.105882, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.564706)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="Animation" id="Animation_2s6jr"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [40, 42, 40]
+}
+
+[sub_resource type="Animation" id="Animation_hakrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bm7r2"]
+_data = {
+"RESET": SubResource("Animation_hakrt"),
+"new_animation": SubResource("Animation_2s6jr")
+}
 
 [sub_resource type="Animation" id="Animation_rdm25"]
 length = 0.001
@@ -172,6 +234,7 @@ alignment = 1
 
 [node name="Title" type="Label" parent="MenuContent"]
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.1184, 0.32, 0.22256, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.564706)
 theme_override_colors/font_outline_color = Color(0.054902, 0.14902, 0.105882, 1)
@@ -192,8 +255,16 @@ theme_override_colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "A cozy, bug bead-based bracelet builder"
-label_settings = ExtResource("4_opdua")
+label_settings = SubResource("LabelSettings_2mwv2")
 horizontal_alignment = 1
+
+[node name="Spacer" type="TextureRect" parent="MenuContent"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_tkm0o")
+expand_mode = 2
+stretch_mode = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="MenuContent"]
 layout_mode = 2
@@ -205,9 +276,8 @@ alignment = 1
 [node name="PlayButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_t46o3")
-theme_override_font_sizes/font_size = 36
+theme = SubResource("Theme_o2nxr")
+theme_override_font_sizes/font_size = 44
 theme_override_styles/disabled = ExtResource("3_13olo")
 theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
 theme_override_styles/hover = ExtResource("3_0jmcg")
@@ -217,8 +287,8 @@ text = "Play"
 [node name="ControlsButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-theme = ExtResource("5_t46o3")
-theme_override_font_sizes/font_size = 36
+theme = SubResource("Theme_o2nxr")
+theme_override_font_sizes/font_size = 44
 theme_override_styles/disabled = ExtResource("3_13olo")
 theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
 theme_override_styles/hover = ExtResource("3_0jmcg")
@@ -228,14 +298,38 @@ text = "Controls"
 [node name="QuitButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_t46o3")
-theme_override_font_sizes/font_size = 36
+theme = SubResource("Theme_o2nxr")
+theme_override_font_sizes/font_size = 44
 theme_override_styles/disabled = ExtResource("3_13olo")
 theme_override_styles/hover_pressed = ExtResource("3_0jmcg")
 theme_override_styles/hover = ExtResource("3_0jmcg")
 theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Quit"
+
+[node name="Spacer2" type="TextureRect" parent="MenuContent/MenuButtons"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("5_tkm0o")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="…caddisfly" type="Label" parent="MenuContent"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("12_1tren")
+theme_override_font_sizes/font_size = 48
+text = "…caddisfly larvae make protective casings from resources in their environment…"
+label_settings = SubResource("LabelSettings_ucu1t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuContent/…caddisfly"]
+libraries = {
+"": SubResource("AnimationLibrary_bm7r2")
+}
+autoplay = "new_animation"
 
 [node name="Larvae" type="Node2D" parent="."]
 
