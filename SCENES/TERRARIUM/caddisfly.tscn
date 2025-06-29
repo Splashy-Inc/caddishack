@@ -1,12 +1,48 @@
-[gd_scene load_steps=37 format=3 uid="uid://bavo2v0il8e4"]
+[gd_scene load_steps=42 format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
 [ext_resource type="Texture2D" uid="uid://cw0mol22xbie8" path="res://ASSETS/Art/TERRARIUM/BugBody.png" id="1_n3c84"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/caddisfly.gd" id="1_yra40"]
+[ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="2_2cfqc"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="2_8xfat"]
+[ext_resource type="Texture2D" uid="uid://bg5kyvt6hx1ma" path="res://ASSETS/Art/TERRARIUM/BugBody_Goed.png" id="3_cft4w"]
+[ext_resource type="Texture2D" uid="uid://h2fkldbyktc3" path="res://ASSETS/Art/TERRARIUM/BugBody_Special.png" id="4_rfjjw"]
 [ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="5_je05u"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="6_n4n1d"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="7_evvrj"]
+
+[sub_resource type="Resource" id="Resource_78r23"]
+script = ExtResource("2_2cfqc")
+type = 0
+cell = Vector2i(0, 0)
+price = 0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bisof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n3c84")
+}],
+"loop": true,
+"name": &"BASIC",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cft4w")
+}],
+"loop": true,
+"name": &"GOED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rfjjw")
+}],
+"loop": true,
+"name": &"SANDY",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l13m"]
 atlas = ExtResource("1_gf3mp")
@@ -387,12 +423,14 @@ special = SubResource("Resource_f5h1g")
 [node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead")]
 collision_layer = 2
 script = ExtResource("1_yra40")
+egg_info = SubResource("Resource_78r23")
 bead = NodePath("BeadView/Bead")
 
-[node name="BugBody" type="Sprite2D" parent="."]
+[node name="BugBody" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 57)
 rotation = 1.5708
-texture = ExtResource("1_n3c84")
+sprite_frames = SubResource("SpriteFrames_bisof")
+animation = &"BASIC"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
