@@ -59,7 +59,7 @@ size_flags_horizontal = 4
 theme = ExtResource("3_t0bl3")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("2_1q666")
-text = "Restart"
+text = "Restart Run"
 
 [node name="ControlsButton" type="Button" parent="MenuContent/MenuButtons"]
 custom_minimum_size = Vector2(100, 20)
