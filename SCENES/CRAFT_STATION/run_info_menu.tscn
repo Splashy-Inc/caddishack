@@ -101,18 +101,18 @@ transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(528, 680)
 
-[node name="CartPanel" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport" instance=ExtResource("5_ldvqm")]
+[node name="MaterialPanel" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport" instance=ExtResource("5_ldvqm")]
 
-[node name="CurrentMoneyRow" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/CartPanel/VBoxContainer" index="0"]
+[node name="CurrentMoneyRow" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/MaterialPanel/VBoxContainer" index="0"]
 visible = false
 
-[node name="Spacer2" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/CartPanel/VBoxContainer" index="2"]
+[node name="Spacer2" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/MaterialPanel/VBoxContainer" index="2"]
 visible = false
 
-[node name="CurrentCostRow" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/CartPanel/VBoxContainer" index="3"]
+[node name="CurrentCostRow" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/MaterialPanel/VBoxContainer" index="3"]
 visible = false
 
-[node name="CheckoutButton" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/CartPanel/VBoxContainer/CurrentCostRow" index="2"]
+[node name="CheckoutButton" parent="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/MaterialPanel/VBoxContainer/CurrentCostRow" index="2"]
 theme = null
 
 [node name="BeadPileBox" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ThingsInfobox"]
@@ -176,4 +176,4 @@ text = "Press any key to exit"
 label_settings = ExtResource("3_diuyp")
 horizontal_alignment = 1
 
-[editable path="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/CartPanel"]
+[editable path="PanelContainer/VBoxContainer/ThingsInfobox/MaterialsBox/BeadPile_Background/SubViewport/MaterialPanel"]
