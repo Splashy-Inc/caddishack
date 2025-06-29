@@ -4,9 +4,9 @@ class_name RunInfoMenu
 
 signal exited
 
-@onready var money_value: Label = $VBoxContainer/MoneyBox/HBoxContainer/Value
-@onready var bead_pile: BeadPile = $VBoxContainer/HBoxContainer/BeadPileBox/BeadPile_Background/SubViewport/BeadPile
-@onready var complete_bracelet_panel: BraceletContainer = $VBoxContainer/HBoxContainer/BraceletsBox/Bracelet_Background/SubViewport/CompleteBraceletPanel
+@onready var money_value: Label = $PanelContainer/VBoxContainer/MoneyBox/HBoxContainer/Value
+@onready var bead_pile: BeadPile = $PanelContainer/VBoxContainer/ThingsInfobox/BeadPileBox/BeadPile_Background/SubViewport/BeadPile
+@onready var complete_bracelet_panel: BraceletContainer = $PanelContainer/VBoxContainer/ThingsInfobox/BraceletsBox/Bracelet_Background/SubViewport/CompleteBraceletPanel
 
 
 # Called when the node enters the scene tree for the first time.

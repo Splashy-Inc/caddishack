@@ -58,6 +58,8 @@ func _go_back_screen():
 	match prev_menu:
 		Menus.PAUSE:
 			show_pause_menu()
+		Menus.NONE:
+			play_pressed.emit()
 		_:
 			show_main_menu()
 

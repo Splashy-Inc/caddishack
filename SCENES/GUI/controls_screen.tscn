@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/controls_screen.gd" id="1_tvbxo"]
 [ext_resource type="Script" path="res://SCRIPTS/GUI/controls_tab_container.gd" id="2_pnoft"]
-[ext_resource type="StyleBox" uid="uid://1mss4twkxib3" path="res://RESOURCES/button_box_normal.tres" id="2_tn6xa"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_tn6xa"]
 [ext_resource type="Texture2D" uid="uid://bsnl2lvtbxral" path="res://ASSETS/Art/joystick/Joystick.png" id="3_1l55u"]
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="4_lo2b3"]
 
@@ -10,7 +10,7 @@
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 
 [node name="HowToPlayScreen" type="Control"]
-custom_minimum_size = Vector2(640, 360)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 640.0
@@ -18,7 +18,7 @@ offset_bottom = 360.0
 script = ExtResource("1_tvbxo")
 
 [node name="ScreenRows" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(640, 360)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 339.0

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="4_2dhfs"]
 [ext_resource type="PackedScene" uid="uid://bqmyglx3n5yyp" path="res://SCENES/CRAFT_STATION/complete_bracelet_panel.tscn" id="5_r3loc"]
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
-[ext_resource type="Theme" path="res://RESOURCES/brown_text.tres" id="6_nek36"]
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="6_nek36"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="7_atnpg"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
