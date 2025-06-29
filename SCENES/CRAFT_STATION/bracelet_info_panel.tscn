@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://1guuvhm3f7g"]
+[gd_scene load_steps=7 format=3 uid="uid://1guuvhm3f7g"]
 
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_info_panel.gd" id="1_7kj4q"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="1_125mw"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="2_ftofv"]
 [ext_resource type="StyleBox" uid="uid://djqiuusgpwpce" path="res://RESOURCES/brown_button_hover_box_texture.tres" id="3_u5r03"]
@@ -10,6 +11,7 @@
 [node name="InfoPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_7kj4q")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 2
