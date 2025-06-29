@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func spawn_larva():
 	var new_larva := Globals.generate_larva()
+	new_larva.initialize(info)
 	is_hatched = true
 	top.apply_impulse(Vector2.UP * SPEED)
 	bottom.apply_impulse(Vector2.DOWN * SPEED)

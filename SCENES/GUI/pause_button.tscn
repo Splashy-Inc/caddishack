@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://l63bub3q0j7s"]
+[gd_scene load_steps=5 format=3 uid="uid://l63bub3q0j7s"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/pause_button.gd" id="1_0kkv0"]
 [ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_pur8u"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="2_diqf3"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="3_f7lgt"]
 
 [node name="PauseButton" type="Button"]
-offset_left = 32.0
-offset_top = 21.0
-offset_right = 70.0
-offset_bottom = 42.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 10.0
+offset_right = 46.0
+offset_bottom = 68.0
+grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_pur8u")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/hover = ExtResource("2_diqf3")
+theme_override_styles/normal = ExtResource("3_f7lgt")
 text = "PAUSE"
 script = ExtResource("1_0kkv0")
 

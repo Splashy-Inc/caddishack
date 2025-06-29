@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7iv6evm4yvgl"]
+
+[ext_resource type="Texture2D" uid="uid://bg65527aqwgau" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_cyan_sand.png" id="1_bc7mv"]
+[ext_resource type="Texture2D" uid="uid://1ncj1o480536" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_Jimmie.png" id="2_41y4h"]
+[ext_resource type="Texture2D" uid="uid://bq4j6uuhgjy3b" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_magenta_sand.png" id="3_vumtd"]
+[ext_resource type="Texture2D" uid="uid://dfous28byjbf4" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_pearl.png" id="4_rrdb5"]
+[ext_resource type="Texture2D" uid="uid://13flnjv3r24d" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_snail.png" id="5_o78wo"]
+[ext_resource type="Texture2D" uid="uid://dr1iytgduklms" path="res://ASSETS/Art/TERRARIUM/Indicators/indicator_yellow_sand.png" id="6_3qoiw"]
+[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/offscreen_indicator.gd" id="7_5tqfv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_guseo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bc7mv")
+}],
+"loop": true,
+"name": &"CYAN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_41y4h")
+}],
+"loop": true,
+"name": &"JIMMIE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vumtd")
+}],
+"loop": true,
+"name": &"MAGENTA",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_rrdb5")
+}],
+"loop": true,
+"name": &"PEARL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o78wo")
+}],
+"loop": true,
+"name": &"SHELL",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3qoiw")
+}],
+"loop": true,
+"name": &"YELLOW",
+"speed": 5.0
+}]
+
+[node name="OffscreenIndicator" type="AnimatedSprite2D"]
+z_index = 50
+z_as_relative = false
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_guseo")
+animation = &"CYAN"
+autoplay = "CYAN"
+script = ExtResource("7_5tqfv")

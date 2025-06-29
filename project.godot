@@ -40,6 +40,8 @@ folder_colors={
 [global_group]
 
 shop_buttons=""
+camera=""
+larvae=""
 
 [gui]
 

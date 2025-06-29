@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bval43aybs8wf"]
+[gd_scene load_steps=6 format=3 uid="uid://bval43aybs8wf"]
 
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shell_material.gd" id="1_a46kc"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="1_kfds8"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="2_1dvpj"]
+[ext_resource type="PackedScene" uid="uid://c7iv6evm4yvgl" path="res://SCENES/TERRARIUM/offscreen_indicator.tscn" id="4_arsdr"]
 
 [sub_resource type="Resource" id="Resource_0abyr"]
 script = ExtResource("2_1dvpj")
@@ -27,3 +28,6 @@ polygon = PackedVector2Array(-42, -3, -42, -2, -46, -2, -46, -1, -48, -1, -48, 0
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(41, -3, 41, -2, 37, -2, 37, -1, 35, -1, 35, 0, 33, 0, 33, 1, 32, 1, 32, 2, 31, 2, 31, 3, 30, 3, 30, 5, 29, 5, 29, 7, 28, 7, 28, 11, 27, 11, 27, 16, 26, 16, 26, 20, 27, 20, 27, 22, 28, 22, 28, 24, 30, 24, 30, 25, 32, 25, 32, 26, 39, 26, 39, 27, 42, 27, 42, 28, 44, 28, 44, 27, 48, 27, 48, 26, 50, 26, 50, 25, 52, 25, 52, 24, 53, 24, 53, 23, 54, 23, 54, 22, 55, 22, 55, 21, 56, 21, 56, 18, 57, 18, 57, 14, 58, 14, 58, 11, 57, 11, 57, 7, 56, 7, 56, 5, 55, 5, 55, 3, 54, 3, 54, 2, 53, 2, 53, 1, 52, 1, 52, 0, 50, 0, 50, -1, 48, -1, 48, -2, 44, -2, 44, -3)
+
+[node name="OffscreenIndicator" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("4_arsdr")]
+parent = NodePath("..")

@@ -9,12 +9,15 @@ const SPEED = 650.0
 var speed_mod := 1.0
 var direction : Vector2
 
+@export var egg_info : EggMaterialInfo
+
 @export var bead : Bead
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bead_center: Marker2D = $BeadCenter
 @onready var bead_bar: TextureProgressBar = $BeadBar
 @onready var lifespan_timer: Timer = $LifespanTimer
+@onready var bug_body: AnimatedSprite2D = $BugBody
 
 var material_queue : Array[MaterialInfo]
 
@@ -23,6 +26,7 @@ func _ready() -> void:
 		bead.completed.connect(_on_bead_completed)
 	bead_bar.max_value = lifespan_timer.wait_time
 	bead_bar.value = 0
+	update_type()
 
 func _physics_process(delta: float) -> void:
 	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
@@ -82,3 +86,11 @@ func place_material_from_queue():
 func _on_bead_completed():
 	lifespan_timer.stop()
 	animation_player.play("retract")
+
+func initialize(new_egg_info: EggMaterialInfo):
+	egg_info = new_egg_info
+	update_type()
+	
+func update_type():
+	if bug_body:
+		bug_body.play(EggMaterialInfo.EggType.keys()[egg_info.type])
