@@ -13,3 +13,6 @@ func _on_controls_button_pressed() -> void:
 
 func _on_main_menu_button_pressed() -> void:
 	button_pressed.emit("Main menu")
+
+func _on_run_info_button_pressed() -> void:
+	button_pressed.emit("Run Info")
