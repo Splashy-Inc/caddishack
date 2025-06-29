@@ -14,6 +14,7 @@ signal main_menu_pressed
 @onready var win_screen: Control = $MenuScreens/WinScreen
 @onready var loss_screen: Control = $MenuScreens/LossScreen
 @onready var pause_menu: Control = $MenuScreens/PauseMenu
+@onready var run_info_menu: RunInfoMenu = $MenuScreens/RunInfoMenu
 
 enum Menus {
 	NONE,
@@ -22,6 +23,7 @@ enum Menus {
 	WIN,
 	LOSS,
 	PAUSE,
+	RUN_INFO,
 }
 
 var cur_menu := Menus.NONE
@@ -56,6 +58,8 @@ func _go_back_screen():
 	match prev_menu:
 		Menus.PAUSE:
 			show_pause_menu()
+		Menus.NONE:
+			play_pressed.emit()
 		_:
 			show_main_menu()
 
@@ -65,6 +69,14 @@ func _show_controls():
 	_clear_menu()
 	show_menu_screens()
 	controls_screen.show()
+	
+func _show_run_info():
+	prev_menu = cur_menu
+	cur_menu = Menus.RUN_INFO
+	_clear_menu()
+	show_menu_screens()
+	run_info_menu.load_run_info()
+	run_info_menu.show()
 
 func show_main_menu():
 	cur_menu = Menus.MAIN
@@ -94,6 +106,8 @@ func _on_game_menu_button_pressed(type: String):
 	match type:
 		"Play":
 			play_pressed.emit()
+		"Run Info":
+			_show_run_info()
 		"Restart":
 			restart_pressed.emit()
 		"Controls":

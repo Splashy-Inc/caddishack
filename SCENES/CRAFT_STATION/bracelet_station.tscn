@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://j7kdpfxltq4j"]
+[gd_scene load_steps=13 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="4_2dhfs"]
 [ext_resource type="PackedScene" uid="uid://bqmyglx3n5yyp" path="res://SCENES/CRAFT_STATION/complete_bracelet_panel.tscn" id="5_r3loc"]
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="6_nek36"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="7_atnpg"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
+[ext_resource type="PackedScene" uid="uid://dgcnerkvrs865" path="res://SCENES/run_info_button.tscn" id="12_b481e"]
 
 [node name="BraceletStation" type="Node"]
 script = ExtResource("1_opsq7")
@@ -37,6 +39,7 @@ offset_right = 720.0
 offset_bottom = 341.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("6_nek36")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/hover = ExtResource("7_wvnwv")
 theme_override_styles/normal = ExtResource("10_18jgd")
@@ -53,6 +56,7 @@ offset_right = 207.0
 offset_bottom = 480.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("6_nek36")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/hover = ExtResource("7_wvnwv")
 theme_override_styles/normal = ExtResource("10_18jgd")
@@ -71,6 +75,12 @@ position = Vector2(640, 600)
 [node name="DrawPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 position = Vector2(1153, 600)
 bead_array_info = ExtResource("9_crcei")
+
+[node name="RunInfoButton" parent="PlayingField" instance=ExtResource("12_b481e")]
+offset_left = 1081.0
+offset_top = 396.0
+offset_right = 1217.0
+offset_bottom = 457.0
 
 [connection signal="pressed" from="PlayingField/PlayButton" to="." method="_on_play_pressed"]
 [connection signal="bead_clicked" from="PlayingField/SelectionPanel" to="." method="_on_selection_panel_bead_clicked"]

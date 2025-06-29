@@ -8,6 +8,7 @@
 script = ExtResource("2_1dvpj")
 type = 2
 cell = Vector2i(0, 0)
+price = 0
 
 [node name="ShellMaterial" type="StaticBody2D"]
 collision_layer = 4
