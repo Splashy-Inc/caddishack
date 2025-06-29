@@ -5,10 +5,6 @@
 [node name="StationUI" type="CanvasLayer"]
 
 [node name="PauseButton" parent="." instance=ExtResource("1_l6r4l")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
 offset_left = -34.0
 offset_top = 8.0
 offset_right = 34.0
-grow_horizontal = 2
