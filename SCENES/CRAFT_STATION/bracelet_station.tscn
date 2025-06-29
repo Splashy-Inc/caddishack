@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://j7kdpfxltq4j"]
+[gd_scene load_steps=12 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
-[ext_resource type="PackedScene" uid="uid://1guuvhm3f7g" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_cnyhi"]
+[ext_resource type="PackedScene" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_cnyhi"]
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="4_2dhfs"]
 [ext_resource type="PackedScene" uid="uid://bqmyglx3n5yyp" path="res://SCENES/CRAFT_STATION/complete_bracelet_panel.tscn" id="5_r3loc"]
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="6_nek36"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="7_atnpg"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
@@ -37,6 +38,7 @@ offset_right = 720.0
 offset_bottom = 341.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("6_nek36")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/hover = ExtResource("7_wvnwv")
 theme_override_styles/normal = ExtResource("10_18jgd")
@@ -53,6 +55,7 @@ offset_right = 207.0
 offset_bottom = 480.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme = ExtResource("6_nek36")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/hover = ExtResource("7_wvnwv")
 theme_override_styles/normal = ExtResource("10_18jgd")

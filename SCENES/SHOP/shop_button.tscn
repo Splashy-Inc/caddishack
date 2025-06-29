@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp7okqg1ne0u7"]
+[gd_scene load_steps=8 format=3 uid="uid://bp7okqg1ne0u7"]
 
-[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
-[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
+[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
+[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_button.gd" id="3_03m4k"]
 [ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/SHOP/sand_material.tscn" id="4_meg3e"]
+[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="5_8hyd7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_w6jjp"]
 viewport_path = NodePath("SubViewport")
@@ -40,4 +41,5 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_wbhpc")
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "100"
+label_settings = ExtResource("5_8hyd7")
 horizontal_alignment = 1

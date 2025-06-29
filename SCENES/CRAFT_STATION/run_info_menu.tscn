@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bnp2q0bxwdejl" path="res://ASSETS/Art/GUI/Black_Semi_Trans.png" id="1_qu5lf"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/run_info_menu.gd" id="1_vgp1s"]
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_e7rc2"]
-[ext_resource type="LabelSettings" uid="uid://drl3m8g6bkhol" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
+[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="3_diuyp"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_grp5l"]
 [ext_resource type="Texture2D" uid="uid://db11hpcy64lw3" path="res://ASSETS/Art/CRAFT_STATION/Bead_Play.png" id="5_wqhf1"]
 [ext_resource type="PackedScene" uid="uid://cmerjff0e20um" path="res://SCENES/CRAFT_STATION/bead_pile.tscn" id="6_8qbhg"]
