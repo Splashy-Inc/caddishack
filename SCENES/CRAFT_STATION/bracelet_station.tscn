@@ -70,3 +70,4 @@ offset_bottom = 457.0
 [connection signal="bead_clicked" from="PlayingField/HandPanel" to="." method="_on_hand_panel_bead_clicked"]
 
 [editable path="PlayingField/DiscardPile"]
+[editable path="StationUI"]

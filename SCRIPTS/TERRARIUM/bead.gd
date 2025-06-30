@@ -14,6 +14,7 @@ var is_travelling := false
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
 @onready var item_info_box: ItemInfoBox = $ItemInfoBox
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -94,3 +95,19 @@ func get_points():
 			points += 3
 	
 	return points
+
+func score_points():
+	animation_player.play("bounce")
+	await animation_player.animation_finished
+	return get_points()
+
+func raise():
+	animation_player.play("raise")
+	await animation_player.animation_finished
+
+func lower():
+	animation_player.play("lower")
+	await animation_player.animation_finished
+
+func bounce_fast():
+	animation_player.play("bounce")

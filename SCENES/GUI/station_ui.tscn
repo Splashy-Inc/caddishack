@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0qf7jypiefqa"]
+[gd_scene load_steps=12 format=3 uid="uid://b0qf7jypiefqa"]
 
 [ext_resource type="Script" path="res://SCRIPTS/GUI/station_ui.gd" id="1_5havd"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="1_l6r4l"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_e2emd"]
 [ext_resource type="Script" path="res://SCRIPTS/GUI/speed_up_button.gd" id="5_a0mxi"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="6_h6vni"]
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="7_xkwhh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yi2vk"]
 font = ExtResource("6_h6vni")
@@ -13,6 +14,21 @@ font_size = 32
 font_color = Color(0.941176, 0.827451, 0.760784, 1)
 outline_size = 5
 outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+
+[sub_resource type="Animation" id="Animation_v26qx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_k6mpo"]
 resource_name = "pulse"
@@ -31,30 +47,16 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1.1, 1.1)]
 }
 
-[sub_resource type="Animation" id="Animation_v26qx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8poty"]
 _data = {
 "RESET": SubResource("Animation_v26qx"),
 "pulse": SubResource("Animation_k6mpo")
 }
 
-[node name="StationUI" type="CanvasLayer" node_paths=PackedStringArray("terrarium_ui")]
+[node name="StationUI" type="CanvasLayer" node_paths=PackedStringArray("terrarium_ui", "bracelet_station_ui")]
 script = ExtResource("1_5havd")
 terrarium_ui = NodePath("TerrariumUI")
+bracelet_station_ui = NodePath("BraceletStationUI")
 
 [node name="PauseButton" parent="." instance=ExtResource("1_l6r4l")]
 offset_left = -34.0
@@ -95,6 +97,25 @@ libraries = {
 "": SubResource("AnimationLibrary_8poty")
 }
 autoplay = "pulse"
+
+[node name="BraceletStationUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Money" type="Button" parent="BraceletStationUI"]
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 0
+offset_left = 1103.0
+offset_top = 304.0
+offset_right = 1195.0
+offset_bottom = 362.0
+mouse_filter = 2
+theme = ExtResource("7_xkwhh")
+theme_override_styles/disabled = ExtResource("4_e2emd")
+theme_override_styles/normal = ExtResource("4_e2emd")
+text = "$1000"
 
 [connection signal="button_down" from="TerrariumUI/SpeedUpButton" to="TerrariumUI/SpeedUpButton" method="_on_button_down"]
 [connection signal="button_up" from="TerrariumUI/SpeedUpButton" to="TerrariumUI/SpeedUpButton" method="_on_button_up"]
