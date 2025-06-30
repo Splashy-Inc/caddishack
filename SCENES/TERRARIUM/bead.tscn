@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb4x60rlbdvlv"]
+[gd_scene load_steps=22 format=3 uid="uid://bb4x60rlbdvlv"]
 
 [ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="1_dkdrh"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/bead.gd" id="1_p27p0"]
@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="6_g04xw"]
 [ext_resource type="Texture2D" uid="uid://kbqij5w8t1ci" path="res://ASSETS/Art/TERRARIUM/YellowSand.png" id="7_femc1"]
+[ext_resource type="Shape2D" uid="uid://42xykr3wpmeg" path="res://SCENES/TERRARIUM/bead_clickable_area.tres" id="12_bxlt7"]
+[ext_resource type="PackedScene" uid="uid://bflueb4co07uq" path="res://SCENES/GUI/hover_text_area.tscn" id="12_hhlno"]
+[ext_resource type="PackedScene" uid="uid://c2s6ijb7ethvd" path="res://SCENES/GUI/item_info_box.tscn" id="13_jj82d"]
+[ext_resource type="Script" path="res://RESOURCES/item_info.gd" id="14_63aye"]
 
 [sub_resource type="Resource" id="Resource_20n2j"]
 resource_local_to_scene = true
@@ -99,9 +103,12 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05tin"]
-radius = 30.0
-height = 128.0
+[sub_resource type="Resource" id="Resource_r6np8"]
+script = ExtResource("14_63aye")
+name = "Bead"
+description = "Just a pain bead"
+labels = Array[String](["Color"])
+values = Array[String](["Colorless"])
 
 [node name="Bead" type="Node2D"]
 z_index = 1
@@ -123,6 +130,19 @@ autoplay = "BASIC"
 
 [node name="ClickableShape" type="CollisionShape2D" parent="ClickableArea"]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_05tin")
+shape = ExtResource("12_bxlt7")
+
+[node name="HoverTextArea" parent="." node_paths=PackedStringArray("tooltip") instance=ExtResource("12_hhlno")]
+rotation = 1.5708
+tooltip = NodePath("../ItemInfoBox")
+
+[node name="CollisionShape2D" parent="HoverTextArea" index="0"]
+shape = ExtResource("12_bxlt7")
+
+[node name="ItemInfoBox" parent="." instance=ExtResource("13_jj82d")]
+item_info = SubResource("Resource_r6np8")
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
+[connection signal="mouse_entered" from="HoverTextArea" to="." method="_on_hover_text_area_mouse_entered"]
+
+[editable path="HoverTextArea"]

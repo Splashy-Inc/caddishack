@@ -13,6 +13,7 @@ layer = 2
 script = ExtResource("1_w38b1")
 
 [node name="MenuScreens" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

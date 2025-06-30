@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm6l4kllglslc"]
+
+[ext_resource type="Script" path="res://SCRIPTS/GUI/item_info_row.gd" id="1_aae3c"]
+[ext_resource type="LabelSettings" uid="uid://c847tlxjisn6m" path="res://RESOURCES/normal_text_brown.tres" id="1_wykmr"]
+
+[node name="InfoRow" type="HBoxContainer" node_paths=PackedStringArray("label", "value")]
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_aae3c")
+label = NodePath("Label")
+value = NodePath("Value")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Label"
+label_settings = ExtResource("1_wykmr")
+
+[node name="Colon" type="Label" parent="."]
+layout_mode = 2
+text = ": "
+label_settings = ExtResource("1_wykmr")
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+text = "Value"
+label_settings = ExtResource("1_wykmr")
