@@ -28,13 +28,14 @@ func _physics_process(delta: float) -> void:
 	if is_hatched and not (get_top() or get_bottom()):
 		queue_free()
 
-func spawn_larva():
+func spawn_larva() -> CaddisFly:
 	var new_larva := Globals.generate_larva()
 	new_larva.initialize(info)
 	is_hatched = true
 	top.apply_impulse(Vector2.UP * SPEED)
 	bottom.apply_impulse(Vector2.DOWN * SPEED)
 	hatched.emit(new_larva, global_position)
+	return new_larva
 
 func get_top():
 	if is_instance_valid(top):
