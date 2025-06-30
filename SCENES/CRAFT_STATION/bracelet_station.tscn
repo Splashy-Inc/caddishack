@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://j7kdpfxltq4j"]
+[gd_scene load_steps=15 format=3 uid="uid://j7kdpfxltq4j"]
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
@@ -11,6 +11,7 @@
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_wvnwv"]
 [ext_resource type="Resource" uid="uid://c81ojbagj28o1" path="res://RESOURCES/test_bead_pile.tres" id="9_crcei"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="10_18jgd"]
+[ext_resource type="PackedScene" uid="uid://45xgooudgaro" path="res://SCENES/CRAFT_STATION/discard_button.tscn" id="10_r73u2"]
 [ext_resource type="PackedScene" uid="uid://dgcnerkvrs865" path="res://SCENES/run_info_button.tscn" id="12_b481e"]
 [ext_resource type="PackedScene" uid="uid://b0qf7jypiefqa" path="res://SCENES/GUI/station_ui.tscn" id="13_vg1c5"]
 
@@ -49,19 +50,11 @@ text = "Play"
 [node name="SelectionPanel" parent="PlayingField" instance=ExtResource("6_kjoem")]
 position = Vector2(640, 425)
 
-[node name="DiscardButton" type="Button" parent="PlayingField"]
-custom_minimum_size = Vector2(0, 110)
+[node name="DiscardButton" parent="PlayingField" instance=ExtResource("10_r73u2")]
 offset_left = 47.0
 offset_top = 370.0
 offset_right = 207.0
 offset_bottom = 480.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("6_nek36")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/hover = ExtResource("7_wvnwv")
-theme_override_styles/normal = ExtResource("10_18jgd")
-text = "Discard"
 
 [node name="DiscardPile" parent="PlayingField" instance=ExtResource("7_atnpg")]
 z_index = 1
