@@ -2,7 +2,7 @@ extends Button
 
 class_name DiscardButton
 
-@export var remaining := 10
+@export var remaining := 2
 
 @onready var number: Label = $HBoxContainer/Number
 
