@@ -285,6 +285,7 @@ theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Play"
 
 [node name="ControlsButton" type="Button" parent="MenuContent/MenuButtons"]
+visible = false
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme = SubResource("Theme_o2nxr")
@@ -296,6 +297,7 @@ theme_override_styles/normal = ExtResource("2_y3ir5")
 text = "Controls"
 
 [node name="QuitButton" type="Button" parent="MenuContent/MenuButtons"]
+visible = false
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme = SubResource("Theme_o2nxr")
