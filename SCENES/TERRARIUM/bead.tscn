@@ -117,7 +117,7 @@ values = Array[String](["Colorless"])
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -129,7 +129,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -151,6 +151,7 @@ _data = {
 [node name="Bead" type="Node2D"]
 z_index = 1
 z_as_relative = false
+rotation = -1.5708
 script = ExtResource("1_p27p0")
 info = SubResource("Resource_fx874")
 
