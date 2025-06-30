@@ -36,6 +36,21 @@ shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.564706)
 shadow_offset = Vector2(3, 3)
 
+[sub_resource type="Animation" id="Animation_hakrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [32]
+}
+
 [sub_resource type="Animation" id="Animation_2s6jr"]
 resource_name = "new_animation"
 length = 1.5
@@ -51,21 +66,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [40, 42, 40]
-}
-
-[sub_resource type="Animation" id="Animation_hakrt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [32]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bm7r2"]
@@ -314,7 +314,7 @@ texture = ExtResource("5_tkm0o")
 expand_mode = 2
 stretch_mode = 1
 
-[node name="…caddisfly" type="Label" parent="MenuContent"]
+[node name="Fact" type="Label" parent="MenuContent"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
@@ -322,10 +322,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_1tren")
 theme_override_font_sizes/font_size = 48
-text = "…caddisfly larvae make protective casings from resources in their environment…"
+text = "...caddisfly larvae make protective casings from resources in their environment..."
 label_settings = SubResource("LabelSettings_ucu1t")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuContent/…caddisfly"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuContent/Fact"]
 libraries = {
 "": SubResource("AnimationLibrary_bm7r2")
 }

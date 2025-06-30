@@ -15,6 +15,7 @@ signal eggs_depleted
 @onready var eggs_container: Node = $PlayingField/Eggs
 @onready var larvae_container: Node = $PlayingField/Larvae
 @onready var larva_camera: Camera2D = $PlayingField/LarvaCamera
+@onready var station_ui: StationUI = $StationUI
 
 func _station_ready():
 	await generate_materials()
@@ -28,7 +29,10 @@ func hatch_next_egg():
 	if eggs_container.get_child_count() > 0:
 		var next_egg = eggs_container.get_children().pick_random() as EggMaterial
 		next_egg.hatched.connect(_on_egg_hatched)
-		next_egg.spawn_larva()
+		var new_larva = next_egg.spawn_larva()
+		if materials_container.get_children().is_empty():
+			new_larva.bead_speed_mod = 15.0
+			station_ui.materials_out_label.show()
 	else:
 		eggs_depleted.emit()
 
