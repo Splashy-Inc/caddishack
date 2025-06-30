@@ -13,6 +13,7 @@ class_name BraceletStation
 @onready var info_panel: BraceletInfoPanel = $PlayingField/InfoPanel
 @onready var discard_button: DiscardButton = $PlayingField/DiscardButton
 @onready var play_button: Button = $PlayingField/PlayButton
+@onready var money: Button = $StationUI/BraceletStationUI/Money
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,6 +62,7 @@ func play_selection():
 		Globals.change_run_money(await bracelet_panel.bracelet.calculate_value(true))
 		complete_bracelet_panel.add_bracelet(bracelet_panel.bracelet)
 		Globals.run_info.bracelets = complete_bracelet_panel.get_bracelets_info()
+		money.text = "$" + str(Globals.run_info.money)
 		await get_tree().create_timer(1).timeout
 		
 		Globals.run_info.bead_pile.beads = []
@@ -92,6 +94,7 @@ func load_run_info():
 	discard_pile.clear_beads()
 	draw_pile.set_beads(Globals.run_info.bead_pile)
 	complete_bracelet_panel.fill_bracelets(Globals.run_info.bracelets)
+	money.text = "$" + str(Globals.run_info.money)
 	fill_hand()
 
 func check_can_discard():
