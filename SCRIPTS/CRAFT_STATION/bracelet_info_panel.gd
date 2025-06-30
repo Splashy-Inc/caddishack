@@ -15,6 +15,6 @@ func _process(delta: float) -> void:
 	pass
 
 func update_bracelet_info(bracelet: Bracelet):
-	value_number.text = str(bracelet.calculate_value())
+	value_number.text = str(await bracelet.calculate_value())
 	points_number.text = str(bracelet.info.points)
 	mult_number.text = str(bracelet.info.mult)
