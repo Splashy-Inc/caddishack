@@ -83,6 +83,8 @@ func discard_selection():
 			await get_tree().create_timer(.05).timeout
 		discard_button.use_discard()
 		fill_hand()
+	
+	check_can_play()
 
 func load_run_info():
 	bracelet_panel.bracelet.clear_beads()
