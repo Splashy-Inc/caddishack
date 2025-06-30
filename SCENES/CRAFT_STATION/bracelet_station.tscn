@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="1_8q7v8"]
 [ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/bracelet_station.gd" id="1_opsq7"]
-[ext_resource type="PackedScene" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_cnyhi"]
+[ext_resource type="PackedScene" uid="uid://1guuvhm3f7g" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_cnyhi"]
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="4_2dhfs"]
 [ext_resource type="PackedScene" uid="uid://bqmyglx3n5yyp" path="res://SCENES/CRAFT_STATION/complete_bracelet_panel.tscn" id="5_r3loc"]
 [ext_resource type="PackedScene" uid="uid://juk37sd2sdfi" path="res://SCENES/CRAFT_STATION/bead_set.tscn" id="6_kjoem"]
