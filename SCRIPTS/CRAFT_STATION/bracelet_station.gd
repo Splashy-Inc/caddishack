@@ -12,6 +12,7 @@ class_name BraceletStation
 @onready var complete_bracelet_panel: BraceletContainer = $PlayingField/CompleteBraceletPanel
 @onready var info_panel: BraceletInfoPanel = $PlayingField/InfoPanel
 @onready var discard_button: DiscardButton = $PlayingField/DiscardButton
+@onready var play_button: Button = $PlayingField/PlayButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,12 +39,13 @@ func get_beads_in_play() -> Array[Bead]:
 	return selection_panel.get_beads() + hand_panel.get_beads()
 
 func _on_hand_panel_bead_clicked(bead: Bead) -> void:
-	if selection_panel.get_beads().size() < bracelet_panel.bracelet.get_open_slot_count():
-		selection_panel.add_bead(bead)
+	selection_panel.add_bead(bead)
+	check_can_play()
 	check_can_discard()
 
 func _on_selection_panel_bead_clicked(bead: Bead) -> void:
 	hand_panel.add_bead(bead)
+	check_can_play()
 	check_can_discard()
 
 func _on_play_pressed() -> void:
@@ -102,3 +104,6 @@ func check_can_discard():
 	
 	discard_button.disabled = false
 	return true
+
+func check_can_play():
+	play_button.disabled = selection_panel.get_beads().size() > bracelet_panel.bracelet.get_open_slot_count()
