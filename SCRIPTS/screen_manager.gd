@@ -105,7 +105,11 @@ func _on_station_won(station: Station):
 	#game_ended = true
 	#_pause_play()
 	#hud.show_win_screen()
-	next_station()
+	for bracelet in Globals.run_info.bracelets:
+		if bracelet.bead_array_info.get_beads().is_empty():
+			next_station()
+			return
+	hud.show_win_screen()
 
 func _on_station_selected(new_station_scene: PackedScene):
 	_set_station(new_station_scene)
