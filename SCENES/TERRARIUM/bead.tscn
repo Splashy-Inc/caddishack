@@ -1,16 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://bb4x60rlbdvlv"]
+[gd_scene load_steps=33 format=3 uid="uid://bb4x60rlbdvlv"]
 
 [ext_resource type="Texture2D" uid="uid://bjvflve0xo6se" path="res://ASSETS/Art/TERRARIUM/BasicBead.png" id="1_dkdrh"]
 [ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/bead.gd" id="1_p27p0"]
-[ext_resource type="Texture2D" uid="uid://cnj4ifvuc17dr" path="res://ASSETS/Art/TERRARIUM/CyanSand.png" id="2_534fm"]
 [ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_ebppn"]
 [ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
 [ext_resource type="Texture2D" uid="uid://c0585iajy3qyf" path="res://ASSETS/Art/TERRARIUM/Jimmie.png" id="3_1e667"]
-[ext_resource type="Texture2D" uid="uid://bf642koe0lfad" path="res://ASSETS/Art/TERRARIUM/MagentaSand.png" id="4_ljqsm"]
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_wdpq1"]
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="6_g04xw"]
-[ext_resource type="Texture2D" uid="uid://kbqij5w8t1ci" path="res://ASSETS/Art/TERRARIUM/YellowSand.png" id="7_femc1"]
+[ext_resource type="Texture2D" uid="uid://d2a172clboha5" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_dumortierite.png" id="6_rklx0"]
+[ext_resource type="Texture2D" uid="uid://bp42gfrot3kon" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_amtethyst.png" id="7_rhcwn"]
+[ext_resource type="Texture2D" uid="uid://b4taqkqaoh2je" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_citrine.png" id="8_cwxo4"]
+[ext_resource type="Texture2D" uid="uid://bel72ct2duput" path="res://ASSETS/Art/TERRARIUM/Heart.png" id="9_bf61f"]
+[ext_resource type="Texture2D" uid="uid://dxm7tm8kukc4j" path="res://ASSETS/Art/TERRARIUM/Spade.png" id="13_cjey3"]
 
 [sub_resource type="Resource" id="Resource_20n2j"]
 resource_local_to_scene = true
@@ -32,6 +34,54 @@ script = ExtResource("2_i8ivb")
 sand = SubResource("Resource_20n2j")
 special = SubResource("Resource_cr6u5")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wnob"]
+atlas = ExtResource("6_rklx0")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoofe"]
+atlas = ExtResource("6_rklx0")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kehso"]
+atlas = ExtResource("6_rklx0")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki7c5"]
+atlas = ExtResource("6_rklx0")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6t6e"]
+atlas = ExtResource("7_rhcwn")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mtqi"]
+atlas = ExtResource("7_rhcwn")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2amk"]
+atlas = ExtResource("7_rhcwn")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o47qa"]
+atlas = ExtResource("7_rhcwn")
+region = Rect2(384, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20oj0"]
+atlas = ExtResource("8_cwxo4")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw2qq"]
+atlas = ExtResource("8_cwxo4")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqchi"]
+atlas = ExtResource("8_cwxo4")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqgbp"]
+atlas = ExtResource("8_cwxo4")
+region = Rect2(384, 0, 128, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ld082"]
 animations = [{
 "frames": [{
@@ -44,34 +94,73 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_534fm")
+"texture": SubResource("AtlasTexture_1wnob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoofe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kehso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki7c5")
 }],
 "loop": true,
 "name": &"CYAN",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ljqsm")
+"texture": SubResource("AtlasTexture_x6t6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mtqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2amk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o47qa")
 }],
 "loop": true,
 "name": &"MAGENTA",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_femc1")
+"texture": SubResource("AtlasTexture_20oj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw2qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqchi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqgbp")
 }],
 "loop": true,
 "name": &"YELLOW",
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v53i6"]
+atlas = ExtResource("9_bf61f")
+region = Rect2(0, 0, 128, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxfaq"]
 animations = [{
 "frames": [],
 "loop": true,
 "name": &"BASIC",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v53i6")
+}],
+"loop": true,
+"name": &"Heart",
 "speed": 5.0
 }, {
 "frames": [{
@@ -97,6 +186,14 @@ animations = [{
 "loop": true,
 "name": &"SHELL",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_cjey3")
+}],
+"loop": true,
+"name": &"SPADE",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05tin"]
@@ -111,12 +208,13 @@ info = SubResource("Resource_fx874")
 
 [node name="SandSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ld082")
-animation = &"COLORLESS"
+animation = &"MAGENTA"
 autoplay = "COLORLESS"
+frame_progress = 0.237703
 
 [node name="ItemSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mxfaq")
-animation = &"BASIC"
+animation = &"SPADE"
 autoplay = "BASIC"
 
 [node name="ClickableArea" type="Area2D" parent="."]
