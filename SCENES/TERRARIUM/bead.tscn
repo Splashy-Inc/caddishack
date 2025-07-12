@@ -214,7 +214,7 @@ frame_progress = 0.237703
 
 [node name="ItemSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mxfaq")
-animation = &"SPADE"
+animation = &"BASIC"
 autoplay = "BASIC"
 
 [node name="ClickableArea" type="Area2D" parent="."]
