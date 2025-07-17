@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctqoln2td3f03"]
+
+[ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="1_neeva"]
+[ext_resource type="Texture2D" uid="uid://dwi46syvnuk64" path="res://ASSETS/Art/SHOP/Dumortierite_Pile.png" id="2_41h48"]
+
+[node name="ShopItemButton" type="Button"]
+custom_minimum_size = Vector2(450, 64)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 17.0
+offset_right = 373.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_neeva")
+theme_override_font_sizes/font_size = 32
+text = "Label for item so we can see what it is"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="PriceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 18.0
+offset_right = 438.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("1_neeva")
+theme_override_font_sizes/font_size = 32
+text = "999
+"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 209.0
+offset_bottom = 205.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_41h48")

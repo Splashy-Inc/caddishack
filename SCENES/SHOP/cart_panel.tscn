@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1ml0sgcgl8q7"]
+[gd_scene load_steps=20 format=3 uid="uid://b1ml0sgcgl8q7"]
 
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="1_kjj1m"]
 [ext_resource type="PackedScene" uid="uid://b358wok1iumr3" path="res://SCENES/SHOP/cart_material_count.tscn" id="2_27fqm"]
@@ -7,8 +7,7 @@
 [ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="4_e64o0"]
 [ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="5_7uv2r"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="7_8retm"]
-[ext_resource type="Theme" path="res://SCENES/CRAFT_STATION/green_text.tres" id="7_63xtu"]
-[ext_resource type="LabelSettings" uid="uid://drl3m8g6bkhol" path="res://RESOURCES/text_subtitle.tres" id="7_vhlkp"]
+[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="7_vhlkp"]
 [ext_resource type="StyleBox" uid="uid://djqiuusgpwpce" path="res://RESOURCES/brown_button_hover_box_texture.tres" id="8_8rwvf"]
 [ext_resource type="StyleBox" uid="uid://b5qasew2vnpnv" path="res://RESOURCES/brown_button_box_texture.tres" id="9_bhpnm"]
 
@@ -164,7 +163,6 @@ label_settings = ExtResource("7_vhlkp")
 [node name="CheckoutButton" type="Button" parent="VBoxContainer/CurrentCostRow"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("7_63xtu")
 theme_override_font_sizes/font_size = 64
 theme_override_styles/disabled = ExtResource("7_8retm")
 theme_override_styles/hover_pressed = ExtResource("8_8rwvf")
