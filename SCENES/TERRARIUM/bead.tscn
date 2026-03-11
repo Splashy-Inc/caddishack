@@ -8,20 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
 [ext_resource type="Texture2D" uid="uid://chgdsxmjv8hxb" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_quarts.png" id="5_cb5yd"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="6_g04xw"]
-
 [ext_resource type="Texture2D" uid="uid://d2a172clboha5" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_dumortierite.png" id="6_rklx0"]
 [ext_resource type="Texture2D" uid="uid://bp42gfrot3kon" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_amtethyst.png" id="7_rhcwn"]
 [ext_resource type="Texture2D" uid="uid://b4taqkqaoh2je" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_citrine.png" id="8_cwxo4"]
 [ext_resource type="Texture2D" uid="uid://bel72ct2duput" path="res://ASSETS/Art/TERRARIUM/Heart.png" id="9_bf61f"]
 [ext_resource type="Texture2D" uid="uid://dxm7tm8kukc4j" path="res://ASSETS/Art/TERRARIUM/Spade.png" id="13_cjey3"]
-[ext_resource type="Texture2D" uid="uid://kbqij5w8t1ci" path="res://ASSETS/Art/TERRARIUM/YellowSand.png" id="7_femc1"]
-[ext_resource type="Shape2D" uid="uid://42xykr3wpmeg" path="res://SCENES/TERRARIUM/bead_clickable_area.tres" id="12_bxlt7"]
-[ext_resource type="PackedScene" uid="uid://bflueb4co07uq" path="res://SCENES/GUI/hover_text_area.tscn" id="12_hhlno"]
-[ext_resource type="PackedScene" uid="uid://c2s6ijb7ethvd" path="res://SCENES/GUI/item_info_box.tscn" id="13_jj82d"]
-[ext_resource type="Script" path="res://RESOURCES/item_info.gd" id="14_63aye"]
-[ext_resource type="Animation" uid="uid://cj1myi8sa6c2x" path="res://RESOURCES/animations/raise.res" id="16_ev1ft"]
-[ext_resource type="Animation" uid="uid://duse1iywqmhjx" path="res://RESOURCES/animations/bounce.res" id="17_hjfgx"]
-[ext_resource type="Animation" uid="uid://b0hcc2rwvtuxc" path="res://RESOURCES/animations/lower.res" id="18_i4xcv"]
 
 [sub_resource type="Resource" id="Resource_20n2j"]
 resource_local_to_scene = true
@@ -230,52 +221,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_r6np8"]
-script = ExtResource("14_63aye")
-name = "Bead"
-description = "Just a pain bead"
-labels = Array[String](["Color"])
-values = Array[String](["Colorless"])
-
-[sub_resource type="Animation" id="Animation_dgv47"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_06xoj"]
-_data = {
-"RESET": SubResource("Animation_dgv47"),
-"bounce": ExtResource("17_hjfgx"),
-"lower": ExtResource("18_i4xcv"),
-"raise": ExtResource("16_ev1ft")
-}
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_05tin"]
+radius = 30.0
+height = 128.0
 
 [node name="Bead" type="Node2D"]
 z_index = 1
 z_as_relative = false
-rotation = -1.5708
 script = ExtResource("1_p27p0")
 info = SubResource("Resource_fx874")
 
@@ -295,25 +247,6 @@ visible = false
 
 [node name="ClickableShape" type="CollisionShape2D" parent="ClickableArea"]
 rotation = 1.5708
-shape = ExtResource("12_bxlt7")
-
-[node name="HoverTextArea" parent="." node_paths=PackedStringArray("tooltip") instance=ExtResource("12_hhlno")]
-rotation = 1.5708
-tooltip = NodePath("../ItemInfoBox")
-
-[node name="CollisionShape2D" parent="HoverTextArea" index="0"]
-shape = ExtResource("12_bxlt7")
-
-[node name="ItemInfoBox" parent="." instance=ExtResource("13_jj82d")]
-item_info = SubResource("Resource_r6np8")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_06xoj")
-}
-autoplay = "RESET"
+shape = SubResource("CapsuleShape2D_05tin")
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
-[connection signal="mouse_entered" from="HoverTextArea" to="." method="_on_hover_text_area_mouse_entered"]
-
-[editable path="HoverTextArea"]

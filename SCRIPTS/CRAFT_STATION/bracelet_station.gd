@@ -11,9 +11,6 @@ class_name BraceletStation
 @onready var bracelet_panel: BraceletContructionPanel = $PlayingField/BraceletPanel
 @onready var complete_bracelet_panel: BraceletContainer = $PlayingField/CompleteBraceletPanel
 @onready var info_panel: BraceletInfoPanel = $PlayingField/InfoPanel
-@onready var discard_button: DiscardButton = $PlayingField/DiscardButton
-@onready var play_button: Button = $PlayingField/PlayButton
-@onready var money: Button = $StationUI/BraceletStationUI/Money
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,20 +31,16 @@ func fill_hand():
 		else:
 			print("No more beads!")
 		await get_tree().create_timer(.05).timeout
-	check_can_discard()
 
-func get_beads_in_play() -> Array[Bead]:
+func get_beads_in_play():
 	return selection_panel.get_beads() + hand_panel.get_beads()
 
 func _on_hand_panel_bead_clicked(bead: Bead) -> void:
-	selection_panel.add_bead(bead)
-	check_can_play()
-	check_can_discard()
+	if selection_panel.get_beads().size() < bracelet_panel.bracelet.get_open_slot_count():
+		selection_panel.add_bead(bead)
 
 func _on_selection_panel_bead_clicked(bead: Bead) -> void:
 	hand_panel.add_bead(bead)
-	check_can_play()
-	check_can_discard()
 
 func _on_play_pressed() -> void:
 	play_selection()
@@ -59,11 +52,18 @@ func play_selection():
 		info_panel.update_bracelet_info(bracelet_panel.bracelet)
 	
 	if bracelet_panel.bracelet.is_complete():
-		Globals.change_run_money(await bracelet_panel.bracelet.calculate_value(true))
+		print("Bracelet completed!")
+		print(bracelet_panel.bracelet.calculate_value())
+		print(bracelet_panel.bracelet.info.points)
+		print(bracelet_panel.bracelet.info.mult)
+		print(bracelet_panel.bracelet.info.color_chains)
+		print(bracelet_panel.bracelet.info.special_chains)
+		
+		await get_tree().create_timer(.5).timeout
+		Globals.change_run_money(bracelet_panel.bracelet.calculate_value())
 		complete_bracelet_panel.add_bracelet(bracelet_panel.bracelet)
 		Globals.run_info.bracelets = complete_bracelet_panel.get_bracelets_info()
-		money.text = "$" + str(Globals.run_info.money)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(.5).timeout
 		
 		Globals.run_info.bead_pile.beads = []
 		for bead in draw_pile.get_beads() + discard_pile.get_beads() + get_beads_in_play() :
@@ -78,14 +78,10 @@ func _on_discard_pressed() -> void:
 	discard_selection()
 
 func discard_selection():
-	if check_can_discard():
-		for bead in selection_panel.get_beads():
-			discard_pile.add_bead(bead)
-			await get_tree().create_timer(.05).timeout
-		discard_button.use_discard()
-		fill_hand()
-	
-	check_can_play()
+	for bead in selection_panel.get_beads():
+		discard_pile.add_bead(bead)
+		await get_tree().create_timer(.05).timeout
+	fill_hand()
 
 func load_run_info():
 	bracelet_panel.bracelet.clear_beads()
@@ -94,20 +90,4 @@ func load_run_info():
 	discard_pile.clear_beads()
 	draw_pile.set_beads(Globals.run_info.bead_pile)
 	complete_bracelet_panel.fill_bracelets(Globals.run_info.bracelets)
-	money.text = "$" + str(Globals.run_info.money)
 	fill_hand()
-
-func check_can_discard():
-	if hand_panel.get_beads().size() + draw_pile.get_beads().size() < 10 - bracelet_panel.bracelet.get_beads().size():
-		discard_button.disabled = true
-		return false
-	
-	if discard_button.remaining <= 0:
-		discard_button.disabled = true
-		return false
-	
-	discard_button.disabled = false
-	return true
-
-func check_can_play():
-	play_button.disabled = selection_panel.get_beads().size() > bracelet_panel.bracelet.get_open_slot_count()
