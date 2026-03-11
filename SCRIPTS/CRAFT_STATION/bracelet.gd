@@ -2,7 +2,13 @@ extends BeadSet
 
 class_name Bracelet
 
+signal points_updated(points: int)
+signal mult_updated(mult: int)
+signal value_updated(value: int)
+
 @export var info : BraceletInfo
+@onready var mult_label: Label = $MultLabel
+@onready var point_label: Label = $PointLabel
 
 const BASIC_POINTS = 1
 const SPECIAL_POINTS = 3
@@ -32,7 +38,6 @@ func _container_ready():
 
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position)
-	calculate_value()
 
 func get_open_slot_count():
 	var num_open_slots = 0
@@ -41,11 +46,30 @@ func get_open_slot_count():
 			num_open_slots += 1
 	return num_open_slots
 
-func calculate_value() -> int:
+func calculate_value(scoring: bool = false) -> int:
+	await calculate_points(scoring)
+	await calculate_mult(scoring)
+	
+	return info.get_value()
+
+func calculate_points(scoring: bool = false):
+	info.update_points(0, true)
+	
+	for bead in get_beads():
+		# Add points to tally
+		if scoring:
+			point_label.global_position.x = bead.global_position.x - point_label.size.x/2
+			point_label.text = "+" + str(bead.get_points())
+			point_label.show()
+			info.update_points(await bead.score_points())
+			point_label.hide()
+		else:
+			info.update_points(bead.get_points())
+
+func calculate_mult(scoring: bool = false):
+	info.update_mult(1, true)
 	info.color_chains.clear()
 	info.special_chains.clear()
-	info.update_points(0, true)
-	info.update_mult(1, true)
 	
 	var cur_color_chain: Array[Bead]
 	var cur_special_chain: Array[Bead]
@@ -53,22 +77,19 @@ func calculate_value() -> int:
 		# Add points to tally
 		match bead.info.special.type:
 			SpecialMaterialInfo.SpecialType.BASIC:
-				info.update_points(BASIC_POINTS)
-				info.update_mult(check_chain(cur_special_chain, null, "special"))
+				info.update_mult(await check_chain(cur_special_chain, null, "special", scoring))
 			_:
-				info.update_points(SPECIAL_POINTS)
-				info.update_mult(check_chain(cur_special_chain, bead, "special"))
+				info.update_mult(await check_chain(cur_special_chain, bead, "special", scoring))
 		
 		if bead.info.sand.color != SandMaterialInfo.SandColor.COLORLESS:
-			info.update_mult(check_chain(cur_color_chain, bead, "color"))
+			info.update_mult(await check_chain(cur_color_chain, bead, "color", scoring))
 		else:
 			check_chain(cur_color_chain, null, "color")
 	
-	info.update_mult(check_chain(cur_color_chain, null, "color"))
-	info.update_mult(check_chain(cur_special_chain, null, "special"))
-	return info.get_value()
+	info.update_mult(await check_chain(cur_color_chain, null, "color", scoring))
+	info.update_mult(await check_chain(cur_special_chain, null, "special", scoring))
 
-func check_chain(chain: Array[Bead], bead: Bead, type: String):
+func check_chain(chain: Array[Bead], bead: Bead, type: String, scoring: bool = false):
 	if bead:
 		# Nothing to check if chain is empty
 		if chain.is_empty():
@@ -105,6 +126,16 @@ func check_chain(chain: Array[Bead], bead: Bead, type: String):
 			"special":
 				if not chain in info.special_chains:
 					info.special_chains.append(chain.duplicate())
+		if scoring:
+			mult_label.global_position.x = chain.back().global_position.x - abs(chain.front().global_position.x - chain.back().global_position.x - mult_label.size.x)/2
+			mult_label.text = "+" + str(mult)
+			mult_label.show()
+			for bead_to_clear in chain:
+				await bead_to_clear.raise()
+			for bead_to_clear in chain:
+				await bead_to_clear.lower()
+			mult_label.hide()
+		
 	
 	chain.clear()
 	if bead:

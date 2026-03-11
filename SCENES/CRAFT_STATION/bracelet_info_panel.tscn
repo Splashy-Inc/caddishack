@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="3_cufab"]
 [ext_resource type="StyleBox" uid="uid://djqiuusgpwpce" path="res://RESOURCES/brown_button_hover_box_texture.tres" id="3_u5r03"]
 [ext_resource type="StyleBox" uid="uid://b5qasew2vnpnv" path="res://RESOURCES/brown_button_box_texture.tres" id="4_j0hpn"]
-[ext_resource type="Theme" uid="uid://dw1njnimthc2q" path="res://SCENES/CRAFT_STATION/green_text.tres" id="5_dtlaa"]
+[ext_resource type="Theme" uid="uid://dw1njnimthc2q" path="res://RESOURCES/green_text.tres" id="5_dtlaa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dynvs"]
 
@@ -117,7 +117,6 @@ text = "0"
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("5_dtlaa")
-theme_override_font_sizes/font_size = 32
 theme_override_styles/hover = ExtResource("3_u5r03")
 theme_override_styles/normal = ExtResource("4_j0hpn")
 text = "MENU"

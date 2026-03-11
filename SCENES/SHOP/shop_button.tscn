@@ -1,15 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp7okqg1ne0u7"]
+[gd_scene load_steps=13 format=3 uid="uid://bp7okqg1ne0u7"]
 
-[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
-[ext_resource type="StyleBox" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
+[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="1_iqs27"]
+[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="2_8ilcs"]
 [ext_resource type="Script" path="res://SCRIPTS/SHOP/shop_button.gd" id="3_03m4k"]
 [ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/SHOP/sand_material.tscn" id="4_meg3e"]
 [ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="5_8hyd7"]
+[ext_resource type="PackedScene" uid="uid://bflueb4co07uq" path="res://SCENES/GUI/hover_text_area.tscn" id="6_82lm4"]
+[ext_resource type="PackedScene" uid="uid://c2s6ijb7ethvd" path="res://SCENES/GUI/item_info_box.tscn" id="8_8iuds"]
+[ext_resource type="Script" path="res://RESOURCES/item_info.gd" id="9_ywbe3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_w6jjp"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wbhpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opdc8"]
+size = Vector2(200, 200)
+
+[sub_resource type="Resource" id="Resource_8xnt5"]
+script = ExtResource("9_ywbe3")
+name = ""
+description = ""
+labels = Array[String]([])
+values = Array[String]([])
 
 [node name="ShopButton" type="Button" groups=["shop_buttons"]]
 offset_right = 200.0
@@ -43,3 +56,20 @@ theme_override_font_sizes/font_size = 32
 text = "100"
 label_settings = ExtResource("5_8hyd7")
 horizontal_alignment = 1
+
+[node name="HoverTextArea" parent="." node_paths=PackedStringArray("tooltip") instance=ExtResource("6_82lm4")]
+position = Vector2(100, 100)
+rotation = 1.5708
+tooltip = NodePath("../ItemInfoBox")
+
+[node name="CollisionShape2D" parent="HoverTextArea" index="0"]
+shape = SubResource("RectangleShape2D_opdc8")
+
+[node name="ItemInfoBox" parent="." instance=ExtResource("8_8iuds")]
+position = Vector2(100, 100)
+item_info = SubResource("Resource_8xnt5")
+
+[connection signal="mouse_entered" from="." to="HoverTextArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="HoverTextArea" method="_on_mouse_exited"]
+
+[editable path="HoverTextArea"]

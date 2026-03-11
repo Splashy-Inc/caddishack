@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnmwa28t8wyv3"]
+
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_2oneb"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="2_1rbcc"]
+[ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="2_i3tt4"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="3_dlsf5"]
+
+[node name="PlayButton" type="Button"]
+custom_minimum_size = Vector2(0, 110)
+offset_left = 560.0
+offset_top = 231.0
+offset_right = 720.0
+offset_bottom = 341.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_2oneb")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("2_i3tt4")
+theme_override_styles/hover = ExtResource("2_1rbcc")
+theme_override_styles/normal = ExtResource("3_dlsf5")
+text = "Play"

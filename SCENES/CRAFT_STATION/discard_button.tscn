@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://45xgooudgaro"]
+
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_tl6gn"]
+[ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="2_fskat"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="3_ffh40"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_ks4c6"]
+[ext_resource type="Script" path="res://SCRIPTS/CRAFT_STATION/discard_button.gd" id="5_b7rid"]
+
+[node name="DiscardButton" type="Button"]
+custom_minimum_size = Vector2(0, 110)
+offset_right = 160.0
+offset_bottom = 110.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_tl6gn")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/disabled = ExtResource("2_fskat")
+theme_override_styles/hover = ExtResource("3_ffh40")
+theme_override_styles/normal = ExtResource("4_ks4c6")
+text = "Discard"
+script = ExtResource("5_b7rid")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 0
+offset_top = -40.0
+offset_right = 40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Remaining:"
+horizontal_alignment = 2
+
+[node name="Number" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2

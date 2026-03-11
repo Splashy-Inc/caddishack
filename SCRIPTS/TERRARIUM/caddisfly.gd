@@ -8,6 +8,7 @@ const SPEED = 650.0
 
 var speed_mod := 1.0
 var direction : Vector2
+var bead_speed_mod := 1.0
 
 @export var egg_info : EggMaterialInfo
 
@@ -29,7 +30,14 @@ func _ready() -> void:
 	update_type()
 
 func _physics_process(delta: float) -> void:
-	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
+	if bead_speed_mod != 3.0:
+		if Input.is_action_just_pressed("speed_up"):
+			bead_speed_mod = 6.0
+		if Input.is_action_just_released("speed_up"):
+			bead_speed_mod = 1.0
+	bead_bar.value = lerpf(bead_bar.value, (lifespan_timer.wait_time - lifespan_timer.time_left) * bead_speed_mod, .05)
+	if bead_bar.value >= bead_bar.max_value:
+		_on_lifespan_timer_timeout()
 	if not (lifespan_timer.is_stopped() or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
 		var new_direction = Vector2.ZERO
 		if Globals.is_mobile and Globals.joystick:
@@ -51,6 +59,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func _on_lifespan_timer_timeout() -> void:
+	lifespan_timer.stop()
 	animation_player.play("retract")
 
 func die():
@@ -84,8 +93,7 @@ func place_material_from_queue():
 		bead.set_special(material_to_place.type)
 
 func _on_bead_completed():
-	lifespan_timer.stop()
-	animation_player.play("retract")
+	bead_speed_mod = 10.0
 
 func initialize(new_egg_info: EggMaterialInfo):
 	egg_info = new_egg_info

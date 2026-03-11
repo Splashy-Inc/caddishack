@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://v65h1k4msxhb"]
+[gd_scene load_steps=6 format=3 uid="uid://v65h1k4msxhb"]
 
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="1_mm3s4"]
 [ext_resource type="Script" path="res://SCRIPTS/GUI/win_screen.gd" id="1_ypahy"]
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_xnvnr"]
 [ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="3_alb4w"]
+[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="3_k2b6b"]
 
 [node name="WinScreen" type="Control"]
-custom_minimum_size = Vector2(640, 360)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ypahy")
 
 [node name="MenuContent" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(640, 360)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
@@ -22,8 +23,22 @@ alignment = 1
 [node name="Title" type="Label" parent="MenuContent"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "You win!"
+text = "Bracelet quota reached!"
 label_settings = ExtResource("2_xnvnr")
+horizontal_alignment = 1
+
+[node name="Subtext" type="Label" parent="MenuContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "You ended with..."
+label_settings = ExtResource("3_k2b6b")
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="MenuContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "$0"
+label_settings = ExtResource("3_k2b6b")
 horizontal_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="MenuContent"]
@@ -36,7 +51,6 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme = ExtResource("3_alb4w")
-theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = ExtResource("1_mm3s4")
 text = "Main Menu"
 
@@ -44,11 +58,11 @@ text = "Main Menu"
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme = ExtResource("3_alb4w")
-theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = ExtResource("1_mm3s4")
-text = "Restart Level"
+text = "Try Again"
 
 [node name="QuitButton" type="Button" parent="MenuContent/MenuButtons"]
+visible = false
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 theme = ExtResource("3_alb4w")
