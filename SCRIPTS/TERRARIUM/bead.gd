@@ -13,8 +13,6 @@ var is_travelling := false
 @onready var sand_sprite: AnimatedSprite2D = $SandSprite
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
-@onready var item_info_box: ItemInfoBox = $ItemInfoBox
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,14 +55,6 @@ func set_info(new_info: BeadInfo):
 	
 	if info.special.type != new_info.special.type:
 		set_special(new_info.special.type)
-	
-	var item_info := ItemInfo.new()
-	item_info.name = "BEAD"
-	item_info.description = "Combine beads to make a bracelet"
-	item_info.labels = ["Color", "Special", "Points"]
-	item_info.values = [SandMaterialInfo.SandColor.keys()[info.sand.color], SpecialMaterialInfo.SpecialType.keys()[info.special.type], str(get_points())]
-	
-	item_info_box.set_item_info(item_info)
 
 func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
 	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
@@ -85,29 +75,3 @@ func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
 func check_completed():
 	if info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC:
 		completed.emit()
-
-func get_points():
-	var points = 0
-	match info.special.type:
-		SpecialMaterialInfo.SpecialType.BASIC:
-			points += 1
-		_:
-			points += 3
-	
-	return points
-
-func score_points():
-	animation_player.play("bounce")
-	await animation_player.animation_finished
-	return get_points()
-
-func raise():
-	animation_player.play("raise")
-	await animation_player.animation_finished
-
-func lower():
-	animation_player.play("lower")
-	await animation_player.animation_finished
-
-func bounce_fast():
-	animation_player.play("bounce")
