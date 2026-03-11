@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c2u3tlfinil7j"]
+[gd_resource type="TileSet" format=3 uid="uid://c2u3tlfinil7j"]
 
 [ext_resource type="Texture2D" uid="uid://w4o4svccc0r5" path="res://ASSETS/Art/TERRARIUM/TerrariumTileSet2.png" id="1_ylvww"]
 
