@@ -1,58 +1,69 @@
-[gd_scene load_steps=8 format=3 uid="uid://do7dpbgd6ku6n"]
+[gd_scene format=3 uid="uid://do7dpbgd6ku6n"]
 
-[ext_resource type="Script" path="res://SCRIPTS/GUI/hud.gd" id="1_w38b1"]
+[ext_resource type="Script" uid="uid://bk6c4vahv6dng" path="res://SCRIPTS/GUI/hud.gd" id="1_w38b1"]
 [ext_resource type="PackedScene" uid="uid://k7ghjsy8g1k0" path="res://SCENES/GUI/main_menu.tscn" id="4_f58rm"]
 [ext_resource type="PackedScene" uid="uid://c6tdu4r5v8bbs" path="res://SCENES/GUI/controls_screen.tscn" id="4_sgjn6"]
 [ext_resource type="PackedScene" uid="uid://c3sldi7g5fcg6" path="res://SCENES/GUI/pause_menu.tscn" id="6_k66bl"]
 [ext_resource type="PackedScene" uid="uid://v65h1k4msxhb" path="res://SCENES/GUI/win_screen.tscn" id="6_s7jfo"]
 [ext_resource type="PackedScene" uid="uid://temjlvcxcb3r" path="res://SCENES/GUI/loss_screen.tscn" id="7_8h0it"]
-[ext_resource type="PackedScene" uid="uid://cnkctrxffor63" path="res://SCENES/CRAFT_STATION/run_info_menu.tscn" id="7_te3by"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=2145933357]
 layer = 2
 script = ExtResource("1_w38b1")
 
-[node name="MenuScreens" type="Control" parent="."]
+[node name="MenuScreens" type="Control" parent="." unique_id=1627526831]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 focus_mode = 2
 
-[node name="MenuBackGround" type="ColorRect" parent="MenuScreens"]
+[node name="MenuBackGround" type="ColorRect" parent="MenuScreens" unique_id=1278701508]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0.662745)
 
-[node name="MainMenu" parent="MenuScreens" instance=ExtResource("4_f58rm")]
+[node name="MainMenu" parent="MenuScreens" unique_id=786029975 instance=ExtResource("4_f58rm")]
 visible = false
 layout_mode = 1
 offset_right = 640.0
 offset_bottom = 360.0
 
-[node name="ControlsScreen" parent="MenuScreens" instance=ExtResource("4_sgjn6")]
+[node name="ControlsScreen" parent="MenuScreens" unique_id=1678435254 instance=ExtResource("4_sgjn6")]
 visible = false
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
 
-[node name="WinScreen" parent="MenuScreens" instance=ExtResource("6_s7jfo")]
+[node name="WinScreen" parent="MenuScreens" unique_id=2007799528 instance=ExtResource("6_s7jfo")]
 visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="LossScreen" parent="MenuScreens" instance=ExtResource("7_8h0it")]
+[node name="LossScreen" parent="MenuScreens" unique_id=1291039899 instance=ExtResource("7_8h0it")]
 visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="PauseMenu" parent="MenuScreens" instance=ExtResource("6_k66bl")]
+[node name="PauseMenu" parent="MenuScreens" unique_id=226899817 instance=ExtResource("6_k66bl")]
 visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-
-[node name="RunInfoMenu" parent="MenuScreens" instance=ExtResource("7_te3by")]
-visible = false
-layout_mode = 1
 
 [connection signal="button_pressed" from="MenuScreens/MainMenu" to="." method="_on_game_menu_button_pressed"]
 [connection signal="exited" from="MenuScreens/ControlsScreen" to="." method="_on_controls_screen_exited"]
 [connection signal="button_pressed" from="MenuScreens/WinScreen" to="." method="_on_game_menu_button_pressed"]
 [connection signal="button_pressed" from="MenuScreens/LossScreen" to="." method="_on_game_menu_button_pressed"]
 [connection signal="button_pressed" from="MenuScreens/PauseMenu" to="." method="_on_game_menu_button_pressed"]
-[connection signal="exited" from="MenuScreens/RunInfoMenu" to="." method="_go_back_screen"]
