@@ -24,6 +24,8 @@ config/icon="res://ASSETS/Art/icon.png"
 [autoload]
 
 Globals="*res://SCRIPTS/globals.gd"
+HUDEvents="*uid://dij4plmiu1fri"
+ScreenEvents="*uid://do6cbk176ijgi"
 
 [display]
 
@@ -43,6 +45,7 @@ project/assembly_name="CaddiShack"
 
 folder_colors={
 "res://ASSETS/": "green",
+"res://EventBuses/": "purple",
 "res://SCENES/": "red",
 "res://SCRIPTS/": "yellow"
 }

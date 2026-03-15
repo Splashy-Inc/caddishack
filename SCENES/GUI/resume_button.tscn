@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dtwpbk7gmsyxq"]
+
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_w0p2q"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_m0umx"]
+[ext_resource type="Script" uid="uid://bqrvs4inacuiy" path="res://SCRIPTS/GUI/resume_button.gd" id="3_m0umx"]
+
+[node name="ResumeButton" type="Button" unique_id=2104755819]
+custom_minimum_size = Vector2(100, 20)
+size_flags_horizontal = 4
+theme = ExtResource("1_w0p2q")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_m0umx")
+text = "Resume"
+script = ExtResource("3_m0umx")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

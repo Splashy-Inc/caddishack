@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3sldi7g5fcg6"]
+[gd_scene format=3 uid="uid://c3sldi7g5fcg6"]
 
-[ext_resource type="Script" path="res://SCRIPTS/GUI/pause_menu.gd" id="1_kmxbu"]
-[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_1q666"]
+[ext_resource type="PackedScene" uid="uid://dtwpbk7gmsyxq" path="res://SCENES/GUI/resume_button.tscn" id="2_gbmh7"]
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_q7iee"]
-[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="3_t0bl3"]
+[ext_resource type="PackedScene" uid="uid://067en6je8uvm" path="res://SCENES/GUI/restart_button.tscn" id="3_w15hf"]
+[ext_resource type="PackedScene" uid="uid://c8crwoa700a4l" path="res://SCENES/GUI/how_to_play_button.tscn" id="4_vx83u"]
+[ext_resource type="PackedScene" uid="uid://bu764lhxpdxck" path="res://SCENES/GUI/main_menu_button.tscn" id="5_i0osn"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=959972905]
 process_mode = 3
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-script = ExtResource("1_kmxbu")
 
-[node name="MenuContent" type="VBoxContainer" parent="."]
+[node name="MenuContent" type="VBoxContainer" parent="." unique_id=1453460343]
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 0
 offset_right = 1280.0
@@ -22,66 +22,26 @@ offset_bottom = 720.0
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Title" type="Label" parent="MenuContent"]
+[node name="Title" type="Label" parent="MenuContent" unique_id=682613126]
 layout_mode = 2
 theme_override_font_sizes/font_size = 108
 text = "Paused"
 label_settings = ExtResource("2_q7iee")
 horizontal_alignment = 1
 
-[node name="MenuButtons" type="VBoxContainer" parent="MenuContent"]
+[node name="MenuButtons" type="VBoxContainer" parent="MenuContent" unique_id=411638315]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="ResumeButton" type="Button" parent="MenuContent/MenuButtons"]
-custom_minimum_size = Vector2(100, 20)
+[node name="ResumeButton" parent="MenuContent/MenuButtons" unique_id=2104755819 instance=ExtResource("2_gbmh7")]
 layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_t0bl3")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_1q666")
-text = "Resume"
 
-[node name="RunInfoButton" type="Button" parent="MenuContent/MenuButtons"]
-custom_minimum_size = Vector2(100, 20)
+[node name="RestartButton" parent="MenuContent/MenuButtons" unique_id=1516624254 instance=ExtResource("3_w15hf")]
 layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_t0bl3")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_1q666")
-text = "Run Info"
 
-[node name="RestartButton" type="Button" parent="MenuContent/MenuButtons"]
-custom_minimum_size = Vector2(100, 20)
+[node name="HowToPlayButton" parent="MenuContent/MenuButtons" unique_id=182278930 instance=ExtResource("4_vx83u")]
 layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_t0bl3")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_1q666")
-text = "Restart Run"
 
-[node name="ControlsButton" type="Button" parent="MenuContent/MenuButtons"]
-custom_minimum_size = Vector2(100, 20)
+[node name="MainMenuButton" parent="MenuContent/MenuButtons" unique_id=116977437 instance=ExtResource("5_i0osn")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("3_t0bl3")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_1q666")
-text = "Controls"
-
-[node name="MainMenuButton" type="Button" parent="MenuContent/MenuButtons"]
-custom_minimum_size = Vector2(100, 20)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_t0bl3")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("2_1q666")
-text = "Main Menu"
-
-[connection signal="pressed" from="MenuContent/MenuButtons/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="MenuContent/MenuButtons/RunInfoButton" to="." method="_on_run_info_button_pressed"]
-[connection signal="pressed" from="MenuContent/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="MenuContent/MenuButtons/ControlsButton" to="." method="_on_controls_button_pressed"]
-[connection signal="pressed" from="MenuContent/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

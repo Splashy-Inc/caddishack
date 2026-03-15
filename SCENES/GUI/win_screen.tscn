@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://v65h1k4msxhb"]
 
-[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="1_mm3s4"]
-[ext_resource type="Script" uid="uid://cdup70cvmrpj4" path="res://SCRIPTS/GUI/win_screen.gd" id="1_ypahy"]
 [ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="2_xnvnr"]
 [ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="3_alb4w"]
+[ext_resource type="PackedScene" uid="uid://bu764lhxpdxck" path="res://SCENES/GUI/main_menu_button.tscn" id="4_jcxdq"]
+[ext_resource type="PackedScene" uid="uid://067en6je8uvm" path="res://SCENES/GUI/restart_button.tscn" id="5_60vw1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rg4ug"]
 
@@ -14,7 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rg4ug")
-script = ExtResource("1_ypahy")
 
 [node name="MenuContent" type="VBoxContainer" parent="." unique_id=1427573881]
 layout_mode = 2
@@ -34,21 +33,8 @@ size_flags_horizontal = 4
 theme = ExtResource("3_alb4w")
 theme_override_constants/separation = 20
 
-[node name="MainMenuButton" type="Button" parent="MenuContent/MenuButtons" unique_id=836833533]
-custom_minimum_size = Vector2(100, 20)
+[node name="MainMenuButton" parent="MenuContent/MenuButtons" unique_id=116977437 instance=ExtResource("4_jcxdq")]
 layout_mode = 2
-theme = ExtResource("3_alb4w")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("1_mm3s4")
-text = "Main Menu"
 
-[node name="RestartButton" type="Button" parent="MenuContent/MenuButtons" unique_id=1370072666]
-custom_minimum_size = Vector2(100, 20)
+[node name="RestartButton" parent="MenuContent/MenuButtons" unique_id=1516624254 instance=ExtResource("5_60vw1")]
 layout_mode = 2
-theme = ExtResource("3_alb4w")
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = ExtResource("1_mm3s4")
-text = "Restart Level"
-
-[connection signal="pressed" from="MenuContent/MenuButtons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="MenuContent/MenuButtons/RestartButton" to="." method="_on_restart_button_pressed"]

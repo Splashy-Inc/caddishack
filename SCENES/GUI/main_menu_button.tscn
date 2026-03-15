@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bu764lhxpdxck"]
+
+[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_1bu3r"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_rh0j0"]
+[ext_resource type="Script" uid="uid://ban8q6vod5svd" path="res://SCRIPTS/GUI/main_menu_button.gd" id="3_rh0j0"]
+
+[node name="MainMenuButton" type="Button" unique_id=116977437]
+custom_minimum_size = Vector2(100, 20)
+size_flags_horizontal = 4
+theme = ExtResource("1_1bu3r")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("2_rh0j0")
+text = "Main Menu"
+script = ExtResource("3_rh0j0")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

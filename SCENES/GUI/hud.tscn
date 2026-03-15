@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bk6c4vahv6dng" path="res://SCRIPTS/GUI/hud.gd" id="1_w38b1"]
 [ext_resource type="PackedScene" uid="uid://k7ghjsy8g1k0" path="res://SCENES/GUI/main_menu.tscn" id="4_f58rm"]
-[ext_resource type="PackedScene" uid="uid://c6tdu4r5v8bbs" path="res://SCENES/GUI/controls_screen.tscn" id="4_sgjn6"]
+[ext_resource type="PackedScene" uid="uid://c6tdu4r5v8bbs" path="res://SCENES/GUI/how_to_play_screen.tscn" id="4_sgjn6"]
 [ext_resource type="PackedScene" uid="uid://c3sldi7g5fcg6" path="res://SCENES/GUI/pause_menu.tscn" id="6_k66bl"]
 [ext_resource type="PackedScene" uid="uid://v65h1k4msxhb" path="res://SCENES/GUI/win_screen.tscn" id="6_s7jfo"]
 [ext_resource type="PackedScene" uid="uid://temjlvcxcb3r" path="res://SCENES/GUI/loss_screen.tscn" id="7_8h0it"]
@@ -25,7 +25,6 @@ offset_bottom = 720.0
 color = Color(0, 0, 0, 0.662745)
 
 [node name="MainMenu" parent="MenuScreens" unique_id=786029975 instance=ExtResource("4_f58rm")]
-visible = false
 layout_mode = 1
 offset_right = 640.0
 offset_bottom = 360.0
@@ -61,9 +60,3 @@ visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-
-[connection signal="button_pressed" from="MenuScreens/MainMenu" to="." method="_on_game_menu_button_pressed"]
-[connection signal="exited" from="MenuScreens/ControlsScreen" to="." method="_on_controls_screen_exited"]
-[connection signal="button_pressed" from="MenuScreens/WinScreen" to="." method="_on_game_menu_button_pressed"]
-[connection signal="button_pressed" from="MenuScreens/LossScreen" to="." method="_on_game_menu_button_pressed"]
-[connection signal="button_pressed" from="MenuScreens/PauseMenu" to="." method="_on_game_menu_button_pressed"]
