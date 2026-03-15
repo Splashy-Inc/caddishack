@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2yq3p28g16yq"]
-
-[ext_resource type="Script" path="res://SCRIPTS/station.gd" id="1_prdx8"]
-
-[node name="Station" type="Node"]
-script = ExtResource("1_prdx8")
