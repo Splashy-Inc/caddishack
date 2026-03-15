@@ -32,10 +32,8 @@ func _physics_process(delta: float) -> void:
 	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
 	if not (lifespan_timer.is_stopped() or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
 		var new_direction = Vector2.ZERO
-		if Globals.is_mobile and Globals.joystick:
-			new_direction = Globals.joystick.direction
-		else:
-			new_direction = Input.get_vector("left", "right", "up", "down")
+		
+		new_direction = Input.get_vector("left", "right", "up", "down")
 		
 		if new_direction and new_direction != Vector2.ZERO:
 			speed_mod = 1.0

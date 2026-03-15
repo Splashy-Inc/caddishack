@@ -19,7 +19,7 @@ run/main_scene="res://SCENES/screen_manager.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/stretch_mode=0
 boot_splash/image="res://SplashySplashScreen.png"
-config/icon="res://ASSETS/Art/icon.png"
+config/icon="uid://dpumn1vgemqlp"
 
 [autoload]
 
