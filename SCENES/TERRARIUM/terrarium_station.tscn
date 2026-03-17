@@ -3,8 +3,12 @@
 [ext_resource type="Script" uid="uid://bqha1fo4ucahx" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_cb6xo"]
 [ext_resource type="Resource" uid="uid://wd77aaw0xcp5" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
-[ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
 [ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/MATERIALS/bead_material.tscn" id="3_ec5by"]
+[ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="5_bnkvk"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="6_ugda1"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnkvk"]
 
 [node name="TerrariumStation" type="Node" unique_id=540587607]
 script = ExtResource("1_6dh60")
@@ -13,14 +17,52 @@ material_scene = ExtResource("3_ec5by")
 
 [node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
-[node name="PlayingField" type="Node2D" parent="." unique_id=1616074870]
+[node name="PlayScreen" type="Node" parent="." unique_id=157000249]
 
-[node name="ContainerLayer" parent="PlayingField" unique_id=128587165 instance=ExtResource("3_0ejnt")]
+[node name="GameUISection" type="PanelContainer" parent="PlayScreen" unique_id=2001517987]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -360.0
+offset_right = 160.0
+offset_bottom = 136.0
+grow_vertical = 2
 
-[node name="Materials" type="Node" parent="PlayingField" unique_id=1038023501]
+[node name="PlayingField" type="Node" parent="PlayScreen" unique_id=1036685667]
 
-[node name="Eggs" type="Node" parent="PlayingField" unique_id=667161508]
+[node name="Terrarium" parent="PlayScreen/PlayingField" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
+position = Vector2(640, 304)
 
-[node name="Beads" type="Node" parent="PlayingField" unique_id=2047733633]
+[node name="Materials" type="Node" parent="PlayScreen/PlayingField" unique_id=1038023501]
 
-[node name="Larvae" type="Node" parent="PlayingField" unique_id=2003998347]
+[node name="Eggs" type="Node" parent="PlayScreen/PlayingField" unique_id=667161508]
+
+[node name="Beads" type="Node" parent="PlayScreen/PlayingField" unique_id=2047733633]
+
+[node name="Larvae" type="Node" parent="PlayScreen/PlayingField" unique_id=2003998347]
+
+[node name="Button" type="Button" parent="PlayScreen" unique_id=513006651]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 480.0
+offset_top = -96.0
+offset_right = 632.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("6_ugda1")
+theme_override_styles/hover = ExtResource("7_yxfdh")
+text = "Lock In"
+
+[node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
+position = Vector2(640, 608)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayScreen/CardSection" unique_id=411026726]
+modulate = Color(1, 1, 1, 0.3647059)
+texture = SubResource("PlaceholderTexture2D_bnkvk")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 224)

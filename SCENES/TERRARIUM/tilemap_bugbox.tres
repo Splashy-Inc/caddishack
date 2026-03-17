@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://c2u3tlfinil7j"]
 
-[ext_resource type="Texture2D" uid="uid://w4o4svccc0r5" path="res://ASSETS/Art/TERRARIUM/TerrariumTileSet2.png" id="1_ylvww"]
+[ext_resource type="Texture2D" uid="uid://eovo74dah5ac" path="res://ASSETS/Art/TERRARIUM/TerrariumTileSet3.png" id="1_mpfvo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7p61"]
 resource_name = "TileSetLightGreen"
-texture = ExtResource("1_ylvww")
-texture_region_size = Vector2i(64, 64)
+texture = ExtResource("1_mpfvo")
+texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -57,8 +57,6 @@ texture_region_size = Vector2i(64, 64)
 7:4/0 = 0
 0:5/0 = 0
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, -16, 32, -16, -32)
-1:5/0 = 0
-1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 32, -32, 32, 32, -16, 32)
 2:5/0 = 0
 2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:5/0 = 0
@@ -81,9 +79,12 @@ texture_region_size = Vector2i(64, 64)
 7:7/0 = 0
 0:7/0 = 0
 1:7/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+1:5/0 = 0
 
 [resource]
-tile_size = Vector2i(64, 64)
+tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_q7p61")

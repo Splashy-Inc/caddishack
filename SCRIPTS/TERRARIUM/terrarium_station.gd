@@ -6,12 +6,12 @@ class_name TerrariumStation
 
 @export var material_scene : PackedScene
 
-@onready var container_layer: TerrariumBackground = $PlayingField/ContainerLayer
-@onready var playing_field: Node2D = $PlayingField
-@onready var materials_container: Node = $PlayingField/Materials
-@onready var beads_container: Node = $PlayingField/Beads
-@onready var eggs_container: Node = $PlayingField/Eggs
-@onready var larvae_container: Node = $PlayingField/Larvae
+@onready var terrarium: Terrarium = $PlayScreen/PlayingField/Terrarium
+@onready var playing_field: Node = $PlayScreen/PlayingField
+@onready var materials_container: Node = $PlayScreen/PlayingField/Materials
+@onready var beads_container: Node = $PlayScreen/PlayingField/Beads
+@onready var eggs_container: Node = $PlayScreen/PlayingField/Eggs
+@onready var larvae_container: Node = $PlayScreen/PlayingField/Larvae
 
 func _station_ready():
 	await generate_materials()
@@ -33,18 +33,18 @@ func _on_egg_hatched(new_larva: CaddisFly, spawn_point: Vector2):
 		new_larva.died.connect(_on_larva_died)
 		new_larva.global_position = spawn_point
 
-func spawn_material(material_info: MaterialInfo):		
+func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
 	if new_material is EggMaterial:
 		eggs_container.add_child(new_material)
-		new_material.global_position = container_layer.get_spawnable_egg_cell_center()
+		new_material.global_position = terrarium.get_spawnable_material_cell_center()
 	else:
 		materials_container.add_child(new_material)
 		if material_info.cell == Vector2i.ZERO:
-			new_material.global_position = container_layer.get_spawnable_material_cell_center()
-			material_info.cell = container_layer.get_material_cell_at(new_material.global_position)
+			new_material.global_position = terrarium.get_spawnable_material_cell_center()
+			material_info.cell = terrarium.get_material_cell_at(new_material.global_position)
 		else:
-			new_material.global_position = container_layer.get_material_cell_center(material_info.cell)
+			new_material.global_position = terrarium.get_material_cell_center(material_info.cell)
 
 	
 	Globals.run_info.terrarium = get_terrarium_state()

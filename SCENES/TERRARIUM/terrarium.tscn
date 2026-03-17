@@ -1,0 +1,123 @@
+[gd_scene format=4 uid="uid://c1cnosvtgboi2"]
+
+[ext_resource type="Script" uid="uid://cran5a1t1pjpv" path="res://SCRIPTS/TERRARIUM/terrarium.gd" id="1_2f6xe"]
+[ext_resource type="Texture2D" uid="uid://w4o4svccc0r5" path="res://ASSETS/Art/TERRARIUM/TerrariumTileSet2.png" id="2_73lip"]
+[ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/TERRARIUM/tilemap_bugbox.tres" id="3_fyw1s"]
+[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/caddisfly.tscn" id="4_73lip"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hvnbk"]
+resource_name = "TileSetLightGreen"
+texture = ExtResource("2_73lip")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 32, -32, 32, 32, -16, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 16, -32, 16, 32, -32, 32)
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 16, -32, 16, 32, -16, 32)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 32, -32, 32, 32, -16, 32)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, -32, 32, -32, -32)
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, -16, 32, -16, -32)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, 32, 32, -16, 32, -16, -32)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, -32, 32, -32, -32)
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -32, 16, 32, -16, 32, -16, -32)
+2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 16, -32, 16, 32, -32, 32)
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+1:6/0 = 0
+0:6/0 = 0
+1:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_awgu3"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_hvnbk")
+
+[node name="Terrarium" type="Node2D" unique_id=1014177116]
+script = ExtResource("1_2f6xe")
+
+[node name="TerrariumLayer" type="TileMapLayer" parent="." unique_id=595816728]
+tile_map_data = PackedByteArray("AAD8////AAAAAAUAAAD8/wAAAAAAAAUAAAD8/wEAAAAAAAUAAAD9/wEAAAAAAAUAAAD+/wEAAAAAAAUAAAD//wEAAAAAAAUAAAAAAAEAAAAAAAUAAAABAAEAAAAAAAUAAAACAAEAAAAAAAUAAAADAAEAAAAAAAUAAAADAAAAAAAAAAUAAAADAP//AAAAAAUAAAD8//7/AAAAAAUAAAD9//7/AAAAAAUAAAD+//7/AAAAAAUAAAD///7/AAAAAAUAAAAAAP7/AAAAAAUAAAABAP7/AAAAAAUAAAACAP7/AAAAAAUAAAADAP7/AAAAAAUAAAA=")
+tile_set = ExtResource("3_fyw1s")
+
+[node name="MaterialLayer" type="TileMapLayer" parent="." unique_id=1047399500]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAcAAAAAAAEAAAADAAcAAAAAAAIAAAADAAcAAAABAAAAAAAAAAcAAAABAAEAAAAAAAcAAAABAAIAAAAAAAcAAAACAAAAAAABAAcAAAACAAEAAAABAAcAAAACAAIAAAABAAcAAAADAAAAAAACAAcAAAADAAEAAAACAAcAAAADAAIAAAACAAcAAAAEAAAAAAADAAcAAAAEAAEAAAADAAcAAAAEAAIAAAADAAcAAAAFAAAAAAAAAAcAAAAFAAEAAAAAAAcAAAAFAAIAAAAAAAcAAAAGAAAAAAABAAcAAAAGAAEAAAABAAcAAAAGAAIAAAABAAcAAAAAAP3/AAADAAcAAAAAAP7/AAADAAcAAAAAAP//AAADAAcAAAABAP3/AAAAAAcAAAABAP7/AAAAAAcAAAABAP//AAAAAAcAAAACAP3/AAABAAcAAAACAP7/AAABAAcAAAACAP//AAABAAcAAAADAP3/AAACAAcAAAADAP7/AAACAAcAAAADAP//AAACAAcAAAAEAP3/AAADAAcAAAAEAP7/AAADAAcAAAAEAP//AAADAAcAAAAFAP3/AAAAAAcAAAAFAP7/AAAAAAcAAAAFAP//AAAAAAcAAAAGAP3/AAABAAcAAAAGAP7/AAABAAcAAAAGAP//AAABAAcAAAD5//3/AAAAAAcAAAD5//7/AAAAAAcAAAD5////AAAAAAcAAAD5/wAAAAAAAAcAAAD6//3/AAABAAcAAAD6//7/AAABAAcAAAD6////AAABAAcAAAD6/wAAAAABAAcAAAD7//3/AAACAAcAAAD7//7/AAACAAcAAAD7////AAACAAcAAAD7/wAAAAACAAcAAAD8//3/AAADAAcAAAD8//7/AAADAAcAAAD8////AAADAAcAAAD8/wAAAAADAAcAAAD9//3/AAAAAAcAAAD9//7/AAAAAAcAAAD9////AAAAAAcAAAD9/wAAAAAAAAcAAAD+//3/AAABAAcAAAD+//7/AAABAAcAAAD+////AAABAAcAAAD+/wAAAAABAAcAAAD///3/AAACAAcAAAD///7/AAACAAcAAAD/////AAACAAcAAAD//wAAAAACAAcAAAD5/wEAAAAAAAcAAAD5/wIAAAAAAAcAAAD6/wEAAAABAAcAAAD6/wIAAAABAAcAAAD7/wEAAAACAAcAAAD7/wIAAAACAAcAAAD8/wEAAAADAAcAAAD8/wIAAAADAAcAAAD9/wEAAAAAAAcAAAD9/wIAAAAAAAcAAAD+/wEAAAABAAcAAAD+/wIAAAABAAcAAAD//wEAAAACAAcAAAD//wIAAAACAAcAAAA=")
+tile_set = SubResource("TileSet_awgu3")
+collision_enabled = false
+
+[node name="Caddisfly" parent="." unique_id=649838868 instance=ExtResource("4_73lip")]
+position = Vector2(-357, -133)
+
+[node name="Caddisfly3" parent="." unique_id=360702549 instance=ExtResource("4_73lip")]
+position = Vector2(382, -139)
+scale = Vector2(0.5, 0.5)
+
+[node name="Caddisfly4" parent="." unique_id=1907927895 instance=ExtResource("4_73lip")]
+position = Vector2(182, 57)
+scale = Vector2(0.5, 0.5)
+
+[node name="Caddisfly5" parent="." unique_id=1674406473 instance=ExtResource("4_73lip")]
+position = Vector2(28, -127)
+scale = Vector2(0.5, 0.5)
+
+[node name="Caddisfly6" parent="." unique_id=1435367734 instance=ExtResource("4_73lip")]
+position = Vector2(-171, 41)

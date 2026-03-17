@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_rdclr"]
 [ext_resource type="Texture2D" uid="uid://dwi46syvnuk64" path="res://ASSETS/Art/SHOP/Dumortierite_Pile.png" id="3_opei0"]
 [ext_resource type="Texture2D" uid="uid://7lg40kqfw5ux" path="res://ASSETS/Art/SHOP/Amethyst_Pile.png" id="4_n1i38"]
-[ext_resource type="Texture2D" uid="uid://bprtrrkgrj88r" path="res://ASSETS/Art/SHOP/Citrine_Pile.png" id="5_bq7dx"]
+[ext_resource type="Texture2D" uid="uid://cjqu32e67i0u4" path="res://ASSETS/Art/SHOP/citrine_tile.tres" id="5_jikr8"]
 [ext_resource type="PackedScene" uid="uid://c7iv6evm4yvgl" path="res://SCENES/TERRARIUM/offscreen_indicator.tscn" id="6_8rnqu"]
 
 [sub_resource type="Resource" id="Resource_gi4fn"]
@@ -30,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_bq7dx")
+"texture": ExtResource("5_jikr8")
 }],
 "loop": true,
 "name": &"YELLOW",
