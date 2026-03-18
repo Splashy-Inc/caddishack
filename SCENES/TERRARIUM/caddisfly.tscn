@@ -1,21 +1,18 @@
-[gd_scene load_steps=42 format=3 uid="uid://bavo2v0il8e4"]
+[gd_scene format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_gf3mp"]
 [ext_resource type="Texture2D" uid="uid://cw0mol22xbie8" path="res://ASSETS/Art/TERRARIUM/BugBody.png" id="1_n3c84"]
-[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/caddisfly.gd" id="1_yra40"]
-[ext_resource type="Script" path="res://RESOURCES/egg_material_info.gd" id="2_2cfqc"]
+[ext_resource type="Script" uid="uid://cu3ihax16o6sw" path="res://SCRIPTS/TERRARIUM/caddisfly.gd" id="1_yra40"]
+[ext_resource type="Script" uid="uid://dm2mg7gpxt3m6" path="res://RESOURCES/egg_material_info.gd" id="2_2cfqc"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="2_8xfat"]
 [ext_resource type="Texture2D" uid="uid://bg5kyvt6hx1ma" path="res://ASSETS/Art/TERRARIUM/BugBody_Goed.png" id="3_cft4w"]
 [ext_resource type="Texture2D" uid="uid://h2fkldbyktc3" path="res://ASSETS/Art/TERRARIUM/BugBody_Special.png" id="4_rfjjw"]
-[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="5_je05u"]
-[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="6_n4n1d"]
-[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="7_evvrj"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="5_je05u"]
+[ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="6_n4n1d"]
+[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="7_evvrj"]
 
 [sub_resource type="Resource" id="Resource_78r23"]
 script = ExtResource("2_2cfqc")
-type = 0
-cell = Vector2i(0, 0)
-price = 0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bisof"]
 animations = [{
@@ -382,11 +379,11 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6cf02"]
 _data = {
-"RESET": SubResource("Animation_qhebt"),
-"collect": SubResource("Animation_c51dj"),
-"idle": SubResource("Animation_pgsy6"),
-"move": SubResource("Animation_8n1sv"),
-"retract": SubResource("Animation_pue2t")
+&"RESET": SubResource("Animation_qhebt"),
+&"collect": SubResource("Animation_c51dj"),
+&"idle": SubResource("Animation_pgsy6"),
+&"move": SubResource("Animation_8n1sv"),
+&"retract": SubResource("Animation_pue2t")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gxko"]
@@ -400,66 +397,59 @@ height = 44.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
 viewport_path = NodePath("BeadView")
 
-[sub_resource type="Resource" id="Resource_o0fji"]
+[sub_resource type="Resource" id="Resource_k4xqw"]
 resource_local_to_scene = true
 script = ExtResource("5_je05u")
-color = 0
-cell = Vector2i(0, 0)
-price = 0
 
-[sub_resource type="Resource" id="Resource_f5h1g"]
+[sub_resource type="Resource" id="Resource_ku7sq"]
 resource_local_to_scene = true
 script = ExtResource("7_evvrj")
-type = 0
-cell = Vector2i(0, 0)
-price = 0
 
-[sub_resource type="Resource" id="Resource_hc010"]
+[sub_resource type="Resource" id="Resource_wnccb"]
 resource_local_to_scene = true
 script = ExtResource("6_n4n1d")
-sand = SubResource("Resource_o0fji")
-special = SubResource("Resource_f5h1g")
+sand = SubResource("Resource_k4xqw")
+special = SubResource("Resource_ku7sq")
 
-[node name="Caddisfly" type="CharacterBody2D" node_paths=PackedStringArray("bead") groups=["larvae"]]
+[node name="Caddisfly" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_yra40")
 egg_info = SubResource("Resource_78r23")
 bead = NodePath("BeadView/Bead")
 
-[node name="BugBody" type="AnimatedSprite2D" parent="."]
+[node name="BugBody" type="AnimatedSprite2D" parent="." unique_id=885554364]
 position = Vector2(0, 57)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_bisof")
 animation = &"BASIC"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=645910719]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_ula2e")
 animation = &"Move"
 autoplay = "Idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6cf02")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=685731530]
+libraries/ = SubResource("AnimationLibrary_6cf02")
+autoplay = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1299902624]
 shape = SubResource("CapsuleShape2D_0gxko")
 
-[node name="CollectionArea" type="Area2D" parent="."]
+[node name="CollectionArea" type="Area2D" parent="." unique_id=2072092902]
 position = Vector2(0, -3)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea" unique_id=1297704867]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_g7hui")
 
-[node name="BeadCenter" type="Marker2D" parent="."]
+[node name="BeadCenter" type="Marker2D" parent="." unique_id=1300347040]
 position = Vector2(0, 63)
 
-[node name="BeadBar" type="TextureProgressBar" parent="."]
+[node name="BeadBar" type="TextureProgressBar" parent="." unique_id=1848313476]
 offset_left = -32.0
 offset_right = 32.0
 offset_bottom = 128.0
@@ -468,16 +458,16 @@ value = 100.0
 fill_mode = 3
 texture_progress = SubResource("ViewportTexture_33qiq")
 
-[node name="BeadView" type="SubViewport" parent="."]
+[node name="BeadView" type="SubViewport" parent="." unique_id=398466101]
 transparent_bg = true
 size = Vector2i(64, 126)
 
-[node name="Bead" parent="BeadView" instance=ExtResource("2_8xfat")]
+[node name="Bead" parent="BeadView" unique_id=560506520 instance=ExtResource("2_8xfat")]
 position = Vector2(32, 63)
 rotation = 1.5708
-info = SubResource("Resource_hc010")
+info = SubResource("Resource_wnccb")
 
-[node name="LifespanTimer" type="Timer" parent="."]
+[node name="LifespanTimer" type="Timer" parent="." unique_id=616418365]
 process_callback = 0
 wait_time = 10.0
 one_shot = true

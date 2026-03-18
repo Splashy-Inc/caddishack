@@ -41,7 +41,7 @@ text = "Lock In"
 [node name="PlayingField" type="Node" parent="PlayScreen" unique_id=1036685667]
 
 [node name="Terrarium" parent="PlayScreen/PlayingField" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
-position = Vector2(540, 360)
+position = Vector2(540, 424)
 
 [node name="Materials" type="Node" parent="PlayScreen/PlayingField" unique_id=1038023501]
 
