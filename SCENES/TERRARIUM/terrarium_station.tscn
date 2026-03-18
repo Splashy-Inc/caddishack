@@ -1,94 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://2tvle0b4ckdc"]
+[gd_scene format=3 uid="uid://2tvle0b4ckdc"]
 
-[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
-[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/CRAFT_STATION/station_background.tscn" id="2_cb6xo"]
+[ext_resource type="Script" uid="uid://bqha1fo4ucahx" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
+[ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_cb6xo"]
 [ext_resource type="Resource" uid="uid://wd77aaw0xcp5" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
 [ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
-[ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/SHOP/bead_material.tscn" id="3_ec5by"]
-[ext_resource type="Script" path="res://SCRIPTS/TERRARIUM/larva_camera.gd" id="7_l05fv"]
-[ext_resource type="PackedScene" uid="uid://b0qf7jypiefqa" path="res://SCENES/GUI/station_ui.tscn" id="7_qsx03"]
-[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="7_vyn30"]
+[ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/MATERIALS/bead_material.tscn" id="3_ec5by"]
 
-[sub_resource type="Animation" id="Animation_0jljf"]
-resource_name = "new_animation"
-length = 3.0
-loop_mode = 1
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.25, 1.25)]
-}
-
-[sub_resource type="Animation" id="Animation_qe0br"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eu5qd"]
-_data = {
-"RESET": SubResource("Animation_qe0br"),
-"new_animation": SubResource("Animation_0jljf")
-}
-
-[node name="TerrariumStation" type="Node"]
+[node name="TerrariumStation" type="Node" unique_id=540587607]
 script = ExtResource("1_6dh60")
 info = ExtResource("2_fhknv")
 material_scene = ExtResource("3_ec5by")
 
-[node name="StationBackground" parent="." instance=ExtResource("2_cb6xo")]
+[node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
-[node name="PlayingField" type="Node2D" parent="."]
+[node name="PlayingField" type="Node2D" parent="." unique_id=1616074870]
 
-[node name="ContainerLayer" parent="PlayingField" instance=ExtResource("3_0ejnt")]
+[node name="ContainerLayer" parent="PlayingField" unique_id=128587165 instance=ExtResource("3_0ejnt")]
 
-[node name="Materials" type="Node" parent="PlayingField"]
+[node name="Materials" type="Node" parent="PlayingField" unique_id=1038023501]
 
-[node name="Eggs" type="Node" parent="PlayingField"]
+[node name="Eggs" type="Node" parent="PlayingField" unique_id=667161508]
 
-[node name="Beads" type="Node" parent="PlayingField"]
+[node name="Beads" type="Node" parent="PlayingField" unique_id=2047733633]
 
-[node name="Larvae" type="Node" parent="PlayingField"]
-
-[node name="LarvaCamera" type="Camera2D" parent="PlayingField" groups=["camera"]]
-script = ExtResource("7_l05fv")
-
-[node name="MoveLabel" type="Label" parent="PlayingField"]
-offset_left = -40.0
-offset_top = -55.0
-offset_right = 44.0
-offset_bottom = 58.0
-theme_override_font_sizes/font_size = 44
-text = "MOVE
-WASD
-or 
-Joystick"
-label_settings = ExtResource("7_vyn30")
-horizontal_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayingField/MoveLabel"]
-libraries = {
-"": SubResource("AnimationLibrary_eu5qd")
-}
-autoplay = "new_animation"
-
-[node name="StationUI" parent="." instance=ExtResource("7_qsx03")]
-
-[connection signal="eggs_depleted" from="." to="." method="_on_eggs_depleted"]
+[node name="Larvae" type="Node" parent="PlayingField" unique_id=2003998347]

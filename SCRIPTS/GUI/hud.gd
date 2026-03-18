@@ -4,7 +4,6 @@ class_name HUD
 
 signal play_pressed
 signal restart_pressed
-signal quit_pressed
 signal main_menu_pressed
 
 @onready var menu_screens: Control = $MenuScreens
@@ -14,7 +13,6 @@ signal main_menu_pressed
 @onready var win_screen: Control = $MenuScreens/WinScreen
 @onready var loss_screen: Control = $MenuScreens/LossScreen
 @onready var pause_menu: Control = $MenuScreens/PauseMenu
-@onready var run_info_menu: RunInfoMenu = $MenuScreens/RunInfoMenu
 
 enum Menus {
 	NONE,
@@ -30,7 +28,14 @@ var cur_menu := Menus.NONE
 var prev_menu := Menus.NONE
 
 func _ready():
-	pass
+	HUDEvents.hide_menus_requested.connect(hide_menus)
+	HUDEvents.main_menu_requested.connect(show_main_menu)
+	HUDEvents.pause_menu_requested.connect(show_pause_menu)
+	HUDEvents.how_to_requested.connect(_show_controls)
+	HUDEvents.win_screen_requested.connect(show_win_screen)
+	HUDEvents.loss_screen_requested.connect(show_loss_screen)
+	HUDEvents.resume_pressed.connect(hide_menus)
+	HUDEvents.back_pressed.connect(_go_back_screen)
 
 func _process(delta):
 	pass
@@ -45,11 +50,13 @@ func _clear_menu():
 
 func show_menu_screens():
 	menu_screens.show()
+	ScreenEvents.pause_toggled.emit(true, Input.MOUSE_MODE_VISIBLE)
 
 func hide_menu_screens():
 	cur_menu = Menus.NONE
 	_clear_menu()
 	menu_screens.hide()
+	ScreenEvents.pause_toggled.emit(false, Input.MOUSE_MODE_VISIBLE)
 
 func _on_controls_screen_exited():
 	_go_back_screen()
@@ -69,14 +76,6 @@ func _show_controls():
 	_clear_menu()
 	show_menu_screens()
 	controls_screen.show()
-	
-func _show_run_info():
-	prev_menu = cur_menu
-	cur_menu = Menus.RUN_INFO
-	_clear_menu()
-	show_menu_screens()
-	run_info_menu.load_run_info()
-	run_info_menu.show()
 
 func show_main_menu():
 	cur_menu = Menus.MAIN
@@ -101,18 +100,3 @@ func show_loss_screen():
 	_clear_menu()
 	show_menu_screens()
 	loss_screen.show()
-
-func _on_game_menu_button_pressed(type: String):
-	match type:
-		"Play":
-			play_pressed.emit()
-		"Run Info":
-			_show_run_info()
-		"Restart":
-			restart_pressed.emit()
-		"Controls":
-			_show_controls()
-		"Main menu":
-			main_menu_pressed.emit()
-		"Quit":
-			quit_pressed.emit()

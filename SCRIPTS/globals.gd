@@ -5,14 +5,11 @@ signal info_updated
 const ordered_stations := [
 	preload("res://SCENES/SHOP/shop_station.tscn"),
 	preload("res://SCENES/TERRARIUM/terrarium_station.tscn"),
-	preload("res://SCENES/CRAFT_STATION/bracelet_station.tscn"),
 ]
 
 var cur_station_scene: PackedScene
 
 var joypad_connected := false
-
-var joystick: JoyStick
 
 var is_mobile = false
 
@@ -21,11 +18,11 @@ var info = 10 # Example info to track for level UI
 var run_info := RunInfo.new()
 
 const material_scenes = {
-	"sand": preload("res://SCENES/SHOP/sand_material.tscn"),
-	"pearl": preload("res://SCENES/SHOP/pearl_material.tscn"),
-	"shell": preload("res://SCENES/SHOP/shell_material.tscn"),
-	"jimmie": preload("res://SCENES/SHOP/jimmie_material.tscn"),
-	"egg": preload("res://SCENES/SHOP/egg_material.tscn"),
+	"sand": preload("res://SCENES/MATERIALS/sand_material.tscn"),
+	"pearl": preload("res://SCENES/MATERIALS/pearl_material.tscn"),
+	"shell": preload("res://SCENES/MATERIALS/shell_material.tscn"),
+	"jimmie": preload("res://SCENES/MATERIALS/jimmie_material.tscn"),
+	"egg": preload("res://SCENES/MATERIALS/egg_material.tscn"),
 }
 
 const larva_scene := preload("res://SCENES/TERRARIUM/caddisfly.tscn")
