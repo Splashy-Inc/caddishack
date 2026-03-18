@@ -23,15 +23,25 @@ material_scene = ExtResource("3_ec5by")
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 1088.0
 offset_top = -360.0
-offset_right = 160.0
+offset_right = 1280.0
 offset_bottom = 136.0
 grow_vertical = 2
+
+[node name="Button" type="Button" parent="PlayScreen/GameUISection" unique_id=513006651]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("6_ugda1")
+theme_override_styles/hover = ExtResource("7_yxfdh")
+text = "Lock In"
 
 [node name="PlayingField" type="Node" parent="PlayScreen" unique_id=1036685667]
 
 [node name="Terrarium" parent="PlayScreen/PlayingField" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
-position = Vector2(640, 304)
+position = Vector2(540, 360)
 
 [node name="Materials" type="Node" parent="PlayScreen/PlayingField" unique_id=1038023501]
 
@@ -40,23 +50,6 @@ position = Vector2(640, 304)
 [node name="Beads" type="Node" parent="PlayScreen/PlayingField" unique_id=2047733633]
 
 [node name="Larvae" type="Node" parent="PlayScreen/PlayingField" unique_id=2003998347]
-
-[node name="Button" type="Button" parent="PlayScreen" unique_id=513006651]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 480.0
-offset_top = -96.0
-offset_right = 632.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("6_ugda1")
-theme_override_styles/hover = ExtResource("7_yxfdh")
-text = "Lock In"
 
 [node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
 position = Vector2(640, 608)
