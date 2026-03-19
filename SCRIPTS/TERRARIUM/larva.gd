@@ -4,10 +4,12 @@ class_name Larva
 
 signal died(caddis_fly: Larva)
 
-const SPEED = 650.0
+const SPEED = 100.0
 
 var speed_mod := 1.0
 var direction : Vector2
+
+var bead_completed := false
 
 @export var egg_info : EggMaterialInfo
 
@@ -16,7 +18,6 @@ var direction : Vector2
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bead_center: Marker2D = $BeadCenter
 @onready var bead_bar: TextureProgressBar = $BeadBar
-@onready var lifespan_timer: Timer = $LifespanTimer
 @onready var bug_body: AnimatedSprite2D = $BugBody
 
 var material_queue : Array[MaterialInfo]
@@ -24,13 +25,11 @@ var material_queue : Array[MaterialInfo]
 func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
-	bead_bar.max_value = lifespan_timer.wait_time
-	bead_bar.value = 0
+	#bead_bar.value = 0
 	update_type()
 
 func _physics_process(delta: float) -> void:
-	bead_bar.value = lifespan_timer.wait_time - lifespan_timer.time_left
-	if not (lifespan_timer.is_stopped() or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
+	if not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
 		var new_direction = Vector2.ZERO
 		
 		new_direction = Input.get_vector("left", "right", "up", "down")
@@ -47,9 +46,6 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * SPEED * speed_mod
 			
 		move_and_slide()
-
-func _on_lifespan_timer_timeout() -> void:
-	animation_player.play("retract")
 
 func die():
 	bead.position = Vector2.ZERO
@@ -82,7 +78,7 @@ func place_material_from_queue():
 		bead.set_special(material_to_place.type)
 
 func _on_bead_completed():
-	lifespan_timer.stop()
+	bead_completed = true
 	animation_player.play("retract")
 
 func initialize(new_egg_info: EggMaterialInfo):

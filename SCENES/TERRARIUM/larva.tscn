@@ -256,23 +256,6 @@ tracks/2/keys = {
 "method": &"place_material_from_queue"
 }]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LifespanTimer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [&"paused", true],
-"method": &"set_deferred"
-}, {
-"args": [&"paused", false],
-"method": &"set_deferred"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_pgsy6"]
 resource_name = "idle"
@@ -397,19 +380,19 @@ height = 44.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
 viewport_path = NodePath("BeadView")
 
-[sub_resource type="Resource" id="Resource_k4xqw"]
+[sub_resource type="Resource" id="Resource_rm28v"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
 
-[sub_resource type="Resource" id="Resource_ku7sq"]
+[sub_resource type="Resource" id="Resource_jj2xk"]
 resource_local_to_scene = true
 script = ExtResource("10_4ycns")
 
-[sub_resource type="Resource" id="Resource_wnccb"]
+[sub_resource type="Resource" id="Resource_m8k0v"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-sand = SubResource("Resource_k4xqw")
-special = SubResource("Resource_ku7sq")
+sand = SubResource("Resource_rm28v")
+special = SubResource("Resource_jj2xk")
 
 [node name="Caddisfly" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
 scale = Vector2(0.5, 0.5)
@@ -465,14 +448,7 @@ size = Vector2i(64, 126)
 [node name="Bead" parent="BeadView" unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(32, 63)
 rotation = 1.5708
-info = SubResource("Resource_wnccb")
-
-[node name="LifespanTimer" type="Timer" parent="." unique_id=616418365]
-process_callback = 0
-wait_time = 10.0
-one_shot = true
-autostart = true
+info = SubResource("Resource_m8k0v")
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
-[connection signal="timeout" from="LifespanTimer" to="." method="_on_lifespan_timer_timeout"]

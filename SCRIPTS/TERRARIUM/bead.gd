@@ -73,5 +73,8 @@ func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
 	return false
 
 func check_completed():
-	if info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC:
+	if is_completed():
 		completed.emit()
+
+func is_completed():
+	return info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC
