@@ -25,7 +25,7 @@ const material_scenes = {
 	"egg": preload("res://SCENES/MATERIALS/egg_material.tscn"),
 }
 
-const larva_scene := preload("res://SCENES/TERRARIUM/caddisfly.tscn")
+const larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,7 +66,7 @@ func generate_material(material_info: MaterialInfo) -> BeadMaterial:
 	new_material.info = material_info
 	return new_material
 
-func generate_larva() -> CaddisFly:
+func generate_larva() -> Larva:
 	return larva_scene.instantiate()
 
 func reset_run():

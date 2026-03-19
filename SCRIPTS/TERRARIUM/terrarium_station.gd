@@ -17,7 +17,7 @@ func _station_ready():
 	await generate_materials()
 	hatch_next_egg()
 
-func _on_larva_died(larva: CaddisFly):
+func _on_larva_died(larva: Larva):
 	larva.bead.reparent(beads_container)
 	hatch_next_egg()
 
@@ -27,7 +27,7 @@ func hatch_next_egg():
 		next_egg.hatched.connect(_on_egg_hatched)
 		next_egg.spawn_larva()
 
-func _on_egg_hatched(new_larva: CaddisFly, spawn_point: Vector2):
+func _on_egg_hatched(new_larva: Larva, spawn_point: Vector2):
 	if is_instance_valid(new_larva):
 		larvae_container.add_child(new_larva)
 		new_larva.died.connect(_on_larva_died)

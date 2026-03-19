@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-class_name CaddisFly
+class_name Larva
 
-signal died(caddis_fly: CaddisFly)
+signal died(caddis_fly: Larva)
 
 const SPEED = 650.0
 
@@ -57,8 +57,8 @@ func die():
 	bead.reparent(get_parent())
 	died.emit(self)
 
-func _on_died(caddis_fly: CaddisFly) -> void:
-	caddis_fly.queue_free()
+func _on_died(larva: Larva) -> void:
+	larva.queue_free()
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	if body is BeadMaterial:

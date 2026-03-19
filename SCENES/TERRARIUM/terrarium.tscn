@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cran5a1t1pjpv" path="res://SCRIPTS/TERRARIUM/terrarium.gd" id="1_2f6xe"]
 [ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/TERRARIUM/tilemap_bugbox.tres" id="3_fyw1s"]
-[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/caddisfly.tscn" id="4_73lip"]
+[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/larva.tscn" id="4_73lip"]
 
 [node name="Terrarium" type="Node2D" unique_id=1014177116]
 script = ExtResource("1_2f6xe")

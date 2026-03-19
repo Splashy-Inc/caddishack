@@ -2,7 +2,7 @@ extends BeadMaterial
 
 class_name EggMaterial
 
-signal hatched(larva: CaddisFly, spawn_point: Vector2)
+signal hatched(larva: Larva, spawn_point: Vector2)
 
 const SPEED = 500
 
