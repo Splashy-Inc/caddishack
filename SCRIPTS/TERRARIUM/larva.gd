@@ -9,8 +9,6 @@ const SPEED = 100.0
 var speed_mod := 1.0
 var direction : Vector2
 
-var bead_completed := false
-
 @export var egg_info : EggMaterialInfo
 
 @export var bead : Bead
@@ -19,8 +17,12 @@ var bead_completed := false
 @onready var bead_center: Marker2D = $BeadCenter
 @onready var bead_bar: TextureProgressBar = $BeadBar
 @onready var bug_body: AnimatedSprite2D = $BugBody
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var material_queue : Array[MaterialInfo]
+
+var bead_completed := false
+var target : Node2D
 
 func _ready() -> void:
 	if bead:
@@ -29,10 +31,9 @@ func _ready() -> void:
 	update_type()
 
 func _physics_process(delta: float) -> void:
+	target = _get_closest_target()
 	if not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
-		var new_direction = Vector2.ZERO
-		
-		new_direction = Input.get_vector("left", "right", "up", "down")
+		var new_direction = _get_direction()
 		
 		if new_direction and new_direction != Vector2.ZERO:
 			speed_mod = 1.0
@@ -42,9 +43,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			speed_mod = 0.0
 			animation_player.play("idle")
-			
-		velocity = direction * SPEED * speed_mod
-			
+		
+		navigation_agent.set_velocity(direction * SPEED * speed_mod)
+		
 		move_and_slide()
 
 func die():
@@ -88,3 +89,36 @@ func initialize(new_egg_info: EggMaterialInfo):
 func update_type():
 	if bug_body:
 		bug_body.play(EggMaterialInfo.EggType.keys()[egg_info.type])
+
+func _get_direction() -> Vector2:
+	var direction = Vector2.ZERO
+	if target:
+		if navigation_agent.target_position != target.global_position:
+			navigation_agent.set_target_position(target.global_position)
+	else:
+		navigation_agent.set_target_position(global_position)
+	if not navigation_agent.is_target_reached():
+		direction = global_position.direction_to(navigation_agent.get_next_path_position())
+	return direction
+
+func _get_closest(nodes: Array) -> Node2D:
+	if nodes.is_empty():
+		return null
+	else:
+		var closest_node
+		for node in nodes:
+			if node is SandMaterial:
+				if bead.has_sand_color():
+					continue
+			else:
+				if bead.has_charm():
+					continue
+			if not closest_node or global_position.distance_to(node.global_position) < global_position.distance_to(closest_node.global_position):
+				closest_node = node
+		return closest_node
+
+func _get_closest_target():
+	return _get_closest(get_tree().get_nodes_in_group("materials"))
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity

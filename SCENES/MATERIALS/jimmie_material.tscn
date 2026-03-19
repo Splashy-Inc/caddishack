@@ -9,7 +9,7 @@
 script = ExtResource("2_hcane")
 type = 3
 
-[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773]
+[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773 groups=["materials"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_60584")

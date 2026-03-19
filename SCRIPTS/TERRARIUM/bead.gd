@@ -77,4 +77,10 @@ func check_completed():
 		completed.emit()
 
 func is_completed():
-	return info.sand.color != SandMaterialInfo.SandColor.COLORLESS and info.special.type != SpecialMaterialInfo.SpecialType.BASIC
+	return has_sand_color() and has_charm()
+
+func has_sand_color():
+	return info.sand.color != SandMaterialInfo.SandColor.COLORLESS
+
+func has_charm():
+	return info.special.type != SpecialMaterialInfo.SpecialType.BASIC

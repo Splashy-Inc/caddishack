@@ -16,15 +16,16 @@ tile_set = ExtResource("3_fyw1s")
 collision_enabled = false
 
 [node name="Caddisfly" parent="." unique_id=1438854672 instance=ExtResource("4_73lip")]
+position = Vector2(-355, -205)
 
 [node name="Caddisfly2" parent="." unique_id=1420445666 instance=ExtResource("4_73lip")]
-position = Vector2(334, -83)
+position = Vector2(-359, -223)
 
 [node name="Caddisfly3" parent="." unique_id=348988054 instance=ExtResource("4_73lip")]
-position = Vector2(84, -202)
+position = Vector2(-375, -189)
 
 [node name="Caddisfly4" parent="." unique_id=1501319111 instance=ExtResource("4_73lip")]
-position = Vector2(-285, 32)
+position = Vector2(-352, -170)
 
 [node name="Caddisfly5" parent="." unique_id=46371996 instance=ExtResource("4_73lip")]
 position = Vector2(-338, -190)
