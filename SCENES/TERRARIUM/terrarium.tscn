@@ -1,30 +1,38 @@
 [gd_scene format=4 uid="uid://c1cnosvtgboi2"]
 
 [ext_resource type="Script" uid="uid://cran5a1t1pjpv" path="res://SCRIPTS/TERRARIUM/terrarium.gd" id="1_2f6xe"]
+[ext_resource type="Resource" uid="uid://wd77aaw0xcp5" path="res://RESOURCES/test_terrarium.tres" id="2_73lip"]
 [ext_resource type="TileSet" uid="uid://c2u3tlfinil7j" path="res://SCENES/TERRARIUM/tilemap_bugbox.tres" id="3_fyw1s"]
 [ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/larva.tscn" id="4_73lip"]
 
 [node name="Terrarium" type="Node2D" unique_id=1014177116]
 script = ExtResource("1_2f6xe")
+info = ExtResource("2_73lip")
 
 [node name="TerrariumLayer" type="TileMapLayer" parent="." unique_id=595816728]
 tile_set = ExtResource("3_fyw1s")
 
 [node name="MaterialLayer" type="TileMapLayer" parent="." unique_id=1047399500]
-tile_map_data = PackedByteArray("AAADAAAAAQACAAIAAAADAP//AQACAAEAAAADAP7/AQACAAEAAAADAP3/AQACAAAAAAACAAAAAQABAAIAAAACAP//AQABAAEAAAACAP7/AQABAAEAAAACAP3/AQABAAAAAAABAAAAAQABAAIAAAABAP//AQABAAEAAAABAP7/AQABAAEAAAABAP3/AQABAAAAAAAAAAAAAQABAAIAAAAAAP//AQABAAEAAAAAAP7/AQABAAEAAAAAAP3/AQABAAAAAAD//wAAAQABAAIAAAD/////AQABAAEAAAD///7/AQABAAEAAAD///3/AQABAAAAAAD+/wAAAQABAAIAAAD+////AQABAAEAAAD+//7/AQABAAEAAAD+//3/AQABAAAAAAD9/wAAAQABAAIAAAD9////AQABAAEAAAD9//7/AQABAAEAAAD9//3/AQABAAAAAAD8/wAAAQAAAAIAAAD8////AQAAAAEAAAD8//7/AQAAAAEAAAD8//3/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD///7/AQABAAAAAAD/////AQABAAEAAAD//wAAAQABAAEAAAD//wEAAQABAAIAAAD8//7/AQAAAAAAAAD8////AQAAAAEAAAD9//7/AQABAAAAAAD9////AQABAAEAAAD8/wAAAQAAAAEAAAD9/wAAAQABAAEAAAD+//7/AQABAAAAAAD+////AQABAAEAAAD+/wAAAQABAAEAAAD8/wEAAQAAAAIAAAD9/wEAAQABAAIAAAD+/wEAAQABAAIAAAAAAP7/AQABAAAAAAAAAP//AQABAAEAAAAAAAAAAQABAAEAAAABAP7/AQABAAAAAAABAP//AQABAAEAAAABAAAAAQABAAEAAAAAAAEAAQABAAIAAAABAAEAAQABAAIAAAACAP7/AQABAAAAAAACAP//AQABAAEAAAACAAAAAQABAAEAAAACAAEAAQABAAIAAAADAP7/AQACAAAAAAADAP//AQACAAEAAAADAAAAAQACAAEAAAADAAEAAQACAAIAAAA=")
 tile_set = ExtResource("3_fyw1s")
 
-[node name="Caddisfly" parent="." unique_id=1438854672 instance=ExtResource("4_73lip")]
-position = Vector2(-355, -205)
+[node name="Materials" type="Node2D" parent="." unique_id=43783408]
 
-[node name="Caddisfly2" parent="." unique_id=1420445666 instance=ExtResource("4_73lip")]
-position = Vector2(-359, -223)
+[node name="Beads" type="Node2D" parent="." unique_id=232826089]
 
-[node name="Caddisfly3" parent="." unique_id=348988054 instance=ExtResource("4_73lip")]
-position = Vector2(-375, -189)
+[node name="Larvae" type="Node2D" parent="." unique_id=1306998960]
 
-[node name="Caddisfly4" parent="." unique_id=1501319111 instance=ExtResource("4_73lip")]
-position = Vector2(-352, -170)
+[node name="Caddisfly" parent="Larvae" unique_id=1438854672 instance=ExtResource("4_73lip")]
+position = Vector2(-355, -84)
 
-[node name="Caddisfly5" parent="." unique_id=46371996 instance=ExtResource("4_73lip")]
-position = Vector2(-338, -190)
+[node name="Caddisfly2" parent="Larvae" unique_id=1420445666 instance=ExtResource("4_73lip")]
+position = Vector2(-359, -102)
+
+[node name="Caddisfly3" parent="Larvae" unique_id=348988054 instance=ExtResource("4_73lip")]
+position = Vector2(-375, -68)
+
+[node name="Caddisfly4" parent="Larvae" unique_id=1501319111 instance=ExtResource("4_73lip")]
+position = Vector2(-352, -49)
+
+[node name="Caddisfly5" parent="Larvae" unique_id=46371996 instance=ExtResource("4_73lip")]
+position = Vector2(-338, -69)
