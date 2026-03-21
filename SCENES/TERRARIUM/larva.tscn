@@ -395,15 +395,15 @@ sand = SubResource("Resource_rm28v")
 special = SubResource("Resource_jj2xk")
 
 [node name="Caddisfly" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
+z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_rm28v")
 egg_info = SubResource("Resource_78r23")
 bead = NodePath("BeadView/Bead")
 
 [node name="BugBody" type="AnimatedSprite2D" parent="." unique_id=885554364]
-position = Vector2(0, 57)
+position = Vector2(0, 56.999996)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_bisof")
 animation = &"BASIC"
@@ -428,7 +428,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea" unique_id=1297704867]
-position = Vector2(0, 3)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_g7hui")
 
 [node name="BeadCenter" type="Marker2D" parent="." unique_id=1300347040]
@@ -453,8 +453,9 @@ rotation = 1.5708
 info = SubResource("Resource_m8k0v")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=713028908]
+path_max_distance = 10.0
 avoidance_enabled = true
-radius = 32.0
+radius = 8.0
 neighbor_distance = 100.0
 debug_enabled = true
 

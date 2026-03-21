@@ -23,6 +23,7 @@ var material_queue : Array[MaterialInfo]
 
 var bead_completed := false
 var target : Node2D
+var can_move : bool
 
 func _ready() -> void:
 	if bead:
@@ -32,21 +33,18 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	target = _get_closest_target()
-	if not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing())):
-		var new_direction = _get_direction()
+	can_move = not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
+	if can_move:
+		direction = _get_direction()
 		
-		if new_direction and new_direction != Vector2.ZERO:
+		if direction != Vector2.ZERO:
 			speed_mod = 1.0
-			direction = direction.lerp(new_direction.normalized(), .1)
 			animation_player.play("move")
-			rotation = -direction.angle_to(Vector2.UP)
 		else:
 			speed_mod = 0.0
 			animation_player.play("idle")
 		
 		navigation_agent.set_velocity(direction * SPEED * speed_mod)
-		
-		move_and_slide()
 
 func die():
 	bead.position = Vector2.ZERO
@@ -121,4 +119,7 @@ func _get_closest_target():
 	return _get_closest(get_tree().get_nodes_in_group("materials"))
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	velocity = safe_velocity
+	if can_move:
+		velocity = safe_velocity
+		rotation = lerpf(rotation, -velocity.angle_to(Vector2.UP), .1)
+		move_and_slide()
