@@ -25,8 +25,6 @@ const material_scenes = {
 	"egg": preload("res://SCENES/MATERIALS/egg_material.tscn"),
 }
 
-const larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
@@ -65,9 +63,6 @@ func generate_material(material_info: MaterialInfo) -> BeadMaterial:
 	
 	new_material.info = material_info
 	return new_material
-
-func generate_larva() -> Larva:
-	return larva_scene.instantiate()
 
 func reset_run():
 	run_info = load("res://RESOURCES/test_run.tres").duplicate(true)

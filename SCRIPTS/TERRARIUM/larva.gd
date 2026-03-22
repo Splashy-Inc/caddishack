@@ -2,14 +2,14 @@ extends CharacterBody2D
 
 class_name Larva
 
-signal died(caddis_fly: Larva)
+signal died(larva: Larva)
 
 const SPEED = 100.0
 
 var speed_mod := 1.0
 var direction : Vector2
 
-@export var egg_info : EggMaterialInfo
+var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 @export var bead : Bead
 
@@ -32,19 +32,19 @@ func _ready() -> void:
 	update_type()
 
 func _physics_process(delta: float) -> void:
-	target = _get_closest_target()
-	can_move = not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
-	if can_move:
-		direction = _get_direction()
-		
-		if direction != Vector2.ZERO:
-			speed_mod = 1.0
-			animation_player.play("move")
-		else:
-			speed_mod = 0.0
-			animation_player.play("idle")
-		
-		navigation_agent.set_velocity(direction * SPEED * speed_mod)
+		target = _get_closest_target()
+		can_move = not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
+		if can_move:
+			direction = _get_direction()
+			
+			if direction != Vector2.ZERO:
+				speed_mod = 1.0
+				animation_player.play("move")
+			else:
+				speed_mod = 0.0
+				animation_player.play("idle")
+			
+			navigation_agent.set_velocity(direction * SPEED * speed_mod)
 
 func die():
 	bead.position = Vector2.ZERO
@@ -80,13 +80,11 @@ func _on_bead_completed():
 	bead_completed = true
 	animation_player.play("retract")
 
-func initialize(new_egg_info: EggMaterialInfo):
-	egg_info = new_egg_info
-	update_type()
+func initialize():
+	pass
 	
 func update_type():
-	if bug_body:
-		bug_body.play(EggMaterialInfo.EggType.keys()[egg_info.type])
+	pass
 
 func _get_direction() -> Vector2:
 	var direction = Vector2.ZERO

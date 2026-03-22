@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Script" uid="uid://cu3ihax16o6sw" path="res://SCRIPTS/TERRARIUM/larva.gd" id="1_rm28v"]
-[ext_resource type="Script" uid="uid://dm2mg7gpxt3m6" path="res://RESOURCES/egg_material_info.gd" id="2_jj2xk"]
 [ext_resource type="Texture2D" uid="uid://cw0mol22xbie8" path="res://ASSETS/Art/TERRARIUM/BugBody.png" id="3_m8k0v"]
 [ext_resource type="Texture2D" uid="uid://bg5kyvt6hx1ma" path="res://ASSETS/Art/TERRARIUM/BugBody_Goed.png" id="4_34tmi"]
 [ext_resource type="Texture2D" uid="uid://h2fkldbyktc3" path="res://ASSETS/Art/TERRARIUM/BugBody_Special.png" id="5_ddlee"]
@@ -10,9 +9,6 @@
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_sxk8d"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_566sv"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="10_4ycns"]
-
-[sub_resource type="Resource" id="Resource_78r23"]
-script = ExtResource("2_jj2xk")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bisof"]
 animations = [{
@@ -380,26 +376,25 @@ height = 44.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
 viewport_path = NodePath("BeadView")
 
-[sub_resource type="Resource" id="Resource_rm28v"]
+[sub_resource type="Resource" id="Resource_x1i4c"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
 
-[sub_resource type="Resource" id="Resource_jj2xk"]
+[sub_resource type="Resource" id="Resource_rm28v"]
 resource_local_to_scene = true
 script = ExtResource("10_4ycns")
 
-[sub_resource type="Resource" id="Resource_m8k0v"]
+[sub_resource type="Resource" id="Resource_jj2xk"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-sand = SubResource("Resource_rm28v")
-special = SubResource("Resource_jj2xk")
+sand = SubResource("Resource_x1i4c")
+special = SubResource("Resource_rm28v")
 
-[node name="Caddisfly" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
+[node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
 z_index = 2
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_rm28v")
-egg_info = SubResource("Resource_78r23")
 bead = NodePath("BeadView/Bead")
 
 [node name="BugBody" type="AnimatedSprite2D" parent="." unique_id=885554364]
@@ -450,7 +445,7 @@ size = Vector2i(64, 126)
 [node name="Bead" parent="BeadView" unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(32, 63)
 rotation = 1.5708
-info = SubResource("Resource_m8k0v")
+info = SubResource("Resource_jj2xk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=713028908]
 path_max_distance = 10.0

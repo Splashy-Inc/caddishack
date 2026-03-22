@@ -9,6 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="8_04exf"]
 [ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="9_s7cx1"]
+[ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="10_ll8qw"]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("7_ll8qw")
@@ -92,7 +93,7 @@ script = ExtResource("8_04exf")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_kccl0"]
+[sub_resource type="Resource" id="Resource_ll8qw"]
 resource_local_to_scene = true
 script = ExtResource("9_s7cx1")
 materials = Array[ExtResource("6_kccl0")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -127,7 +128,7 @@ text = "Lock In"
 
 [node name="Terrarium" parent="PlayScreen" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 288)
-info = SubResource("Resource_kccl0")
+info = SubResource("Resource_ll8qw")
 
 [node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
 position = Vector2(640, 608)
@@ -137,3 +138,27 @@ modulate = Color(1, 1, 1, 0.3647059)
 texture = SubResource("PlaceholderTexture2D_bnkvk")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 224)
+
+[node name="Hand" type="Node2D" parent="PlayScreen/CardSection" unique_id=950258879]
+position = Vector2(-96, -22)
+
+[node name="LarvaCard" parent="PlayScreen/CardSection/Hand" unique_id=1227121871 instance=ExtResource("10_ll8qw")]
+position = Vector2(-415, 85)
+
+[node name="LarvaCard2" parent="PlayScreen/CardSection/Hand" unique_id=1500410228 instance=ExtResource("10_ll8qw")]
+position = Vector2(-271, 54)
+
+[node name="LarvaCard3" parent="PlayScreen/CardSection/Hand" unique_id=1394797297 instance=ExtResource("10_ll8qw")]
+position = Vector2(-145, 29)
+
+[node name="LarvaCard4" parent="PlayScreen/CardSection/Hand" unique_id=113522985 instance=ExtResource("10_ll8qw")]
+position = Vector2(-4, 5)
+
+[node name="LarvaCard5" parent="PlayScreen/CardSection/Hand" unique_id=1420833387 instance=ExtResource("10_ll8qw")]
+position = Vector2(126, 30)
+
+[node name="LarvaCard6" parent="PlayScreen/CardSection/Hand" unique_id=707690389 instance=ExtResource("10_ll8qw")]
+position = Vector2(250, 60)
+
+[node name="LarvaCard7" parent="PlayScreen/CardSection/Hand" unique_id=205862127 instance=ExtResource("10_ll8qw")]
+position = Vector2(377, 91)

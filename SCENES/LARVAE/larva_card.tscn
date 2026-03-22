@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cue2ptvqn6f3r"]
+
+[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/larva.tscn" id="1_4xgy5"]
+[ext_resource type="Script" uid="uid://bbdunfyudqd3d" path="res://SCRIPTS/LARVAE/larva_card.gd" id="1_icnma"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3wmsx"]
+size = Vector2(184, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnpqk"]
+size = Vector2(184, 256)
+
+[node name="LarvaCard" type="Node2D" unique_id=1227121871]
+script = ExtResource("1_icnma")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=642097255]
+texture = SubResource("PlaceholderTexture2D_3wmsx")
+
+[node name="Larva" parent="." unique_id=1438854672 instance=ExtResource("1_4xgy5")]
+process_mode = 4
+z_index = 0
+position = Vector2(46, -60)
+rotation = 1.5707964
+scale = Vector2(1, 1)
+
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1641301708]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=1075871762]
+shape = SubResource("RectangleShape2D_wnpqk")
+
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
