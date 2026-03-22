@@ -12,15 +12,19 @@ size = Vector2(184, 256)
 [node name="LarvaCard" type="Node2D" unique_id=1227121871]
 script = ExtResource("1_icnma")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=642097255]
+[node name="Card" type="Node2D" parent="." unique_id=294962098]
+
+[node name="Sprite2D" type="Sprite2D" parent="Card" unique_id=642097255]
 texture = SubResource("PlaceholderTexture2D_3wmsx")
 
-[node name="Larva" parent="." unique_id=1438854672 instance=ExtResource("1_4xgy5")]
-process_mode = 4
-z_index = 0
+[node name="LarvaSlot" type="Node2D" parent="." unique_id=1483369864]
 position = Vector2(46, -60)
 rotation = 1.5707964
-scale = Vector2(1, 1)
+scale = Vector2(2, 2)
+
+[node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
+process_mode = 4
+z_index = 0
 
 [node name="ClickableArea" type="Area2D" parent="." unique_id=1641301708]
 collision_layer = 8
