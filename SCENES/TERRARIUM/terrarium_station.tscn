@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2tvle0b4ckdc"]
 
 [ext_resource type="Script" uid="uid://bqha1fo4ucahx" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
+[ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="2_04exf"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_cb6xo"]
 [ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="5_bnkvk"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="6_kccl0"]
@@ -93,7 +94,7 @@ script = ExtResource("8_04exf")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_ll8qw"]
+[sub_resource type="Resource" id="Resource_04exf"]
 resource_local_to_scene = true
 script = ExtResource("9_s7cx1")
 materials = Array[ExtResource("6_kccl0")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -117,7 +118,7 @@ offset_right = 1280.0
 offset_bottom = 136.0
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="PlayScreen/GameUISection" unique_id=513006651]
+[node name="LockInButton" type="Button" parent="PlayScreen/GameUISection" unique_id=513006651]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -126,9 +127,10 @@ theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 text = "Lock In"
 
-[node name="Terrarium" parent="PlayScreen" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
+[node name="Terrarium" parent="PlayScreen" unique_id=1014177116 node_paths=PackedStringArray("start_button") instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 288)
-info = SubResource("Resource_ll8qw")
+info = SubResource("Resource_04exf")
+start_button = NodePath("../GameUISection/LockInButton")
 
 [node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
 position = Vector2(640, 608)
@@ -162,3 +164,5 @@ position = Vector2(250, 60)
 
 [node name="LarvaCard7" parent="PlayScreen/CardSection/Hand" unique_id=205862127 instance=ExtResource("10_ll8qw")]
 position = Vector2(377, 91)
+
+[node name="CardHandler" parent="PlayScreen" unique_id=2084620106 instance=ExtResource("2_04exf")]

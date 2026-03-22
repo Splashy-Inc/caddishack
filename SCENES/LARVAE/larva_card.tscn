@@ -20,7 +20,6 @@ texture = SubResource("PlaceholderTexture2D_3wmsx")
 [node name="LarvaSlot" type="Node2D" parent="." unique_id=1483369864]
 position = Vector2(46, -60)
 rotation = 1.5707964
-scale = Vector2(2, 2)
 
 [node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
 process_mode = 4

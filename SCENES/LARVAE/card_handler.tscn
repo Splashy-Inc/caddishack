@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ddeuxqlfst4ic"]
+
+[ext_resource type="Script" uid="uid://vdqdhgqoer8x" path="res://SCRIPTS/LARVAE/card_handler.gd" id="1_pyj0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpbf4"]
+radius = 1.0
+
+[node name="CardHandler" type="Area2D" unique_id=1151880614]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_pyj0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133166408]
+shape = SubResource("CircleShape2D_fpbf4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

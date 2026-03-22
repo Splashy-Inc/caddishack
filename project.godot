@@ -26,6 +26,7 @@ config/icon="uid://dpumn1vgemqlp"
 Globals="*res://SCRIPTS/globals.gd"
 HUDEvents="*uid://dij4plmiu1fri"
 ScreenEvents="*uid://do6cbk176ijgi"
+CardEvents="*uid://bqwtoov8w4c8m"
 
 [display]
 
@@ -82,6 +83,7 @@ select={
 2d_physics/layer_2="larvae"
 2d_physics/layer_3="materials"
 2d_physics/layer_4="Cards"
+2d_physics/layer_5="Playable Terrarium"
 
 [physics]
 
