@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="8_04exf"]
 [ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="9_s7cx1"]
-[ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="10_ll8qw"]
+[ext_resource type="PackedScene" uid="uid://dac4l330kaphs" path="res://SCENES/LARVAE/card_hand.tscn" id="10_04exf"]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("7_ll8qw")
@@ -141,28 +141,9 @@ texture = SubResource("PlaceholderTexture2D_bnkvk")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 224)
 
-[node name="Hand" type="Node2D" parent="PlayScreen/CardSection" unique_id=950258879]
-position = Vector2(-96, -22)
-
-[node name="LarvaCard" parent="PlayScreen/CardSection/Hand" unique_id=1227121871 instance=ExtResource("10_ll8qw")]
-position = Vector2(-415, 85)
-
-[node name="LarvaCard2" parent="PlayScreen/CardSection/Hand" unique_id=1500410228 instance=ExtResource("10_ll8qw")]
-position = Vector2(-271, 54)
-
-[node name="LarvaCard3" parent="PlayScreen/CardSection/Hand" unique_id=1394797297 instance=ExtResource("10_ll8qw")]
-position = Vector2(-145, 29)
-
-[node name="LarvaCard4" parent="PlayScreen/CardSection/Hand" unique_id=113522985 instance=ExtResource("10_ll8qw")]
-position = Vector2(-4, 5)
-
-[node name="LarvaCard5" parent="PlayScreen/CardSection/Hand" unique_id=1420833387 instance=ExtResource("10_ll8qw")]
-position = Vector2(126, 30)
-
-[node name="LarvaCard6" parent="PlayScreen/CardSection/Hand" unique_id=707690389 instance=ExtResource("10_ll8qw")]
-position = Vector2(250, 60)
-
-[node name="LarvaCard7" parent="PlayScreen/CardSection/Hand" unique_id=205862127 instance=ExtResource("10_ll8qw")]
-position = Vector2(377, 91)
+[node name="CardHand" parent="PlayScreen/CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
+position = Vector2(-96, 0)
 
 [node name="CardHandler" parent="PlayScreen" unique_id=2084620106 instance=ExtResource("2_04exf")]
+
+[connection signal="larvae_done" from="PlayScreen/Terrarium" to="." method="_on_terrarium_larvae_done"]

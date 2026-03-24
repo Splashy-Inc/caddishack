@@ -2,9 +2,13 @@ extends Node2D
 
 class_name Terrarium
 
+signal bead_limit_reached
+signal larvae_done
+
 @export var info : TerrariumInfo
 @export var larvae_limit := 5
 @export var start_button : Button
+@export var bead_limit := 10
 
 @onready var material_layer: TileMapLayer = $MaterialLayer
 
@@ -91,10 +95,11 @@ func add_larva(new_larva: Larva) -> bool:
 	return false
 
 func _on_larva_died(larva: Larva):
-	larva.bead.reparent(beads_container, true)
+	add_bead(larva.bead)
 	larvae_container.remove_child(larva)
 	
 	if larvae_container.get_children().size() == 0:
+		larvae_done.emit()
 		larvae_running = false
 
 func start_larvae():
@@ -102,6 +107,27 @@ func start_larvae():
 		if node is Larva:
 			larvae_running = true
 			node.process_mode = Node.PROCESS_MODE_INHERIT
+
+func add_bead(new_bead: Bead) -> bool:
+	if get_beads().size() < bead_limit:
+		if is_instance_valid(new_bead.get_parent()):
+			new_bead.reparent(beads_container, true)
+		else:
+			beads_container.add_child(new_bead)
+	
+		if get_beads().size() == bead_limit:
+			bead_limit_reached.emit()
+		
+		return true
+	else:
+		return false
+
+func remove_bead(bead: Bead) -> Bead:
+	if bead in get_beads():
+		beads_container.remove_child(bead)
+		return bead
+	else:
+		return null
 
 func get_beads() -> Array[Bead]:
 	var beads : Array[Bead]

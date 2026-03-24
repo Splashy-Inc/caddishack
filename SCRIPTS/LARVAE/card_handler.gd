@@ -10,19 +10,17 @@ var terrarium : Terrarium
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	CardEvents.card_clicked.connect(_on_card_clicked)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = get_viewport().get_mouse_position()
-	
+	global_position = global_position.lerp(get_viewport().get_mouse_position(), .5)
 	if card:
-		card.global_position = card.global_position.lerp(global_position, .5)
+		card.global_position = global_position
 
 func _on_card_clicked(clicked_card: LarvaCard, button_index: MouseButton) -> void:
 	if not is_instance_valid(card):
 		if button_index == MOUSE_BUTTON_LEFT:
 			card = clicked_card
-			card_start_position = card.global_position
-			card.toggle_larva_view(true)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -34,14 +32,5 @@ func _unhandled_input(event: InputEvent) -> void:
 						card = null
 						return
 				
-				card.global_position = card_start_position
-				card.toggle_larva_view(false)
+				card.drop()
 				card = null
-
-func _on_body_entered(body: Node2D) -> void:
-	var body_parent = body.get_parent()
-	if body_parent is Terrarium:
-		terrarium = body_parent
-
-func _on_body_exited(body: Node2D) -> void:
-	terrarium = null
