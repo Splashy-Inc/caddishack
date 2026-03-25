@@ -19,18 +19,11 @@ func _process(delta: float) -> void:
 func space_cards():
 	var num_cards = cards.size()
 	var spacing = hand_width/num_cards
-	# TODO: Make this work with both odd and even card numbers
 	var middle = num_cards/2.0 - .5
 	for i in num_cards:
 		var card = cards.get(i)
 		card.position.x = 0 - spacing * (middle - i)
 		card.global_position.y = global_position.y
-		if i < middle:
-			print("Left")
-		elif i > middle:
-			print("Right")
-		else:
-			print("Middle")
 
 func get_cards() -> Array[LarvaCard]:
 	var card_array : Array[LarvaCard]

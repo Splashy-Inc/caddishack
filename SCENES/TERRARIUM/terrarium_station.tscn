@@ -148,8 +148,9 @@ position = Vector2(-96, 0)
 
 [node name="BeadScorer" parent="." unique_id=1893395517 instance=ExtResource("12_s7cx1")]
 visible = false
-position = Vector2(544, 381)
+position = Vector2(544, 608)
 
 [connection signal="pressed" from="GameUISection/LockInButton" to="." method="_on_lock_in_button_pressed"]
+[connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
 [connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
 [connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]

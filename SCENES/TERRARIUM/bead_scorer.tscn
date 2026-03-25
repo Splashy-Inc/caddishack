@@ -2,12 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="1_lclvk"]
 [ext_resource type="Script" uid="uid://1fslkhnqa4bf" path="res://SCRIPTS/TERRARIUM/bead_scorer.gd" id="1_pbr2u"]
-[ext_resource type="PackedScene" uid="uid://buxm1ivhxhxqq" path="res://SCENES/CRAFT_STATION/bead_container.tscn" id="2_rt77x"]
+[ext_resource type="PackedScene" uid="uid://1guuvhm3f7g" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_pbr2u"]
 
 [node name="BeadScorer" type="Node2D" unique_id=1893395517]
 script = ExtResource("1_pbr2u")
 
 [node name="BraceletContructionPanel" parent="." unique_id=1696741675 instance=ExtResource("1_lclvk")]
 
-[node name="BeadContainer" parent="." unique_id=1359538199 instance=ExtResource("2_rt77x")]
-position = Vector2(0, -164)
+[node name="InfoPanel" parent="." unique_id=1466671616 instance=ExtResource("3_pbr2u")]
+offset_top = -204.0
+offset_bottom = -204.0

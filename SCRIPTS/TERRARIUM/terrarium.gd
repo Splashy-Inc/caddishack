@@ -4,7 +4,7 @@ class_name Terrarium
 
 signal larvae_started
 signal larvae_done
-signal bead_limit_reached
+signal bead_limit_reached(terrarium: Terrarium)
 
 @export var info : TerrariumInfo
 @export var larvae_limit := 5
@@ -125,7 +125,7 @@ func add_bead(new_bead: Bead) -> bool:
 			beads_container.add_child(new_bead)
 	
 		if get_beads().size() == bead_limit:
-			bead_limit_reached.emit()
+			bead_limit_reached.emit(self)
 		
 		return true
 	else:
