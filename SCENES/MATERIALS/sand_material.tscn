@@ -2,19 +2,29 @@
 
 [ext_resource type="Script" uid="uid://cpt58b0klktpe" path="res://SCRIPTS/MATERIALS/sand_material.gd" id="1_jikr8"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_rdclr"]
-[ext_resource type="Texture2D" uid="uid://bc18ugapkuhop" path="res://ASSETS/Art/SHOP/dumortierite_tile.tres" id="3_jikr8"]
-[ext_resource type="Texture2D" uid="uid://x05io5v0mpr5" path="res://ASSETS/Art/SHOP/amethyst_tile.tres" id="4_rdclr"]
-[ext_resource type="Texture2D" uid="uid://cjqu32e67i0u4" path="res://ASSETS/Art/SHOP/citrine_tile.tres" id="5_jikr8"]
+[ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="3_r1hh5"]
 [ext_resource type="PackedScene" uid="uid://c7iv6evm4yvgl" path="res://SCENES/TERRARIUM/offscreen_indicator.tscn" id="6_8rnqu"]
 
 [sub_resource type="Resource" id="Resource_gi4fn"]
 script = ExtResource("2_rdclr")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ocba"]
+atlas = ExtResource("3_r1hh5")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jikr8"]
+atlas = ExtResource("3_r1hh5")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdclr"]
+atlas = ExtResource("3_r1hh5")
+region = Rect2(384, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p3iw3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_jikr8")
+"texture": SubResource("AtlasTexture_8ocba")
 }],
 "loop": true,
 "name": &"CYAN",
@@ -22,7 +32,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_rdclr")
+"texture": SubResource("AtlasTexture_jikr8")
 }],
 "loop": true,
 "name": &"MAGENTA",
@@ -30,7 +40,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_jikr8")
+"texture": SubResource("AtlasTexture_rdclr")
 }],
 "loop": true,
 "name": &"YELLOW",
@@ -48,7 +58,7 @@ info = SubResource("Resource_gi4fn")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="." unique_id=1816323572]
 sprite_frames = SubResource("SpriteFrames_p3iw3")
-animation = &"CYAN"
+animation = &"YELLOW"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1387737330]
 shape = SubResource("RectangleShape2D_jikr8")

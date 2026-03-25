@@ -4,9 +4,9 @@ class_name TerrariumStation
 
 @export var round_length := 10
 
-@onready var card_hand: CardHand = $PlayScreen/CardSection/CardHand
-@onready var terrarium: Terrarium = $PlayScreen/Terrarium
-@onready var lock_in_button: Button = $PlayScreen/GameUISection/LockInButton
+@onready var card_hand: CardHand = $CardSection/CardHand
+@onready var terrarium: Terrarium = $Terrarium
+@onready var lock_in_button: Button = $GameUISection/LockInButton
 
 func _on_terrarium_larvae_done() -> void:
 	if terrarium.get_beads().size() >= 10:
