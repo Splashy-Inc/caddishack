@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="8_04exf"]
 [ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="9_s7cx1"]
 [ext_resource type="PackedScene" uid="uid://dac4l330kaphs" path="res://SCENES/LARVAE/card_hand.tscn" id="10_04exf"]
+[ext_resource type="PackedScene" uid="uid://l8c5hnvmqfwd" path="res://SCENES/TERRARIUM/bead_scorer.tscn" id="12_s7cx1"]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("7_ll8qw")
@@ -94,7 +95,7 @@ script = ExtResource("8_04exf")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_04exf"]
+[sub_resource type="Resource" id="Resource_dugvo"]
 resource_local_to_scene = true
 script = ExtResource("9_s7cx1")
 materials = Array[ExtResource("6_kccl0")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -107,9 +108,7 @@ round_length = 5
 
 [node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
-[node name="PlayScreen" type="Node" parent="." unique_id=157000249]
-
-[node name="GameUISection" type="PanelContainer" parent="PlayScreen" unique_id=2001517987]
+[node name="GameUISection" type="PanelContainer" parent="." unique_id=2001517987]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -119,7 +118,7 @@ offset_right = 1280.0
 offset_bottom = 136.0
 grow_vertical = 2
 
-[node name="LockInButton" type="Button" parent="PlayScreen/GameUISection" unique_id=513006651]
+[node name="LockInButton" type="Button" parent="GameUISection" unique_id=513006651]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -128,24 +127,27 @@ theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 text = "Lock In"
 
-[node name="Terrarium" parent="PlayScreen" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
+[node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 288)
-info = SubResource("Resource_04exf")
+info = SubResource("Resource_dugvo")
 
-[node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
+[node name="CardSection" type="Node2D" parent="." unique_id=31290860]
 position = Vector2(640, 608)
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayScreen/CardSection" unique_id=411026726]
+[node name="Sprite2D" type="Sprite2D" parent="CardSection" unique_id=411026726]
 modulate = Color(1, 1, 1, 0.3647059)
 texture = SubResource("PlaceholderTexture2D_bnkvk")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 224)
 
-[node name="CardHand" parent="PlayScreen/CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
+[node name="CardHand" parent="CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
 position = Vector2(-96, 0)
 
-[node name="CardHandler" parent="PlayScreen" unique_id=2084620106 instance=ExtResource("2_04exf")]
+[node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
 
-[connection signal="pressed" from="PlayScreen/GameUISection/LockInButton" to="." method="_on_lock_in_button_pressed"]
-[connection signal="larvae_done" from="PlayScreen/Terrarium" to="." method="_on_terrarium_larvae_done"]
-[connection signal="larvae_started" from="PlayScreen/Terrarium" to="." method="_on_terrarium_larvae_started"]
+[node name="BeadScorer" parent="." unique_id=1893395517 instance=ExtResource("12_s7cx1")]
+position = Vector2(544, 381)
+
+[connection signal="pressed" from="GameUISection/LockInButton" to="." method="_on_lock_in_button_pressed"]
+[connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
+[connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]
