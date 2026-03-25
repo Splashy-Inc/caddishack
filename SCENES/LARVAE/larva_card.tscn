@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/larva.tscn" id="1_4xgy5"]
 [ext_resource type="Script" uid="uid://bbdunfyudqd3d" path="res://SCRIPTS/LARVAE/larva_card.gd" id="1_icnma"]
+[ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="2_wnpqk"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3wmsx"]
-size = Vector2(184, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g11q"]
+atlas = ExtResource("2_wnpqk")
+region = Rect2(184, 0, 184, 256)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_icnma"]
 radius = 1.0
@@ -18,7 +20,7 @@ script = ExtResource("1_icnma")
 [node name="Card" type="Node2D" parent="." unique_id=294962098]
 
 [node name="Sprite2D" type="Sprite2D" parent="Card" unique_id=642097255]
-texture = SubResource("PlaceholderTexture2D_3wmsx")
+texture = SubResource("AtlasTexture_5g11q")
 
 [node name="LarvaSlot" type="Area2D" parent="." unique_id=957539115]
 position = Vector2(46, -60)
