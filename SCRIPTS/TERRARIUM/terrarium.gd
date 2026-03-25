@@ -2,27 +2,27 @@ extends Node2D
 
 class_name Terrarium
 
-signal bead_limit_reached
+signal larvae_started
 signal larvae_done
+signal bead_limit_reached
 
 @export var info : TerrariumInfo
 @export var larvae_limit := 5
-@export var start_button : Button
 @export var bead_limit := 10
+@export var start_larvae_on_drop := false
 
 @onready var material_layer: TileMapLayer = $MaterialLayer
 
 @onready var materials_container: Node = $Materials
 @onready var beads_container: Node = $Beads
 @onready var larvae_container: Node = $Larvae
+@onready var simulation_timer: Timer = $SimulationTimer
 
 var larvae_running := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	generate_materials()
-	if is_instance_valid(start_button):
-		start_button.pressed.connect(start_larvae)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -88,7 +88,7 @@ func add_larva(new_larva: Larva) -> bool:
 		
 		new_larva.died.connect(_on_larva_died)
 		
-		if not is_instance_valid(start_button):
+		if start_larvae_on_drop:
 			new_larva.process_mode = Node.PROCESS_MODE_INHERIT
 		
 		return true
@@ -102,11 +102,20 @@ func _on_larva_died(larva: Larva):
 		larvae_done.emit()
 		larvae_running = false
 
-func start_larvae():
-	for node in larvae_container.get_children():
-		if node is Larva:
-			larvae_running = true
-			node.process_mode = Node.PROCESS_MODE_INHERIT
+func start_larvae(round_length: float = 0.0) -> bool:
+	if larvae_container.get_child_count() >= larvae_limit:
+		for node in larvae_container.get_children():
+			if node is Larva:
+				larvae_running = true
+				node.process_mode = Node.PROCESS_MODE_INHERIT
+		
+		if larvae_running:
+			if round_length > 0:
+				simulation_timer.start(round_length)
+			larvae_started.emit()
+			return true
+	
+	return false
 
 func add_bead(new_bead: Bead) -> bool:
 	if get_beads().size() < bead_limit:
@@ -137,3 +146,8 @@ func get_beads() -> Array[Bead]:
 			beads.append(node)
 	
 	return beads
+
+func _on_simulation_timer_timeout() -> void:
+	for node in larvae_container.get_children():
+		if node is Larva:
+			node._on_bead_completed()

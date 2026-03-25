@@ -20,3 +20,8 @@ tile_set = ExtResource("3_fyw1s")
 [node name="Beads" type="Node2D" parent="." unique_id=232826089]
 
 [node name="Larvae" type="Node2D" parent="." unique_id=1306998960]
+
+[node name="SimulationTimer" type="Timer" parent="." unique_id=1234075821]
+one_shot = true
+
+[connection signal="timeout" from="SimulationTimer" to="." method="_on_simulation_timer_timeout"]

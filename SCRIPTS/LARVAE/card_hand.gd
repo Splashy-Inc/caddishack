@@ -70,3 +70,8 @@ func draw_cards(num_cards: int):
 		if not new_card.died.is_connected(update_cards):
 			new_card.died.connect(update_cards)
 	update_cards()
+
+func discard():
+	for card in get_cards():
+		card.queue_free()
+		await get_tree().create_timer(.25).timeout

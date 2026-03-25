@@ -103,6 +103,7 @@ materials = Array[ExtResource("6_kccl0")]([SubResource("Resource_d1wso"), SubRes
 
 [node name="TerrariumStation" type="Node" unique_id=540587607]
 script = ExtResource("1_6dh60")
+round_length = 5
 
 [node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
@@ -127,10 +128,9 @@ theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 text = "Lock In"
 
-[node name="Terrarium" parent="PlayScreen" unique_id=1014177116 node_paths=PackedStringArray("start_button") instance=ExtResource("5_bnkvk")]
+[node name="Terrarium" parent="PlayScreen" unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 288)
 info = SubResource("Resource_04exf")
-start_button = NodePath("../GameUISection/LockInButton")
 
 [node name="CardSection" type="Node2D" parent="PlayScreen" unique_id=31290860]
 position = Vector2(640, 608)
@@ -146,4 +146,6 @@ position = Vector2(-96, 0)
 
 [node name="CardHandler" parent="PlayScreen" unique_id=2084620106 instance=ExtResource("2_04exf")]
 
+[connection signal="pressed" from="PlayScreen/GameUISection/LockInButton" to="." method="_on_lock_in_button_pressed"]
 [connection signal="larvae_done" from="PlayScreen/Terrarium" to="." method="_on_terrarium_larvae_done"]
+[connection signal="larvae_started" from="PlayScreen/Terrarium" to="." method="_on_terrarium_larvae_started"]

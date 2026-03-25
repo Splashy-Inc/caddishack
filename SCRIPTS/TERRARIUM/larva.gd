@@ -77,6 +77,8 @@ func place_material_from_queue():
 		bead.set_special(material_to_place.type)
 
 func _on_bead_completed():
+	if animation_player.current_animation == "collect" and animation_player.is_playing():
+		await animation_player.animation_finished
 	bead_completed = true
 	animation_player.play("retract")
 
