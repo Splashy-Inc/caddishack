@@ -3,12 +3,31 @@
 [ext_resource type="PackedScene" uid="uid://dlvsne80igil2" path="res://SCENES/CRAFT_STATION/bracelet_construction_panel.tscn" id="1_lclvk"]
 [ext_resource type="Script" uid="uid://1fslkhnqa4bf" path="res://SCRIPTS/TERRARIUM/bead_scorer.gd" id="1_pbr2u"]
 [ext_resource type="PackedScene" uid="uid://1guuvhm3f7g" path="res://SCENES/CRAFT_STATION/bracelet_info_panel.tscn" id="3_pbr2u"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_0dfq2"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="5_g2cmg"]
 
 [node name="BeadScorer" type="Node2D" unique_id=1893395517]
 script = ExtResource("1_pbr2u")
 
 [node name="BraceletContructionPanel" parent="." unique_id=1696741675 instance=ExtResource("1_lclvk")]
+scale = Vector2(1.5, 1.5)
 
 [node name="InfoPanel" parent="." unique_id=1466671616 instance=ExtResource("3_pbr2u")]
-offset_top = -204.0
-offset_bottom = -204.0
+offset_left = -166.0
+offset_top = -342.0
+offset_right = 166.0
+offset_bottom = -105.0
+
+[node name="ContinueButton" type="Button" parent="." unique_id=2044016547]
+offset_left = 322.0
+offset_top = -201.0
+offset_right = 568.0
+offset_bottom = -105.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_0dfq2")
+theme_override_styles/hover = ExtResource("5_g2cmg")
+text = "Continue"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

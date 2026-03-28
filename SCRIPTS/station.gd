@@ -2,6 +2,8 @@ extends Node
 
 class_name Station
 
+signal station_complete
+
 func _ready() -> void:
 	_station_ready()
 

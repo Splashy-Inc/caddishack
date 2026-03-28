@@ -12,7 +12,7 @@ script = ExtResource("1_7yicb")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1607542046]
 stream = ExtResource("4_6scp0")
-volume_db = -25.0
+volume_db = -10.0
 autoplay = true
 
 [connection signal="main_menu_pressed" from="HUD" to="." method="_on_main_menu_pressed"]

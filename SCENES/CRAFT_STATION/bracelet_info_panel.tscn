@@ -2,109 +2,96 @@
 
 [ext_resource type="Script" uid="uid://cuaw4ejqtgj1r" path="res://SCRIPTS/CRAFT_STATION/bracelet_info_panel.gd" id="1_7kj4q"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="1_125mw"]
-[ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="3_cufab"]
+[ext_resource type="LabelSettings" uid="uid://cl0nus6vr1r1s" path="res://ASSETS/Font/gui_label.tres" id="3_vbtn1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dynvs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_goyfq"]
+atlas = ExtResource("1_125mw")
 
-[sub_resource type="LabelSettings" id="LabelSettings_g4d53"]
-font = ExtResource("3_cufab")
-font_size = 40
-font_color = Color(0.941176, 0.827451, 0.760784, 1)
-outline_size = 5
-outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kny5g"]
+texture = SubResource("AtlasTexture_goyfq")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 214, 254)
 
-[node name="InfoPanel" type="Control" unique_id=254133058]
-layout_mode = 3
-anchors_preset = 0
+[node name="InfoPanel" type="PanelContainer" unique_id=968538211]
+offset_right = 208.0
+offset_bottom = 170.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_kny5g")
 script = ExtResource("1_7kj4q")
 
-[node name="Background" type="TextureRect" parent="." unique_id=755416664]
-layout_mode = 0
-offset_left = -107.0
-offset_top = -127.0
-offset_right = 107.0
-offset_bottom = 127.0
-texture = ExtResource("1_125mw")
-
-[node name="CenteredPanel" type="PanelContainer" parent="." unique_id=1858286614]
-layout_mode = 0
-offset_left = -97.0
-offset_top = -117.0
-offset_right = 97.0
-offset_bottom = 117.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_dynvs")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenteredPanel" unique_id=509695497]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=509695497]
 custom_minimum_size = Vector2(168, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
-[node name="PanelTitle" type="Label" parent="CenteredPanel/VBoxContainer" unique_id=1655036463]
+[node name="PanelTitle" type="Label" parent="VBoxContainer" unique_id=1655036463]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Bracelet Stats"
-label_settings = SubResource("LabelSettings_g4d53")
+label_settings = ExtResource("3_vbtn1")
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="CenteredPanel/VBoxContainer" unique_id=1096589948]
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=1096589948]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 10
 columns = 2
 
-[node name="PointsLabel" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=583503151]
+[node name="PointsLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=583503151]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.721569, 0.721569, 1)
 theme_override_colors/font_outline_color = Color(0, 0.356863, 0.356863, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Points:"
 
-[node name="PointsNumber" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=1453288698]
+[node name="PointsNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1453288698]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0, 0.721569, 0.721569, 1)
 theme_override_colors/font_outline_color = Color(0, 0.356863, 0.356863, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "0"
 
-[node name="MultLabel" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=1437237137]
+[node name="MultLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1437237137]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.737255, 0.454902, 0.737255, 1)
 theme_override_colors/font_outline_color = Color(0.541176, 0.160784, 0.470588, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Multiplier:"
 horizontal_alignment = 2
 
-[node name="MultNumber" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=2064658862]
+[node name="MultNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=2064658862]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.737255, 0.454902, 0.737255, 1)
 theme_override_colors/font_outline_color = Color(0.541176, 0.160784, 0.470588, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "0"
 
-[node name="ValueLabel" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=1068725617]
+[node name="ValueLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1068725617]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.760784, 0.705882, 0.384314, 1)
 theme_override_colors/font_outline_color = Color(0.372549, 0.345098, 0.180392, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Value:"
 
-[node name="ValueNumber" type="Label" parent="CenteredPanel/VBoxContainer/GridContainer" unique_id=1820600488]
+[node name="ValueNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1820600488]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.760784, 0.705882, 0.384314, 1)
 theme_override_colors/font_outline_color = Color(0.372549, 0.345098, 0.180392, 1)
 theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "0"

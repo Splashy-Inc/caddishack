@@ -13,4 +13,5 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	RunEvents.reset_run()
 	ScreenEvents.screen_requested.emit(scene_to_start)

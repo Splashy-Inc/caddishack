@@ -1,10 +1,10 @@
-extends Control
+extends PanelContainer
 
 class_name BraceletInfoPanel
 
-@onready var points_number: Label = $CenteredPanel/VBoxContainer/GridContainer/PointsNumber
-@onready var mult_number: Label = $CenteredPanel/VBoxContainer/GridContainer/MultNumber
-@onready var value_number: Label = $CenteredPanel/VBoxContainer/GridContainer/ValueNumber
+@onready var points_number: Label = $VBoxContainer/GridContainer/PointsNumber
+@onready var mult_number: Label = $VBoxContainer/GridContainer/MultNumber
+@onready var value_number: Label = $VBoxContainer/GridContainer/ValueNumber
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
