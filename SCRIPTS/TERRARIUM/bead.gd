@@ -84,3 +84,9 @@ func has_sand_color():
 
 func has_charm():
 	return info.special.type != SpecialMaterialInfo.SpecialType.BASIC
+
+func get_points() -> int:
+	return info.get_points()
+
+func get_mult() -> int:
+	return info.get_mult()

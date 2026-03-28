@@ -4,6 +4,7 @@ class_name BeadArrayInfo
 
 @export var beads : Array[BeadInfo]
 
+# TODO: Consider removing this?
 func get_pile_stats() -> Dictionary:
 	var bead_stats: Dictionary
 	for bead in beads:
@@ -16,3 +17,8 @@ func get_pile_stats() -> Dictionary:
 
 func get_beads() -> Array[BeadInfo]:
 	return beads
+
+func load_from_bead_array(bead_array: Array[Bead]):
+	beads.clear()
+	for bead in bead_array:
+		beads.append(bead.info)

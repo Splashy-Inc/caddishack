@@ -35,6 +35,7 @@ func add_bead(new_bead: Bead) -> bool:
 		return false
 	
 	if set_bead_parent(new_bead):
+		update_bead_array_info()
 		position_bead(new_bead)
 		return true
 	else:
@@ -79,3 +80,6 @@ func set_beads(new_bead_array_info: BeadArrayInfo):
 func clear_beads():
 	for bead in get_beads():
 		bead.queue_free()
+
+func update_bead_array_info():
+	bead_array_info.load_from_bead_array(get_beads())

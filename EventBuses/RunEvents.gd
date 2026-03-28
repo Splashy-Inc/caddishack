@@ -8,10 +8,10 @@ signal round_updated(new_current_round: int, new_max_rounds: int)
 signal quota_updated(new_quota: int)
 signal score_updated(new_score: int)
 
-var current_round
-var max_rounds
-var quota
-var score
+var current_round := 0
+var max_rounds := 3
+var quota := 100
+var score := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
