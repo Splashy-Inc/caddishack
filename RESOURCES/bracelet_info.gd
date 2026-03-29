@@ -3,28 +3,32 @@ extends Resource
 class_name BraceletInfo
 
 @export var bead_array_info := BeadArrayInfo.new()
-var points := 0
-var mult := 1
+
+const POINTS_BASE := 0
+const MULT_BASE := 0
+
+var points := POINTS_BASE
+var mult := MULT_BASE
 var value := 0
 
-var color_chains : Array[Array]
-var special_chains : Array[Array]
-
-func update_points(new_points: int, is_overwrite: bool = false):
-	if is_overwrite:
-		points = new_points
-	else:
-		points += new_points
+func calculate_points() -> int:
+	points = POINTS_BASE
 	
-	value = get_value()
-
-func update_mult(new_mult: int, is_overwrite: bool = false):
-	if is_overwrite:
-		mult = new_mult
-	else:
-		mult += new_mult
+	for bead in bead_array_info.get_beads():
+		points += bead.calculate_points(bead_array_info)
 	
-	value = get_value()
+	return points
 
-func get_value():
-	return points * mult
+func calculate_mult() -> int:
+	mult = MULT_BASE
+	
+	for bead in bead_array_info.get_beads():
+		mult += bead.calculate_mult(bead_array_info)
+	
+	return mult
+
+func calculate_value() -> int:
+	points = calculate_points()
+	mult = calculate_mult()
+	value = points * mult
+	return value

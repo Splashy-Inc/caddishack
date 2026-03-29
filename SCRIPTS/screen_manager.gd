@@ -1,5 +1,7 @@
 extends Node
 
+class_name ScreenManager
+
 var cur_screen_scene: PackedScene
 
 @onready var hud: HUD = $HUD

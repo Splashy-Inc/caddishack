@@ -2,7 +2,7 @@ extends BeadMaterial
 
 class_name EggMaterial
 
-signal hatched(larva: CaddisFly, spawn_point: Vector2)
+signal hatched(larva: Larva, spawn_point: Vector2)
 
 const SPEED = 500
 
@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func spawn_larva():
-	var new_larva := Globals.generate_larva()
-	new_larva.initialize(info)
+	var new_larva := Larva.new()
+	new_larva.initialize()
 	is_hatched = true
 	top.apply_impulse(Vector2.UP * SPEED)
 	bottom.apply_impulse(Vector2.DOWN * SPEED)

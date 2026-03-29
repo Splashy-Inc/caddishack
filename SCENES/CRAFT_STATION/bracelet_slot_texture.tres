@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://de4ncv1h326l0"]
+
+[ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="1_kp8j8"]
+
+[resource]
+atlas = ExtResource("1_kp8j8")
+region = Rect2(0, 384, 128, 64)

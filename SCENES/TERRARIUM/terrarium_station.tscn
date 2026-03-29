@@ -1,26 +1,171 @@
 [gd_scene format=3 uid="uid://2tvle0b4ckdc"]
 
 [ext_resource type="Script" uid="uid://bqha1fo4ucahx" path="res://SCRIPTS/TERRARIUM/terrarium_station.gd" id="1_6dh60"]
+[ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="2_04exf"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_cb6xo"]
-[ext_resource type="Resource" uid="uid://wd77aaw0xcp5" path="res://RESOURCES/test_terrarium.tres" id="2_fhknv"]
-[ext_resource type="PackedScene" uid="uid://d1fnfg5c0hmib" path="res://SCENES/TERRARIUM/tilemap_bugbox.tscn" id="3_0ejnt"]
-[ext_resource type="PackedScene" uid="uid://dwb2j4yxpjeoo" path="res://SCENES/MATERIALS/bead_material.tscn" id="3_ec5by"]
+[ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="3_dugvo"]
+[ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="5_bnkvk"]
+[ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="6_kccl0"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="6_ugda1"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="7_ll8qw"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
+[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="8_04exf"]
+[ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="9_s7cx1"]
+[ext_resource type="PackedScene" uid="uid://dac4l330kaphs" path="res://SCENES/LARVAE/card_hand.tscn" id="10_04exf"]
+[ext_resource type="PackedScene" uid="uid://l8c5hnvmqfwd" path="res://SCENES/TERRARIUM/bead_scorer.tscn" id="12_s7cx1"]
+
+[sub_resource type="Resource" id="Resource_d1wso"]
+script = ExtResource("7_ll8qw")
+color = 1
+
+[sub_resource type="Resource" id="Resource_jh2q2"]
+script = ExtResource("7_ll8qw")
+color = 1
+
+[sub_resource type="Resource" id="Resource_lu261"]
+script = ExtResource("7_ll8qw")
+color = 1
+
+[sub_resource type="Resource" id="Resource_06vpu"]
+script = ExtResource("7_ll8qw")
+color = 2
+
+[sub_resource type="Resource" id="Resource_aypll"]
+script = ExtResource("7_ll8qw")
+color = 2
+
+[sub_resource type="Resource" id="Resource_ct105"]
+script = ExtResource("7_ll8qw")
+color = 2
+
+[sub_resource type="Resource" id="Resource_fnkbk"]
+script = ExtResource("7_ll8qw")
+color = 3
+
+[sub_resource type="Resource" id="Resource_a2n2k"]
+script = ExtResource("7_ll8qw")
+color = 3
+
+[sub_resource type="Resource" id="Resource_f7u7g"]
+script = ExtResource("7_ll8qw")
+color = 3
+
+[sub_resource type="Resource" id="Resource_0cd06"]
+script = ExtResource("7_ll8qw")
+color = 1
+metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
+
+[sub_resource type="Resource" id="Resource_8ls7a"]
+script = ExtResource("8_04exf")
+type = 1
+
+[sub_resource type="Resource" id="Resource_2bpk4"]
+script = ExtResource("8_04exf")
+type = 1
+
+[sub_resource type="Resource" id="Resource_g2uq7"]
+script = ExtResource("8_04exf")
+type = 1
+
+[sub_resource type="Resource" id="Resource_ybw82"]
+script = ExtResource("8_04exf")
+type = 2
+
+[sub_resource type="Resource" id="Resource_xq384"]
+script = ExtResource("8_04exf")
+type = 2
+
+[sub_resource type="Resource" id="Resource_qn30w"]
+script = ExtResource("8_04exf")
+type = 2
+
+[sub_resource type="Resource" id="Resource_nqhej"]
+script = ExtResource("8_04exf")
+type = 3
+
+[sub_resource type="Resource" id="Resource_ttxry"]
+script = ExtResource("8_04exf")
+type = 3
+
+[sub_resource type="Resource" id="Resource_ka58w"]
+script = ExtResource("8_04exf")
+type = 3
+
+[sub_resource type="Resource" id="Resource_j45q7"]
+script = ExtResource("8_04exf")
+type = 2
+metadata/_custom_type_script = "uid://cm33vxylxpkwp"
+
+[sub_resource type="Resource" id="Resource_dugvo"]
+resource_local_to_scene = true
+script = ExtResource("9_s7cx1")
+materials = Array[ExtResource("6_kccl0")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnkvk"]
 
 [node name="TerrariumStation" type="Node" unique_id=540587607]
 script = ExtResource("1_6dh60")
-info = ExtResource("2_fhknv")
-material_scene = ExtResource("3_ec5by")
+round_length = 5
 
 [node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
-[node name="PlayingField" type="Node2D" parent="." unique_id=1616074870]
+[node name="RunInfo" parent="." unique_id=1126309375 instance=ExtResource("3_dugvo")]
 
-[node name="ContainerLayer" parent="PlayingField" unique_id=128587165 instance=ExtResource("3_0ejnt")]
+[node name="NextButton" type="Button" parent="." unique_id=513006651]
+offset_left = 1110.0
+offset_top = 426.0
+offset_right = 1259.0
+offset_bottom = 496.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("6_ugda1")
+theme_override_styles/hover = ExtResource("7_yxfdh")
+text = "Next"
 
-[node name="Materials" type="Node" parent="PlayingField" unique_id=1038023501]
+[node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
+position = Vector2(544, 288)
 
-[node name="Eggs" type="Node" parent="PlayingField" unique_id=667161508]
+[node name="TerrariumScoringSlot" type="Marker2D" parent="." unique_id=766007013]
+position = Vector2(354, 200)
+scale = Vector2(0.6, 0.6)
 
-[node name="Beads" type="Node" parent="PlayingField" unique_id=2047733633]
+[node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
+position = Vector2(544, 288)
+info = SubResource("Resource_dugvo")
 
-[node name="Larvae" type="Node" parent="PlayingField" unique_id=2003998347]
+[node name="CardSection" type="Node2D" parent="." unique_id=31290860]
+position = Vector2(640, 608)
+
+[node name="Sprite2D" type="Sprite2D" parent="CardSection" unique_id=411026726]
+visible = false
+modulate = Color(1, 1, 1, 0.3647059)
+texture = SubResource("PlaceholderTexture2D_bnkvk")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 224)
+
+[node name="CardHand" parent="CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
+position = Vector2(-96, 0)
+
+[node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
+
+[node name="BeadScorer" parent="." unique_id=1893395517 instance=ExtResource("12_s7cx1")]
+visible = false
+position = Vector2(544, 608)
+
+[node name="BraceletContructionPanel" parent="BeadScorer" index="0" unique_id=1696741675]
+position = Vector2(0, -44)
+
+[node name="InfoPanel" parent="BeadScorer" index="1" unique_id=1466671616]
+offset_left = 168.0
+offset_top = -584.0
+offset_right = 500.0
+offset_bottom = -232.0
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
+[connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
+[connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]
+[connection signal="beads_scored" from="BeadScorer" to="." method="_on_bead_scorer_beads_scored"]
+
+[editable path="BeadScorer"]

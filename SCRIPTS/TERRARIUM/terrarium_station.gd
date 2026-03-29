@@ -2,90 +2,57 @@ extends Station
 
 class_name TerrariumStation
 
-@export var info : TerrariumInfo
+@export var round_length := 10
 
-@export var material_scene : PackedScene
+@onready var card_hand: CardHand = $CardSection/CardHand
+@onready var terrarium: Terrarium = $Terrarium
+@onready var bead_scorer: BeadScorer = $BeadScorer
+@onready var terrarium_scoring_slot: Marker2D = $TerrariumScoringSlot
+@onready var terrarium_play_slot: Marker2D = $TerrariumPlaySlot
 
-@onready var container_layer: TerrariumBackground = $PlayingField/ContainerLayer
-@onready var playing_field: Node2D = $PlayingField
-@onready var materials_container: Node = $PlayingField/Materials
-@onready var beads_container: Node = $PlayingField/Beads
-@onready var eggs_container: Node = $PlayingField/Eggs
-@onready var larvae_container: Node = $PlayingField/Larvae
+func _ready() -> void:
+	RunEvents.round_started.emit()
+	terrarium.travel_to(terrarium_play_slot.transform)
 
-func _station_ready():
-	await generate_materials()
-	hatch_next_egg()
-
-func _on_larva_died(larva: CaddisFly):
-	larva.bead.reparent(beads_container)
-	hatch_next_egg()
-
-func hatch_next_egg():
-	if eggs_container.get_child_count() > 0:
-		var next_egg = eggs_container.get_children().pick_random() as EggMaterial
-		next_egg.hatched.connect(_on_egg_hatched)
-		next_egg.spawn_larva()
-
-func _on_egg_hatched(new_larva: CaddisFly, spawn_point: Vector2):
-	if is_instance_valid(new_larva):
-		larvae_container.add_child(new_larva)
-		new_larva.died.connect(_on_larva_died)
-		new_larva.global_position = spawn_point
-
-func spawn_material(material_info: MaterialInfo):		
-	var new_material := Globals.generate_material(material_info)
-	if new_material is EggMaterial:
-		eggs_container.add_child(new_material)
-		new_material.global_position = container_layer.get_spawnable_egg_cell_center()
+func _on_terrarium_larvae_done() -> void:
+	if terrarium.get_beads().size() >= 10:
+		print(terrarium.get_beads().size(), " beads")
 	else:
-		materials_container.add_child(new_material)
-		if material_info.cell == Vector2i.ZERO:
-			new_material.global_position = container_layer.get_spawnable_material_cell_center()
-			material_info.cell = container_layer.get_material_cell_at(new_material.global_position)
+		card_hand.draw_cards(7)
+
+func _on_terrarium_larvae_started() -> void:
+	card_hand.discard()
+
+func _on_next_button_pressed() -> void:
+	if bead_scorer.is_scoring_complete():
+		if RunEvents.increment_round():
+			terrarium.travel_to(terrarium_play_slot.transform)
+			terrarium.generate_materials()
+			bead_scorer.hide()
+			bead_scorer.reset()
+			card_hand.show()
+			card_hand.draw_cards(7)
 		else:
-			new_material.global_position = container_layer.get_material_cell_center(material_info.cell)
+			HUDEvents.main_menu_requested.emit()
+	else:
+		terrarium.start_larvae(round_length)
 
-	
-	Globals.run_info.terrarium = get_terrarium_state()
+func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
+	card_hand.hide()
+	terrarium.travel_to(terrarium_scoring_slot.transform)
+	bead_scorer.show()
+	bead_scorer.score_beads(full_terrarium.get_beads())
 
-func generate_materials():
-	await clear_playing_field()
-	
-	for material_info in info.materials:
-		spawn_material(material_info)
+func _on_bead_scorer_beads_scored(score: int) -> void:
+	RunEvents.score_generated.emit(score)
 
-func clear_playing_field():
-	for material in get_materials():
-		material.get_parent().remove_child(material)
-		material.queue_free()
-	
-	for bead in beads_container.get_children():
-		beads_container.remove_child(bead)
-		bead.queue_free()
-	
-	for larva in larvae_container.get_children():
-		larvae_container.remove_child(larva)
-		larva.queue_free()
-
-func load_run_info():
-	info = Globals.run_info.terrarium
-	await generate_materials()
-	hatch_next_egg()
-
-func get_materials() -> Array[BeadMaterial]:
-	var materials: Array[BeadMaterial]
-	for material in materials_container.get_children():
-		materials.append(material)
-	
-	for egg in eggs_container.get_children():
-		materials.append(egg)
-	
-	return materials
-
-func get_terrarium_state() -> TerrariumInfo:
-	var new_info := TerrariumInfo.new()
-	for material in get_materials():
-		new_info.materials.append(material.info)
-	
-	return new_info
+func _on_bead_scorer_scoring_finished() -> void:
+	if RunEvents.increment_round():
+		terrarium.travel_to(terrarium_play_slot.transform)
+		terrarium.generate_materials()
+		bead_scorer.hide()
+		bead_scorer.reset()
+		card_hand.show()
+		card_hand.draw_cards(7)
+	else:
+		HUDEvents.main_menu_requested.emit()
