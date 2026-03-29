@@ -447,19 +447,19 @@ height = 136.0
 radius = 11.0
 height = 44.0
 
-[sub_resource type="Resource" id="Resource_3dggb"]
+[sub_resource type="Resource" id="Resource_x1i4c"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
 
-[sub_resource type="Resource" id="Resource_76wku"]
+[sub_resource type="Resource" id="Resource_rm28v"]
 resource_local_to_scene = true
 script = ExtResource("10_4ycns")
 
-[sub_resource type="Resource" id="Resource_xo5b2"]
+[sub_resource type="Resource" id="Resource_jj2xk"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-sand = SubResource("Resource_3dggb")
-special = SubResource("Resource_76wku")
+sand = SubResource("Resource_x1i4c")
+special = SubResource("Resource_rm28v")
 
 [node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
 z_index = 2
@@ -504,7 +504,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_xo5b2")
+info = SubResource("Resource_jj2xk")
 complete = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=713028908]
@@ -512,7 +512,6 @@ path_max_distance = 10.0
 avoidance_enabled = true
 radius = 8.0
 neighbor_distance = 100.0
-debug_enabled = true
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
