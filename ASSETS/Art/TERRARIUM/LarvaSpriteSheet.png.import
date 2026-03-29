@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcj6pgjvlc2uq"
-path="res://.godot/imported/CaddisflySpriteSheet.png-48e84043820dc1e93b7c0e83676f849b.ctex"
+uid="uid://c0xsejfofp4s3"
+path="res://.godot/imported/LarvaSpriteSheet.png-b5c660f7990c8e12c672174d885347e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png"
-dest_files=["res://.godot/imported/CaddisflySpriteSheet.png-48e84043820dc1e93b7c0e83676f849b.ctex"]
+source_file="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png"
+dest_files=["res://.godot/imported/LarvaSpriteSheet.png-b5c660f7990c8e12c672174d885347e8.ctex"]
 
 [params]
 
