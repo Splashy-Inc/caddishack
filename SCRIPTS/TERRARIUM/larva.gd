@@ -14,9 +14,6 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 @export var bead : Bead
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var bead_center: Marker2D = $BeadCenter
-@onready var bead_bar: TextureProgressBar = $BeadBar
-@onready var bug_body: AnimatedSprite2D = $BugBody
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
 var material_queue : Array[MaterialInfo]
@@ -24,11 +21,12 @@ var material_queue : Array[MaterialInfo]
 var bead_completed := false
 var target : Node2D
 var can_move : bool
+@export var lifespan_sec := 1
 
 func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
-	#bead_bar.value = 0
+	set_lifespan(lifespan_sec)
 	update_type()
 
 func _physics_process(delta: float) -> void:
@@ -47,8 +45,6 @@ func _physics_process(delta: float) -> void:
 			navigation_agent.set_velocity(direction * SPEED * speed_mod)
 
 func die():
-	bead.position = Vector2.ZERO
-	bead.reparent(bead_center, false)
 	bead.reparent(get_parent())
 	died.emit(self)
 
@@ -123,3 +119,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 		velocity = safe_velocity
 		rotation = lerpf(rotation, -velocity.angle_to(Vector2.UP), .1)
 		move_and_slide()
+
+func set_lifespan(seconds: int):
+	lifespan_sec = seconds
+	if bead:
+		bead.set_completion_time(lifespan_sec)

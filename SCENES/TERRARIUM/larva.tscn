@@ -188,7 +188,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Head:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -200,7 +200,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -217,7 +217,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Head:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -229,7 +229,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -261,7 +261,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Head:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -273,7 +273,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -291,7 +291,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Head:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -303,7 +303,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -320,7 +320,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("Head:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -332,7 +332,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -373,9 +373,6 @@ height = 136.0
 radius = 11.0
 height = 44.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_33qiq"]
-viewport_path = NodePath("BeadView")
-
 [sub_resource type="Resource" id="Resource_x1i4c"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
@@ -395,15 +392,16 @@ z_index = 2
 disable_mode = 2
 collision_layer = 2
 script = ExtResource("1_rm28v")
-bead = NodePath("BeadView/Bead")
+bead = NodePath("Bead")
 
-[node name="BugBody" type="AnimatedSprite2D" parent="." unique_id=885554364]
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=885554364]
 position = Vector2(0, 56.999996)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_bisof")
 animation = &"BASIC"
+autoplay = "BASIC"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=645910719]
+[node name="Head" type="AnimatedSprite2D" parent="." unique_id=645910719]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_ula2e")
 animation = &"Move"
@@ -429,23 +427,11 @@ shape = SubResource("CapsuleShape2D_g7hui")
 [node name="BeadCenter" type="Marker2D" parent="." unique_id=1300347040]
 position = Vector2(0, 63)
 
-[node name="BeadBar" type="TextureProgressBar" parent="." unique_id=1848313476]
-offset_left = -32.0
-offset_right = 32.0
-offset_bottom = 128.0
-step = 0.01
-value = 100.0
-fill_mode = 3
-texture_progress = SubResource("ViewportTexture_33qiq")
-
-[node name="BeadView" type="SubViewport" parent="." unique_id=398466101]
-transparent_bg = true
-size = Vector2i(64, 126)
-
-[node name="Bead" parent="BeadView" unique_id=560506520 instance=ExtResource("7_oknjm")]
-position = Vector2(32, 63)
-rotation = 1.5708
+[node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
+position = Vector2(0, 63)
+rotation = -1.5707964
 info = SubResource("Resource_jj2xk")
+complete = false
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=713028908]
 path_max_distance = 10.0

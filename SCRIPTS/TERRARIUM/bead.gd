@@ -10,12 +10,17 @@ var travel_target_global_position : Vector2
 var travel_target_rotation : float
 var is_travelling := false
 
+@export var completion_time := 1
+@export var complete := true
+
 @onready var sand_sprite: AnimatedSprite2D = $SandSprite
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
+@onready var animation_tree: AnimationTree = $SandSprite/AnimationPlayer/AnimationTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_completion_time(completion_time)
 	set_info(BeadInfo.new())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,7 +64,7 @@ func set_info(new_info: BeadInfo):
 func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
 	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
 		info.sand.color = new_color
-		sand_sprite.play(SandMaterialInfo.SandColor.keys()[info.sand.color])
+		sand_sprite.set_animation(SandMaterialInfo.SandColor.keys()[info.sand.color])
 		check_completed()
 		return true
 	return false
@@ -76,8 +81,14 @@ func check_completed():
 	if is_completed():
 		completed.emit()
 
+func force_complete():
+	complete = true
+	check_completed()
+
 func is_completed():
-	return has_sand_color() and has_charm()
+	if has_sand_color() and has_charm():
+		complete = true
+	return complete
 
 func has_sand_color():
 	return info.sand.color != SandMaterialInfo.SandColor.COLORLESS
@@ -90,3 +101,8 @@ func get_points() -> int:
 
 func get_mult() -> int:
 	return info.get_mult()
+
+func set_completion_time(seconds: float):
+	completion_time = seconds
+	animation_tree.set("parameters/incomplete/timescaled/TimeScale/scale", 1.0/completion_time)
+	animation_tree.get("parameters/playback").travel("incomplete")

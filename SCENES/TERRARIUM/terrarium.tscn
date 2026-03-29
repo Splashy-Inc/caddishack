@@ -23,5 +23,3 @@ tile_set = ExtResource("3_fyw1s")
 
 [node name="SimulationTimer" type="Timer" parent="." unique_id=1234075821]
 one_shot = true
-
-[connection signal="timeout" from="SimulationTimer" to="." method="_on_simulation_timer_timeout"]

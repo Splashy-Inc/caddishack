@@ -10,6 +10,7 @@ signal bead_limit_reached(terrarium: Terrarium)
 @export var larvae_limit := 5
 @export var bead_limit := 10
 @export var start_larvae_on_drop := false
+@export var larvae_lifespan_sec := 5
 
 @onready var material_layer: TileMapLayer = $MaterialLayer
 
@@ -87,6 +88,7 @@ func add_larva(new_larva: Larva) -> bool:
 			larvae_container.add_child(new_larva)
 		
 		new_larva.died.connect(_on_larva_died)
+		new_larva.set_lifespan(larvae_lifespan_sec)
 		
 		if start_larvae_on_drop:
 			new_larva.process_mode = Node.PROCESS_MODE_INHERIT
