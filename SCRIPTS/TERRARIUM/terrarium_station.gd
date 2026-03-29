@@ -24,7 +24,7 @@ func _on_terrarium_larvae_started() -> void:
 	card_hand.discard()
 
 func _on_next_button_pressed() -> void:
-	if bead_scorer.visible:
+	if bead_scorer.is_scoring_complete():
 		if RunEvents.increment_round():
 			terrarium.travel_to(terrarium_play_slot.transform)
 			terrarium.generate_materials()
@@ -56,6 +56,3 @@ func _on_bead_scorer_scoring_finished() -> void:
 		card_hand.draw_cards(7)
 	else:
 		HUDEvents.main_menu_requested.emit()
-
-func _on_continue_button_pressed() -> void:
-	pass # Replace with function body.

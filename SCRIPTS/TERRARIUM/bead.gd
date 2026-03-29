@@ -104,5 +104,10 @@ func get_mult() -> int:
 
 func set_completion_time(seconds: float):
 	completion_time = seconds
-	animation_tree.set("parameters/incomplete/timescaled/TimeScale/scale", 1.0/completion_time)
+	var timescale = 1.0
+	if completion_time > 0:
+		timescale /= completion_time
+	else:
+		timescale = 0
+	animation_tree.set("parameters/incomplete/timescaled/TimeScale/scale", timescale)
 	animation_tree.get("parameters/playback").travel("incomplete")

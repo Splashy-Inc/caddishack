@@ -29,7 +29,6 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
-process_mode = 4
 z_index = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LarvaSlot" unique_id=2083541082]

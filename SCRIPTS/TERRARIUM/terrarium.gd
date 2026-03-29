@@ -14,7 +14,6 @@ signal bead_limit_reached(terrarium: Terrarium)
 
 @onready var material_layer: TileMapLayer = $MaterialLayer
 
-@onready var materials_container: Node = $Materials
 @onready var beads_container: Node = $Beads
 @onready var larvae_container: Node = $Larvae
 @onready var simulation_timer: Timer = $SimulationTimer
@@ -26,6 +25,7 @@ var target_transform : Transform2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_transform = transform
+	material_layer.enabled = false
 	generate_materials()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,14 +37,14 @@ func _process(delta: float) -> void:
 
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
-	materials_container.add_child(new_material)
-	if material_info.cell == Vector2i.ZERO:
-		new_material.global_position = get_spawnable_material_cell_center()
-		material_info.cell = get_material_cell_at(new_material.global_position)
-	else:
-		new_material.global_position = get_material_cell_center(material_info.cell)
+	material_layer.add_child(new_material)
+	# Commented the bloew pieces out as they were causing issues with randomization
+	#if material_info.cell == Vector2i.ZERO:
+	new_material.global_position = get_spawnable_material_cell_center()
+	material_info.cell = get_material_cell_at(new_material.global_position)
+	#else:
+		#new_material.global_position = get_material_cell_center(material_info.cell)
 
-	
 	Globals.run_info.terrarium = get_terrarium_state()
 
 func generate_materials():
@@ -64,7 +64,7 @@ func clear_playing_field():
 
 func get_materials() -> Array[BeadMaterial]:
 	var materials: Array[BeadMaterial]
-	for material in materials_container.get_children():
+	for material in material_layer.get_children():
 		materials.append(material)
 	return materials
 
@@ -76,9 +76,22 @@ func get_terrarium_state() -> TerrariumInfo:
 
 func get_material_cells() -> Array[Vector2i]:
 	return material_layer.get_used_cells()
-	
+
+func get_open_material_cells() -> Array[Vector2i]:
+	var open_cells : Array[Vector2i]
+	for cell in get_material_cells():
+		var cell_open = true
+		for child in material_layer.get_children():
+			if child is BeadMaterial:
+				if material_layer.local_to_map(child.position) == cell:
+					cell_open = false
+					break
+		if cell_open:
+			open_cells.append(cell)
+	return open_cells
+
 func get_spawnable_material_cell_center() -> Vector2:
-	return to_global(material_layer.map_to_local(get_material_cells().pick_random()))
+	return to_global(material_layer.map_to_local(get_open_material_cells().pick_random()))
 
 func get_material_cell_at(global_pos: Vector2):
 	return material_layer.local_to_map(material_layer.to_local(global_pos))
@@ -97,7 +110,7 @@ func add_larva(new_larva: Larva) -> bool:
 		new_larva.set_lifespan(larvae_lifespan_sec)
 		
 		if start_larvae_on_drop:
-			new_larva.process_mode = Node.PROCESS_MODE_INHERIT
+			new_larva.start_making_bead()
 		
 		return true
 	return false
@@ -115,7 +128,7 @@ func start_larvae(round_length: float = 0.0) -> bool:
 		for node in larvae_container.get_children():
 			if node is Larva:
 				larvae_running = true
-				node.process_mode = Node.PROCESS_MODE_INHERIT
+				node.start_making_bead()
 		
 		if larvae_running:
 			if round_length > 0:

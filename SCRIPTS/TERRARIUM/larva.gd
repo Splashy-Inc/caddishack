@@ -15,13 +15,15 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var collection_area: Area2D = $CollectionArea
 
 var material_queue : Array[MaterialInfo]
 
 var bead_completed := false
 var target : Node2D
 var can_move : bool
-@export var lifespan_sec := 1
+var making_bead := false
+@export var lifespan_sec := 0
 
 func _ready() -> void:
 	if bead:
@@ -31,7 +33,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 		target = _get_closest_target()
-		can_move = not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
+		can_move = making_bead and not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
 		if can_move:
 			direction = _get_direction()
 			
@@ -122,5 +124,10 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func set_lifespan(seconds: int):
 	lifespan_sec = seconds
-	if bead:
+	if bead and making_bead:
 		bead.set_completion_time(lifespan_sec)
+
+func start_making_bead():
+	collection_area.monitoring = true
+	making_bead = true
+	set_lifespan(lifespan_sec)
