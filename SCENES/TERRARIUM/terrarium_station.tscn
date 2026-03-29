@@ -111,17 +111,24 @@ round_length = 5
 
 [node name="RunInfo" parent="." unique_id=1126309375 instance=ExtResource("3_dugvo")]
 
-[node name="LockInButton" type="Button" parent="." unique_id=513006651]
-offset_left = 1109.0
+[node name="NextButton" type="Button" parent="." unique_id=513006651]
+offset_left = 1110.0
 offset_top = 426.0
-offset_right = 1258.0
+offset_right = 1259.0
 offset_bottom = 496.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
-text = "Lock In"
+text = "Next"
+
+[node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
+position = Vector2(544, 288)
+
+[node name="TerrariumScoringSlot" type="Marker2D" parent="." unique_id=766007013]
+position = Vector2(354, 200)
+scale = Vector2(0.6, 0.6)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 288)
@@ -144,11 +151,21 @@ position = Vector2(-96, 0)
 
 [node name="BeadScorer" parent="." unique_id=1893395517 instance=ExtResource("12_s7cx1")]
 visible = false
-position = Vector2(640, 614)
+position = Vector2(544, 608)
 
-[connection signal="pressed" from="LockInButton" to="." method="_on_lock_in_button_pressed"]
+[node name="BraceletContructionPanel" parent="BeadScorer" index="0" unique_id=1696741675]
+position = Vector2(0, -44)
+
+[node name="InfoPanel" parent="BeadScorer" index="1" unique_id=1466671616]
+offset_left = 168.0
+offset_top = -584.0
+offset_right = 500.0
+offset_bottom = -232.0
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
 [connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
 [connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]
 [connection signal="beads_scored" from="BeadScorer" to="." method="_on_bead_scorer_beads_scored"]
-[connection signal="scoring_finished" from="BeadScorer" to="." method="_on_bead_scorer_scoring_finished"]
+
+[editable path="BeadScorer"]

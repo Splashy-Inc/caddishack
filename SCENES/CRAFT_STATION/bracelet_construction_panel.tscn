@@ -9,6 +9,7 @@ script = ExtResource("1_s0p0p")
 bracelet = NodePath("Bracelet")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2016640907]
+scale = Vector2(1, 1.75)
 texture = ExtResource("1_welei")
 
 [node name="Bracelet" parent="." unique_id=1630865641 instance=ExtResource("2_5dtdn")]
