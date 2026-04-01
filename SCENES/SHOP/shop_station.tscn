@@ -2,15 +2,407 @@
 
 [ext_resource type="Script" uid="uid://be2i47cqsfkjm" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_ndlt6"]
+[ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="3_x1p5w"]
+[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_wresu"]
+[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="5_r8xvt"]
+[ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="6_4d8e5"]
+[ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_ncq4r"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_eyyre"]
+[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="9_iea1b"]
+[ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="10_klhbm"]
+[ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="11_ncq4r"]
+[ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="12_iea1b"]
+[ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="13_klhbm"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytrc2"]
+[sub_resource type="Resource" id="Resource_d1wso"]
+script = ExtResource("8_eyyre")
+color = 1
+
+[sub_resource type="Resource" id="Resource_jh2q2"]
+script = ExtResource("8_eyyre")
+color = 1
+
+[sub_resource type="Resource" id="Resource_lu261"]
+script = ExtResource("8_eyyre")
+color = 1
+
+[sub_resource type="Resource" id="Resource_06vpu"]
+script = ExtResource("8_eyyre")
+color = 2
+
+[sub_resource type="Resource" id="Resource_aypll"]
+script = ExtResource("8_eyyre")
+color = 2
+
+[sub_resource type="Resource" id="Resource_ct105"]
+script = ExtResource("8_eyyre")
+color = 2
+
+[sub_resource type="Resource" id="Resource_fnkbk"]
+script = ExtResource("8_eyyre")
+color = 3
+
+[sub_resource type="Resource" id="Resource_a2n2k"]
+script = ExtResource("8_eyyre")
+color = 3
+
+[sub_resource type="Resource" id="Resource_f7u7g"]
+script = ExtResource("8_eyyre")
+color = 3
+
+[sub_resource type="Resource" id="Resource_0cd06"]
+script = ExtResource("8_eyyre")
+color = 1
+metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
+
+[sub_resource type="Resource" id="Resource_8ls7a"]
+script = ExtResource("9_iea1b")
+type = 1
+
+[sub_resource type="Resource" id="Resource_2bpk4"]
+script = ExtResource("9_iea1b")
+type = 1
+
+[sub_resource type="Resource" id="Resource_g2uq7"]
+script = ExtResource("9_iea1b")
+type = 1
+
+[sub_resource type="Resource" id="Resource_ybw82"]
+script = ExtResource("9_iea1b")
+type = 2
+
+[sub_resource type="Resource" id="Resource_xq384"]
+script = ExtResource("9_iea1b")
+type = 2
+
+[sub_resource type="Resource" id="Resource_qn30w"]
+script = ExtResource("9_iea1b")
+type = 2
+
+[sub_resource type="Resource" id="Resource_nqhej"]
+script = ExtResource("9_iea1b")
+type = 3
+
+[sub_resource type="Resource" id="Resource_ttxry"]
+script = ExtResource("9_iea1b")
+type = 3
+
+[sub_resource type="Resource" id="Resource_ka58w"]
+script = ExtResource("9_iea1b")
+type = 3
+
+[sub_resource type="Resource" id="Resource_j45q7"]
+script = ExtResource("9_iea1b")
+type = 2
+metadata/_custom_type_script = "uid://cm33vxylxpkwp"
+
+[sub_resource type="Resource" id="Resource_iea1b"]
+resource_local_to_scene = true
+script = ExtResource("10_klhbm")
+materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="Resource" id="Resource_klhbm"]
+resource_local_to_scene = true
+script = ExtResource("10_klhbm")
+materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="Resource" id="Resource_7nvbo"]
+resource_local_to_scene = true
+script = ExtResource("10_klhbm")
+materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyyre"]
+texture = ExtResource("11_ncq4r")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="Animation" id="Animation_iea1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_klhbm"]
+resource_name = "boink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7nvbo"]
+_data = {
+&"RESET": SubResource("Animation_iea1b"),
+&"boink": SubResource("Animation_klhbm")
+}
 
 [node name="Shop" type="Node" unique_id=1118303584]
 script = ExtResource("1_n8e4a")
 
 [node name="Craft_station_background" parent="." unique_id=282271410 instance=ExtResource("2_ndlt6")]
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2008173131]
-offset_right = 1280.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ytrc2")
+[node name="RunInfo" parent="." unique_id=1126309375 instance=ExtResource("3_x1p5w")]
+
+[node name="NextButton" type="Button" parent="." unique_id=1027374767]
+offset_left = 1094.0
+offset_top = 426.0
+offset_right = 1243.0
+offset_bottom = 496.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_wresu")
+theme_override_styles/hover = ExtResource("5_r8xvt")
+text = "Next"
+
+[node name="NextButton2" type="Button" parent="." unique_id=1897749597]
+offset_left = 1095.0
+offset_top = 560.0
+offset_right = 1244.0
+offset_bottom = 630.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_wresu")
+theme_override_styles/hover = ExtResource("5_r8xvt")
+text = "Reroll"
+
+[node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("6_4d8e5")]
+position = Vector2(885, 591)
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_iea1b")
+
+[node name="Terrarium2" parent="." unique_id=1438258730 instance=ExtResource("6_4d8e5")]
+position = Vector2(884, 367)
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_klhbm")
+
+[node name="Terrarium3" parent="." unique_id=1795957365 instance=ExtResource("6_4d8e5")]
+position = Vector2(885, 143)
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_7nvbo")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=591457517]
+offset_left = 72.0
+offset_top = 100.0
+offset_right = 628.0
+offset_bottom = 656.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1384013566]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="PanelContainer/GridContainer" unique_id=725510710]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer2" unique_id=923609082]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer" unique_id=1819791908]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer/HBoxContainer" unique_id=986474136]
+layout_mode = 2
+texture = ExtResource("12_iea1b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer/HBoxContainer" unique_id=8028245]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=708487371]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1410205870]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cost"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer2/VBoxContainer" unique_id=1293560517]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/GridContainer/PanelContainer2" unique_id=571986284]
+libraries/ = SubResource("AnimationLibrary_7nvbo")
+
+[node name="PanelContainer3" type="PanelContainer" parent="PanelContainer/GridContainer" unique_id=927793215]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer3" unique_id=1397432540]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer" unique_id=1245977324]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer/HBoxContainer" unique_id=815490602]
+layout_mode = 2
+texture = ExtResource("12_iea1b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer/HBoxContainer" unique_id=1375463578]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1611210579]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=187804123]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cost"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer3/VBoxContainer" unique_id=516452299]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="PanelContainer/GridContainer" unique_id=1874199216]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer4" unique_id=1288514050]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer" unique_id=971180817]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer/HBoxContainer" unique_id=2070908175]
+layout_mode = 2
+texture = ExtResource("12_iea1b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer/HBoxContainer" unique_id=1012037698]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1864702651]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1694723584]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cost"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer4/VBoxContainer" unique_id=1209417850]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainer5" type="PanelContainer" parent="PanelContainer/GridContainer" unique_id=1796597380]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer5" unique_id=1674794251]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer" unique_id=144605690]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer/HBoxContainer" unique_id=1467456483]
+layout_mode = 2
+texture = ExtResource("12_iea1b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer/HBoxContainer" unique_id=942589953]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=947811635]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1632247187]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cost"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/GridContainer/PanelContainer5/VBoxContainer" unique_id=1458401233]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+label_settings = ExtResource("13_klhbm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1709690206]
+offset_left = 75.0
+offset_top = 20.0
+offset_right = 624.0
+offset_bottom = 65.0
+text = "Buy things and choose a terrarium"
+label_settings = ExtResource("13_klhbm")
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="NextButton2" to="." method="_on_next_button_pressed"]
