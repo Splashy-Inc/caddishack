@@ -30,3 +30,6 @@ func load_info(new_info: ShopItemInfo):
 	name_label.text = info.name
 	cost_label.text = str(info.base_cost)
 	description_label.text = info.description
+
+func _on_pressed() -> void:
+	ShopEvents.purchase_item(info)

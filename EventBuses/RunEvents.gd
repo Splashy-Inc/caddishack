@@ -11,12 +11,13 @@ signal score_updated(new_score: int)
 var current_round := 0
 var max_rounds := 3
 var quota := 100
-var score := 0
+var score := 400
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	score_generated.connect(change_score)
 	round_started.connect(increment_round)
+	load_run_info(load("res://RESOURCES/test_run.tres"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -51,3 +52,8 @@ func reset_run():
 	set_round(0, 3)
 	set_quota(100)
 	set_score(0)
+
+func load_run_info(run_info: RunInfo):
+	set_round(run_info.cur_round, run_info.max_rounds)
+	set_quota(run_info.cur_quota)
+	set_score(run_info.score)

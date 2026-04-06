@@ -175,24 +175,24 @@ offset_right = 628.0
 offset_bottom = 656.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1384013566]
+[node name="ItemGrid" type="GridContainer" parent="PanelContainer" unique_id=1384013566]
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
 
-[node name="Item1" parent="PanelContainer/GridContainer" unique_id=2046025908 instance=ExtResource("12_klhbm")]
+[node name="Item1" parent="PanelContainer/ItemGrid" unique_id=2046025908 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 
-[node name="Item2" parent="PanelContainer/GridContainer" unique_id=1112847703 instance=ExtResource("12_klhbm")]
+[node name="Item2" parent="PanelContainer/ItemGrid" unique_id=1112847703 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("13_4vdw3")
 
-[node name="Item3" parent="PanelContainer/GridContainer" unique_id=2131303173 instance=ExtResource("12_klhbm")]
+[node name="Item3" parent="PanelContainer/ItemGrid" unique_id=2131303173 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("14_4g004")
 
-[node name="Item4" parent="PanelContainer/GridContainer" unique_id=371760213 instance=ExtResource("12_klhbm")]
+[node name="Item4" parent="PanelContainer/ItemGrid" unique_id=371760213 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("15_gkgmp")
 

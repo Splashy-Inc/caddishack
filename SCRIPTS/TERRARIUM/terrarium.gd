@@ -45,7 +45,7 @@ func spawn_material(material_info: MaterialInfo):
 	#else:
 		#new_material.global_position = get_material_cell_center(material_info.cell)
 
-	Globals.run_info.terrarium = get_terrarium_state()
+	#Globals.run_info.terrarium = get_terrarium_state()
 
 func generate_materials():
 	await clear_playing_field()

@@ -2,7 +2,7 @@ extends Resource
 
 class_name RunInfo
 
-@export var money := 0
-@export var terrarium : TerrariumInfo
-@export var bead_pile : BeadArrayInfo
-@export var bracelets : Array[BraceletInfo]
+@export var cur_round := 1
+@export var max_rounds := 3
+@export var cur_quota := 100
+@export var score := 0
