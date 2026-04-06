@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="2_37dhd"]
 [ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="2_a5qli"]
 [ext_resource type="Script" uid="uid://dr6t7ian0uru8" path="res://SCRIPTS/SHOP/shop_item.gd" id="2_khpf0"]
-[ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="3_khpf0"]
+[ext_resource type="Resource" uid="uid://bckrif8ccda2e" path="res://RESOURCES/example_shop_item_1.tres" id="4_a5qli"]
+[ext_resource type="LabelSettings" uid="uid://c8lwo0mgqxvin" path="res://RESOURCES/shop_item_label.tres" id="6_a5qli"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vdw3"]
 
@@ -54,6 +55,7 @@ size_flags_vertical = 3
 theme_override_styles/normal = ExtResource("1_khpf0")
 theme_override_styles/hover = ExtResource("2_a5qli")
 script = ExtResource("2_khpf0")
+info = ExtResource("4_a5qli")
 
 [node name="ItemSpace" type="VBoxContainer" parent="." unique_id=705751760]
 layout_mode = 0
@@ -67,8 +69,10 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="IconSpace" type="PanelContainer" parent="ItemSpace/TopHalf" unique_id=292487778]
+clip_contents = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4vdw3")
 
 [node name="Icon" type="Sprite2D" parent="ItemSpace/TopHalf/IconSpace" unique_id=2065895712]
@@ -83,25 +87,26 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 text = "Name"
-label_settings = ExtResource("3_khpf0")
-horizontal_alignment = 1
+label_settings = ExtResource("6_a5qli")
 vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="Cost" type="Label" parent="ItemSpace/TopHalf/TopRightSpace" unique_id=1970155121]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Cost"
-label_settings = ExtResource("3_khpf0")
-horizontal_alignment = 1
+label_settings = ExtResource("6_a5qli")
 vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="Description" type="Label" parent="ItemSpace" unique_id=1052487823]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Description"
-label_settings = ExtResource("3_khpf0")
+label_settings = ExtResource("6_a5qli")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=409140052]
 libraries/ = SubResource("AnimationLibrary_7nvbo")

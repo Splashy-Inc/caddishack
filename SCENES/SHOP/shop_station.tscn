@@ -12,7 +12,10 @@
 [ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="10_klhbm"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="11_ncq4r"]
 [ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="12_klhbm"]
+[ext_resource type="Resource" uid="uid://c51kwjlmt4yrk" path="res://RESOURCES/example_shop_item_2.tres" id="13_4vdw3"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="13_klhbm"]
+[ext_resource type="Resource" uid="uid://bxn16qokvhyku" path="res://RESOURCES/example_shop_item_3.tres" id="14_4g004"]
+[ext_resource type="Resource" uid="uid://bn2rfcir2bjdr" path="res://RESOURCES/example_shop_item_4.tres" id="15_gkgmp"]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("8_eyyre")
@@ -96,17 +99,17 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_iea1b"]
+[sub_resource type="Resource" id="Resource_4vdw3"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_klhbm"]
+[sub_resource type="Resource" id="Resource_4g004"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_7nvbo"]
+[sub_resource type="Resource" id="Resource_gkgmp"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -153,17 +156,17 @@ text = "Reroll"
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 position = Vector2(885, 591)
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_iea1b")
+info = SubResource("Resource_4vdw3")
 
 [node name="Terrarium2" parent="." unique_id=1438258730 instance=ExtResource("6_4d8e5")]
 position = Vector2(884, 367)
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_klhbm")
+info = SubResource("Resource_4g004")
 
 [node name="Terrarium3" parent="." unique_id=1795957365 instance=ExtResource("6_4d8e5")]
 position = Vector2(885, 143)
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_7nvbo")
+info = SubResource("Resource_gkgmp")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=591457517]
 offset_left = 72.0
@@ -183,12 +186,15 @@ layout_mode = 2
 
 [node name="Item2" parent="PanelContainer/GridContainer" unique_id=1112847703 instance=ExtResource("12_klhbm")]
 layout_mode = 2
+info = ExtResource("13_4vdw3")
 
 [node name="Item3" parent="PanelContainer/GridContainer" unique_id=2131303173 instance=ExtResource("12_klhbm")]
 layout_mode = 2
+info = ExtResource("14_4g004")
 
 [node name="Item4" parent="PanelContainer/GridContainer" unique_id=371760213 instance=ExtResource("12_klhbm")]
 layout_mode = 2
+info = ExtResource("15_gkgmp")
 
 [node name="Label" type="Label" parent="." unique_id=1709690206]
 offset_left = 75.0
