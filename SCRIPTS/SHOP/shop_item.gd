@@ -13,13 +13,15 @@ class_name ShopItem
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_info(info)
+	RunEvents.score_updated.connect(check_disabled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_mouse_entered() -> void:
-	animation_player.play("highlight")
+	if not disabled:
+		animation_player.play("highlight")
 
 func _on_mouse_exited() -> void:
 	animation_player.play("RESET")
@@ -30,6 +32,10 @@ func load_info(new_info: ShopItemInfo):
 	name_label.text = info.name
 	cost_label.text = str(info.base_cost)
 	description_label.text = info.description
+	check_disabled()
+
+func check_disabled(new_score: int = 0):
+	disabled = info.base_cost > RunEvents.score
 
 func _on_pressed() -> void:
 	ShopEvents.purchase_item(info)
