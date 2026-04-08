@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
 	material_layer.add_child(new_material)
-	# Commented the bloew pieces out as they were causing issues with randomization
+	# Commented the below pieces out as they were causing issues with randomization
 	#if material_info.cell == Vector2i.ZERO:
 	new_material.global_position = get_spawnable_material_cell_center()
 	material_info.cell = get_material_cell_at(new_material.global_position)
@@ -175,3 +175,7 @@ func _on_simulation_timer_timeout() -> void:
 
 func travel_to(new_target_transform: Transform2D):
 	target_transform = new_target_transform
+
+func randomize_materials():
+	info.randomize_materials()
+	generate_materials()

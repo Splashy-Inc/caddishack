@@ -642,19 +642,19 @@ height = 136.0
 radius = 11.0
 height = 44.0
 
-[sub_resource type="Resource" id="Resource_pts5c"]
+[sub_resource type="Resource" id="Resource_cikro"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
 
-[sub_resource type="Resource" id="Resource_hqr8o"]
+[sub_resource type="Resource" id="Resource_ljsxj"]
 resource_local_to_scene = true
 script = ExtResource("10_4ycns")
 
-[sub_resource type="Resource" id="Resource_yeux6"]
+[sub_resource type="Resource" id="Resource_s2pvp"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-sand = SubResource("Resource_pts5c")
-special = SubResource("Resource_hqr8o")
+sand = SubResource("Resource_cikro")
+special = SubResource("Resource_ljsxj")
 
 [node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
 z_index = 2
@@ -701,7 +701,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_yeux6")
+info = SubResource("Resource_s2pvp")
 completion_time = 0
 complete = false
 

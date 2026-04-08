@@ -121,8 +121,9 @@ texture_margin_top = 16.0
 texture_margin_right = 16.0
 texture_margin_bottom = 16.0
 
-[node name="Shop" type="Node" unique_id=1118303584]
+[node name="Shop" type="Node" unique_id=1118303584 node_paths=PackedStringArray("terrariums")]
 script = ExtResource("1_n8e4a")
+terrariums = [NodePath("Terrarium1"), NodePath("Terrarium2"), NodePath("Terrarium3")]
 
 [node name="Craft_station_background" parent="." unique_id=282271410 instance=ExtResource("2_ndlt6")]
 scroll_offset = Vector2(103, 73)
@@ -153,7 +154,7 @@ theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
 text = "Reroll"
 
-[node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("6_4d8e5")]
+[node name="Terrarium1" parent="." unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 position = Vector2(885, 591)
 scale = Vector2(0.333, 0.333)
 info = SubResource("Resource_4vdw3")
