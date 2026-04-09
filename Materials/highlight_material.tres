@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cf3tuv5aidq14"]
+
+[ext_resource type="Shader" uid="uid://cnffsiy3v6e3u" path="res://Materials/highlight.gdshader" id="1_v1m5g"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_v1m5g")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 0.0
+shader_parameter/on = false

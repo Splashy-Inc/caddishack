@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bckhto52x32om"]
+
+[ext_resource type="Texture2D" uid="uid://dnphrsff37rd1" path="res://ASSETS/Art/GUI/Green_HighLight_Background.png" id="1_bsver"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2us8"]
+atlas = ExtResource("1_bsver")
+region = Rect2(0, 0, 200, 200)
+
+[resource]
+texture = SubResource("AtlasTexture_l2us8")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(0.60784316, 0.60784316, 0.44705883, 1)

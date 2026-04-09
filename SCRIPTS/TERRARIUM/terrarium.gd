@@ -26,7 +26,7 @@ var target_transform : Transform2D
 func _ready() -> void:
 	target_transform = transform
 	material_layer.enabled = false
-	generate_materials()
+	initialize(info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -178,4 +178,8 @@ func travel_to(new_target_transform: Transform2D):
 
 func randomize_materials():
 	info.randomize_materials()
+	generate_materials()
+
+func initialize(new_info: TerrariumInfo):
+	info = new_info
 	generate_materials()

@@ -8,10 +8,13 @@ signal round_updated(new_current_round: int, new_max_rounds: int)
 signal quota_updated(new_quota: int)
 signal score_updated(new_score: int)
 
+signal terrarium_info_updated(info: TerrariumInfo)
+
 var current_round := 0
 var max_rounds := 3
 var quota := 100
 var score := 400
+var cur_terrarium_info := preload("res://RESOURCES/new_terrarium.tres")
 
 var new_run_info := preload("res://RESOURCES/new_run.tres")
 var test_run_info := preload("res://RESOURCES/test_run.tres")
@@ -58,3 +61,10 @@ func load_run_info(run_info: RunInfo):
 	set_round(run_info.cur_round, run_info.max_rounds)
 	set_quota(run_info.cur_quota)
 	set_score(run_info.score)
+
+func set_current_terrarium_info(new_info: TerrariumInfo):
+	cur_terrarium_info = new_info
+	terrarium_info_updated.emit(cur_terrarium_info)
+
+func get_current_terrarium_info() -> TerrariumInfo:
+	return cur_terrarium_info

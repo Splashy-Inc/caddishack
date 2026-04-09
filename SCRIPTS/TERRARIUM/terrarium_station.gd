@@ -12,6 +12,7 @@ class_name TerrariumStation
 
 func _ready() -> void:
 	terrarium.travel_to(terrarium_play_slot.transform)
+	load_run_info()
 
 func _on_terrarium_larvae_done() -> void:
 	if terrarium.get_beads().size() >= 10:
@@ -45,3 +46,6 @@ func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 
 func _on_bead_scorer_beads_scored(score: int) -> void:
 	RunEvents.score_generated.emit(score)
+
+func load_run_info():
+	terrarium.initialize(RunEvents.get_current_terrarium_info())
