@@ -62,6 +62,7 @@ materials=""
 
 [gui]
 
+theme/custom="uid://byvh0plwsui1w"
 theme/custom_font="res://ASSETS/Font/m5x7.ttf"
 
 [input]

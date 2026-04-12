@@ -5,7 +5,9 @@ class_name ShopStation
 @export var terrariums : Array[Terrarium]
 @export var terrarium_buttons : Array[Button]
 @onready var next_button: Button = $NextButton
-@onready var terrarium_zoom_point: ZoomPoint = $TerrariumZoomPoint
+@export var terrarium_zoom_point: ZoomPoint
+@onready var terrarium_select: PanelContainer = $TerrariumSelect
+@onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,8 +36,30 @@ func _on_terrarium_button_pressed(source_button: Button) -> void:
 		if button != source_button:
 			terrarium.toggle_travel(true)
 			terrarium_zoom_point.dezoom_node(terrarium)
-			button.button_pressed = false
 		else:
+			button.button_pressed = true
+			terrarium_select.show()
 			terrarium.toggle_travel(false)
 			terrarium_zoom_point.zoom_node(terrarium)
-			next_button.disabled = false
+			terrarium_select_button.set_select_target(terrarium)
+
+func _on_terrarium_select_button_pressed() -> void:
+	terrarium_select.hide()
+	next_button.disabled = false
+	for button in terrarium_buttons:
+		var terrarium = terrariums[terrarium_buttons.find(button)]
+		terrarium.toggle_travel(true)
+		terrarium_zoom_point.dezoom_node(terrarium)
+		if terrarium != terrarium_select_button.get_select_target():
+			button.button_pressed = false
+			button.toggle_mode = false
+		else:
+			button.toggle_mode = true
+			button.button_pressed = true
+
+func _on_terrarium_back_button_pressed() -> void:
+	terrarium_select.hide()
+	for button in terrarium_buttons:
+		var terrarium = terrariums[terrarium_buttons.find(button)]
+		terrarium.toggle_travel(true)
+		terrarium_zoom_point.dezoom_node(terrarium)
