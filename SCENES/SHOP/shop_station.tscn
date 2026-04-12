@@ -19,6 +19,7 @@
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="13_klhbm"]
 [ext_resource type="Resource" uid="uid://bxn16qokvhyku" path="res://RESOURCES/example_shop_item_3.tres" id="14_4g004"]
 [ext_resource type="Resource" uid="uid://bn2rfcir2bjdr" path="res://RESOURCES/example_shop_item_4.tres" id="15_gkgmp"]
+[ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyyre"]
 texture = ExtResource("11_ncq4r")
@@ -111,17 +112,17 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_gkgmp"]
+[sub_resource type="Resource" id="Resource_6bml6"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_d8tn5"]
+[sub_resource type="Resource" id="Resource_yqt8j"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_jvskc"]
+[sub_resource type="Resource" id="Resource_uayd7"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -196,7 +197,7 @@ mouse_filter = 1
 
 [node name="Terrarium1" parent="TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_gkgmp")
+info = SubResource("Resource_6bml6")
 
 [node name="TerrariumSlot2" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=1021539569]
 layout_mode = 2
@@ -221,7 +222,7 @@ mouse_filter = 1
 
 [node name="Terrarium2" parent="TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_d8tn5")
+info = SubResource("Resource_yqt8j")
 
 [node name="TerrariumSlot3" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=477348113]
 layout_mode = 2
@@ -246,7 +247,7 @@ mouse_filter = 1
 
 [node name="Terrarium3" parent="TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_jvskc")
+info = SubResource("Resource_uayd7")
 
 [node name="ItemPanel" type="PanelContainer" parent="." unique_id=591457517]
 offset_left = 72.0
@@ -283,6 +284,9 @@ offset_right = 624.0
 offset_bottom = 65.0
 text = "Buy things and choose a terrarium"
 label_settings = ExtResource("13_klhbm")
+
+[node name="TerrariumZoomPoint" parent="." unique_id=319731991 instance=ExtResource("20_jvskc")]
+position = Vector2(640, 360)
 
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="RerollButton" to="." method="_on_reroll_button_pressed"]

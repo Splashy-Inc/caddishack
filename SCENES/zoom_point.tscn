@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bc6xbb4kxxw6q"]
+
+[ext_resource type="Script" uid="uid://s36etjti32qo" path="res://SCRIPTS/zoom_point.gd" id="1_7o1tl"]
+
+[node name="ZoomPoint" type="Marker2D" unique_id=319731991]
+z_index = 6
+z_as_relative = false
+script = ExtResource("1_7o1tl")

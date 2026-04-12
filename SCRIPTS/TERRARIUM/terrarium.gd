@@ -21,6 +21,7 @@ signal bead_limit_reached(terrarium: Terrarium)
 var larvae_running := false
 
 var target_transform : Transform2D
+var travelling := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,10 +31,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if transform.origin.distance_to(target_transform.origin) < 10:
-		transform = target_transform
-	else:
-		transform = transform.interpolate_with(target_transform, .25)
+	if travelling and is_instance_valid(target_transform):
+		if transform.origin.distance_to(target_transform.origin) < 10:
+			toggle_travel(false)
+			transform = target_transform
+		else:
+			transform = transform.interpolate_with(target_transform, .25)
 
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
@@ -174,7 +177,11 @@ func _on_simulation_timer_timeout() -> void:
 			node._on_bead_completed()
 
 func travel_to(new_target_transform: Transform2D):
+	toggle_travel(true)
 	target_transform = new_target_transform
+
+func toggle_travel(is_travelling: bool):
+	travelling = is_travelling
 
 func randomize_materials():
 	info.randomize_materials()
