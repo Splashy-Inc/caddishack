@@ -26,15 +26,6 @@ func _on_terrarium_larvae_started() -> void:
 func _on_next_button_pressed() -> void:
 	if bead_scorer.is_scoring_complete():
 		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
-		#if RunEvents.increment_round():
-			#terrarium.travel_to(terrarium_play_slot.transform)
-			#terrarium.generate_materials()
-			#bead_scorer.hide()
-			#bead_scorer.reset()
-			#card_hand.show()
-			#card_hand.draw_cards(7)
-		#else:
-			#HUDEvents.main_menu_requested.emit()
 	else:
 		terrarium.start_larvae(round_length)
 

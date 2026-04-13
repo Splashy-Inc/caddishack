@@ -41,14 +41,11 @@ func _process(delta: float) -> void:
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
 	material_layer.add_child(new_material)
-	# Commented the below pieces out as they were causing issues with randomization
-	#if material_info.cell == Vector2i.ZERO:
-	new_material.global_position = get_spawnable_material_cell_center()
-	material_info.cell = get_material_cell_at(new_material.global_position)
-	#else:
-		#new_material.global_position = get_material_cell_center(material_info.cell)
-
-	#Globals.run_info.terrarium = get_terrarium_state()
+	if material_info.cell == Vector2i.ZERO:
+		new_material.global_position = get_spawnable_material_cell_center()
+		material_info.cell = get_material_cell_at(new_material.global_position)
+	else:
+		new_material.global_position = get_material_cell_center(material_info.cell)
 
 func generate_materials():
 	await clear_playing_field()
