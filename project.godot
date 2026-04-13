@@ -28,6 +28,7 @@ HUDEvents="*uid://dij4plmiu1fri"
 ScreenEvents="*uid://do6cbk176ijgi"
 CardEvents="*uid://bqwtoov8w4c8m"
 RunEvents="*uid://wgxctmhqbju6"
+ShopEvents="*uid://cnvtwl1hddls1"
 
 [display]
 
@@ -61,6 +62,7 @@ materials=""
 
 [gui]
 
+theme/custom="uid://byvh0plwsui1w"
 theme/custom_font="res://ASSETS/Font/m5x7.ttf"
 
 [input]

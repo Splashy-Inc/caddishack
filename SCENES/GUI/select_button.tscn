@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cbemq6u2ind3k"]
+
+[ext_resource type="Script" uid="uid://bym7t7ltriofl" path="res://SCRIPTS/GUI/select_button.gd" id="1_sauye"]
+
+[node name="SelectButton" type="Button" unique_id=987792378]
+text = "Select"
+script = ExtResource("1_sauye")

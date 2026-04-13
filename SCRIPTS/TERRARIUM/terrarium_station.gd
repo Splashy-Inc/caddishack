@@ -11,8 +11,8 @@ class_name TerrariumStation
 @onready var terrarium_play_slot: Marker2D = $TerrariumPlaySlot
 
 func _ready() -> void:
-	RunEvents.round_started.emit()
 	terrarium.travel_to(terrarium_play_slot.transform)
+	load_run_info()
 
 func _on_terrarium_larvae_done() -> void:
 	if terrarium.get_beads().size() >= 10:
@@ -25,15 +25,7 @@ func _on_terrarium_larvae_started() -> void:
 
 func _on_next_button_pressed() -> void:
 	if bead_scorer.is_scoring_complete():
-		if RunEvents.increment_round():
-			terrarium.travel_to(terrarium_play_slot.transform)
-			terrarium.generate_materials()
-			bead_scorer.hide()
-			bead_scorer.reset()
-			card_hand.show()
-			card_hand.draw_cards(7)
-		else:
-			HUDEvents.main_menu_requested.emit()
+		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
 	else:
 		terrarium.start_larvae(round_length)
 
@@ -46,13 +38,5 @@ func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 func _on_bead_scorer_beads_scored(score: int) -> void:
 	RunEvents.score_generated.emit(score)
 
-func _on_bead_scorer_scoring_finished() -> void:
-	if RunEvents.increment_round():
-		terrarium.travel_to(terrarium_play_slot.transform)
-		terrarium.generate_materials()
-		bead_scorer.hide()
-		bead_scorer.reset()
-		card_hand.show()
-		card_hand.draw_cards(7)
-	else:
-		HUDEvents.main_menu_requested.emit()
+func load_run_info():
+	terrarium.initialize(RunEvents.get_current_terrarium_info())

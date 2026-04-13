@@ -21,31 +21,31 @@ signal bead_limit_reached(terrarium: Terrarium)
 var larvae_running := false
 
 var target_transform : Transform2D
+var travelling := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	target_transform = transform
 	material_layer.enabled = false
-	generate_materials()
+	initialize(info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if transform.origin.distance_to(target_transform.origin) < 10:
-		transform = target_transform
-	else:
-		transform = transform.interpolate_with(target_transform, .25)
+	if travelling and is_instance_valid(target_transform):
+		if transform.origin.distance_to(target_transform.origin) < 10:
+			toggle_travel(false)
+			transform = target_transform
+		else:
+			transform = transform.interpolate_with(target_transform, .25)
 
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
 	material_layer.add_child(new_material)
-	# Commented the bloew pieces out as they were causing issues with randomization
-	#if material_info.cell == Vector2i.ZERO:
-	new_material.global_position = get_spawnable_material_cell_center()
-	material_info.cell = get_material_cell_at(new_material.global_position)
-	#else:
-		#new_material.global_position = get_material_cell_center(material_info.cell)
-
-	Globals.run_info.terrarium = get_terrarium_state()
+	if material_info.cell == Vector2i.ZERO:
+		new_material.global_position = get_spawnable_material_cell_center()
+		material_info.cell = get_material_cell_at(new_material.global_position)
+	else:
+		new_material.global_position = get_material_cell_center(material_info.cell)
 
 func generate_materials():
 	await clear_playing_field()
@@ -174,4 +174,16 @@ func _on_simulation_timer_timeout() -> void:
 			node._on_bead_completed()
 
 func travel_to(new_target_transform: Transform2D):
+	toggle_travel(true)
 	target_transform = new_target_transform
+
+func toggle_travel(is_travelling: bool):
+	travelling = is_travelling
+
+func randomize_materials():
+	info.randomize_materials()
+	generate_materials()
+
+func initialize(new_info: TerrariumInfo):
+	info = new_info
+	generate_materials()

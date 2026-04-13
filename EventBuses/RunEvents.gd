@@ -8,15 +8,22 @@ signal round_updated(new_current_round: int, new_max_rounds: int)
 signal quota_updated(new_quota: int)
 signal score_updated(new_score: int)
 
+signal terrarium_info_updated(info: TerrariumInfo)
+
 var current_round := 0
 var max_rounds := 3
 var quota := 100
-var score := 0
+var score := 400
+var cur_terrarium_info := preload("res://RESOURCES/new_terrarium.tres")
+
+var new_run_info := preload("res://RESOURCES/new_run.tres")
+var test_run_info := preload("res://RESOURCES/test_run.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	score_generated.connect(change_score)
 	round_started.connect(increment_round)
+	load_run_info(test_run_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -48,6 +55,16 @@ func change_score(change: int):
 	set_score(score + change)
 
 func reset_run():
-	set_round(0, 3)
-	set_quota(100)
-	set_score(0)
+	load_run_info(new_run_info)
+
+func load_run_info(run_info: RunInfo):
+	set_round(run_info.cur_round, run_info.max_rounds)
+	set_quota(run_info.cur_quota)
+	set_score(run_info.score)
+
+func set_current_terrarium_info(new_info: TerrariumInfo):
+	cur_terrarium_info = new_info
+	terrarium_info_updated.emit(cur_terrarium_info)
+
+func get_current_terrarium_info() -> TerrariumInfo:
+	return cur_terrarium_info

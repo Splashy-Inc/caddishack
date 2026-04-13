@@ -1,22 +1,16 @@
-[gd_resource type="Resource" script_class="BraceletInfo" load_steps=10 format=3 uid="uid://co71rcrxq8h4k"]
+[gd_resource type="Resource" script_class="BraceletInfo" format=3 uid="uid://co71rcrxq8h4k"]
 
-[ext_resource type="Script" path="res://RESOURCES/bead_info.gd" id="1_337hf"]
-[ext_resource type="Script" path="res://RESOURCES/sand_material_info.gd" id="2_8wy5v"]
-[ext_resource type="Script" path="res://RESOURCES/special_material_info.gd" id="3_lo4mr"]
-[ext_resource type="Script" path="res://RESOURCES/bead_array_info.gd" id="4_8yelv"]
-[ext_resource type="Script" path="res://RESOURCES/bracelet_info.gd" id="5_f6gqg"]
+[ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="1_337hf"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_8wy5v"]
+[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="3_lo4mr"]
+[ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="4_8yelv"]
+[ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="5_f6gqg"]
 
 [sub_resource type="Resource" id="Resource_85v6i"]
 script = ExtResource("2_8wy5v")
-color = 0
-cell = Vector2i(0, 0)
-price = 0
 
 [sub_resource type="Resource" id="Resource_f80xw"]
 script = ExtResource("3_lo4mr")
-type = 0
-cell = Vector2i(0, 0)
-price = 0
 
 [sub_resource type="Resource" id="Resource_tfs0a"]
 script = ExtResource("1_337hf")
