@@ -28,6 +28,13 @@ func randomize_terrariums():
 		terrarium.randomize_materials()
 
 func _on_reroll_button_pressed() -> void:
+	for button in terrarium_buttons:
+		var terrarium = terrariums[terrarium_buttons.find(button)]
+		terrarium.toggle_travel(true)
+		terrarium_zoom_point.dezoom_node(terrarium)
+		button.button_pressed = false
+		button.toggle_mode = false
+	next_button.disabled = true
 	randomize_terrariums()
 
 func _on_terrarium_button_pressed(source_button: Button) -> void:

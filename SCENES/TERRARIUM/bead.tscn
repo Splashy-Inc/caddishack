@@ -5,10 +5,9 @@
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
 [ext_resource type="Texture2D" uid="uid://c0585iajy3qyf" path="res://ASSETS/Art/TERRARIUM/Jimmie.png" id="3_1e667"]
 [ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="4_83cj8"]
+[ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="5_83cj8"]
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="6_g04xw"]
-[ext_resource type="Texture2D" uid="uid://bel72ct2duput" path="res://ASSETS/Art/TERRARIUM/Heart.png" id="9_bf61f"]
-[ext_resource type="Texture2D" uid="uid://dxm7tm8kukc4j" path="res://ASSETS/Art/TERRARIUM/Spade.png" id="13_cjey3"]
 
 [sub_resource type="Resource" id="Resource_20n2j"]
 resource_local_to_scene = true
@@ -677,9 +676,13 @@ states/incomplete/position = Vector2(363, 56)
 transitions = ["Start", "incomplete", SubResource("AnimationNodeStateMachineTransition_pqv4s"), "incomplete", "complete", SubResource("AnimationNodeStateMachineTransition_yi21r")]
 graph_offset = Vector2(0, -13.179913)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v53i6"]
-atlas = ExtResource("9_bf61f")
-region = Rect2(0, 0, 128, 64)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k80gg"]
+atlas = ExtResource("5_83cj8")
+region = Rect2(448, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_360jh"]
+atlas = ExtResource("5_83cj8")
+region = Rect2(384, 128, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mxfaq"]
 animations = [{
@@ -690,7 +693,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v53i6")
+"texture": SubResource("AtlasTexture_k80gg")
 }],
 "loop": true,
 "name": &"HEART",
@@ -722,7 +725,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("13_cjey3")
+"texture": SubResource("AtlasTexture_360jh")
 }],
 "loop": true,
 "name": &"SPADE",
