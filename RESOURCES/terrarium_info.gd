@@ -3,14 +3,16 @@ extends Resource
 class_name TerrariumInfo
 
 @export var sand_weights : Dictionary[SandMaterialInfo.SandColor, int] = {
-	SandMaterialInfo.SandColor.CYAN: 1,
-	SandMaterialInfo.SandColor.MAGENTA: 1,
-	SandMaterialInfo.SandColor.YELLOW: 1,
+	SandMaterialInfo.SandColor.CYAN: 100,
+	SandMaterialInfo.SandColor.MAGENTA: 100,
+	SandMaterialInfo.SandColor.YELLOW: 100,
 }
 @export var charm_weights : Dictionary[SpecialMaterialInfo.SpecialType, int] = {
-	SpecialMaterialInfo.SpecialType.PEARL: 1,
-	SpecialMaterialInfo.SpecialType.SHELL: 1,
-	SpecialMaterialInfo.SpecialType.JIMMIE: 1,
+	SpecialMaterialInfo.SpecialType.PEARL: 100,
+	SpecialMaterialInfo.SpecialType.SHELL: 100,
+	SpecialMaterialInfo.SpecialType.JIMMIE: 100,
+	SpecialMaterialInfo.SpecialType.HEART: 50,
+	SpecialMaterialInfo.SpecialType.SPADE: 50,
 }
 
 @export var base_num_sand := 10

@@ -7,6 +7,8 @@ enum SpecialType {
 	PEARL,
 	SHELL,
 	JIMMIE,
+	HEART,
+	SPADE,
 }
 
 @export var type := SpecialType.BASIC
