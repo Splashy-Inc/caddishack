@@ -15,3 +15,6 @@ Button/styles/hover = ExtResource("2_vp42j")
 Button/styles/hover_pressed = ExtResource("3_3m3sy")
 Button/styles/normal = ExtResource("4_0lf1r")
 Button/styles/pressed = ExtResource("5_7ts2r")
+Label/colors/font_color = Color(0.941176, 0.827451, 0.760784, 1)
+Label/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+Label/constants/outline_size = 4

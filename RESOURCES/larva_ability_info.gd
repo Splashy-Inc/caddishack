@@ -1,0 +1,3 @@
+extends AbilityInfo
+
+class_name LarvaAbilityInfo

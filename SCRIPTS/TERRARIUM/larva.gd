@@ -25,11 +25,15 @@ var can_move : bool
 var making_bead := false
 @export var lifespan_sec := 0
 
+@export var info : LarvaInfo
+@export var ability_icons : Array[TextureRect]
+
 func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
 	update_type()
+	load_abilities()
 
 func _physics_process(delta: float) -> void:
 		target = _get_closest_target()
@@ -131,3 +135,10 @@ func start_making_bead():
 	collection_area.monitoring = true
 	making_bead = true
 	set_lifespan(lifespan_sec)
+
+func load_abilities():
+	for i in ability_icons.size():
+		if i < info.abilities.size():
+			ability_icons[i].texture = info.abilities[i].icon
+		else:
+			ability_icons[i].texture = null

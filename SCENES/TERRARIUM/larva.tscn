@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://bavo2v0il8e4"]
 
 [ext_resource type="Script" uid="uid://cu3ihax16o6sw" path="res://SCRIPTS/TERRARIUM/larva.gd" id="1_rm28v"]
+[ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ability_info.gd" id="2_x1i4c"]
+[ext_resource type="Resource" uid="uid://cpke4r1y3e4u5" path="res://RESOURCES/speedy_larva_ability.tres" id="3_rm28v"]
+[ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="4_jj2xk"]
 [ext_resource type="Texture2D" uid="uid://c0xsejfofp4s3" path="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png" id="5_x1i4c"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="7_oknjm"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_sxk8d"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_566sv"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="10_4ycns"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="10_rm28v"]
+
+[sub_resource type="Resource" id="Resource_m8k0v"]
+script = ExtResource("4_jj2xk")
+abilities = Array[ExtResource("2_x1i4c")]([ExtResource("3_rm28v")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cikro"]
 atlas = ExtResource("5_x1i4c")
@@ -207,6 +216,10 @@ animations = [{
 "name": &"move",
 "speed": 12.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pts5c"]
+atlas = ExtResource("10_rm28v")
+region = Rect2(40, 0, 20, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rm28v"]
 atlas = ExtResource("5_x1i4c")
@@ -642,26 +655,28 @@ height = 136.0
 radius = 11.0
 height = 44.0
 
-[sub_resource type="Resource" id="Resource_cikro"]
+[sub_resource type="Resource" id="Resource_34tmi"]
 resource_local_to_scene = true
 script = ExtResource("8_sxk8d")
 
-[sub_resource type="Resource" id="Resource_ljsxj"]
+[sub_resource type="Resource" id="Resource_ddlee"]
 resource_local_to_scene = true
 script = ExtResource("10_4ycns")
 
-[sub_resource type="Resource" id="Resource_s2pvp"]
+[sub_resource type="Resource" id="Resource_7ec3c"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-sand = SubResource("Resource_cikro")
-special = SubResource("Resource_ljsxj")
+sand = SubResource("Resource_34tmi")
+special = SubResource("Resource_ddlee")
 
-[node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead") groups=["larvae"]]
+[node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead", "ability_icons") groups=["larvae"]]
 z_index = 2
 disable_mode = 2
 collision_layer = 2
 script = ExtResource("1_rm28v")
 bead = NodePath("Bead")
+info = SubResource("Resource_m8k0v")
+ability_icons = [NodePath("AbilityIcons/AbilityIcon1"), NodePath("AbilityIcons/AbilityIcon2"), NodePath("AbilityIcons/AbilityIcon3")]
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=885554364]
 position = Vector2(0, 56.999996)
@@ -670,6 +685,31 @@ sprite_frames = SubResource("SpriteFrames_bisof")
 animation = &"BASIC"
 autoplay = "idle"
 frame_progress = 0.31805116
+
+[node name="AbilityIcons" type="VBoxContainer" parent="." unique_id=2065025632]
+offset_left = -14.0
+offset_top = 25.0
+offset_right = 14.0
+offset_bottom = 98.0
+alignment = 1
+
+[node name="AbilityIcon1" type="TextureRect" parent="AbilityIcons" unique_id=580766992]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_pts5c")
+stretch_mode = 5
+
+[node name="AbilityIcon2" type="TextureRect" parent="AbilityIcons" unique_id=580204505]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_pts5c")
+stretch_mode = 5
+
+[node name="AbilityIcon3" type="TextureRect" parent="AbilityIcons" unique_id=1488768472]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_pts5c")
+stretch_mode = 5
 
 [node name="Head" type="AnimatedSprite2D" parent="." unique_id=645910719]
 position = Vector2(0, -7)
@@ -701,7 +741,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_s2pvp")
+info = SubResource("Resource_7ec3c")
 completion_time = 0
 complete = false
 
