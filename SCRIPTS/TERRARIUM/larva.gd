@@ -33,6 +33,10 @@ func _ready() -> void:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
 	update_type()
+	# TODO: Remove this once we are able to edit larva abilities in game
+	# 50% of larvae are given speedy larva ability to compare those with/out
+	if randi_range(0, 1):
+		info.abilities.append(load("res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres").duplicate())
 	load_abilities()
 
 func _physics_process(delta: float) -> void:
@@ -42,12 +46,11 @@ func _physics_process(delta: float) -> void:
 			direction = _get_direction()
 			
 			if direction != Vector2.ZERO:
-				speed_mod = 1.0
 				animation_player.play("move")
 			else:
-				speed_mod = 0.0
 				animation_player.play("idle")
 			
+			navigation_agent.max_speed = SPEED * speed_mod
 			navigation_agent.set_velocity(direction * SPEED * speed_mod)
 
 func die():
@@ -139,6 +142,9 @@ func start_making_bead():
 func load_abilities():
 	for i in ability_icons.size():
 		if i < info.abilities.size():
-			ability_icons[i].texture = info.abilities[i].icon
+			var ability = info.abilities[i]
+			ability_icons[i].texture = ability.icon
+			if ability is LarvaAbilityInfo: 
+				ability.apply_ability(self)
 		else:
 			ability_icons[i].texture = null
