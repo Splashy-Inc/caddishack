@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cuvp23unrxlp1"]
+
+[ext_resource type="Script" uid="uid://dhvf141ua80kt" path="res://SCRIPTS/LARVAE/card_ability_slot.gd" id="1_j0owk"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_528ul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8ko2"]
+atlas = ExtResource("2_528ul")
+region = Rect2(40, 0, 20, 20)
+
+[node name="CardAbilitySlot" type="HBoxContainer" unique_id=1389389967]
+size_flags_vertical = 3
+script = ExtResource("1_j0owk")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=534095772]
+layout_mode = 2
+texture = SubResource("AtlasTexture_w8ko2")
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="." unique_id=753161131]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speedy Larva"
