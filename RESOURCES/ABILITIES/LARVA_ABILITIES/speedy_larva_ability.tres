@@ -17,5 +17,4 @@ name = "Speedy Larva"
 description = "+50% larva speed"
 icon = SubResource("AtlasTexture_wiqm3")
 num_stacks = 1
-max_stacks = 2
 metadata/_custom_type_script = "uid://dy424sqq23xy1"

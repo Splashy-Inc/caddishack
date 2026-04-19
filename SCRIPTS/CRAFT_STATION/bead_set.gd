@@ -37,7 +37,7 @@ func set_bead_parent(bead: Bead) -> bool:
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position, bead.global_scale, randf_range(0.0, 2*PI))
 
-func get_beads():
+func get_beads() -> Array[Bead]:
 	var cur_beads : Array[Bead]
 	for slot in bead_slots:
 		for child in slot.get_children():

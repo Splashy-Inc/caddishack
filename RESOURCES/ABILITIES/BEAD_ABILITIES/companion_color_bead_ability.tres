@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CompanionColorsBeadAbility" format=3 uid="uid://dwmp14ku03fm"]
+
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_2gits"]
+[ext_resource type="Script" uid="uid://4u80d7jf8orq" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.gd" id="1_xo0xc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uvpn"]
+atlas = ExtResource("1_2gits")
+region = Rect2(0, 60, 20, 20)
+
+[resource]
+script = ExtResource("1_xo0xc")
+name = "Companion Colors"
+description = "+1 point per matching color in bracelet"
+icon = SubResource("AtlasTexture_3uvpn")
+num_stacks = 1
+metadata/_custom_type_script = "uid://4u80d7jf8orq"

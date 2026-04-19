@@ -21,7 +21,9 @@ var is_travelling := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_completion_time(completion_time)
-	set_info(BeadInfo.new())
+	info = info.duplicate(true)
+	set_info(info)
+	load_abilities()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,6 +57,9 @@ func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(
 	is_travelling = true
 
 func set_info(new_info: BeadInfo):
+	if new_info == null:
+		new_info = BeadInfo.new()
+	new_info = new_info.duplicate(true)
 	if info.sand.color != new_info.sand.color:
 		set_color(new_info.sand.color)
 	
@@ -91,10 +96,10 @@ func is_completed():
 	return complete
 
 func has_sand_color():
-	return info.sand.color != SandMaterialInfo.SandColor.COLORLESS
+	return info.sand.color != null and info.sand.color != SandMaterialInfo.SandColor.COLORLESS
 
 func has_charm():
-	return info.special.type != SpecialMaterialInfo.SpecialType.BASIC
+	return info.special.type != null and info.special.type != SpecialMaterialInfo.SpecialType.BASIC
 
 func get_points() -> int:
 	return info.get_points()
@@ -111,3 +116,7 @@ func set_completion_time(seconds: float):
 		timescale = 0
 	animation_tree.set("parameters/incomplete/timescaled/TimeScale/scale", timescale)
 	animation_tree.get("parameters/playback").travel("incomplete")
+
+func load_abilities():
+	for ability in info.abilities:
+		ability.apply_ability(self)
