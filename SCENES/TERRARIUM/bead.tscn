@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_ebppn"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
 [ext_resource type="Texture2D" uid="uid://c0585iajy3qyf" path="res://ASSETS/Art/TERRARIUM/Jimmie.png" id="3_1e667"]
-[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_color_bead_ability.tres" id="3_xocje"]
 [ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="4_83cj8"]
 [ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="5_83cj8"]
 [ext_resource type="Texture2D" uid="uid://cfl7ltp72tqsp" path="res://ASSETS/Art/TERRARIUM/Pearl.png" id="5_b5p1g"]
@@ -23,7 +22,6 @@ metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 [sub_resource type="Resource" id="Resource_fx874"]
 resource_local_to_scene = true
 script = ExtResource("2_i8ivb")
-abilities = Array[ExtResource("2_83cj8")]([ExtResource("3_xocje")])
 sand = SubResource("Resource_tohrt")
 special = SubResource("Resource_qg1fj")
 

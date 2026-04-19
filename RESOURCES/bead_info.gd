@@ -23,3 +23,10 @@ func calculate_mult(bead_array_info: BeadArrayInfo):
 	if special.type != SpecialMaterialInfo.SpecialType.BASIC:
 		mult += 1
 	return mult
+
+func add_ability(ability: BeadAbilityInfo):
+	if not ability in abilities:
+		abilities.append(ability)
+
+func clear_abilities():
+	abilities.clear()

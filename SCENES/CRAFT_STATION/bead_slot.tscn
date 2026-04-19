@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://5xn7k3avxu3y"]
+
+[ext_resource type="Texture2D" uid="uid://de4ncv1h326l0" path="res://SCENES/CRAFT_STATION/bracelet_slot_texture.tres" id="1_2voyj"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_0qde3"]
+[ext_resource type="Script" uid="uid://bbxhjjxylx1ap" path="res://SCRIPTS/CRAFT_STATION/bead_slot.gd" id="2_aatqm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qde3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeyyo"]
+atlas = ExtResource("2_0qde3")
+region = Rect2(0, 60, 20, 20)
+
+[node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons")]
+self_modulate = Color(0, 0, 0, 0.498039)
+texture = ExtResource("1_2voyj")
+script = ExtResource("2_aatqm")
+ability_icons = [NodePath("AbilityIcons/Row1/Ability1/Icon"), NodePath("AbilityIcons/Row1/Ability2/Icon"), NodePath("AbilityIcons/Row2/Ability3/Icon")]
+
+[node name="SlotCenter" type="Marker2D" parent="." unique_id=115898961]
+
+[node name="AbilityIcons" type="VBoxContainer" parent="." unique_id=1948432251]
+offset_left = -48.0
+offset_top = 40.0
+offset_bottom = 80.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Row1" type="HBoxContainer" parent="AbilityIcons" unique_id=1096259736]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Ability1" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=370750108]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
+
+[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability1" unique_id=332374561]
+position = Vector2(11, 10)
+texture = SubResource("AtlasTexture_yeyyo")
+
+[node name="Ability2" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=1188986380]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
+
+[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability2" unique_id=958332418]
+position = Vector2(11, 10)
+texture = SubResource("AtlasTexture_yeyyo")
+
+[node name="Row2" type="HBoxContainer" parent="AbilityIcons" unique_id=1159261935]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Ability3" type="PanelContainer" parent="AbilityIcons/Row2" unique_id=1913867173]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
+
+[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row2/Ability3" unique_id=2144173521]
+position = Vector2(24, 10)
+texture = SubResource("AtlasTexture_yeyyo")

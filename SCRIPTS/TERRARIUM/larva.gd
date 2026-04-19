@@ -28,15 +28,19 @@ var making_bead := false
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]
 
+## TODO: Remove when we can change larva abilities in-game
+@export var proto_abilities : Array[AbilityInfo]
+
 func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
 	update_type()
 	# TODO: Remove this once we are able to edit larva abilities in game
-	# 50% of larvae are given speedy larva ability to compare those with/out
-	if randi_range(0, 1):
-		info.abilities.append(load("res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres").duplicate())
+	# Random spread of prototype abilities
+	for i in proto_abilities.size():
+		if randi_range(0, 1):
+			info.add_ability(proto_abilities[i].duplicate())
 	load_abilities()
 
 func _physics_process(delta: float) -> void:
@@ -140,11 +144,16 @@ func start_making_bead():
 	set_lifespan(lifespan_sec)
 
 func load_abilities():
+	bead.clear_abilities()
+	
 	for i in ability_icons.size():
 		if i < info.abilities.size():
 			var ability = info.abilities[i]
 			ability_icons[i].texture = ability.icon
-			if ability is LarvaAbilityInfo: 
+			if ability is LarvaAbilityInfo:
 				ability.apply_ability(self)
+			elif ability is BeadAbilityInfo:
+				bead.info.add_ability(ability)
+				bead.load_abilities()
 		else:
 			ability_icons[i].texture = null
