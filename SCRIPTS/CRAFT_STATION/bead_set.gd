@@ -12,9 +12,8 @@ func _container_ready():
 
 func is_bead_in_container(bead: Bead):
 	for slot in bead_slots:
-		for child in slot.get_children():
-			if child == bead:
-				return true
+		if slot.get_bead() == bead:
+			return true
 	return false
 
 func set_bead_parent(bead: Bead) -> bool:
@@ -34,7 +33,6 @@ func get_beads() -> Array[Bead]:
 		var bead = slot.get_bead()
 		if is_instance_valid(bead) and not bead in cur_beads:
 			cur_beads.append(bead)
-			break
 	return cur_beads
 
 func _on_bead_clicked(bead: Bead):

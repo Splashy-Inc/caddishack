@@ -44,4 +44,6 @@ func add_bead(new_bead: Bead):
 	return false
 
 func get_bead() -> Bead:
-	return slot_center.get_children().front()
+	if slot_center.get_child_count() > 0:
+		return slot_center.get_children().front()
+	return null
