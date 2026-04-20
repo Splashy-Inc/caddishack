@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://x05io5v0mpr5"]
+
+[ext_resource type="Texture2D" uid="uid://7lg40kqfw5ux" path="res://ASSETS/Art/SHOP/Amethyst_Pile.png" id="1_wak8c"]
+
+[resource]
+atlas = ExtResource("1_wak8c")
+region = Rect2(72, 124, 48, 48)

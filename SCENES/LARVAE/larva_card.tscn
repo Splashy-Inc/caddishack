@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cue2ptvqn6f3r"]
+
+[ext_resource type="PackedScene" uid="uid://bavo2v0il8e4" path="res://SCENES/TERRARIUM/larva.tscn" id="1_4xgy5"]
+[ext_resource type="Script" uid="uid://bbdunfyudqd3d" path="res://SCRIPTS/LARVAE/larva_card.gd" id="1_icnma"]
+[ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="2_wnpqk"]
+[ext_resource type="PackedScene" uid="uid://cuvp23unrxlp1" path="res://SCENES/LARVAE/card_ability_slot.tscn" id="3_w8ko2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g11q"]
+atlas = ExtResource("2_wnpqk")
+region = Rect2(184, 0, 184, 256)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_icnma"]
+radius = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnpqk"]
+size = Vector2(184, 256)
+
+[node name="LarvaCard" type="Node2D" unique_id=1227121871 node_paths=PackedStringArray("ability_slots")]
+script = ExtResource("1_icnma")
+ability_slots = [NodePath("Card/CardAbilities/CardAbilitySlot1"), NodePath("Card/CardAbilities/CardAbilitySlot2"), NodePath("Card/CardAbilities/CardAbilitySlot3")]
+
+[node name="Card" type="Node2D" parent="." unique_id=294962098]
+
+[node name="Sprite2D" type="Sprite2D" parent="Card" unique_id=642097255]
+texture = SubResource("AtlasTexture_5g11q")
+
+[node name="CardAbilities" type="VBoxContainer" parent="Card" unique_id=1109222485]
+offset_left = -70.0
+offset_top = 6.0
+offset_right = 70.0
+offset_bottom = 106.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CardAbilitySlot1" parent="Card/CardAbilities" unique_id=1389389967 instance=ExtResource("3_w8ko2")]
+layout_mode = 2
+
+[node name="CardAbilitySlot2" parent="Card/CardAbilities" unique_id=798858145 instance=ExtResource("3_w8ko2")]
+layout_mode = 2
+
+[node name="CardAbilitySlot3" parent="Card/CardAbilities" unique_id=1871285072 instance=ExtResource("3_w8ko2")]
+layout_mode = 2
+
+[node name="LarvaSlot" type="Area2D" parent="." unique_id=957539115]
+position = Vector2(46, -60)
+rotation = 1.5707964
+collision_layer = 0
+collision_mask = 16
+
+[node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
+z_index = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LarvaSlot" unique_id=2083541082]
+shape = SubResource("CircleShape2D_icnma")
+
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1641301708]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=1075871762]
+shape = SubResource("RectangleShape2D_wnpqk")
+
+[connection signal="body_entered" from="LarvaSlot" to="." method="_on_larva_slot_body_entered"]
+[connection signal="body_exited" from="LarvaSlot" to="." method="_on_larva_slot_body_exited"]
+[connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

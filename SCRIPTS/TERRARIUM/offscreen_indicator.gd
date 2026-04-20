@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 @export var parent : BeadMaterial
 
-var cur_larva : CaddisFly
+var cur_larva : Larva
 
 var camera : Camera2D
 var viewport_rect : Rect2
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 				visible = false
 		else:
 			for larva in get_tree().get_nodes_in_group("larvae"):
-				if larva is CaddisFly and is_instance_valid(larva):
+				if larva is Larva and is_instance_valid(larva):
 					cur_larva = larva
 					break
 		

@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://hn65qcr1iwdm" path="res://SCRIPTS/MATERIALS/bead_material.gd" id="1_yys1l"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="2_lehs5"]
-[ext_resource type="Texture2D" uid="uid://buwiyssv2nqp4" path="res://ASSETS/Art/SHOP/CyanSand.png" id="3_ps56i"]
+[ext_resource type="Texture2D" uid="uid://dwi46syvnuk64" path="res://ASSETS/Art/SHOP/Dumortierite_Pile.png" id="3_yys1l"]
 
 [sub_resource type="Resource" id="Resource_vtin3"]
 script = ExtResource("2_lehs5")
 
-[node name="BeadMaterial" type="StaticBody2D" unique_id=368960510]
+[node name="BeadMaterial" type="StaticBody2D" unique_id=368960510 groups=["materials"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_yys1l")
@@ -15,7 +15,7 @@ info = SubResource("Resource_vtin3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1441365719]
 position = Vector2(0, -41)
-texture = ExtResource("3_ps56i")
+texture = ExtResource("3_yys1l")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=849160584]
 position = Vector2(0, -41)

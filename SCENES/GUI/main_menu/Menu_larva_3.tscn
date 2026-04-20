@@ -1,43 +1,64 @@
 [gd_scene format=3 uid="uid://do4he3vq6npki"]
 
-[ext_resource type="Texture2D" uid="uid://bcj6pgjvlc2uq" path="res://ASSETS/Art/TERRARIUM/CaddisflySpriteSheet.png" id="1_iedw6"]
-[ext_resource type="Texture2D" uid="uid://b4taqkqaoh2je" path="res://ASSETS/Art/TERRARIUM/beads_spritesheet_citrine.png" id="2_bqmcd"]
+[ext_resource type="Texture2D" uid="uid://c0xsejfofp4s3" path="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png" id="1_bqmcd"]
+[ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="2_bqmcd"]
 [ext_resource type="Texture2D" uid="uid://co18r5h02m8yl" path="res://ASSETS/Art/TERRARIUM/Snail.png" id="3_40f3s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5011"]
-atlas = ExtResource("1_iedw6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hgkl"]
+atlas = ExtResource("1_bqmcd")
 region = Rect2(0, 64, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hm8ac"]
-atlas = ExtResource("1_iedw6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2crxw"]
+atlas = ExtResource("1_bqmcd")
 region = Rect2(128, 64, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jggpi"]
-atlas = ExtResource("1_iedw6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uo5c"]
+atlas = ExtResource("1_bqmcd")
 region = Rect2(256, 64, 128, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ll0vr"]
-atlas = ExtResource("1_iedw6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_snfsn"]
+atlas = ExtResource("1_bqmcd")
 region = Rect2(384, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7w8g"]
+atlas = ExtResource("1_bqmcd")
+region = Rect2(512, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stvyc"]
+atlas = ExtResource("1_bqmcd")
+region = Rect2(640, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpsfo"]
+atlas = ExtResource("1_bqmcd")
+region = Rect2(768, 64, 128, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gqgmn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v5011")
+"texture": SubResource("AtlasTexture_6hgkl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hm8ac")
+"texture": SubResource("AtlasTexture_2crxw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jggpi")
+"texture": SubResource("AtlasTexture_5uo5c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ll0vr")
+"texture": SubResource("AtlasTexture_snfsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7w8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stvyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpsfo")
 }],
 "loop": true,
 "name": &"default",
-"speed": 8.0
+"speed": 12.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfacf"]
@@ -83,7 +104,7 @@ self_modulate = Color(0.577008, 0.577008, 0.577008, 1)
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_gqgmn")
 autoplay = "default"
-frame_progress = 0.369152
+frame_progress = 0.4067511
 
 [node name="YellowSand" type="AnimatedSprite2D" parent="." unique_id=1830347668]
 position = Vector2(0, 38)

@@ -22,10 +22,9 @@ const material_scenes = {
 	"pearl": preload("res://SCENES/MATERIALS/pearl_material.tscn"),
 	"shell": preload("res://SCENES/MATERIALS/shell_material.tscn"),
 	"jimmie": preload("res://SCENES/MATERIALS/jimmie_material.tscn"),
-	"egg": preload("res://SCENES/MATERIALS/egg_material.tscn"),
+	"heart": preload("res://SCENES/MATERIALS/heart_material.tscn"),
+	"spade": preload("res://SCENES/MATERIALS/spade_material.tscn"),
 }
-
-const larva_scene := preload("res://SCENES/TERRARIUM/caddisfly.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,14 +59,13 @@ func generate_material(material_info: MaterialInfo) -> BeadMaterial:
 				new_material = material_scenes["shell"].instantiate()
 			SpecialMaterialInfo.SpecialType.JIMMIE:
 				new_material = material_scenes["jimmie"].instantiate()
-	elif material_info is EggMaterialInfo:
-		new_material = material_scenes["egg"].instantiate()
+			SpecialMaterialInfo.SpecialType.HEART:
+				new_material = material_scenes["heart"].instantiate()
+			SpecialMaterialInfo.SpecialType.SPADE:
+				new_material = material_scenes["spade"].instantiate()
 	
 	new_material.info = material_info
 	return new_material
-
-func generate_larva() -> CaddisFly:
-	return larva_scene.instantiate()
 
 func reset_run():
 	run_info = load("res://RESOURCES/test_run.tres").duplicate(true)

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dac4l330kaphs"]
+
+[ext_resource type="Script" uid="uid://c1u3584lj681l" path="res://SCRIPTS/LARVAE/card_hand.gd" id="1_jwfek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwfek"]
+size = Vector2(896, 224)
+
+[node name="CardHand" type="Node2D" unique_id=1587952838]
+script = ExtResource("1_jwfek")
+
+[node name="HandRegion" type="CollisionShape2D" parent="." unique_id=1403408777]
+shape = SubResource("RectangleShape2D_jwfek")
+disabled = true
