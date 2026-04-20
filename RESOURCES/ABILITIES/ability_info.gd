@@ -9,8 +9,8 @@ class_name AbilityInfo
 @export var max_stacks := 1
 var applied := false
 
-func use_ability(input) -> Variant:
-	return input
+func use_ability(origin, target):
+	return null
 
 func apply_ability(application_target):
 	_apply_ability()
