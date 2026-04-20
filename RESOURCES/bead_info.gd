@@ -6,22 +6,26 @@ class_name BeadInfo
 @export var sand := SandMaterialInfo.new()
 @export var special := SpecialMaterialInfo.new()
 
-# TODO: Factor in modifiers/abilities
 func calculate_points(bead_array_info: BeadArrayInfo):
 	var points = 0
 	if sand.color != SandMaterialInfo.SandColor.COLORLESS:
 		points += 1
 	
 	for ability in abilities:
-		points += ability.use_ability(self, bead_array_info.get_beads())
+		if ability is BeadColorAbilityInfo:
+			points += ability.use_ability(self, bead_array_info.get_beads())
 	
 	return points
 
-# TODO: Factor in modifiers/abilities
 func calculate_mult(bead_array_info: BeadArrayInfo):
 	var mult = 0
 	if special.type != SpecialMaterialInfo.SpecialType.BASIC:
 		mult += 1
+	
+	for ability in abilities:
+		if ability is BeadCharmAbilityInfo:
+			mult += ability.use_ability(self, bead_array_info.get_beads())
+	
 	return mult
 
 func add_ability(ability: BeadAbilityInfo):

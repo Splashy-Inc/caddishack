@@ -1,0 +1,3 @@
+extends BeadAbilityInfo
+
+class_name BeadColorAbilityInfo
