@@ -12,8 +12,9 @@ region = Rect2(20, 0, 20, 20)
 [resource]
 script = ExtResource("1_lcmpg")
 mult_bonus_tiers = Dictionary[int, int]({
-1: 2,
-2: 6,
+0: 0,
+1: 6,
+2: 2,
 3: 0
 })
 name = "Too Charming"
