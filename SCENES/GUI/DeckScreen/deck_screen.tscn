@@ -1,0 +1,446 @@
+[gd_scene format=3 uid="uid://dtqncf6ynnxln"]
+
+[ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="1_eiqme"]
+[ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="2_d05eh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q53bx"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egpel"]
+atlas = ExtResource("1_eiqme")
+region = Rect2(0, 0, 184, 256)
+
+[node name="DeckScreen" type="PanelContainer" unique_id=1723208829]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rweia")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=442092368]
+layout_mode = 2
+
+[node name="DeckView" type="ScrollContainer" parent="HBoxContainer" unique_id=1845271702]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_q53bx")
+horizontal_scroll_mode = 0
+
+[node name="DeckGrid" type="GridContainer" parent="HBoxContainer/DeckView" unique_id=239391822]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="CardSlot" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1474179225]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot" unique_id=66710729]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot/CardFrame" unique_id=1554677495]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot/CardFrame/Center" unique_id=1227121871 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot2" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1729388709]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot2" unique_id=1565052669]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot2/CardFrame" unique_id=508611426]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot2/CardFrame/Center" unique_id=759563691 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot3" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=111450621]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot3" unique_id=135264618]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot3/CardFrame" unique_id=1123615360]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot3/CardFrame/Center" unique_id=1460107148 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot4" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=615459803]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot4" unique_id=1890203304]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot4/CardFrame" unique_id=2128848233]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot4/CardFrame/Center" unique_id=892302288 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot5" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=2040154775]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot5" unique_id=1669238150]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot5/CardFrame" unique_id=939165993]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot5/CardFrame/Center" unique_id=498329758 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot6" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1563268159]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot6" unique_id=389346321]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot6/CardFrame" unique_id=1721949135]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot6/CardFrame/Center" unique_id=1325613535 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot7" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1913707804]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot7" unique_id=1000723463]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot7/CardFrame" unique_id=1827647460]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot7/CardFrame/Center" unique_id=497171903 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot8" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1145269869]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot8" unique_id=465623519]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot8/CardFrame" unique_id=1530629272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot8/CardFrame/Center" unique_id=511398399 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot9" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=411580751]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot9" unique_id=2077231440]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot9/CardFrame" unique_id=146917666]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot9/CardFrame/Center" unique_id=356034363 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot10" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=2038225720]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot10" unique_id=2085079440]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot10/CardFrame" unique_id=758722595]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot10/CardFrame/Center" unique_id=1357093288 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot11" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1237400924]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot11" unique_id=314638176]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot11/CardFrame" unique_id=890686266]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot11/CardFrame/Center" unique_id=381667739 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot12" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=761960448]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot12" unique_id=1019135154]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot12/CardFrame" unique_id=336901389]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot12/CardFrame/Center" unique_id=1710036215 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot13" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=375300676]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot13" unique_id=22432978]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot13/CardFrame" unique_id=2092878815]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot13/CardFrame/Center" unique_id=845770974 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot14" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=398830316]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot14" unique_id=1333960026]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot14/CardFrame" unique_id=835584369]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot14/CardFrame/Center" unique_id=793483332 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot15" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1882835494]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot15" unique_id=1624193051]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot15/CardFrame" unique_id=2072604965]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot15/CardFrame/Center" unique_id=2102226341 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot16" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=561128509]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot16" unique_id=1762564494]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot16/CardFrame" unique_id=266904743]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot16/CardFrame/Center" unique_id=624538176 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot17" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1072861577]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot17" unique_id=974943987]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot17/CardFrame" unique_id=341960120]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot17/CardFrame/Center" unique_id=1114520559 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot18" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=1917073713]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot18" unique_id=246453818]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot18/CardFrame" unique_id=2036413411]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot18/CardFrame/Center" unique_id=153797674 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot19" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=545474274]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot19" unique_id=714649553]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot19/CardFrame" unique_id=657788267]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot19/CardFrame/Center" unique_id=997308283 instance=ExtResource("2_d05eh")]
+
+[node name="CardSlot20" type="PanelContainer" parent="HBoxContainer/DeckView/DeckGrid" unique_id=560485092]
+layout_mode = 2
+
+[node name="CardFrame" type="TextureRect" parent="HBoxContainer/DeckView/DeckGrid/CardSlot20" unique_id=409053893]
+self_modulate = Color(1, 1, 1, 0.101960786)
+layout_mode = 2
+texture = SubResource("AtlasTexture_egpel")
+
+[node name="Center" type="Control" parent="HBoxContainer/DeckView/DeckGrid/CardSlot20/CardFrame" unique_id=604475448]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LarvaCard" parent="HBoxContainer/DeckView/DeckGrid/CardSlot20/CardFrame/Center" unique_id=589225427 instance=ExtResource("2_d05eh")]
+
+[node name="AbilityLazerView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391]
+layout_mode = 2
+size_flags_horizontal = 3
