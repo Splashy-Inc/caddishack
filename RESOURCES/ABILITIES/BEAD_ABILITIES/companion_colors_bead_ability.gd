@@ -1,4 +1,4 @@
-extends BeadAbilityInfo
+extends BeadColorAbilityInfo
 
 ## Bonus points for beads with the same color in bracelet
 class_name CompanionColorsBeadAbility
