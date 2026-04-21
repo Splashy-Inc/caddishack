@@ -3,7 +3,7 @@ extends BeadCharmAbilityInfo
 ## Bonus mult for number of different charms in bracelet, 0 bonus mult if too many
 class_name TooCharmingBeadAbility
 
-## Key is number different charms, value is bonus mult
+## Key is number charm types, value is bonus mult
 @export var mult_bonus_tiers : Dictionary[int, int]
 
 ## Generate mult depending on how many different charm types are in [param bead_info_set].
