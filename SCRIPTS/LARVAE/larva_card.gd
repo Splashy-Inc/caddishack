@@ -10,14 +10,14 @@ signal died
 @onready var card: Node2D = $Card
 @export var ability_slots : Array[CardAbilitySlot]
 
-var terrarium : Terrarium
+var drop_target : Node2D
 var grabbed
 
 func _ready() -> void:
 	load_larva_abilities()
 
 func _process(delta: float) -> void:
-	toggle_larva_view(is_instance_valid(terrarium))
+	toggle_larva_view(is_instance_valid(drop_target))
 
 func toggle_larva_view(is_larva: bool):
 	if is_larva:
@@ -35,12 +35,13 @@ func get_larva() -> Larva:
 	return larva
 
 func drop():
-	if terrarium:
-		if terrarium.add_larva(larva):
-			die()
-			return
+	if is_instance_valid(drop_target):
+		if drop_target.has_method("add_larva"):
+			if drop_target.add_larva(larva):
+				die()
+				return true
 	
-	dropped.emit(self)
+	return false
 
 func die():
 	get_parent().remove_child(self)
@@ -49,11 +50,13 @@ func die():
 func _on_larva_slot_body_entered(body: Node2D) -> void:
 	var body_parent = body.get_parent()
 	if body_parent is Terrarium:
-		terrarium = body_parent
+		drop_target = body_parent
+	else:
+		drop_target = body
 
 func _on_larva_slot_body_exited(body: Node2D) -> void:
-	if body.get_parent() == terrarium:
-		terrarium = null
+	if (body.get_parent() is Terrarium and body.get_parent() == drop_target) or body == drop_target:
+		drop_target = null
 
 func load_larva_abilities():
 	if not larva.is_node_ready():

@@ -3,9 +3,9 @@ extends Area2D
 class_name CardHandler
 
 var card : LarvaCard
-var card_start_position : Vector2
-
-var terrarium : Terrarium
+var card_start_global_transform : Transform2D
+var card_start_z : int
+var card_start_parent : Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,17 +20,22 @@ func _process(delta: float) -> void:
 func _on_card_clicked(clicked_card: LarvaCard, button_index: MouseButton) -> void:
 	if not is_instance_valid(card):
 		if button_index == MOUSE_BUTTON_LEFT:
+			#card_start_global_transform = clicked_card.global_transform
+			#card_start_z = clicked_card.z_index
+			#clicked_card.z_index = z_index
 			card = clicked_card
+			card_start_parent = card.get_parent()
+			card.reparent(self, false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_released():
 			if event.button_index == MOUSE_BUTTON_LEFT and card:
-				if terrarium:
-					if terrarium.add_larva(card.get_larva()):
-						card.queue_free()
-						card = null
-						return
-				
-				card.drop()
+				if not card.drop():
+					if card_start_parent.has_method("add_card"):
+						card_start_parent.add_card(card)
+					else:
+						card.reparent(card_start_parent, false)
+				#card.global_transform = card_start_global_transform
+				#card.z_index = card_start_z
 				card = null
