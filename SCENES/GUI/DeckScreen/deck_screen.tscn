@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="1_rweia"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="2_36kts"]
 [ext_resource type="PackedScene" uid="uid://beio7qla2ty4p" path="res://SCENES/GUI/DeckScreen/card_slot.tscn" id="2_q53bx"]
+[ext_resource type="Script" uid="uid://p2oku14mkeae" path="res://SCRIPTS/GUI/DeckScreen/ability_laser_view.gd" id="4_0tj61"]
 [ext_resource type="Script" uid="uid://ctuy0xcmnmocf" path="res://SCRIPTS/GUI/DeckScreen/petri_dish.gd" id="4_egpel"]
 [ext_resource type="Texture2D" uid="uid://bgp6m056ajuku" path="res://ASSETS/Art/GUI/DeckScreen/CaddiLaser_384X384.png" id="4_q53bx"]
 [ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="5_iicbi"]
@@ -204,6 +205,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_egpel")
+script = ExtResource("4_0tj61")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityLaserView" unique_id=260346815]
 layout_mode = 2
@@ -233,12 +235,12 @@ offset_right = 160.0
 offset_bottom = 119.0
 scale = Vector2(0.75, 0.75)
 
-[node name="ShopItem" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot" unique_id=1788279766 instance=ExtResource("5_iicbi")]
+[node name="AbilityItem" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot" unique_id=1788279766 instance=ExtResource("5_iicbi")]
 layout_mode = 2
 mouse_filter = 2
 info = ExtResource("6_0tj61")
 
-[node name="Cost" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/ShopItem/ItemSpace/TopHalf/TopRightSpace" parent_id_path=PackedInt32Array(1788279766, 1417132163) index="1" unique_id=1970155121]
+[node name="Cost" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem/ItemSpace/TopHalf/TopRightSpace" parent_id_path=PackedInt32Array(1788279766, 1417132163) index="1" unique_id=1970155121]
 visible = false
 
 [node name="PetriDishSpace" type="PanelContainer" parent="HBoxContainer/AbilityLaserView/VBoxContainer" unique_id=1067820854]
@@ -268,4 +270,6 @@ rotation = 1.5707964
 
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
-[editable path="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/ShopItem"]
+[connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
+
+[editable path="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem"]

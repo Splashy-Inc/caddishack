@@ -19,6 +19,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	toggle_larva_view(is_instance_valid(drop_target))
 
+func load_from_larva(from_larva: Larva):
+	larva.info = from_larva.info
+	from_larva.queue_free()
+	load_larva_abilities()
+
 func toggle_larva_view(is_larva: bool):
 	if is_larva:
 		larva.scale /= larva_slot.scale
@@ -36,6 +41,9 @@ func get_larva() -> Larva:
 
 func drop():
 	if is_instance_valid(drop_target):
+		if drop_target.has_method("add_larva_card"):
+			if drop_target.add_larva_card(self):
+				return true
 		if drop_target.has_method("add_larva"):
 			if drop_target.add_larva(larva):
 				die()
