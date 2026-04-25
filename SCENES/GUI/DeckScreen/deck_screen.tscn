@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="1_rweia"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="2_36kts"]
 [ext_resource type="PackedScene" uid="uid://beio7qla2ty4p" path="res://SCENES/GUI/DeckScreen/card_slot.tscn" id="2_q53bx"]
+[ext_resource type="Script" uid="uid://dltsrgq306fue" path="res://SCRIPTS/GUI/DeckScreen/deck_view.gd" id="3_32x4l"]
 [ext_resource type="Script" uid="uid://p2oku14mkeae" path="res://SCRIPTS/GUI/DeckScreen/ability_laser_view.gd" id="4_0tj61"]
 [ext_resource type="Script" uid="uid://ctuy0xcmnmocf" path="res://SCRIPTS/GUI/DeckScreen/petri_dish.gd" id="4_egpel"]
 [ext_resource type="Texture2D" uid="uid://bgp6m056ajuku" path="res://ASSETS/Art/GUI/DeckScreen/CaddiLaser_384X384.png" id="4_q53bx"]
 [ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="5_iicbi"]
 [ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="5_q53bx"]
+[ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="5_tudts"]
 [ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="6_0tj61"]
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
 
@@ -132,6 +134,9 @@ theme_override_constants/scrollbar_h_separation = 8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_q53bx")
 horizontal_scroll_mode = 0
 scroll_hint_mode = 1
+script = ExtResource("3_32x4l")
+card_slot_scene = ExtResource("2_q53bx")
+larva_card_scene = ExtResource("5_tudts")
 
 [node name="DeckGrid" type="GridContainer" parent="HBoxContainer/VBoxContainer/DeckView" unique_id=239391822]
 layout_mode = 2
@@ -271,5 +276,6 @@ rotation = 1.5707964
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
 [connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
+[connection signal="larva_card_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_card_added"]
 
 [editable path="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem"]

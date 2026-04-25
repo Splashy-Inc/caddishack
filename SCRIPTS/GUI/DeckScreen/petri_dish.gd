@@ -3,6 +3,7 @@ extends StaticBody2D
 class_name PetriDish
 
 signal larva_added(added_larva: Larva)
+signal larva_card_added(added_card : LarvaCard)
 
 @onready var larva_slot: Marker2D = $LarvaSlot
 
@@ -39,7 +40,7 @@ func add_larva_card(new_larva_card: LarvaCard):
 		new_larva_card.position += larva_slot.position - new_larva_card.larva_slot.position
 		larva_card = new_larva_card
 		larva = larva_card.larva
-		larva_added.emit(larva)
+		larva_card_added.emit(larva_card)
 		return true
 	
 	return false

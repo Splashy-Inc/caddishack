@@ -44,7 +44,7 @@ func drop():
 		if drop_target.has_method("add_larva_card"):
 			if drop_target.add_larva_card(self):
 				return true
-		if drop_target.has_method("add_larva"):
+		elif drop_target.has_method("add_larva"):
 			if drop_target.add_larva(larva):
 				die()
 				return true
@@ -76,4 +76,10 @@ func load_larva_abilities():
 			ability_slots[i].show()
 		else:
 			ability_slots[i].clear()
-		
+
+func add_ability(new_ability: AbilityInfo) -> bool:
+	if larva.add_ability(new_ability):
+		load_larva_abilities()
+		return true
+	
+	return false

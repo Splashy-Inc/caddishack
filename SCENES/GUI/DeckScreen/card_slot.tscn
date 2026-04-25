@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://beio7qla2ty4p"]
 
+[ext_resource type="Script" uid="uid://bdljiew160u7m" path="res://SCRIPTS/GUI/DeckScreen/card_slot.gd" id="1_bi2nh"]
 [ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="1_ythvk"]
-[ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="2_bi2nh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_egpel"]
 atlas = ExtResource("1_ythvk")
@@ -9,6 +9,7 @@ region = Rect2(0, 0, 184, 256)
 
 [node name="CardSlot" type="PanelContainer" unique_id=2021833502]
 mouse_filter = 2
+script = ExtResource("1_bi2nh")
 
 [node name="CardFrame" type="TextureRect" parent="." unique_id=1388636080]
 self_modulate = Color(1, 1, 1, 0.101960786)
@@ -26,5 +27,3 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="LarvaCard" parent="CardFrame/Center" unique_id=1227121871 instance=ExtResource("2_bi2nh")]
