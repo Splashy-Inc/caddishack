@@ -1,6 +1,10 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://b4xhb3lg2t0al"]
 
-[ext_resource type="Texture2D" uid="uid://clvx76dl1p1ur" path="res://ASSETS/Art/SHOP/Shelf_Slot.png" id="1_t6pey"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="1_a87lu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04o8l"]
+atlas = ExtResource("1_a87lu")
+region = Rect2(128, 0, 128, 128)
 
 [resource]
-texture = ExtResource("1_t6pey")
+texture = SubResource("AtlasTexture_04o8l")
