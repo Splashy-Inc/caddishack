@@ -2,7 +2,7 @@ extends PanelContainer
 
 class_name AbilityLaserView
 
-signal ability_added_to_card(larva_card)
+signal ability_added_to_card(larva_card: LarvaCard)
 
 @onready var ability_item: ShopItem = $VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem
 

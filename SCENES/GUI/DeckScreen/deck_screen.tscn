@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dtqncf6ynnxln"]
 
+[ext_resource type="Script" uid="uid://cmvdcga75y5m6" path="res://SCRIPTS/GUI/DeckScreen/deck_screen.gd" id="1_r6jer"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="1_rweia"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="2_36kts"]
 [ext_resource type="PackedScene" uid="uid://beio7qla2ty4p" path="res://SCENES/GUI/DeckScreen/card_slot.tscn" id="2_q53bx"]
@@ -109,6 +110,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rweia")
+script = ExtResource("1_r6jer")
 
 [node name="StationBackgroun" parent="." unique_id=2131916296 instance=ExtResource("1_rweia")]
 
@@ -275,6 +277,7 @@ rotation = 1.5707964
 
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
+[connection signal="ability_added_to_card" from="HBoxContainer/AbilityLaserView" to="." method="_on_ability_added_to_card"]
 [connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
 [connection signal="larva_card_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_card_added"]
 

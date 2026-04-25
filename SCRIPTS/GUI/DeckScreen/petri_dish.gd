@@ -31,7 +31,7 @@ func add_larva(new_larva: Larva):
 	return false
 
 func add_larva_card(new_larva_card: LarvaCard):
-	if not is_instance_valid(larva):
+	if not check_for_card():
 		if new_larva_card.get_parent():
 			new_larva_card.reparent(self, false)
 		else:
@@ -44,3 +44,15 @@ func add_larva_card(new_larva_card: LarvaCard):
 		return true
 	
 	return false
+
+func check_for_card():
+	if not larva_card in get_children():
+		larva_card = null
+	
+	for child in get_children():
+		if not is_instance_valid(larva_card):
+			if child is LarvaCard:
+				larva_card = child
+				continue
+	
+	return is_instance_valid(larva_card)

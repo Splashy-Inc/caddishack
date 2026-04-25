@@ -20,8 +20,10 @@ func add_card(new_card: LarvaCard) -> bool:
 			new_card.reparent(center, false)
 		else:
 			center.add_child(new_card)
+			#new_card.position = Vector2.ZERO
 		
 		larva_card = new_card
+		larva_card.position = Vector2.ZERO
 		return true
 	
 	return false
