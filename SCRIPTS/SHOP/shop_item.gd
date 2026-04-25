@@ -5,7 +5,8 @@ class_name ShopItem
 @export var info : ShopItemInfo
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var icon_sprite: Sprite2D = $ItemSpace/TopHalf/IconSpace/Icon
+@onready var icon_space: PanelContainer = $ItemSpace/TopHalf/IconSpace
+@onready var icon_sprite: Sprite2D = $ItemSpace/TopHalf/IconSpace/Center/Icon
 @onready var name_label: Label = $ItemSpace/TopHalf/TopRightSpace/Name
 @onready var cost_label: Label = $ItemSpace/TopHalf/TopRightSpace/Cost
 @onready var description_label: Label = $ItemSpace/Description
@@ -28,14 +29,16 @@ func _on_mouse_exited() -> void:
 
 func load_info(new_info: ShopItemInfo):
 	info = new_info
-	icon_sprite.texture = info.icon
-	name_label.text = info.name
-	cost_label.text = str(info.base_cost)
-	description_label.text = info.description
+	
+	icon_sprite.texture = info.get_icon()
+	icon_sprite.scale *= icon_space.size.x/icon_sprite.texture.get_size().x
+	name_label.text = info.get_item_name()
+	cost_label.text = str(info.get_base_cost())
+	description_label.text = info.get_description()
 	check_disabled()
 
 func check_disabled(new_score: int = 0):
-	disabled = info.base_cost > RunEvents.score
+	disabled = info.get_base_cost() > RunEvents.score
 
 func _on_pressed() -> void:
 	ShopEvents.purchase_item(info)

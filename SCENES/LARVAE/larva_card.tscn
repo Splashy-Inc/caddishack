@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="5_3n04h"]
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="6_p8eyq"]
 [ext_resource type="Script" uid="uid://dy424sqq23xy1" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.gd" id="7_54suw"]
-[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_color_bead_ability.tres" id="8_v7nam"]
+[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="8_v7nam"]
 [ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="9_x5cj3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g11q"]
 atlas = ExtResource("2_wnpqk")
 region = Rect2(184, 0, 184, 256)
 
-[sub_resource type="Resource" id="Resource_ftinh"]
+[sub_resource type="Resource" id="Resource_3n04h"]
 resource_local_to_scene = true
 script = ExtResource("6_p8eyq")
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
@@ -26,7 +26,7 @@ load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e24
 atlas = SubResource("CompressedTexture2D_5ymlc")
 region = Rect2(40, 0, 20, 20)
 
-[sub_resource type="Resource" id="Resource_rou8j"]
+[sub_resource type="Resource" id="Resource_p8eyq"]
 resource_local_to_scene = true
 script = ExtResource("7_54suw")
 percent_change = 50
@@ -77,8 +77,8 @@ collision_mask = 16
 
 [node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
 z_index = 0
-info = SubResource("Resource_ftinh")
-proto_abilities = Array[ExtResource("5_3n04h")]([SubResource("Resource_rou8j"), ExtResource("8_v7nam"), ExtResource("9_x5cj3")])
+info = SubResource("Resource_3n04h")
+proto_abilities = Array[ExtResource("5_3n04h")]([SubResource("Resource_p8eyq"), ExtResource("8_v7nam"), ExtResource("9_x5cj3")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LarvaSlot" unique_id=2083541082]
 shape = SubResource("CircleShape2D_icnma")

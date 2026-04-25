@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ShopItemInfo" format=3 uid="uid://c51kwjlmt4yrk"]
+
+[ext_resource type="Texture2D" uid="uid://b3545rtb6mb4a" path="res://ASSETS/Art/SHOP/Basic_Egg.png" id="1_1i35s"]
+[ext_resource type="Script" uid="uid://b3aah41smm1u6" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/shop_item_info.gd" id="2_4c1q3"]
+
+[resource]
+script = ExtResource("2_4c1q3")
+icon = ExtResource("1_1i35s")
+item_name = "Example item 2"
+base_cost = 15
+description = "An example item. Max length is this."
+metadata/_custom_type_script = "uid://b3aah41smm1u6"

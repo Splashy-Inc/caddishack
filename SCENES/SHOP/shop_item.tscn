@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="2_a5qli"]
 [ext_resource type="Script" uid="uid://dr6t7ian0uru8" path="res://SCRIPTS/SHOP/shop_item.gd" id="2_khpf0"]
 [ext_resource type="Texture2D" uid="uid://b3oatx07q1rnh" path="res://ASSETS/Art/GUI/Red_Button_Background.png" id="3_imwk6"]
-[ext_resource type="Resource" uid="uid://bckrif8ccda2e" path="res://RESOURCES/example_shop_item_1.tres" id="4_a5qli"]
+[ext_resource type="Resource" uid="uid://bckrif8ccda2e" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/example_shop_item_1.tres" id="4_a5qli"]
 [ext_resource type="LabelSettings" uid="uid://c8lwo0mgqxvin" path="res://RESOURCES/shop_item_label.tres" id="6_a5qli"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cw0e"]
@@ -22,7 +22,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ItemSpace/TopHalf/IconSpace/Icon:rotation")
+tracks/0/path = NodePath("ItemSpace/TopHalf/IconSpace/Center/Icon:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ItemSpace/TopHalf/IconSpace/Icon:rotation")
+tracks/0/path = NodePath("ItemSpace/TopHalf/IconSpace/Center/Icon:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,6 +56,7 @@ _data = {
 }
 
 [node name="ShopItem" type="Button" unique_id=1788279766]
+custom_minimum_size = Vector2(256, 256)
 offset_right = 256.0
 offset_bottom = 256.0
 size_flags_horizontal = 3
@@ -79,13 +80,17 @@ size_flags_vertical = 3
 
 [node name="IconSpace" type="PanelContainer" parent="ItemSpace/TopHalf" unique_id=292487778]
 clip_contents = true
-custom_minimum_size = Vector2(128, 128)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4vdw3")
 
-[node name="Icon" type="Sprite2D" parent="ItemSpace/TopHalf/IconSpace" unique_id=2065895712]
-position = Vector2(64, 64)
+[node name="Center" type="Control" parent="ItemSpace/TopHalf/IconSpace" unique_id=556423527]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="Sprite2D" parent="ItemSpace/TopHalf/IconSpace/Center" unique_id=2065895712]
 texture = ExtResource("2_37dhd")
 
 [node name="TopRightSpace" type="VBoxContainer" parent="ItemSpace/TopHalf" unique_id=1417132163]
@@ -97,14 +102,16 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Name"
 label_settings = ExtResource("6_a5qli")
+horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Cost" type="Label" parent="ItemSpace/TopHalf/TopRightSpace" unique_id=1970155121]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Cost"
 label_settings = ExtResource("6_a5qli")
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 

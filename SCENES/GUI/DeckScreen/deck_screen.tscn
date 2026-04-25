@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://beio7qla2ty4p" path="res://SCENES/GUI/DeckScreen/card_slot.tscn" id="2_q53bx"]
 [ext_resource type="Script" uid="uid://ctuy0xcmnmocf" path="res://SCRIPTS/GUI/DeckScreen/petri_dish.gd" id="4_egpel"]
 [ext_resource type="Texture2D" uid="uid://bgp6m056ajuku" path="res://ASSETS/Art/GUI/DeckScreen/CaddiLaser_384X384.png" id="4_q53bx"]
+[ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="5_iicbi"]
 [ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="5_q53bx"]
+[ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="6_0tj61"]
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
@@ -218,11 +220,22 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/AbilityLazerView/VBoxContainer/LazerSpace/Center" unique_id=1240174142]
+[node name="Lazer" type="AnimatedSprite2D" parent="HBoxContainer/AbilityLazerView/VBoxContainer/LazerSpace/Center" unique_id=1240174142]
 sprite_frames = SubResource("SpriteFrames_44cau")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.9999506
+
+[node name="AbilitySlot" type="PanelContainer" parent="HBoxContainer/AbilityLazerView/VBoxContainer/LazerSpace/Center/Lazer" unique_id=1254452592]
+offset_left = -96.0
+offset_top = -145.0
+offset_right = 160.0
+offset_bottom = 111.0
+scale = Vector2(0.75, 0.75)
+
+[node name="ShopItem" parent="HBoxContainer/AbilityLazerView/VBoxContainer/LazerSpace/Center/Lazer/AbilitySlot" unique_id=1788279766 instance=ExtResource("5_iicbi")]
+layout_mode = 2
+info = ExtResource("6_0tj61")
 
 [node name="PetriDishSpace" type="PanelContainer" parent="HBoxContainer/AbilityLazerView/VBoxContainer" unique_id=1067820854]
 layout_mode = 2
