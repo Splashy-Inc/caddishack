@@ -108,7 +108,7 @@ region = Rect2(0, 384, 384, 384)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2l54r"]
 radius = 184.0
 
-[node name="DeckScreen" type="PanelContainer" unique_id=1723208829]
+[node name="DeckScreen" type="PanelContainer" unique_id=1723208829 node_paths=PackedStringArray("deck_view", "ability_laser_view")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -119,6 +119,8 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rweia")
 script = ExtResource("1_r6jer")
+deck_view = NodePath("HBoxContainer/VBoxContainer/DeckView")
+ability_laser_view = NodePath("HBoxContainer/AbilityLaserView")
 
 [node name="StationBackgroun" parent="." unique_id=2131916296 instance=ExtResource("1_rweia")]
 
@@ -216,11 +218,12 @@ layout_mode = 2
 [node name="CardSlot20" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=543250874 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391]
+[node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_egpel")
 script = ExtResource("4_0tj61")
+ability_item = NodePath("VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityLaserView" unique_id=260346815]
 layout_mode = 2

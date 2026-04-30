@@ -28,10 +28,12 @@ func _on_mouse_exited() -> void:
 	animation_player.play("RESET")
 
 func load_info(new_info: ShopItemInfo):
+	if not is_node_ready():
+		await ready
 	info = new_info
 	
 	icon_sprite.texture = info.get_icon()
-	icon_sprite.scale *= icon_space.size.x/icon_sprite.texture.get_size().x
+	icon_sprite.scale = Vector2(1,1) * icon_space.size.x/icon_sprite.texture.get_size().x
 	name_label.text = info.get_item_name()
 	cost_label.text = str(info.get_base_cost())
 	description_label.text = info.get_description()

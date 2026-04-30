@@ -11,6 +11,7 @@ class_name ShopStation
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ShopEvents.item_purchased.connect(_on_item_purchased)
 	randomize_terrariums()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,3 +71,7 @@ func _on_terrarium_back_button_pressed() -> void:
 		var terrarium = terrariums[terrarium_buttons.find(button)]
 		terrarium.toggle_travel(true)
 		terrarium_zoom_point.dezoom_node(terrarium)
+
+func _on_item_purchased(item_info : ShopItemInfo):
+	if item_info is ShopAbilityInfo:
+		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, item_info)

@@ -23,8 +23,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func request_screen(screen_id: Screen):
+func request_screen(screen_id: Screen, info = null):
 	match screen_id:
 		Screen.SHOP:
 			RunEvents.round_started.emit()
-	screen_requested.emit(screen_scenes[screen_id])
+	screen_requested.emit(screen_scenes[screen_id], info)
