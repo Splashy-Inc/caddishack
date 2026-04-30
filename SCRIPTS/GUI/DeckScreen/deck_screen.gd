@@ -18,3 +18,5 @@ func _process(delta: float) -> void:
 func _on_ability_added_to_card(larva_card: LarvaCard) -> void:
 	await get_tree().create_timer(.25).timeout
 	deck_view.add_card(larva_card)
+	await get_tree().create_timer(.25).timeout
+	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)

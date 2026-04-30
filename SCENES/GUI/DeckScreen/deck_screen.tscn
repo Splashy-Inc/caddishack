@@ -11,8 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="5_iicbi"]
 [ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="5_q53bx"]
 [ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="5_tudts"]
-[ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="6_0tj61"]
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="9_r6jer"]
+[ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="11_flq6w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
 
@@ -92,6 +93,13 @@ animations = [{
 "name": &"idle",
 "speed": 4.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44cau"]
+atlas = ExtResource("9_r6jer")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss2ju"]
+texture = SubResource("AtlasTexture_44cau")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_36kts"]
 atlas = ExtResource("5_q53bx")
@@ -241,11 +249,12 @@ offset_top = -137.0
 offset_right = 160.0
 offset_bottom = 119.0
 scale = Vector2(0.75, 0.75)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ss2ju")
 
 [node name="AbilityItem" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot" unique_id=1788279766 instance=ExtResource("5_iicbi")]
 layout_mode = 2
 mouse_filter = 2
-info = ExtResource("6_0tj61")
+info = ExtResource("11_flq6w")
 
 [node name="Cost" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem/ItemSpace/TopHalf/TopRightSpace" parent_id_path=PackedInt32Array(1788279766, 1417132163) index="1" unique_id=1970155121]
 visible = false

@@ -19,7 +19,9 @@ func _on_petri_dish_larva_added(larva: Larva) -> void:
 		larva.add_ability(ability_item.info.ability)
 
 func _on_petri_dish_larva_card_added(larva_card: LarvaCard) -> void:
-	if ability_item.info is ShopAbilityInfo:
-		larva_card.add_ability(ability_item.info.ability)
+	if is_instance_valid(ability_item):
+		if ability_item.info is ShopAbilityInfo:
+			if larva_card.add_ability(ability_item.info.ability):
+				ability_item.queue_free()
 	
 	ability_added_to_card.emit(larva_card)
