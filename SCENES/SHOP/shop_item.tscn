@@ -66,6 +66,7 @@ theme_override_styles/hover = ExtResource("2_a5qli")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_7cw0e")
 script = ExtResource("2_khpf0")
 info = ExtResource("4_a5qli")
+in_shop = true
 
 [node name="ItemSpace" type="VBoxContainer" parent="." unique_id=705751760]
 layout_mode = 0

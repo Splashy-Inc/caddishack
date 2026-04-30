@@ -6,6 +6,7 @@ signal larva_added(added_larva: Larva)
 signal larva_card_added(added_card : LarvaCard)
 
 @onready var larva_slot: Marker2D = $LarvaSlot
+@export var collision_shape: CollisionShape2D
 
 var larva : Larva
 var larva_card : LarvaCard
@@ -56,3 +57,6 @@ func check_for_card():
 				continue
 	
 	return is_instance_valid(larva_card)
+
+func toggle_enabled(is_enabled: bool):
+	collision_shape.disabled = not is_enabled

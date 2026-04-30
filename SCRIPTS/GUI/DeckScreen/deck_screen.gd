@@ -14,12 +14,17 @@ func _process(delta: float) -> void:
 	pass
 
 func initialize(deck = null, info: ShopAbilityInfo = null):
+	if not is_node_ready():
+		await ready
 	if is_instance_valid(info):
 		ability_laser_view.load_ability(info)
+		ability_laser_view.show()
+	else:
+		ability_laser_view.hide()
 
-
-func _on_ability_added_to_card(larva_card: LarvaCard) -> void:
+func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool) -> void:
 	await get_tree().create_timer(.25).timeout
 	deck_view.add_card(larva_card)
-	await get_tree().create_timer(.25).timeout
-	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+	if success:
+		await get_tree().create_timer(.25).timeout
+		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)

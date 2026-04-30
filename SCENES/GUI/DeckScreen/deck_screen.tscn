@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cue2ptvqn6f3r" path="res://SCENES/LARVAE/larva_card.tscn" id="5_tudts"]
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="9_r6jer"]
-[ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="11_flq6w"]
+[ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="11_flq6w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
 
@@ -127,6 +127,7 @@ ability_laser_view = NodePath("HBoxContainer/AbilityLaserView")
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=442092368]
 layout_mode = 2
 mouse_filter = 2
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
 layout_mode = 2
@@ -218,12 +219,13 @@ layout_mode = 2
 [node name="CardSlot20" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=543250874 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item")]
+[node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item", "petri_dish")]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_egpel")
 script = ExtResource("4_0tj61")
 ability_item = NodePath("VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem")
+petri_dish = NodePath("VBoxContainer/PetriDishSpace/Center/PetriDish")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityLaserView" unique_id=260346815]
 layout_mode = 2
@@ -258,6 +260,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ss2ju")
 layout_mode = 2
 mouse_filter = 2
 info = ExtResource("11_flq6w")
+in_shop = false
 
 [node name="Cost" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem/ItemSpace/TopHalf/TopRightSpace" parent_id_path=PackedInt32Array(1788279766, 1417132163) index="1" unique_id=1970155121]
 visible = false
@@ -272,16 +275,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PetriDish" type="StaticBody2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center" unique_id=1173688452]
+[node name="PetriDish" type="StaticBody2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center" unique_id=1173688452 node_paths=PackedStringArray("collision_shape")]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("4_egpel")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" unique_id=1902055031]
 texture = SubResource("AtlasTexture_36kts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" unique_id=1891075751]
 shape = SubResource("CircleShape2D_2l54r")
+disabled = true
 
 [node name="LarvaSlot" type="Marker2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" unique_id=1859803685]
 position = Vector2(63, 0)
@@ -289,7 +294,8 @@ rotation = 1.5707964
 
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
-[connection signal="ability_added_to_card" from="HBoxContainer/AbilityLaserView" to="." method="_on_ability_added_to_card"]
+[connection signal="card_completed" from="HBoxContainer/AbilityLaserView" to="." method="_on_ability_laser_view_card_completed"]
+[connection signal="load_info_completed" from="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem" to="HBoxContainer/AbilityLaserView" method="_on_ability_item_load_info_completed"]
 [connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
 [connection signal="larva_card_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_card_added"]
 
