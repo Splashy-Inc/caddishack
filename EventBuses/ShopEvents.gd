@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 
 func purchase_item(item_info: ShopItemInfo) -> bool:
-	if item_info.base_cost <= RunEvents.score:
+	if item_info.base_cost <= RunEvents.get_score():
 		RunEvents.change_score(-item_info.base_cost)
 		item_purchased.emit(item_info)
 		return true

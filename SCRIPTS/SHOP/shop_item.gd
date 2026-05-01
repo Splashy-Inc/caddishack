@@ -51,7 +51,7 @@ func load_info(new_info: ShopItemInfo):
 		hide()
 
 func check_disabled(new_score: int = 0):
-	disabled = info.get_base_cost() > RunEvents.score
+	disabled = info.get_base_cost() > RunEvents.get_score()
 
 func _on_pressed() -> void:
 	ShopEvents.purchase_item(info)

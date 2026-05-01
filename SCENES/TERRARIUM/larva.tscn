@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://cu3ihax16o6sw" path="res://SCRIPTS/TERRARIUM/larva.gd" id="1_rm28v"]
 [ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="2_x1i4c"]
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="4_jj2xk"]
-[ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="4_m8k0v"]
 [ext_resource type="Texture2D" uid="uid://c0xsejfofp4s3" path="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png" id="5_x1i4c"]
-[ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="6_34tmi"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="7_jj2xk"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="7_oknjm"]
 [ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="8_m8k0v"]
@@ -666,7 +664,7 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_34tmi"]
+[sub_resource type="Resource" id="Resource_jj2xk"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
 abilities = Array[ExtResource("7_jj2xk")]([ExtResource("8_m8k0v")])
@@ -681,7 +679,6 @@ script = ExtResource("1_rm28v")
 bead = NodePath("Bead")
 info = SubResource("Resource_m8k0v")
 ability_icons = [NodePath("AbilityIcons/AbilityIcon1"), NodePath("AbilityIcons/AbilityIcon2"), NodePath("AbilityIcons/AbilityIcon3")]
-proto_abilities = Array[ExtResource("2_x1i4c")]([ExtResource("4_m8k0v"), ExtResource("8_m8k0v"), ExtResource("6_34tmi")])
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=885554364]
 position = Vector2(0, 56.999996)
@@ -746,7 +743,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_34tmi")
+info = SubResource("Resource_jj2xk")
 completion_time = 0
 complete = false
 

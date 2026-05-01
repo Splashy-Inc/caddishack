@@ -6,10 +6,12 @@ var cards : Array[LarvaCard]
 var hand_width := 0.0
 
 @onready var hand_region: CollisionShape2D = $HandRegion
+@export var deck_info : DeckInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hand_width = hand_region.shape.get_rect().size.x
+	deck_info = RunEvents.get_current_deck_info().duplicate(true)
 	draw_cards(7)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,9 +56,10 @@ func update_cards():
 	space_cards()
 
 func draw_cards(num_cards: int):
-	var card_scene = load("res://SCENES/LARVAE/larva_card.tscn") as PackedScene
 	for i in num_cards - get_cards().size():
-		var new_card = card_scene.instantiate()
+		var draw_info = deck_info.larvae.pick_random()
+		deck_info.larvae.erase(draw_info)
+		var new_card = Globals.generate_card(draw_info)
 		add_child(new_card)
 		if not new_card.dropped.is_connected(add_card):
 			new_card.dropped.connect(add_card)

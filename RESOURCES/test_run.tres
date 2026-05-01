@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="RunInfo" format=3 uid="uid://lddhka87hyh8"]
 
+[ext_resource type="Resource" uid="uid://cb28kf6434s5w" path="res://RESOURCES/DECK/test_deck.tres" id="1_oirf4"]
 [ext_resource type="Script" uid="uid://cb6o2dvw1734g" path="res://RESOURCES/run_info.gd" id="3_41am5"]
 
 [resource]
 script = ExtResource("3_41am5")
 cur_round = 2
 score = 400
+deck = ExtResource("1_oirf4")

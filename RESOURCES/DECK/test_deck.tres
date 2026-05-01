@@ -1,0 +1,103 @@
+[gd_resource type="Resource" script_class="DeckInfo" format=3 uid="uid://cb28kf6434s5w"]
+
+[ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="1_q2f4l"]
+[ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="2_3dxbl"]
+[ext_resource type="Script" uid="uid://bctoagob0npjk" path="res://RESOURCES/DECK/deck_info.gd" id="2_3edhx"]
+[ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="3_oyug0"]
+[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="4_k11nw"]
+[ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="5_v1nv0"]
+
+[sub_resource type="Resource" id="Resource_q338q"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_y3dj5"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_oiqlx"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("4_k11nw")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_a1adq"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("4_k11nw")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_yvcgr"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_o71me"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_mcoxs"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0"), ExtResource("4_k11nw")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_4dy1u"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0"), ExtResource("5_v1nv0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_md7jb"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0"), ExtResource("4_k11nw")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_s5gay"]
+script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0"), ExtResource("4_k11nw"), ExtResource("5_v1nv0")])
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_pe14e"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_1psdt"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_blope"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_2q0ge"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_1mwc0"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_5mfyb"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_6yl6g"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_trx43"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_q4xwd"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[sub_resource type="Resource" id="Resource_qrfah"]
+script = ExtResource("1_q2f4l")
+metadata/_custom_type_script = "uid://cxpts1at6sxjr"
+
+[resource]
+script = ExtResource("2_3edhx")
+larvae = Array[ExtResource("1_q2f4l")]([SubResource("Resource_q338q"), SubResource("Resource_y3dj5"), SubResource("Resource_oiqlx"), SubResource("Resource_a1adq"), SubResource("Resource_yvcgr"), SubResource("Resource_o71me"), SubResource("Resource_mcoxs"), SubResource("Resource_4dy1u"), SubResource("Resource_md7jb"), SubResource("Resource_s5gay"), SubResource("Resource_pe14e"), SubResource("Resource_1psdt"), SubResource("Resource_blope"), SubResource("Resource_2q0ge"), SubResource("Resource_1mwc0"), SubResource("Resource_5mfyb"), SubResource("Resource_6yl6g"), SubResource("Resource_trx43"), SubResource("Resource_q4xwd"), SubResource("Resource_qrfah")])
+metadata/_custom_type_script = "uid://bctoagob0npjk"

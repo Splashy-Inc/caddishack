@@ -10,9 +10,9 @@ func _ready() -> void:
 	RunEvents.quota_updated.connect(set_quota)
 	RunEvents.score_updated.connect(set_score)
 	
-	set_round(RunEvents.current_round, RunEvents.max_rounds)
-	set_quota(RunEvents.quota)
-	set_score(RunEvents.score)
+	set_round(RunEvents.get_round(), RunEvents.get_max_rounds())
+	set_quota(RunEvents.get_quota())
+	set_score(RunEvents.get_score())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

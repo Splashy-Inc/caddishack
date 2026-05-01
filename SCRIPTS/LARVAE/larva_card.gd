@@ -19,9 +19,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	toggle_larva_view(is_instance_valid(drop_target))
 
-func load_from_larva(from_larva: Larva):
-	larva.info = from_larva.info
-	from_larva.queue_free()
+func load_from_larva(new_larva: Larva):
+	if not is_node_ready():
+		await ready
+	larva.info = new_larva.info
+	new_larva.queue_free()
+	load_larva_abilities()
+
+func load_from_larva_info(new_larva_info: LarvaInfo):
+	if not is_node_ready():
+		await ready
+	larva.info = new_larva_info
 	load_larva_abilities()
 
 func toggle_larva_view(is_larva: bool):
@@ -69,6 +77,7 @@ func _on_larva_slot_body_exited(body: Node2D) -> void:
 func load_larva_abilities():
 	if not larva.is_node_ready():
 		await larva.ready
+	larva.load_abilities()
 	var larva_abilities = larva.info.abilities
 	for i in ability_slots.size():
 		if i < larva_abilities.size():

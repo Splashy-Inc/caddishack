@@ -13,9 +13,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func initialize(deck = null, info: ShopAbilityInfo = null):
+func initialize(deck: DeckInfo, info: ShopAbilityInfo = null):
 	if not is_node_ready():
 		await ready
+	
+	if is_instance_valid(deck):
+		for larva_info in deck.get_sorted_larvae():
+			deck_view.add_card(Globals.generate_card(larva_info), true)
+	
 	if is_instance_valid(info):
 		ability_laser_view.load_ability(info)
 		ability_laser_view.show()

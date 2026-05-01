@@ -10,10 +10,7 @@ signal score_updated(new_score: int)
 
 signal terrarium_info_updated(info: TerrariumInfo)
 
-var current_round := 0
-var max_rounds := 3
-var quota := 100
-var score := 400
+var run_info := RunInfo.new()
 var cur_terrarium_info := preload("res://RESOURCES/new_terrarium.tres")
 
 var new_run_info := preload("res://RESOURCES/new_run.tres")
@@ -29,38 +26,50 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# TODO: All the below
+func get_max_rounds() -> int:
+	return run_info.max_rounds
+
 func set_round(new_current_round: int, new_max_rounds: int):
-	current_round = new_current_round
-	max_rounds = new_max_rounds
-	round_updated.emit(current_round, max_rounds)
+	run_info.cur_round = new_current_round
+	run_info.max_rounds = new_max_rounds
+	round_updated.emit(run_info.cur_round, run_info.max_rounds)
+
+func get_round() -> int:
+	return run_info.cur_round
 
 func increment_round() -> bool:
-	if current_round < max_rounds:
-		set_round(current_round + 1, max_rounds)
+	if run_info.cur_round < run_info.max_rounds:
+		set_round(run_info.cur_round + 1, run_info.max_rounds)
 		return true
 	else:
 		round_max_reached.emit()
 		return false
 
 func set_quota(new_quota: int):
-	quota = new_quota
-	quota_updated.emit(quota)
+	run_info.cur_quota = new_quota
+	quota_updated.emit(run_info.cur_quota)
+
+func get_quota() -> int:
+	return run_info.cur_quota
 
 func set_score(new_score: int):
-	score = new_score
-	score_updated.emit(score)
+	run_info.score = new_score
+	score_updated.emit(run_info.score)
+
+func get_score() -> int:
+	return run_info.score
 
 func change_score(change: int):
-	set_score(score + change)
+	set_score(run_info.score + change)
 
 func reset_run():
-	load_run_info(new_run_info)
+	load_run_info(new_run_info.duplicate(true))
 
-func load_run_info(run_info: RunInfo):
-	set_round(run_info.cur_round, run_info.max_rounds)
-	set_quota(run_info.cur_quota)
-	set_score(run_info.score)
+func load_run_info(loaded_run_info: RunInfo):
+	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)
+	set_quota(loaded_run_info.cur_quota)
+	set_score(loaded_run_info.score)
+	set_deck_info(loaded_run_info.deck)
 
 func set_current_terrarium_info(new_info: TerrariumInfo):
 	cur_terrarium_info = new_info
@@ -68,3 +77,9 @@ func set_current_terrarium_info(new_info: TerrariumInfo):
 
 func get_current_terrarium_info() -> TerrariumInfo:
 	return cur_terrarium_info
+
+func set_deck_info(new_deck: DeckInfo):
+	run_info.deck = new_deck.duplicate(true)
+
+func get_current_deck_info() -> DeckInfo:
+	return run_info.deck

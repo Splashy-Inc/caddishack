@@ -6,6 +6,8 @@ const ordered_stations := [
 	preload("res://SCENES/SHOP/shop_station.tscn"),
 	preload("res://SCENES/TERRARIUM/terrarium_station.tscn"),
 ]
+const larva_scene := preload("uid://bavo2v0il8e4")
+const larva_card_scene := preload("uid://cue2ptvqn6f3r")
 
 var cur_station_scene: PackedScene
 
@@ -14,8 +16,6 @@ var joypad_connected := false
 var is_mobile = false
 
 var info = 10 # Example info to track for level UI
-
-var run_info := RunInfo.new()
 
 const material_scenes = {
 	"sand": preload("res://SCENES/MATERIALS/sand_material.tscn"),
@@ -33,8 +33,6 @@ func _ready() -> void:
 	
 	if OS.has_feature("mobile") or OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		is_mobile = true
-	
-	reset_run()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -67,8 +65,10 @@ func generate_material(material_info: MaterialInfo) -> BeadMaterial:
 	new_material.info = material_info
 	return new_material
 
-func reset_run():
-	run_info = load("res://RESOURCES/test_run.tres").duplicate(true)
-
-func change_run_money(amount: int):
-	run_info.money += amount
+func generate_card(larva_info: LarvaInfo = null) -> LarvaCard:
+	var new_card := larva_card_scene.instantiate() as LarvaCard
+	
+	if is_instance_valid(larva_info):
+		new_card.load_from_larva_info(larva_info)
+	
+	return new_card
