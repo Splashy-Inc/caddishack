@@ -3,6 +3,8 @@ extends Node
 signal score_generated(score: int)
 signal round_started
 signal round_max_reached
+signal quota_passed
+signal quota_failed(old_run_info: RunInfo)
 
 signal round_updated(new_current_round: int, new_max_rounds: int)
 signal quota_updated(new_quota: int)
@@ -43,6 +45,7 @@ func increment_round() -> bool:
 		return true
 	else:
 		round_max_reached.emit()
+		check_quota()
 		return false
 
 func set_quota(new_quota: int):
@@ -83,3 +86,17 @@ func set_deck_info(new_deck: DeckInfo):
 
 func get_current_deck_info() -> DeckInfo:
 	return run_info.deck
+
+func check_quota() -> bool:
+	if get_round() < get_max_rounds():
+		return false
+	else:
+		if get_score() < get_quota():
+			quota_failed.emit(run_info.duplicate(true))
+			reset_run()
+		else:
+			change_score(-get_quota())
+			set_quota(get_quota()*2)
+			set_round(1, get_max_rounds())
+			quota_passed.emit()
+		return true

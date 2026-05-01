@@ -25,6 +25,8 @@ func _on_terrarium_larvae_started() -> void:
 
 func _on_next_button_pressed() -> void:
 	if bead_scorer.is_scoring_complete():
+		if not RunEvents.check_quota():
+			RunEvents.increment_round()
 		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
 	else:
 		terrarium.start_larvae(round_length)

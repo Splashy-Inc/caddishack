@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("2_c0gfi")
+cur_round = 1
 deck = ExtResource("1_ldded")
