@@ -1,7 +1,9 @@
 [gd_resource type="Resource" script_class="RunInfo" format=3 uid="uid://b58t7gjanwb6w"]
 
+[ext_resource type="Resource" uid="uid://boyg80vgop270" path="res://RESOURCES/DECK/new_deck.tres" id="1_ldded"]
 [ext_resource type="Script" uid="uid://cb6o2dvw1734g" path="res://RESOURCES/run_info.gd" id="2_c0gfi"]
 
 [resource]
 script = ExtResource("2_c0gfi")
-cur_round = 0
+cur_round = 1
+deck = ExtResource("1_ldded")

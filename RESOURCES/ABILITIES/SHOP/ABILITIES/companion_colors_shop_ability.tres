@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://cjcvtvdc83kbk"]
+
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="1_0hd0u"]
+[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="1_qsx65"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_l8d5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypvvu"]
+atlas = ExtResource("2_l8d5q")
+region = Rect2(0, 60, 20, 20)
+
+[resource]
+script = ExtResource("1_0hd0u")
+ability = ExtResource("1_qsx65")
+icon = SubResource("AtlasTexture_ypvvu")
+base_cost = 20
+description = "+1 point per matching color in bracelet"
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

@@ -5,11 +5,13 @@ signal pause_toggled(is_paused: bool, mouse_mode: Input.MouseMode)
 
 enum Screen {
 	SHOP,
+	DECK,
 	TERRARIUM,
 }
 
 var screen_scenes := {
 	Screen.SHOP: preload("uid://b4x5r54x0yddx"),
+	Screen.DECK: preload("uid://dtqncf6ynnxln"),
 	Screen.TERRARIUM: preload("uid://2tvle0b4ckdc"),
 }
 
@@ -21,8 +23,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func request_screen(screen_id: Screen):
-	match screen_id:
-		Screen.SHOP:
-			RunEvents.round_started.emit()
-	screen_requested.emit(screen_scenes[screen_id])
+func request_screen(screen_id: Screen, info = null):
+	screen_requested.emit(screen_scenes[screen_id], info)

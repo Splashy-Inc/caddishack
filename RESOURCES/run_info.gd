@@ -6,3 +6,4 @@ class_name RunInfo
 @export var max_rounds := 3
 @export var cur_quota := 100
 @export var score := 0
+@export var deck : DeckInfo

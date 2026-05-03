@@ -12,12 +12,13 @@ region = Rect2(20, 0, 20, 20)
 [resource]
 script = ExtResource("1_lcmpg")
 mult_bonus_tiers = Dictionary[int, int]({
-1: 2,
-2: 6,
+0: 0,
+1: 6,
+2: 2,
 3: 0
 })
 name = "Too Charming"
-description = "Bonus mult by # charm type in set: 1 = +2, 2 = +6, 3+ = +0"
+description = "+Mult by # charm type in set: 1=+6, 2=+2, 3+=+0"
 icon = SubResource("AtlasTexture_pymp4")
 num_stacks = 1
 metadata/_custom_type_script = "uid://cnrrre31thu4f"
