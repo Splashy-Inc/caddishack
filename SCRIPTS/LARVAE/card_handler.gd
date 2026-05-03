@@ -20,9 +20,6 @@ func _process(delta: float) -> void:
 func _on_card_clicked(clicked_card: LarvaCard, button_index: MouseButton) -> void:
 	if not is_instance_valid(card):
 		if button_index == MOUSE_BUTTON_LEFT:
-			#card_start_global_transform = clicked_card.global_transform
-			#card_start_z = clicked_card.z_index
-			#clicked_card.z_index = z_index
 			card = clicked_card
 			card_start_parent = card.get_parent()
 			card.reparent(self, false)
@@ -36,6 +33,4 @@ func _unhandled_input(event: InputEvent) -> void:
 						card_start_parent.add_card(card)
 					else:
 						card.reparent(card_start_parent, false)
-				#card.global_transform = card_start_global_transform
-				#card.z_index = card_start_z
 				card = null
