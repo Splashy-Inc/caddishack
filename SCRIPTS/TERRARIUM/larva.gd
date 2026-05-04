@@ -57,7 +57,7 @@ func _on_died(larva: Larva) -> void:
 	larva.queue_free()
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
-	if body is BeadMaterial:
+	if material_queue.is_empty() and body is BeadMaterial:
 		if body.info is SandMaterialInfo:
 			if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
 				material_queue.append(body.info)
@@ -71,11 +71,12 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 				animation_player.play("collect")
 
 func place_material_from_queue():
-	var material_to_place = material_queue.pop_front()
-	if material_to_place is SandMaterialInfo:
-		bead.set_color(material_to_place.color)
-	elif material_to_place is SpecialMaterialInfo:
-		bead.set_special(material_to_place.type)
+	if not material_queue.is_empty():
+		var material_to_place = material_queue.pop_front()
+		if material_to_place is SandMaterialInfo:
+			bead.set_color(material_to_place.color)
+		elif material_to_place is SpecialMaterialInfo:
+			bead.set_special(material_to_place.type)
 
 func _on_bead_completed():
 	if animation_player.current_animation == "collect" and animation_player.is_playing():
