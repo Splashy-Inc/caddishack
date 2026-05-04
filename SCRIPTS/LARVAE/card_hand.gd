@@ -56,6 +56,9 @@ func update_cards():
 	space_cards()
 
 func draw_cards(num_cards: int):
+	if num_cards > deck_info.larvae.size():
+		num_cards = deck_info.larvae.size()
+	
 	for i in num_cards - get_cards().size():
 		var draw_info = deck_info.larvae.pick_random()
 		deck_info.larvae.erase(draw_info)
