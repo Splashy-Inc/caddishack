@@ -21,9 +21,8 @@ func _process(delta: float) -> void:
 			scale = scale.lerp(Vector2(1.0, 1.0), .25)
 
 func _container_ready():
-	bead_array_info = info.bead_array_info
 	bead_slots = get_bead_slots()
-	generate_beads()
+	set_beads(info.get_bead_array_info())
 
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position)

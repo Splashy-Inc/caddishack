@@ -32,3 +32,9 @@ func calculate_value() -> int:
 	mult = calculate_mult()
 	value = points * mult
 	return value
+
+func get_bead_array_info() -> BeadArrayInfo:
+	return bead_array_info
+
+func set_bead_array_info(new_info):
+	bead_array_info = new_info

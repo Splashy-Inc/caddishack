@@ -29,7 +29,7 @@ func reset_icons():
 		icon.texture = null
 		icon.hide()
 
-func has_bead():	
+func has_bead():
 	return slot_center.get_child_count() > 0
 
 func add_bead(new_bead: Bead):

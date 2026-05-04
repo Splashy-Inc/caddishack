@@ -8,11 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://5xn7k3avxu3y" path="res://SCENES/CRAFT_STATION/bead_slot.tscn" id="6_ahedr"]
 
 [sub_resource type="Resource" id="Resource_dmabb"]
+resource_local_to_scene = true
 script = ExtResource("3_vwui2")
 
 [sub_resource type="Resource" id="Resource_1aj4p"]
+resource_local_to_scene = true
 script = ExtResource("2_1i8yt")
 bead_array_info = SubResource("Resource_dmabb")
+
+[sub_resource type="Resource" id="Resource_ahedr"]
+resource_local_to_scene = true
+script = ExtResource("3_vwui2")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nso2t"]
 size = Vector2(1394, 102)
@@ -20,6 +27,7 @@ size = Vector2(1394, 102)
 [node name="Bracelet" type="Node2D" unique_id=1435362116 node_paths=PackedStringArray("bead_container", "bead_container_shape")]
 script = ExtResource("1_exnw4")
 info = SubResource("Resource_1aj4p")
+bead_array_info = SubResource("Resource_ahedr")
 bead_container = NodePath("Beads/Container")
 bead_container_shape = NodePath("Beads/CollisionShape2D")
 

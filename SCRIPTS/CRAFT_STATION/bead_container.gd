@@ -71,6 +71,10 @@ func get_beads() -> Array[Bead]:
 	for child in bead_container.get_children():
 		if child is Bead and not child in cur_beads:
 			cur_beads.append(child)
+		elif child is BeadSlot:
+			var new_bead = child.get_bead()
+			if is_instance_valid(new_bead):
+				cur_beads.append(new_bead)
 	return cur_beads
 
 func set_beads(new_bead_array_info: BeadArrayInfo):
