@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 func get_max_rounds() -> int:
 	return run_info.max_rounds
 
-func set_round(new_current_round: int, new_max_rounds: int):
+func set_round(new_current_round: int, new_max_rounds: int = get_max_rounds()):
 	run_info.cur_round = new_current_round
 	run_info.max_rounds = new_max_rounds
 	round_updated.emit(run_info.cur_round, run_info.max_rounds)
@@ -45,7 +45,6 @@ func increment_round() -> bool:
 		return true
 	else:
 		round_max_reached.emit()
-		check_quota()
 		return false
 
 func set_quota(new_quota: int):
@@ -54,6 +53,9 @@ func set_quota(new_quota: int):
 
 func get_quota() -> int:
 	return run_info.cur_quota
+
+func change_quota(change: int):
+	set_quota(run_info.cur_quota + change)
 
 func set_score(new_score: int):
 	run_info.score = new_score
@@ -87,16 +89,13 @@ func set_deck_info(new_deck: DeckInfo):
 func get_current_deck_info() -> DeckInfo:
 	return run_info.deck
 
+func is_final_round() -> bool:
+	return get_round() >= get_max_rounds()
+
 func check_quota() -> bool:
-	if get_round() < get_max_rounds():
+	if get_score() < get_quota():
+		quota_failed.emit(run_info.duplicate(true))
 		return false
 	else:
-		if get_score() < get_quota():
-			quota_failed.emit(run_info.duplicate(true))
-			reset_run()
-		else:
-			change_score(-get_quota())
-			set_quota(get_quota()*2)
-			set_round(1, get_max_rounds())
-			quota_passed.emit()
+		quota_passed.emit()
 		return true

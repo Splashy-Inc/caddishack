@@ -1,5 +1,7 @@
 extends PanelContainer
 
+class_name RunInfoPanel
+
 @onready var round_number: Label = $VBoxContainer/RoundNumber
 @onready var quota_number: Label = $VBoxContainer/QuotaNumber
 @onready var score_number: Label = $VBoxContainer/ScoreNumber
