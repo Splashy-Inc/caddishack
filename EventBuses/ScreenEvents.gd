@@ -7,12 +7,14 @@ enum Screen {
 	SHOP,
 	DECK,
 	TERRARIUM,
+	QUOTA
 }
 
 var screen_scenes := {
 	Screen.SHOP: preload("uid://b4x5r54x0yddx"),
 	Screen.DECK: preload("uid://dtqncf6ynnxln"),
 	Screen.TERRARIUM: preload("uid://2tvle0b4ckdc"),
+	Screen.QUOTA: preload("uid://cnqifj8hy44qk"),
 }
 
 # Called when the node enters the scene tree for the first time.
