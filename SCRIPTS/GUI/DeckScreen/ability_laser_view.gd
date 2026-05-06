@@ -26,6 +26,7 @@ func _on_petri_dish_larva_card_added(larva_card: LarvaCard) -> void:
 	if is_instance_valid(ability_item):
 		if ability_item.info is ShopAbilityInfo:
 			if larva_card.add_ability(ability_item.info.ability):
+				ShopEvents.purchase_item(ability_item.info)
 				ability_item.queue_free()
 				card_completed.emit(larva_card, true)
 			else:
@@ -37,3 +38,6 @@ func _on_ability_item_load_info_completed(success: bool) -> void:
 		show()
 	else:
 		hide()
+
+func get_ability() -> ShopAbilityInfo:
+	return ability_item.info

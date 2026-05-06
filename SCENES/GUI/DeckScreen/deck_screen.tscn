@@ -14,8 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="9_r6jer"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="11_flq6w"]
+[ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="14_44cau"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q53bx"]
 content_margin_left = 16.0
@@ -119,7 +123,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rweia")
 script = ExtResource("1_r6jer")
-deck_view = NodePath("HBoxContainer/VBoxContainer/DeckView")
+deck_view = NodePath("HBoxContainer/DeckSection/DeckView")
 ability_laser_view = NodePath("HBoxContainer/AbilityLaserView")
 
 [node name="StationBackgroun" parent="." unique_id=2131916296 instance=ExtResource("1_rweia")]
@@ -129,17 +133,17 @@ layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
+[node name="DeckSection" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=62143601]
+[node name="Label" type="Label" parent="HBoxContainer/DeckSection" unique_id=62143601]
 layout_mode = 2
 text = "Drag a card to the petri dish to add the shown ability"
 label_settings = ExtResource("2_36kts")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="DeckView" type="ScrollContainer" parent="HBoxContainer/VBoxContainer" unique_id=1845271702]
+[node name="DeckView" type="ScrollContainer" parent="HBoxContainer/DeckSection" unique_id=1845271702]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
@@ -151,7 +155,7 @@ script = ExtResource("3_32x4l")
 card_slot_scene = ExtResource("2_q53bx")
 larva_card_scene = ExtResource("5_tudts")
 
-[node name="DeckGrid" type="GridContainer" parent="HBoxContainer/VBoxContainer/DeckView" unique_id=239391822]
+[node name="DeckGrid" type="GridContainer" parent="HBoxContainer/DeckSection/DeckView" unique_id=239391822]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
@@ -159,64 +163,64 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
 
-[node name="CardSlot" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=2021833502 instance=ExtResource("2_q53bx")]
+[node name="CardSlot" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=2021833502 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot2" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1934080985 instance=ExtResource("2_q53bx")]
+[node name="CardSlot2" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1934080985 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot3" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1706696336 instance=ExtResource("2_q53bx")]
+[node name="CardSlot3" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1706696336 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot4" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=858497960 instance=ExtResource("2_q53bx")]
+[node name="CardSlot4" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=858497960 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot5" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1426749429 instance=ExtResource("2_q53bx")]
+[node name="CardSlot5" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1426749429 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot6" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=410682163 instance=ExtResource("2_q53bx")]
+[node name="CardSlot6" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=410682163 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot7" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1674107908 instance=ExtResource("2_q53bx")]
+[node name="CardSlot7" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1674107908 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot8" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=44287619 instance=ExtResource("2_q53bx")]
+[node name="CardSlot8" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=44287619 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot9" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1014066680 instance=ExtResource("2_q53bx")]
+[node name="CardSlot9" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1014066680 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot10" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=2095129855 instance=ExtResource("2_q53bx")]
+[node name="CardSlot10" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=2095129855 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot11" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=253840879 instance=ExtResource("2_q53bx")]
+[node name="CardSlot11" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=253840879 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot12" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=339987337 instance=ExtResource("2_q53bx")]
+[node name="CardSlot12" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=339987337 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot13" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1100865222 instance=ExtResource("2_q53bx")]
+[node name="CardSlot13" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1100865222 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot14" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=545596435 instance=ExtResource("2_q53bx")]
+[node name="CardSlot14" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=545596435 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot15" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=378014923 instance=ExtResource("2_q53bx")]
+[node name="CardSlot15" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=378014923 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot16" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=752918951 instance=ExtResource("2_q53bx")]
+[node name="CardSlot16" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=752918951 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot17" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=239884291 instance=ExtResource("2_q53bx")]
+[node name="CardSlot17" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=239884291 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot18" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=2122279198 instance=ExtResource("2_q53bx")]
+[node name="CardSlot18" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=2122279198 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot19" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=1406763246 instance=ExtResource("2_q53bx")]
+[node name="CardSlot19" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=1406763246 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
-[node name="CardSlot20" parent="HBoxContainer/VBoxContainer/DeckView/DeckGrid" unique_id=543250874 instance=ExtResource("2_q53bx")]
+[node name="CardSlot20" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=543250874 instance=ExtResource("2_q53bx")]
 layout_mode = 2
 
 [node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item", "petri_dish")]
@@ -292,11 +296,25 @@ disabled = true
 position = Vector2(63, 0)
 rotation = 1.5707964
 
+[node name="UISection" type="VBoxContainer" parent="HBoxContainer" unique_id=1144805401]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="RunInfo" parent="HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("14_44cau")]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="HBoxContainer/UISection" unique_id=47777975]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
 [connection signal="card_completed" from="HBoxContainer/AbilityLaserView" to="." method="_on_ability_laser_view_card_completed"]
 [connection signal="load_info_completed" from="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem" to="HBoxContainer/AbilityLaserView" method="_on_ability_item_load_info_completed"]
 [connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
 [connection signal="larva_card_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_card_added"]
+[connection signal="pressed" from="HBoxContainer/UISection/CancelButton" to="." method="_on_cancel_button_pressed"]
 
 [editable path="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem"]
