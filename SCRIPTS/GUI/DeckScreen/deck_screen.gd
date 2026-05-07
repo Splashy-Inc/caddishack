@@ -33,3 +33,6 @@ func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool)
 	if success:
 		await get_tree().create_timer(.25).timeout
 		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+
+func _on_cancel_button_pressed() -> void:
+	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)

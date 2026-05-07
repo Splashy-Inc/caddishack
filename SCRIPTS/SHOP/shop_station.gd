@@ -8,10 +8,13 @@ class_name ShopStation
 @export var terrarium_zoom_point: ZoomPoint
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
+@onready var item_grid: GridContainer = $ItemPanel/ItemGrid
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ShopEvents.item_purchased.connect(_on_item_purchased)
+	for item in item_grid.get_children():
+		if item is ShopItem:
+			item.pressed.connect(_on_item_chosen.bind(item.info))
 	randomize_terrariums()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,6 +75,8 @@ func _on_terrarium_back_button_pressed() -> void:
 		terrarium.toggle_travel(true)
 		terrarium_zoom_point.dezoom_node(terrarium)
 
-func _on_item_purchased(item_info : ShopItemInfo):
+func _on_item_chosen(item_info : ShopItemInfo):
 	if item_info is ShopAbilityInfo:
 		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, item_info)
+	else:
+		ShopEvents.purchase_item(item_info)

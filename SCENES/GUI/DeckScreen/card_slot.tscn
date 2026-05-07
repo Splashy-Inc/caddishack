@@ -10,7 +10,7 @@ atlas = ExtResource("1_ythvk")
 region = Rect2(0, 0, 184, 256)
 
 [node name="CardSlot" type="PanelContainer" unique_id=2021833502]
-mouse_filter = 2
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ythvk")
 script = ExtResource("1_bi2nh")
 

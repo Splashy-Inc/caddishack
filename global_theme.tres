@@ -6,8 +6,68 @@
 [ext_resource type="StyleBox" uid="uid://bckhto52x32om" path="res://RESOURCES/button_box_pressed_hover.tres" id="3_3m3sy"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_0lf1r"]
 [ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="5_7ts2r"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="7_3m3sy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp42j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lf1r"]
+atlas = ExtResource("7_3m3sy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ts2r"]
+texture = SubResource("AtlasTexture_0lf1r")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3m3sy"]
+load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ts2r"]
+atlas = SubResource("CompressedTexture2D_3m3sy")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64won"]
+texture = SubResource("AtlasTexture_7ts2r")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4xtah"]
+load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aimf"]
+atlas = SubResource("CompressedTexture2D_4xtah")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yeggv"]
+texture = SubResource("AtlasTexture_7aimf")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3byx6"]
+load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5ywn"]
+atlas = SubResource("CompressedTexture2D_3byx6")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mq1x"]
+texture = SubResource("AtlasTexture_w5ywn")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
 
 [resource]
 Button/font_sizes/font_size = 48
@@ -22,3 +82,10 @@ Label/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 32
 PanelContainer/styles/panel = SubResource("StyleBoxEmpty_vp42j")
+VScrollBar/constants/padding_left = 12
+VScrollBar/constants/padding_right = 12
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_7ts2r")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_64won")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_yeggv")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_1mq1x")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_1mq1x")
