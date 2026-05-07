@@ -158,7 +158,6 @@ larva_card_scene = ExtResource("5_tudts")
 [node name="DeckGrid" type="GridContainer" parent="HBoxContainer/DeckSection/DeckView" unique_id=239391822]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
