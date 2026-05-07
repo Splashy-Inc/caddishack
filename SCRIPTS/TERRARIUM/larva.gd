@@ -58,17 +58,22 @@ func _on_died(larva: Larva) -> void:
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
 	if material_queue.is_empty() and body is BeadMaterial:
-		if body.info is SandMaterialInfo:
-			if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
-				material_queue.append(body.info)
-				body.queue_free()
-				animation_player.play("collect")
-		
-		if body.info is SpecialMaterialInfo:
-			if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
-				material_queue.append(body.info)
-				body.queue_free()
-				animation_player.play("collect")
+		if not body.collected:
+			if body.info is SandMaterialInfo:
+				if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
+					body.collected = true
+					body.remove_from_group("materials")
+					material_queue.append(body.info)
+					body.queue_free()
+					animation_player.play("collect")
+			
+			if body.info is SpecialMaterialInfo:
+				if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
+					body.collected = true
+					body.remove_from_group("materials")
+					material_queue.append(body.info)
+					body.queue_free()
+					animation_player.play("collect")
 
 func place_material_from_queue():
 	if not material_queue.is_empty():
