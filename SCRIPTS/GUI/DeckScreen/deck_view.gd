@@ -22,6 +22,7 @@ func add_card(larva_card: LarvaCard, force_slot: bool = false) -> bool:
 	for slot in deck_grid.get_children():
 		if slot is CardSlot:
 			if slot.add_card(larva_card):
+				larva_card.toggle_larva_view(false)
 				return true
 	
 	if force_slot:

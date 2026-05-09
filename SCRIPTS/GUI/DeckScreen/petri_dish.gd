@@ -37,8 +37,9 @@ func add_larva_card(new_larva_card: LarvaCard):
 			new_larva_card.reparent(self, false)
 		else:
 			add_child(new_larva_card)
+		new_larva_card.toggle_larva_view(true)
 		
-		new_larva_card.position += larva_slot.position - new_larva_card.larva_slot.position
+		new_larva_card.position += larva_slot.position
 		larva_card = new_larva_card
 		larva = larva_card.larva
 		larva_card_added.emit(larva_card)

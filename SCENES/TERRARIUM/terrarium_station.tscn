@@ -145,7 +145,7 @@ texture = SubResource("PlaceholderTexture2D_bnkvk")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 224)
 
-[node name="CardHand" parent="CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
+[node name="CardHand" parent="CardSection" unique_id=1587952838 groups=["card_hand"] instance=ExtResource("10_04exf")]
 position = Vector2(-96, 61)
 
 [node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
