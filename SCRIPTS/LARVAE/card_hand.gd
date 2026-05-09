@@ -48,6 +48,7 @@ func add_card(card: LarvaCard):
 		card.reparent(self)
 	else:
 		add_child(card)
+	card.toggle_larva_view(false)
 	
 	update_cards()
 

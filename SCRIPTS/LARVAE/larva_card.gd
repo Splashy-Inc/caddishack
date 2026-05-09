@@ -9,15 +9,16 @@ signal died
 @onready var larva: Larva = $LarvaSlot/Larva
 @onready var card: Node2D = $Card
 @export var ability_slots : Array[CardAbilitySlot]
+@onready var card_view_collision_shape: CollisionShape2D = $ClickableArea/CardViewCollisionShape
+@onready var larva_view_collision_shape: CollisionShape2D = $ClickableArea/LarvaViewCollisionShape
 
-var drop_target : Node2D
 var grabbed
 
 func _ready() -> void:
 	load_larva_abilities()
 
 func _process(delta: float) -> void:
-	toggle_larva_view(is_instance_valid(drop_target))
+	toggle_larva_view(is_larva_view())
 
 func load_from_larva(new_larva: Larva):
 	if not is_node_ready():
@@ -33,12 +34,18 @@ func load_from_larva_info(new_larva_info: LarvaInfo):
 	load_larva_abilities()
 
 func toggle_larva_view(is_larva: bool):
+	card_view_collision_shape.disabled = is_larva
+	larva_view_collision_shape.disabled = not is_larva
+	
 	if is_larva:
 		larva.scale /= larva_slot.scale
 		card.hide()
 	else:
 		larva.scale *= larva_slot.scale
 		card.show()
+
+func is_larva_view() -> bool:
+	return not card.visible
 
 func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
@@ -47,7 +54,7 @@ func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx
 func get_larva() -> Larva:
 	return larva
 
-func drop():
+func drop(drop_target : Node2D):
 	if is_instance_valid(drop_target):
 		if drop_target.has_method("add_larva_card"):
 			if drop_target.add_larva_card(self):
@@ -62,17 +69,6 @@ func drop():
 func die():
 	get_parent().remove_child(self)
 	died.emit()
-
-func _on_larva_slot_body_entered(body: Node2D) -> void:
-	var body_parent = body.get_parent()
-	if body_parent is Terrarium:
-		drop_target = body_parent
-	else:
-		drop_target = body
-
-func _on_larva_slot_body_exited(body: Node2D) -> void:
-	if (body.get_parent() is Terrarium and body.get_parent() == drop_target) or body == drop_target:
-		drop_target = null
 
 func load_larva_abilities():
 	if not larva.is_node_ready():

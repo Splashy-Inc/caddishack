@@ -59,6 +59,7 @@ shop_buttons=""
 camera=""
 larvae=""
 materials=""
+card_hand=""
 
 [gui]
 

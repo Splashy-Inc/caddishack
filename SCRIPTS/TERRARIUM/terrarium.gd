@@ -99,8 +99,8 @@ func get_material_cell_at(global_pos: Vector2):
 func get_material_cell_center(material_cell: Vector2i):
 	return to_global(material_layer.map_to_local(material_cell))
 
-func add_larva(new_larva: Larva) -> bool:
-	if not larvae_running and larvae_container.get_children().size() < larvae_limit:
+func add_larva(new_larva: Larva, force: bool = false) -> bool:
+	if force or (not larvae_running and larvae_container.get_children().size() < larvae_limit):
 		if is_instance_valid(new_larva.get_parent()):
 			new_larva.reparent(larvae_container, true)
 		else:
@@ -111,6 +111,21 @@ func add_larva(new_larva: Larva) -> bool:
 		
 		if start_larvae_on_drop:
 			new_larva.start_making_bead()
+		
+		return true
+	return false
+	
+func add_larva_card(new_larva_card: LarvaCard) -> bool:
+	if not larvae_running and larvae_container.get_children().size() < larvae_limit:
+		if is_instance_valid(new_larva_card.get_parent()):
+			new_larva_card.reparent(larvae_container, true)
+		else:
+			larvae_container.add_child(new_larva_card)
+		
+		new_larva_card.toggle_larva_view(true)
+		
+		if start_larvae_on_drop:
+			return add_larva(new_larva_card.larva)
 		
 		return true
 	return false
@@ -126,7 +141,11 @@ func _on_larva_died(larva: Larva):
 func start_larvae(round_length: float = 0.0) -> bool:
 	if larvae_container.get_child_count() >= larvae_limit:
 		for node in larvae_container.get_children():
-			if node is Larva:
+			if node is LarvaCard:
+				if add_larva(node.larva, true):
+					node.larva.start_making_bead()
+					node.queue_free()
+			elif node is Larva:
 				larvae_running = true
 				node.start_making_bead()
 		

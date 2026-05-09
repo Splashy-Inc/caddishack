@@ -11,7 +11,7 @@
 atlas = ExtResource("2_wnpqk")
 region = Rect2(184, 0, 184, 256)
 
-[sub_resource type="Resource" id="Resource_lmto1"]
+[sub_resource type="Resource" id="Resource_c5vmk"]
 resource_local_to_scene = true
 script = ExtResource("6_c5vmk")
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
@@ -21,6 +21,10 @@ radius = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnpqk"]
 size = Vector2(184, 256)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lmto1"]
+radius = 26.0
+height = 152.0
 
 [node name="LarvaCard" type="Node2D" unique_id=1227121871 node_paths=PackedStringArray("ability_slots")]
 script = ExtResource("1_icnma")
@@ -57,7 +61,7 @@ collision_mask = 16
 
 [node name="Larva" parent="LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
 z_index = 0
-info = SubResource("Resource_lmto1")
+info = SubResource("Resource_c5vmk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LarvaSlot" unique_id=2083541082]
 shape = SubResource("CircleShape2D_icnma")
@@ -66,9 +70,13 @@ shape = SubResource("CircleShape2D_icnma")
 collision_layer = 8
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=1075871762]
+[node name="CardViewCollisionShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1075871762]
 shape = SubResource("RectangleShape2D_wnpqk")
 
-[connection signal="body_entered" from="LarvaSlot" to="." method="_on_larva_slot_body_entered"]
-[connection signal="body_exited" from="LarvaSlot" to="." method="_on_larva_slot_body_exited"]
+[node name="LarvaViewCollisionShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1015897179]
+position = Vector2(-7, -60)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lmto1")
+disabled = true
+
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]
