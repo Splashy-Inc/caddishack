@@ -70,14 +70,6 @@ texture_margin_right = 6.0
 texture_margin_bottom = 6.0
 
 [resource]
-Button/colors/font_color = Color(0.9411765, 0.827451, 0.7607843, 1)
-Button/colors/font_disabled_color = Color(0.9411765, 0.827451, 0.7607843, 0.5019608)
-Button/colors/font_focus_color = Color(0.9411765, 0.827451, 0.7607843, 1)
-Button/colors/font_hover_color = Color(0.9411765, 0.827451, 0.7607843, 1)
-Button/colors/font_hover_pressed_color = Color(0.9411765, 0.827451, 0.7607843, 1)
-Button/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
-Button/colors/font_pressed_color = Color(0.9411765, 0.827451, 0.7607843, 1)
-Button/constants/outline_size = 4
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("1_vp42j")
 Button/styles/disabled = ExtResource("1_mp206")
@@ -88,8 +80,7 @@ Button/styles/pressed = ExtResource("5_7ts2r")
 Label/colors/font_color = Color(0.941176, 0.827451, 0.760784, 1)
 Label/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 Label/constants/outline_size = 4
-Label/font_sizes/font_size = 48
-Label/fonts/font = ExtResource("1_vp42j")
+Label/font_sizes/font_size = 32
 PanelContainer/styles/panel = SubResource("StyleBoxEmpty_vp42j")
 VScrollBar/constants/padding_left = 12
 VScrollBar/constants/padding_right = 12
