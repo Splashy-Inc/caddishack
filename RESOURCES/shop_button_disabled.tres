@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ckqkgqr7o6hy2"]
+
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="1_l3rlx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cw0e"]
+atlas = ExtResource("1_l3rlx")
+region = Rect2(0, 0, 128, 128)
+
+[resource]
+texture = SubResource("AtlasTexture_7cw0e")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0

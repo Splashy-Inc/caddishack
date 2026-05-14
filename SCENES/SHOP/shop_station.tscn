@@ -8,27 +8,22 @@
 [ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="6_4d8e5"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="6_4g004"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_ncq4r"]
+[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="7_uayd7"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_eyyre"]
-[ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="8_gkgmp"]
-[ext_resource type="StyleBox" uid="uid://bckhto52x32om" path="res://RESOURCES/button_box_pressed_hover.tres" id="9_d8tn5"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="9_iea1b"]
 [ext_resource type="Script" uid="uid://qiyyftxmq7nx" path="res://RESOURCES/terrarium_info.gd" id="10_klhbm"]
-[ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="11_ncq4r"]
 [ext_resource type="PackedScene" uid="uid://bw76w8fxlv8p2" path="res://SCENES/SHOP/shop_item.tscn" id="12_klhbm"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="13_klhbm"]
+[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="13_uayd7"]
+[ext_resource type="StyleBox" uid="uid://kl3kibnqkknj" path="res://RESOURCES/shop_button_pressed.tres" id="14_1t5sf"]
 [ext_resource type="Resource" uid="uid://bn2rfcir2bjdr" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/example_shop_item_4.tres" id="15_gkgmp"]
+[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="15_xn1ka"]
+[ext_resource type="StyleBox" uid="uid://ckqkgqr7o6hy2" path="res://RESOURCES/shop_button_disabled.tres" id="16_v2i7w"]
 [ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="16_yqt8j"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="17_yqt8j"]
 [ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="18_yqt8j"]
 [ext_resource type="PackedScene" uid="uid://cbemq6u2ind3k" path="res://SCENES/GUI/select_button.tscn" id="20_6bml6"]
 [ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eyyre"]
-texture = ExtResource("11_ncq4r")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4g004"]
 
@@ -114,17 +109,17 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_yqt8j"]
+[sub_resource type="Resource" id="Resource_imspv"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_uayd7"]
+[sub_resource type="Resource" id="Resource_dy5ct"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_1t5sf"]
+[sub_resource type="Resource" id="Resource_v02qh"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -171,95 +166,12 @@ theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
 text = "Reroll"
 
-[node name="TerrariumPanel" type="PanelContainer" parent="." unique_id=1112454209]
-offset_left = 650.0
-offset_top = 34.0
-offset_right = 1056.0
-offset_bottom = 703.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
-
-[node name="Terrariums" type="VBoxContainer" parent="TerrariumPanel" unique_id=158248695]
-layout_mode = 2
-theme_override_constants/separation = 16
-
-[node name="TerrariumSlot1" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=1127637775]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
-
-[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot1" unique_id=1662353209]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_wresu")
-theme_override_styles/pressed = ExtResource("8_gkgmp")
-theme_override_styles/hover = ExtResource("5_r8xvt")
-theme_override_styles/hover_pressed = ExtResource("9_d8tn5")
-theme_override_styles/disabled = ExtResource("6_4g004")
-
-[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot1" unique_id=1655385902]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-
-[node name="Terrarium1" parent="TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
-scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_yqt8j")
-
-[node name="TerrariumSlot2" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=1021539569]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
-
-[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot2" unique_id=1409220129]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_wresu")
-theme_override_styles/pressed = ExtResource("8_gkgmp")
-theme_override_styles/hover = ExtResource("5_r8xvt")
-theme_override_styles/hover_pressed = ExtResource("9_d8tn5")
-theme_override_styles/disabled = ExtResource("6_4g004")
-
-[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot2" unique_id=2081847728]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-
-[node name="Terrarium2" parent="TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
-scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_uayd7")
-
-[node name="TerrariumSlot3" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=477348113]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
-
-[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot3" unique_id=1601225434]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_wresu")
-theme_override_styles/pressed = ExtResource("8_gkgmp")
-theme_override_styles/hover = ExtResource("5_r8xvt")
-theme_override_styles/hover_pressed = ExtResource("9_d8tn5")
-theme_override_styles/disabled = ExtResource("6_4g004")
-
-[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot3" unique_id=573714691]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 1
-
-[node name="Terrarium3" parent="TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
-scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_1t5sf")
-
 [node name="ItemPanel" type="PanelContainer" parent="." unique_id=591457517]
 offset_left = 72.0
 offset_top = 100.0
-offset_right = 628.0
-offset_bottom = 656.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_eyyre")
+offset_right = 632.0
+offset_bottom = 660.0
+theme_override_styles/panel = ExtResource("7_uayd7")
 
 [node name="ItemGrid" type="GridContainer" parent="ItemPanel" unique_id=1384013566]
 layout_mode = 2
@@ -282,6 +194,89 @@ info = ExtResource("18_yqt8j")
 [node name="Item4" parent="ItemPanel/ItemGrid" unique_id=371760213 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("15_gkgmp")
+
+[node name="TerrariumPanel" type="PanelContainer" parent="." unique_id=1112454209]
+offset_left = 650.0
+offset_top = 34.0
+offset_right = 1056.0
+offset_bottom = 703.0
+theme_override_styles/panel = ExtResource("7_uayd7")
+
+[node name="Terrariums" type="VBoxContainer" parent="TerrariumPanel" unique_id=158248695]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TerrariumSlot1" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=1127637775]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
+
+[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot1" unique_id=1662353209]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("13_uayd7")
+theme_override_styles/pressed = ExtResource("14_1t5sf")
+theme_override_styles/hover = ExtResource("15_xn1ka")
+theme_override_styles/hover_pressed = ExtResource("15_xn1ka")
+theme_override_styles/disabled = ExtResource("16_v2i7w")
+
+[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot1" unique_id=1655385902]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="Terrarium1" parent="TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_imspv")
+
+[node name="TerrariumSlot2" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=1021539569]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
+
+[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot2" unique_id=1409220129]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("13_uayd7")
+theme_override_styles/pressed = ExtResource("14_1t5sf")
+theme_override_styles/hover = ExtResource("15_xn1ka")
+theme_override_styles/hover_pressed = ExtResource("15_xn1ka")
+theme_override_styles/disabled = ExtResource("16_v2i7w")
+
+[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot2" unique_id=2081847728]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="Terrarium2" parent="TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_dy5ct")
+
+[node name="TerrariumSlot3" type="PanelContainer" parent="TerrariumPanel/Terrariums" unique_id=477348113]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
+
+[node name="Button" type="Button" parent="TerrariumPanel/Terrariums/TerrariumSlot3" unique_id=1601225434]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("13_uayd7")
+theme_override_styles/pressed = ExtResource("14_1t5sf")
+theme_override_styles/hover = ExtResource("15_xn1ka")
+theme_override_styles/hover_pressed = ExtResource("15_xn1ka")
+theme_override_styles/disabled = ExtResource("16_v2i7w")
+
+[node name="TerrariumPosition" type="Control" parent="TerrariumPanel/Terrariums/TerrariumSlot3" unique_id=573714691]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+
+[node name="Terrarium3" parent="TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
+scale = Vector2(0.333, 0.333)
+info = SubResource("Resource_v02qh")
 
 [node name="Label" type="Label" parent="." unique_id=1709690206]
 offset_left = 75.0
