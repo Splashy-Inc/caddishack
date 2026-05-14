@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://8vogira8ngwj"]
+[gd_scene format=4 uid="uid://8vogira8ngwj"]
 
 [ext_resource type="Script" uid="uid://browmvojpdalw" path="res://SCRIPTS/CRAFT_STATION/bracelet.gd" id="1_exnw4"]
-[ext_resource type="Texture2D" uid="uid://bc1xkwvijw6w4" path="res://ASSETS/Art/CRAFT_STATION/bracelet_string.png" id="1_gi2vd"]
 [ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="2_1i8yt"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_ojmal"]
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="5_ahedr"]
 [ext_resource type="PackedScene" uid="uid://5xn7k3avxu3y" path="res://SCENES/CRAFT_STATION/bead_slot.tscn" id="6_ahedr"]
 
 [sub_resource type="Resource" id="Resource_dmabb"]
@@ -21,6 +21,16 @@ resource_local_to_scene = true
 script = ExtResource("3_vwui2")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ahedr"]
+texture = ExtResource("5_ahedr")
+texture_region_size = Vector2i(64, 64)
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pfo2p"]
+sources/1 = SubResource("TileSetAtlasSource_ahedr")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nso2t"]
 size = Vector2(1394, 102)
 
@@ -31,9 +41,10 @@ bead_array_info = SubResource("Resource_ahedr")
 bead_container = NodePath("Beads/Container")
 bead_container_shape = NodePath("Beads/CollisionShape2D")
 
-[node name="String" type="Sprite2D" parent="." unique_id=1238763359]
-position = Vector2(-1, 2)
-texture = ExtResource("1_gi2vd")
+[node name="String" type="TileMapLayer" parent="." unique_id=236875285]
+position = Vector2(-7, 8)
+tile_map_data = PackedByteArray("AADp////AQALAAMAAADt////AQAMAAMAAADu////AQAMAAMAAADv////AQAMAAMAAADw////AQAMAAMAAADx////AQAMAAMAAADy////AQAMAAMAAADz////AQAMAAMAAAD0////AQAMAAMAAAD1////AQAMAAMAAAD2////AQAMAAMAAAD3////AQAMAAMAAAD4////AQAMAAMAAAD5////AQAMAAMAAAD6////AQAMAAMAAAD7////AQAMAAMAAAD8////AQAMAAMAAAD9////AQAMAAMAAAD+////AQAMAAMAAAD/////AQAMAAMAAAAAAP//AQAMAAMAAAABAP//AQAMAAMAAAACAP//AQAMAAMAAAADAP//AQAMAAMAAAAEAP//AQAMAAMAAAAFAP//AQAMAAMAAAAGAP//AQAMAAMAAAAHAP//AQAMAAMAAAAIAP//AQAMAAMAAAAJAP//AQAMAAMAAAAKAP//AQAMAAMAAAALAP//AQAMAAMAAAAMAP//AQAMAAMAAAANAP//AQAMAAMAAAAOAP//AQAMAAMAAAAPAP//AQAMAAMAAAAQAP//AQAMAAMAAAARAP//AQAMAAMAAAASAP//AQAMAAMAAAATAP//AQAMAAMAAAAXAP//AQANAAMAAAA=")
+tile_set = SubResource("TileSet_pfo2p")
 
 [node name="Beads" type="Area2D" parent="." unique_id=516825725]
 scale = Vector2(0.5, 0.5)
@@ -41,35 +52,36 @@ scale = Vector2(0.5, 0.5)
 [node name="Container" type="Node2D" parent="Beads" unique_id=304601010]
 
 [node name="Slot1" parent="Beads/Container" unique_id=1263753534 instance=ExtResource("6_ahedr")]
-position = Vector2(-567, 0)
+position = Vector2(-575, 0)
 
 [node name="Slot2" parent="Beads/Container" unique_id=847836181 instance=ExtResource("6_ahedr")]
-position = Vector2(-439, 0)
+position = Vector2(-447, 0)
 
 [node name="Slot3" parent="Beads/Container" unique_id=156782909 instance=ExtResource("6_ahedr")]
-position = Vector2(-311, 0)
+position = Vector2(-319, 0)
 
 [node name="Slot4" parent="Beads/Container" unique_id=569183971 instance=ExtResource("6_ahedr")]
-position = Vector2(-183, 0)
+position = Vector2(-191, 0)
 
 [node name="Slot5" parent="Beads/Container" unique_id=2130031254 instance=ExtResource("6_ahedr")]
-position = Vector2(-55, 0)
+position = Vector2(-63, 0)
 
 [node name="Slot6" parent="Beads/Container" unique_id=403590063 instance=ExtResource("6_ahedr")]
-position = Vector2(73, 0)
+position = Vector2(65, 0)
 
 [node name="Slot7" parent="Beads/Container" unique_id=1127287816 instance=ExtResource("6_ahedr")]
-position = Vector2(201, 0)
+position = Vector2(193, 0)
 
 [node name="Slot8" parent="Beads/Container" unique_id=981046999 instance=ExtResource("6_ahedr")]
-position = Vector2(329, 0)
+position = Vector2(321, 0)
 
 [node name="Slot9" parent="Beads/Container" unique_id=2058276120 instance=ExtResource("6_ahedr")]
-position = Vector2(457, 0)
+position = Vector2(449, 0)
 
 [node name="Slot10" parent="Beads/Container" unique_id=1165788055 instance=ExtResource("6_ahedr")]
-position = Vector2(585, 0)
+position = Vector2(577, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beads" unique_id=578044380]
+visible = false
 position = Vector2(-15, 1)
 shape = SubResource("RectangleShape2D_nso2t")

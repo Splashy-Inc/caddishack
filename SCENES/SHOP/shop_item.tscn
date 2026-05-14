@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://bw76w8fxlv8p2"]
 
 [ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="1_khpf0"]
+[ext_resource type="StyleBox" uid="uid://kl3kibnqkknj" path="res://RESOURCES/shop_button_pressed.tres" id="2_7cw0e"]
 [ext_resource type="Texture2D" uid="uid://b4n6irf1jephl" path="res://icon.svg" id="2_37dhd"]
 [ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="2_a5qli"]
 [ext_resource type="Script" uid="uid://dr6t7ian0uru8" path="res://SCRIPTS/SHOP/shop_item.gd" id="2_khpf0"]
-[ext_resource type="Texture2D" uid="uid://b3oatx07q1rnh" path="res://ASSETS/Art/GUI/Red_Button_Background.png" id="3_imwk6"]
+[ext_resource type="StyleBox" uid="uid://ckqkgqr7o6hy2" path="res://RESOURCES/shop_button_disabled.tres" id="4_7cw0e"]
 [ext_resource type="Resource" uid="uid://bckrif8ccda2e" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/example_shop_item_1.tres" id="4_a5qli"]
 [ext_resource type="LabelSettings" uid="uid://c8lwo0mgqxvin" path="res://RESOURCES/shop_item_label.tres" id="6_a5qli"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cw0e"]
-texture = ExtResource("3_imwk6")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vdw3"]
 
@@ -62,8 +56,9 @@ offset_bottom = 256.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/normal = ExtResource("1_khpf0")
+theme_override_styles/pressed = ExtResource("2_7cw0e")
 theme_override_styles/hover = ExtResource("2_a5qli")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_7cw0e")
+theme_override_styles/disabled = ExtResource("4_7cw0e")
 script = ExtResource("2_khpf0")
 info = ExtResource("4_a5qli")
 in_shop = true
