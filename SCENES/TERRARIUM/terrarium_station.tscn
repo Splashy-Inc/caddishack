@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="2_04exf"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_cb6xo"]
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="3_dugvo"]
+[ext_resource type="StyleBox" uid="uid://cirbca3v3qq8k" path="res://RESOURCES/full_gui_panel.tres" id="3_shoaw"]
 [ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="5_bnkvk"]
+[ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="6_j0koi"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="6_ugda1"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_vl60u"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
@@ -97,7 +99,7 @@ script = ExtResource("9_shoaw")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_vl60u"]
+[sub_resource type="Resource" id="Resource_o26bk"]
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -110,19 +112,38 @@ round_length = 5
 
 [node name="StationBackground" parent="." unique_id=1032554707 instance=ExtResource("2_cb6xo")]
 
-[node name="RunInfo" parent="." unique_id=1126309375 instance=ExtResource("3_dugvo")]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1532624752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_shoaw")
 
-[node name="NextButton" type="Button" parent="." unique_id=513006651]
-offset_left = 1094.0
-offset_top = 426.0
-offset_right = 1243.0
-offset_bottom = 496.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1858657882]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 16
+
+[node name="RunInfo" parent="PanelContainer/VBoxContainer" unique_id=1126309375 instance=ExtResource("3_dugvo")]
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=513006651]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 text = "Next"
+
+[node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
 
 [node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
 position = Vector2(544, 337)
@@ -133,7 +154,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(544, 337)
-info = SubResource("Resource_vl60u")
+info = SubResource("Resource_o26bk")
 
 [node name="CardSection" type="Node2D" parent="." unique_id=31290860]
 position = Vector2(640, 608)
@@ -171,7 +192,7 @@ offset_top = -584.0
 offset_right = 500.0
 offset_bottom = -232.0
 
-[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
 [connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
 [connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]

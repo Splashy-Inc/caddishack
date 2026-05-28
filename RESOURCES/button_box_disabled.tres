@@ -1,4 +1,4 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cqe3jf4ia3cgx"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://cqe3jf4ia3cgx"]
 
 [ext_resource type="Texture2D" uid="uid://b3oatx07q1rnh" path="res://ASSETS/Art/GUI/Red_Button_Background.png" id="1_5ye56"]
 

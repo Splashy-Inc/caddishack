@@ -14,6 +14,7 @@ func _ready():
 	HUDEvents.main_menu_requested.emit()
 	ScreenEvents.screen_requested.connect(_on_screen_requested)
 	RunEvents.round_max_reached.connect(_on_round_max_reached)
+	HUDEvents.restart_pressed.connect(_on_restart_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,3 +39,7 @@ func _on_screen_requested(screen_scene: PackedScene = null, info = null):
 
 func _on_round_max_reached():
 	print("Max round reached!")
+
+func _on_restart_pressed():
+	RunEvents.reset_run()
+	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)

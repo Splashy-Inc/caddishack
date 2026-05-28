@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://l63bub3q0j7s"]
+[gd_scene format=3 uid="uid://l63bub3q0j7s"]
 
-[ext_resource type="Script" path="res://SCRIPTS/GUI/pause_button.gd" id="1_0kkv0"]
-[ext_resource type="Theme" uid="uid://x3hcgv6o4dat" path="res://RESOURCES/brown_text.tres" id="1_pur8u"]
-[ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="2_diqf3"]
-[ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="3_f7lgt"]
+[ext_resource type="Script" uid="uid://c6pquf5lgm7xb" path="res://SCRIPTS/GUI/pause_button.gd" id="1_0kkv0"]
 
-[node name="PauseButton" type="Button"]
+[node name="PauseButton" type="Button" unique_id=374039595]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -16,11 +13,8 @@ offset_bottom = 68.0
 grow_horizontal = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme = ExtResource("1_pur8u")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/hover = ExtResource("2_diqf3")
-theme_override_styles/normal = ExtResource("3_f7lgt")
-text = "PAUSE"
+theme_override_font_sizes/font_size = 48
+text = "MENU"
 script = ExtResource("1_0kkv0")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
