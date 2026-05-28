@@ -183,19 +183,8 @@ label_settings = ExtResource("14_vl60u")
 visible = false
 position = Vector2(544, 608)
 
-[node name="BraceletContructionPanel" parent="BeadScorer" index="0" unique_id=1696741675]
-position = Vector2(0, -44)
-
-[node name="InfoPanel" parent="BeadScorer" index="1" unique_id=1466671616]
-offset_left = 168.0
-offset_top = -584.0
-offset_right = 500.0
-offset_bottom = -232.0
-
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
 [connection signal="larvae_done" from="Terrarium" to="." method="_on_terrarium_larvae_done"]
 [connection signal="larvae_started" from="Terrarium" to="." method="_on_terrarium_larvae_started"]
 [connection signal="beads_scored" from="BeadScorer" to="." method="_on_bead_scorer_beads_scored"]
-
-[editable path="BeadScorer"]
