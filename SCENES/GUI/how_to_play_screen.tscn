@@ -5,8 +5,8 @@
 [ext_resource type="StyleBox" uid="uid://cirbca3v3qq8k" path="res://RESOURCES/full_gui_panel.tres" id="1_kt1ik"]
 [ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="2_k8t63"]
 [ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="3_kt1ik"]
-[ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="4_iob5o"]
 [ext_resource type="PackedScene" uid="uid://fvpsq85ge5ut" path="res://SCENES/GUI/back_button.tscn" id="5_hrpar"]
+[ext_resource type="StyleBox" uid="uid://btlg5diojxo7t" path="res://RESOURCES/panel_gray.tres" id="6_kt1ik"]
 
 [node name="HowToPlayScreen" type="PanelContainer" unique_id=1616816326]
 anchors_preset = 15
@@ -32,91 +32,105 @@ horizontal_alignment = 1
 [node name="Goal" type="VBoxContainer" parent="ScreenRows" unique_id=1113051741]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="TopicTitle" type="Label" parent="ScreenRows/Goal" unique_id=1324631881]
+custom_minimum_size = Vector2(312, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_kt1ik")
 text = "Goal"
 label_settings = ExtResource("2_k8t63")
 horizontal_alignment = 1
 
-[node name="TopicItem" type="HBoxContainer" parent="ScreenRows/Goal" unique_id=1761644953]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="ScreenRows/Goal/TopicItem" unique_id=1267222538]
+[node name="Label" type="Label" parent="ScreenRows/Goal" unique_id=1267222538]
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 text = "Meet quota every 3 rounds!"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Label2" type="Label" parent="ScreenRows/Goal" unique_id=993753880]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+text = "Quota doubles every time you succeed!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="KeyConcepts" type="VBoxContainer" parent="ScreenRows" unique_id=1185718936]
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="TopicTitle" type="Label" parent="ScreenRows/KeyConcepts" unique_id=1089449246]
+custom_minimum_size = Vector2(312, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("3_kt1ik")
 text = "Key Concepts"
 label_settings = ExtResource("2_k8t63")
 horizontal_alignment = 1
 
 [node name="TopicItem" type="HBoxContainer" parent="ScreenRows/KeyConcepts" unique_id=1342793507]
 layout_mode = 2
+theme_override_constants/separation = 8
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1310023712]
+[node name="TerrariumInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=353348555]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer" unique_id=1447977468]
+[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/TerrariumInfo" unique_id=16285372]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("3_kt1ik")
-text = "Shop"
-label_settings = ExtResource("4_iob5o")
-horizontal_alignment = 1
-
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer" unique_id=9929521]
-layout_mode = 2
-text = "Buy abilities and apply them to cards to craft deck synergies"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=353348555]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer2" unique_id=16285372]
-layout_mode = 2
-theme_override_styles/normal = ExtResource("3_kt1ik")
+theme_override_styles/normal = ExtResource("6_kt1ik")
 text = "Terrarium"
-label_settings = ExtResource("4_iob5o")
+label_settings = ExtResource("2_k8t63")
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer2" unique_id=73336289]
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/TerrariumInfo" unique_id=73336289]
 layout_mode = 2
-text = "Use larvae and their abilities to make beads for scoring"
+text = "Use larvae and their abilities to make beads.
+Color = points
+Charm = mult"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1612361132]
+[node name="JewelryInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1612361132]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer3" unique_id=857673606]
+[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/JewelryInfo" unique_id=857673606]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("3_kt1ik")
+theme_override_styles/normal = ExtResource("6_kt1ik")
 text = "Jewelry"
-label_settings = ExtResource("4_iob5o")
+label_settings = ExtResource("2_k8t63")
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/VBoxContainer3" unique_id=704821803]
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/JewelryInfo" unique_id=704821803]
 layout_mode = 2
-text = "Combine beads to generate score 
+text = "Combine beads to generate score.
 (points x mult)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ShopInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1310023712]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/ShopInfo" unique_id=1447977468]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("6_kt1ik")
+text = "Shop"
+label_settings = ExtResource("2_k8t63")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/ShopInfo" unique_id=9929521]
+layout_mode = 2
+text = "Buy abilities and apply them to larvae to craft deck synergies."
 horizontal_alignment = 1
 autowrap_mode = 2
 
