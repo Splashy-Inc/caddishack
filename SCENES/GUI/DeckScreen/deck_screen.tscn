@@ -145,7 +145,7 @@ label_settings = ExtResource("2_36kts")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="DeckView" type="ScrollContainer" parent="HBoxContainer/DeckSection" unique_id=1845271702]
+[node name="DeckView" type="ScrollContainer" parent="HBoxContainer/DeckSection" unique_id=1845271702 groups=["card_container"]]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2

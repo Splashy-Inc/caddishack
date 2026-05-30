@@ -60,6 +60,7 @@ camera=""
 larvae=""
 materials=""
 card_hand=""
+card_container=""
 
 [gui]
 

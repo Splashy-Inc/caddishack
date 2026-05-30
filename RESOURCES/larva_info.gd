@@ -3,6 +3,7 @@ extends Resource
 class_name LarvaInfo
 
 @export var abilities : Array[AbilityInfo]
+@export var name : String
 
 const MAX_NUM_ABILITIES = 3
 

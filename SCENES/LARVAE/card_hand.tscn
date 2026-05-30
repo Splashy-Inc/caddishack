@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwfek"]
 size = Vector2(896, 224)
 
-[node name="CardHand" type="Node2D" unique_id=1587952838]
+[node name="CardHand" type="Node2D" unique_id=1587952838 groups=["card_hand"]]
 script = ExtResource("1_jwfek")
 
 [node name="HandRegion" type="CollisionShape2D" parent="." unique_id=1403408777]

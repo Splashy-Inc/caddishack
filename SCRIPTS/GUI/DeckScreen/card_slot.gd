@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func add_card(new_card: LarvaCard) -> bool:
+func add_larva_card(new_card: LarvaCard) -> bool:
 	if not check_for_card():
 		if is_instance_valid(new_card.get_parent()):
 			new_card.reparent(center, false)
