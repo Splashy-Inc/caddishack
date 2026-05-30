@@ -35,6 +35,17 @@ ability_slots = [NodePath("Card/CardAbilities/CardAbilitySlot1"), NodePath("Card
 [node name="Sprite2D" type="Sprite2D" parent="Card" unique_id=642097255]
 texture = SubResource("AtlasTexture_5g11q")
 
+[node name="Name" type="Label" parent="Card" unique_id=1693507074]
+offset_left = -70.0
+offset_top = -110.0
+offset_right = 70.0
+offset_bottom = -72.0
+theme_override_font_sizes/font_size = 24
+text = "Larva"
+horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
 [node name="CardAbilities" type="VBoxContainer" parent="Card" unique_id=1109222485]
 offset_left = -70.0
 offset_top = 6.0
@@ -54,7 +65,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="LarvaSlot" type="Area2D" parent="." unique_id=957539115]
-position = Vector2(46, -60)
+position = Vector2(46, -53)
 rotation = 1.5707964
 collision_layer = 0
 collision_mask = 16
@@ -74,7 +85,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_wnpqk")
 
 [node name="LarvaViewCollisionShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1015897179]
-position = Vector2(-7, -60)
+position = Vector2(-7, -53)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lmto1")
 disabled = true

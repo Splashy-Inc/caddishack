@@ -85,6 +85,12 @@ func get_current_terrarium_info() -> TerrariumInfo:
 
 func set_deck_info(new_deck: DeckInfo):
 	run_info.deck = new_deck.duplicate(true)
+	var default_names = get_names().duplicate(true)
+	for larva in run_info.deck.larvae:
+		if larva.name == "" and not default_names.is_empty():
+			var new_name = default_names.pick_random()
+			larva.name = new_name
+			default_names.erase(new_name)
 
 func get_current_deck_info() -> DeckInfo:
 	return run_info.deck
@@ -99,3 +105,6 @@ func check_quota() -> bool:
 	else:
 		quota_passed.emit()
 		return true
+
+func get_names():
+	return run_info.default_names

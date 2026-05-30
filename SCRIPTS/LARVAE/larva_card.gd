@@ -11,11 +11,13 @@ signal died
 @export var ability_slots : Array[CardAbilitySlot]
 @onready var card_view_collision_shape: CollisionShape2D = $ClickableArea/CardViewCollisionShape
 @onready var larva_view_collision_shape: CollisionShape2D = $ClickableArea/LarvaViewCollisionShape
+@onready var name_label: Label = $Card/Name
 
 var grabbed
 
 func _ready() -> void:
 	load_larva_abilities()
+	load_larva_name()
 
 func _process(delta: float) -> void:
 	toggle_larva_view(is_larva_view())
@@ -26,12 +28,14 @@ func load_from_larva(new_larva: Larva):
 	larva.info = new_larva.info
 	new_larva.queue_free()
 	load_larva_abilities()
+	load_larva_name()
 
 func load_from_larva_info(new_larva_info: LarvaInfo):
 	if not is_node_ready():
 		await ready
 	larva.info = new_larva_info
 	load_larva_abilities()
+	load_larva_name()
 
 func toggle_larva_view(is_larva: bool):
 	card_view_collision_shape.disabled = is_larva
@@ -54,7 +58,7 @@ func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx
 func get_larva() -> Larva:
 	return larva
 
-func drop(drop_target : Node2D):
+func drop(drop_target):
 	if is_instance_valid(drop_target):
 		if drop_target.has_method("add_larva_card"):
 			if drop_target.add_larva_card(self):
@@ -88,3 +92,6 @@ func add_ability(new_ability: AbilityInfo) -> bool:
 		return true
 	
 	return false
+
+func load_larva_name():
+	name_label.text = larva.info.name

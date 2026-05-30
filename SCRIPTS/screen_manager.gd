@@ -42,4 +42,7 @@ func _on_round_max_reached():
 
 func _on_restart_pressed():
 	RunEvents.reset_run()
-	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+	var random_terrarium = TerrariumInfo.new()
+	random_terrarium.randomize_materials()
+	RunEvents.set_current_terrarium_info(random_terrarium)
+	ScreenEvents.request_screen(ScreenEvents.Screen.TERRARIUM)

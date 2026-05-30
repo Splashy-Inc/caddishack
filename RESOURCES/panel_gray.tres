@@ -1,0 +1,16 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://btlg5diojxo7t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kt1ik"]
+load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iob5o"]
+atlas = SubResource("CompressedTexture2D_kt1ik")
+region = Rect2(0, 128, 128, 128)
+
+[resource]
+texture = SubResource("AtlasTexture_iob5o")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(0, 0, 128, 128)
