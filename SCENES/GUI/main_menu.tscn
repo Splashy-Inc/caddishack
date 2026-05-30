@@ -287,7 +287,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_1tren")
 theme_override_font_sizes/font_size = 48
-text = "…caddisfly larvae make protective casings from resources in their environment…"
+text = "...caddisfly larvae make protective casings from resources in their environment..."
 label_settings = SubResource("LabelSettings_ucu1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuContent/…caddisfly" unique_id=53342330]
