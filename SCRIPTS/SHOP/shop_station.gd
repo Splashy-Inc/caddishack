@@ -12,7 +12,8 @@ class_name ShopStation
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_on_reroll_button_pressed()
+	randomize_abilities()
+	randomize_terrariums()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,6 +41,7 @@ func randomize_abilities():
 		terrarium.randomize_materials()
 
 func _on_reroll_button_pressed() -> void:
+	RunEvents.change_score(-50)
 	for button in terrarium_buttons:
 		var terrarium = terrariums[terrarium_buttons.find(button)]
 		terrarium.toggle_travel(true)

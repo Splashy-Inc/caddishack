@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cbemq6u2ind3k" path="res://SCENES/GUI/select_button.tscn" id="20_6bml6"]
 [ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="23_xn1ka"]
+[ext_resource type="Script" uid="uid://c5lgelir0meoy" path="res://SCENES/SHOP/reroll_button.gd" id="24_imspv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1t5sf"]
 content_margin_left = 8.0
@@ -117,17 +118,17 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_xn1ka"]
-resource_local_to_scene = true
-script = ExtResource("10_klhbm")
-materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
-
 [sub_resource type="Resource" id="Resource_v2i7w"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
 [sub_resource type="Resource" id="Resource_imspv"]
+resource_local_to_scene = true
+script = ExtResource("10_klhbm")
+materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="Resource" id="Resource_dy5ct"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -249,7 +250,7 @@ mouse_filter = 1
 
 [node name="Terrarium1" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_xn1ka")
+info = SubResource("Resource_v2i7w")
 
 [node name="TerrariumSlot2" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=1021539569]
 layout_mode = 2
@@ -273,7 +274,7 @@ mouse_filter = 1
 
 [node name="Terrarium2" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_v2i7w")
+info = SubResource("Resource_imspv")
 
 [node name="TerrariumSlot3" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=477348113]
 layout_mode = 2
@@ -297,7 +298,7 @@ mouse_filter = 1
 
 [node name="Terrarium3" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_imspv")
+info = SubResource("Resource_dy5ct")
 
 [node name="UISection" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1679442781]
 layout_mode = 2
@@ -326,7 +327,8 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
-text = "Reroll"
+text = "Reroll $10"
+script = ExtResource("24_imspv")
 
 [node name="PauseButton" parent="PanelContainer/HBoxContainer/UISection" unique_id=952429982 instance=ExtResource("23_xn1ka")]
 custom_minimum_size = Vector2(128, 0)
