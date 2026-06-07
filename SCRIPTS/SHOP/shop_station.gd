@@ -26,8 +26,10 @@ func _on_next_button_pressed() -> void:
 	ScreenEvents.request_screen(ScreenEvents.Screen.TERRARIUM)
 
 func randomize_terrariums():
-	for terrarium in terrariums:
-		terrarium.randomize_materials()
+	for button in terrarium_buttons:
+		if not button.button_pressed:
+			var terrarium = terrariums[terrarium_buttons.find(button)]
+			terrarium.randomize_materials()
 
 func randomize_abilities():
 	for slot in item_slots:
@@ -37,18 +39,9 @@ func randomize_abilities():
 		var new_item = Globals.generate_shop_item(RunEvents.get_abilities().pick_random())
 		new_item.pressed.connect(_on_item_chosen.bind(new_item.info))
 		slot.add_child(new_item)
-	for terrarium in terrariums:
-		terrarium.randomize_materials()
 
 func _on_reroll_button_pressed() -> void:
 	RunEvents.change_score(-50)
-	for button in terrarium_buttons:
-		var terrarium = terrariums[terrarium_buttons.find(button)]
-		terrarium.toggle_travel(true)
-		terrarium_zoom_point.dezoom_node(terrarium)
-		button.button_pressed = false
-		button.toggle_mode = false
-	next_button.disabled = true
 	randomize_abilities()
 	randomize_terrariums()
 
@@ -59,11 +52,16 @@ func _on_terrarium_button_pressed(source_button: Button) -> void:
 			terrarium.toggle_travel(true)
 			terrarium_zoom_point.dezoom_node(terrarium)
 		else:
-			button.button_pressed = true
-			terrarium_select.show()
-			terrarium.toggle_travel(false)
-			terrarium_zoom_point.zoom_node(terrarium)
-			terrarium_select_button.set_select_target(terrarium)
+			if button.toggle_mode == true:
+				button.button_pressed = false
+				button.toggle_mode = false
+				next_button.disabled = true
+			else:
+				button.button_pressed = true
+				terrarium_select.show()
+				terrarium.toggle_travel(false)
+				terrarium_zoom_point.zoom_node(terrarium)
+				terrarium_select_button.set_select_target(terrarium)
 
 func _on_terrarium_select_button_pressed() -> void:
 	terrarium_select.hide()
