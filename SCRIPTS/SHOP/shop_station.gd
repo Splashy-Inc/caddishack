@@ -8,14 +8,11 @@ class_name ShopStation
 @export var terrarium_zoom_point: ZoomPoint
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
-@onready var item_grid: GridContainer = $PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid
+@export var item_slots : Array[PanelContainer]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for item in item_grid.get_children():
-		if item is ShopItem:
-			item.pressed.connect(_on_item_chosen.bind(item.info))
-	randomize_terrariums()
+	_on_reroll_button_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,6 +28,17 @@ func randomize_terrariums():
 	for terrarium in terrariums:
 		terrarium.randomize_materials()
 
+func randomize_abilities():
+	for slot in item_slots:
+		if not slot.get_children().is_empty():
+			for child in slot.get_children():
+				child.free()
+		var new_item = Globals.generate_shop_item(RunEvents.get_abilities().pick_random())
+		new_item.pressed.connect(_on_item_chosen.bind(new_item.info))
+		slot.add_child(new_item)
+	for terrarium in terrariums:
+		terrarium.randomize_materials()
+
 func _on_reroll_button_pressed() -> void:
 	for button in terrarium_buttons:
 		var terrarium = terrariums[terrarium_buttons.find(button)]
@@ -39,6 +47,7 @@ func _on_reroll_button_pressed() -> void:
 		button.button_pressed = false
 		button.toggle_mode = false
 	next_button.disabled = true
+	randomize_abilities()
 	randomize_terrariums()
 
 func _on_terrarium_button_pressed(source_button: Button) -> void:

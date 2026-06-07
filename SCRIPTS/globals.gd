@@ -8,6 +8,7 @@ const ordered_stations := [
 ]
 const larva_scene := preload("uid://bavo2v0il8e4")
 const larva_card_scene := preload("uid://cue2ptvqn6f3r")
+const shop_item_scene := preload("uid://bw76w8fxlv8p2")
 
 var cur_station_scene: PackedScene
 
@@ -69,6 +70,14 @@ func generate_card(larva_info: LarvaInfo = null) -> LarvaCard:
 	var new_card := larva_card_scene.instantiate() as LarvaCard
 	
 	if is_instance_valid(larva_info):
-		new_card.load_from_larva_info(larva_info)
+		new_card.load_from_larva_info(larva_info.duplicate())
 	
 	return new_card
+
+func generate_shop_item(shop_item_info: ShopItemInfo = null) -> ShopItem:
+	var new_item := shop_item_scene.instantiate() as ShopItem
+	
+	if is_instance_valid(shop_item_info):
+		new_item.load_info(shop_item_info.duplicate())
+	
+	return new_item

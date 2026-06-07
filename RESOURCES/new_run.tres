@@ -1,7 +1,10 @@
 [gd_resource type="Resource" script_class="RunInfo" format=3 uid="uid://b58t7gjanwb6w"]
 
+[ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="1_kbnpi"]
 [ext_resource type="Resource" uid="uid://boyg80vgop270" path="res://RESOURCES/DECK/new_deck.tres" id="1_ldded"]
 [ext_resource type="Script" uid="uid://cb6o2dvw1734g" path="res://RESOURCES/run_info.gd" id="2_c0gfi"]
+[ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="2_lgqcu"]
+[ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="3_xipyr"]
 
 [resource]
 script = ExtResource("2_c0gfi")
