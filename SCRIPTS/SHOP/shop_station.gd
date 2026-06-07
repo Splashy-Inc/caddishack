@@ -37,7 +37,7 @@ func randomize_abilities():
 			for child in slot.get_children():
 				child.free()
 		var new_item = Globals.generate_shop_item(RunEvents.get_abilities().pick_random())
-		new_item.pressed.connect(_on_item_chosen.bind(new_item.info))
+		new_item.pressed.connect(_on_item_chosen.bind(new_item))
 		slot.add_child(new_item)
 
 func _on_reroll_button_pressed() -> void:
@@ -84,8 +84,8 @@ func _on_terrarium_back_button_pressed() -> void:
 		terrarium.toggle_travel(true)
 		terrarium_zoom_point.dezoom_node(terrarium)
 
-func _on_item_chosen(item_info : ShopItemInfo):
-	if item_info is ShopAbilityInfo:
-		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, item_info)
+func _on_item_chosen(item : ShopItem):
+	if item.info is ShopAbilityInfo:
+		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, item.info)
 	else:
-		ShopEvents.purchase_item(item_info)
+		ShopEvents.purchase_item(item.info)
