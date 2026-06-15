@@ -49,9 +49,11 @@ func load_from_info(new_info: ShopInfo):
 					for child in slot.get_children():
 						child.free()
 				continue
-			var new_item = Globals.generate_shop_item(info.items[i])
-			new_item.pressed.connect(_on_item_chosen.bind(new_item))
-			slot.add_child(new_item)
+			
+			# TODO: Add better handling, especially in the case no child exists
+			var shop_item = slot.get_child(0)
+			if shop_item is ShopItem:
+				shop_item.load_info(info.items[i])
 	
 	# Randomize then fill in terrariums with state from info as avialable
 	randomize_terrariums()
@@ -69,6 +71,7 @@ func load_from_info(new_info: ShopInfo):
 		else:
 			button.toggle_mode = true
 			button.button_pressed = true
+			next_button.disabled = false
 	
 	sync_info()
 
@@ -78,10 +81,10 @@ func sync_info():
 		if not slot.get_children().is_empty():
 			var item = slot.get_child(0)
 			if item is ShopItem:
-				info.items.append(item.info.duplicate(true))
+				info.items.append(item.info)
 				continue
 		info.items.append(null)
-		
+	
 	info.terrariums.clear()
 	for terrarium in terrariums:
 		info.terrariums.append(terrarium.info)
@@ -89,6 +92,8 @@ func sync_info():
 	for button in terrarium_buttons:
 		if button.button_pressed:
 			info.selected_terrarium = terrarium_buttons.find(button)
+	
+	#ShopEvents.cur_shop_info = info
 
 func _on_next_button_pressed() -> void:
 	for button in terrarium_buttons:
@@ -115,6 +120,7 @@ func _on_reroll_button_pressed() -> void:
 	RunEvents.change_score(-50)
 	randomize_abilities()
 	randomize_terrariums()
+	sync_info()
 
 func _on_terrarium_button_pressed(source_button: Button) -> void:
 	for button in terrarium_buttons:
@@ -157,6 +163,7 @@ func _on_terrarium_back_button_pressed() -> void:
 
 func _on_item_chosen(item : ShopItem):
 	if item.info is ShopAbilityInfo:
+		sync_info()
 		var deck_screen_info := DeckScreenInfo.new()
 		deck_screen_info.shop_info = info
 		deck_screen_info.ability_info = item.info

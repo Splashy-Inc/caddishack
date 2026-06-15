@@ -6,6 +6,7 @@ extends Button
 func _ready() -> void:
 	RunEvents.score_updated.connect(_on_score_updated)
 	text = "Reroll $" + str(cost)
+	_on_score_updated(RunEvents.get_score())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -34,6 +34,8 @@ func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool)
 	await get_tree().create_timer(.25).timeout
 	deck_view.add_card(larva_card)
 	if success:
+		# TODO: Probably a better way to do this, but good enough for now!
+		info.shop_info.items[info.shop_info.items.find(info.ability_info)] = null
 		await get_tree().create_timer(.25).timeout
 		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP, info.shop_info)
 

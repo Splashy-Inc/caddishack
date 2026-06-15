@@ -334,6 +334,7 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
+disabled = true
 text = "Reroll $10"
 script = ExtResource("24_imspv")
 
