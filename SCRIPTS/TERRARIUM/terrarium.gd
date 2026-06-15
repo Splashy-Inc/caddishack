@@ -46,6 +46,8 @@ func spawn_material(material_info: MaterialInfo):
 		material_info.cell = get_material_cell_at(new_material.global_position)
 	else:
 		new_material.global_position = get_material_cell_center(material_info.cell)
+	
+	new_material.rotate(deg_to_rad(90 * randi_range(0, 3)))
 
 func generate_materials():
 	if not is_node_ready():
