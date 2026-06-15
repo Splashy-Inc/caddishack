@@ -30,8 +30,14 @@ func _on_screen_requested(screen_scene: PackedScene = null, info = null):
 	if is_instance_valid(screen_scene):
 		var new_screen = screen_scene.instantiate()
 		if new_screen is DeckScreen:
-			if is_instance_valid(info) and info is ShopAbilityInfo:
-				new_screen.initialize(RunEvents.get_current_deck_info(), info)
+			if is_instance_valid(info):
+				if info is DeckScreenInfo:
+					if not is_instance_valid(info.deck):
+						info.deck = RunEvents.get_current_deck_info()
+					new_screen.initialize(info)
+		elif new_screen is ShopStation:
+			if is_instance_valid(info) and info is ShopInfo:
+				new_screen.load_from_info(info)
 		add_child(new_screen)
 		
 		screen = new_screen

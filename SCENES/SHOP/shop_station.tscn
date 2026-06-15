@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://be2i47cqsfkjm" path="res://SCRIPTS/SHOP/shop_station.gd" id="1_n8e4a"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_ndlt6"]
+[ext_resource type="Script" uid="uid://b3aah41smm1u6" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/shop_item_info.gd" id="2_v02qh"]
+[ext_resource type="Script" uid="uid://cpqmx6k1wxo3i" path="res://RESOURCES/SCREENS/shop_info.gd" id="3_1qkbm"]
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="3_x1p5w"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_wresu"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="5_r8xvt"]
+[ext_resource type="StyleBox" uid="uid://d2d5qqrvj8rep" path="res://RESOURCES/item_slot.tres" id="5_v2i7w"]
 [ext_resource type="PackedScene" uid="uid://c1cnosvtgboi2" path="res://SCENES/TERRARIUM/terrarium.tscn" id="6_4d8e5"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="6_4g004"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_ncq4r"]
@@ -25,6 +28,11 @@
 [ext_resource type="PackedScene" uid="uid://cbemq6u2ind3k" path="res://SCENES/GUI/select_button.tscn" id="20_6bml6"]
 [ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="23_xn1ka"]
+[ext_resource type="Script" uid="uid://c5lgelir0meoy" path="res://SCENES/SHOP/reroll_button.gd" id="24_imspv"]
+
+[sub_resource type="Resource" id="Resource_1qkbm"]
+script = ExtResource("3_1qkbm")
+metadata/_custom_type_script = "uid://cpqmx6k1wxo3i"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1t5sf"]
 content_margin_left = 8.0
@@ -116,17 +124,17 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_v2i7w"]
+[sub_resource type="Resource" id="Resource_v02qh"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_imspv"]
+[sub_resource type="Resource" id="Resource_f7wxv"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
 
-[sub_resource type="Resource" id="Resource_dy5ct"]
+[sub_resource type="Resource" id="Resource_qbksl"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -136,11 +144,13 @@ bg_color = Color(0, 0, 0, 0.4745098)
 border_width_bottom = 32
 border_color = Color(0, 0, 0, 0.4745098)
 
-[node name="Shop" type="Node" unique_id=1118303584 node_paths=PackedStringArray("terrariums", "terrarium_buttons", "terrarium_zoom_point")]
+[node name="Shop" type="Node" unique_id=1118303584 node_paths=PackedStringArray("terrariums", "terrarium_buttons", "terrarium_zoom_point", "item_slots")]
 script = ExtResource("1_n8e4a")
+info = SubResource("Resource_1qkbm")
 terrariums = [NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition/Terrarium1"), NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition/Terrarium2"), NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition/Terrarium3")]
 terrarium_buttons = [NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/Button"), NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/Button"), NodePath("PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/Button")]
 terrarium_zoom_point = NodePath("TerrariumSelect/TerrariumZoomPoint")
+item_slots = [NodePath("PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot1"), NodePath("PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot2"), NodePath("PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot3"), NodePath("PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot4")]
 
 [node name="Craft_station_background" parent="." unique_id=282271410 instance=ExtResource("2_ndlt6")]
 scroll_offset = Vector2(103, 73)
@@ -182,19 +192,36 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 2
 
-[node name="Item1" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=2046025908 instance=ExtResource("12_klhbm")]
+[node name="Slot1" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=1216421018]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_v2i7w")
+
+[node name="Item1" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot1" unique_id=2046025908 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("16_yqt8j")
 
-[node name="Item2" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=1112847703 instance=ExtResource("12_klhbm")]
+[node name="Slot2" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=718960739]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_v2i7w")
+
+[node name="Item2" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot2" unique_id=1112847703 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("17_yqt8j")
 
-[node name="Item3" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=2131303173 instance=ExtResource("12_klhbm")]
+[node name="Slot3" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=171395493]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_v2i7w")
+
+[node name="Item3" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot3" unique_id=2131303173 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("18_yqt8j")
 
-[node name="Item4" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=371760213 instance=ExtResource("12_klhbm")]
+[node name="Slot4" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid" unique_id=1608021216]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_v2i7w")
+
+[node name="Item4" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot4" unique_id=371760213 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("15_gkgmp")
 
@@ -230,7 +257,7 @@ mouse_filter = 1
 
 [node name="Terrarium1" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_v2i7w")
+info = SubResource("Resource_v02qh")
 
 [node name="TerrariumSlot2" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=1021539569]
 layout_mode = 2
@@ -254,7 +281,7 @@ mouse_filter = 1
 
 [node name="Terrarium2" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_imspv")
+info = SubResource("Resource_f7wxv")
 
 [node name="TerrariumSlot3" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=477348113]
 layout_mode = 2
@@ -278,7 +305,7 @@ mouse_filter = 1
 
 [node name="Terrarium3" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_dy5ct")
+info = SubResource("Resource_qbksl")
 
 [node name="UISection" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1679442781]
 layout_mode = 2
@@ -307,7 +334,9 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
-text = "Reroll"
+disabled = true
+text = "Reroll $10"
+script = ExtResource("24_imspv")
 
 [node name="PauseButton" parent="PanelContainer/HBoxContainer/UISection" unique_id=952429982 instance=ExtResource("23_xn1ka")]
 custom_minimum_size = Vector2(128, 0)

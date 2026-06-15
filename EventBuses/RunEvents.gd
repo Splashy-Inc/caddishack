@@ -108,3 +108,6 @@ func check_quota() -> bool:
 
 func get_names():
 	return run_info.default_names
+
+func get_abilities():
+	return run_info.available_shop_abilities

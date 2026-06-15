@@ -48,6 +48,8 @@ func spawn_material(material_info: MaterialInfo):
 		new_material.global_position = get_material_cell_center(material_info.cell)
 
 func generate_materials():
+	if not is_node_ready():
+		await ready
 	await clear_playing_field()
 	
 	for material_info in info.materials:

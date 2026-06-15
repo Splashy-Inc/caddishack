@@ -24,7 +24,7 @@ func set_round(current_round: int, max_rounds: int):
 	round_number.text = str(current_round) + "/" + str(max_rounds)
 
 func set_quota(current_quota: int):
-	quota_number.text = str(current_quota)
+	quota_number.text = "$" + str(current_quota)
 
 func set_score(current_score: int):
-	score_number.text = str(current_score)
+	score_number.text = "$" + str(current_score)
