@@ -5,9 +5,50 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwfek"]
 size = Vector2(896, 224)
 
+[sub_resource type="Animation" id="Animation_kk8f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jwfek"]
+resource_name = "duck"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 56.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0bxl"]
+_data = {
+&"RESET": SubResource("Animation_kk8f8"),
+&"duck": SubResource("Animation_jwfek")
+}
+
 [node name="CardHand" type="Node2D" unique_id=1587952838 groups=["card_hand"]]
 script = ExtResource("1_jwfek")
 
 [node name="HandRegion" type="CollisionShape2D" parent="." unique_id=1403408777]
 shape = SubResource("RectangleShape2D_jwfek")
 disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1499209878]
+root_motion_local = true
+libraries/ = SubResource("AnimationLibrary_i0bxl")

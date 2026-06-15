@@ -7,6 +7,7 @@ var hand_width := 0.0
 
 @onready var hand_region: CollisionShape2D = $HandRegion
 @export var deck_info : DeckInfo
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -75,3 +76,9 @@ func discard():
 	for card in get_cards():
 		card.queue_free()
 		await get_tree().create_timer(.25).timeout
+
+func duck():
+	animation_player.play("duck")
+
+func unduck():
+	animation_player.play_backwards("duck")

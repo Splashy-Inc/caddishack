@@ -30,12 +30,16 @@ func _on_card_clicked(clicked_card: LarvaCard, button_index: MouseButton) -> voi
 		if button_index == MOUSE_BUTTON_LEFT:
 			card = clicked_card
 			card_start_parent = card.get_parent()
+			if card_start_parent is CardHand:
+				card_start_parent.duck()
 			card.reparent(self, false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_released():
 			if event.button_index == MOUSE_BUTTON_LEFT and card:
+				if card_start_parent is CardHand:
+					card_start_parent.unduck()
 				if not card.drop(drop_target):
 					if not card.drop(card_start_parent):
 						var card_container = get_tree().get_first_node_in_group("card_hand")

@@ -4,7 +4,7 @@ class_name TerrariumStation
 
 @export var round_length := 10
 
-@onready var card_hand: CardHand = $CardSection/CardHand
+@onready var card_hand: CardHand = $HandSlot/CardHand
 @onready var terrarium: Terrarium = $Terrarium
 @onready var bead_scorer: BeadScorer = $BeadScorer
 @onready var terrarium_scoring_slot: Marker2D = $TerrariumScoringSlot
