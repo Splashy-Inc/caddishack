@@ -92,8 +92,6 @@ func sync_info():
 	for button in terrarium_buttons:
 		if button.button_pressed:
 			info.selected_terrarium = terrarium_buttons.find(button)
-	
-	#ShopEvents.cur_shop_info = info
 
 func _on_next_button_pressed() -> void:
 	for button in terrarium_buttons:
