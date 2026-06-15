@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b55wovb2i7c7s" path="res://SCENES/GUI/start_button.tscn" id="6_k7bo5"]
 [ext_resource type="PackedScene" uid="uid://c8crwoa700a4l" path="res://SCENES/GUI/how_to_play_button.tscn" id="6_wpmqk"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
+[ext_resource type="Texture2D" uid="uid://d0kqhtnu3hvca" path="res://ASSETS/Art/GUI/Bug_Overlord_1.png" id="11_bmvmn"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="12_1tren"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2mwv2"]
@@ -319,3 +320,8 @@ rotation = -1.05869
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Larvae/MenuLarva_3" unique_id=174165123]
 libraries/ = SubResource("AnimationLibrary_126tu")
 autoplay = &"new_animation"
+
+[node name="BugOverlord1" type="Sprite2D" parent="." unique_id=1443478933]
+position = Vector2(916, 443)
+scale = Vector2(2, 2)
+texture = ExtResource("11_bmvmn")
