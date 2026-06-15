@@ -102,7 +102,7 @@ func get_material_cell_center(material_cell: Vector2i):
 	return to_global(material_layer.map_to_local(material_cell))
 
 func add_larva(new_larva: Larva, force: bool = false) -> bool:
-	if force or (not larvae_running and larvae_container.get_children().size() < larvae_limit):
+	if force or (not larvae_running and not check_larvae_limit_reached()):
 		if is_instance_valid(new_larva.get_parent()):
 			new_larva.reparent(larvae_container, true)
 		else:
@@ -118,7 +118,7 @@ func add_larva(new_larva: Larva, force: bool = false) -> bool:
 	return false
 	
 func add_larva_card(new_larva_card: LarvaCard) -> bool:
-	if not larvae_running and larvae_container.get_children().size() < larvae_limit:
+	if not larvae_running and not check_larvae_limit_reached():
 		if is_instance_valid(new_larva_card.get_parent()):
 			new_larva_card.reparent(larvae_container, true)
 		else:
@@ -141,7 +141,7 @@ func _on_larva_died(larva: Larva):
 		larvae_running = false
 
 func start_larvae(round_length: float = 0.0) -> bool:
-	if larvae_container.get_child_count() >= larvae_limit:
+	if check_larvae_limit_reached():
 		for node in larvae_container.get_children():
 			if node is LarvaCard:
 				if add_larva(node.larva, true):
@@ -208,3 +208,6 @@ func randomize_materials():
 func initialize(new_info: TerrariumInfo):
 	info = new_info
 	generate_materials()
+
+func check_larvae_limit_reached() -> bool:
+	return larvae_container.get_children().size() >= larvae_limit

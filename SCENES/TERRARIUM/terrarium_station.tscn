@@ -137,6 +137,7 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
+disabled = true
 text = "Next"
 
 [node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
@@ -166,7 +167,7 @@ texture = SubResource("PlaceholderTexture2D_bnkvk")
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 224)
 
-[node name="CardHand" parent="CardSection" unique_id=1587952838 groups=["card_hand"] instance=ExtResource("10_04exf")]
+[node name="CardHand" parent="CardSection" unique_id=1587952838 instance=ExtResource("10_04exf")]
 position = Vector2(-96, 61)
 
 [node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]

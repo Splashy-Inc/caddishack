@@ -9,10 +9,14 @@ class_name TerrariumStation
 @onready var bead_scorer: BeadScorer = $BeadScorer
 @onready var terrarium_scoring_slot: Marker2D = $TerrariumScoringSlot
 @onready var terrarium_play_slot: Marker2D = $TerrariumPlaySlot
+@onready var next_button: Button = $PanelContainer/VBoxContainer/NextButton
 
 func _ready() -> void:
 	terrarium.travel_to(terrarium_play_slot.transform)
 	load_run_info()
+
+func _process(delta: float) -> void:
+	next_button.disabled = not bead_scorer.score > -1 and not terrarium.check_larvae_limit_reached()
 
 func _on_terrarium_larvae_done() -> void:
 	if terrarium.get_beads().size() >= 10:
@@ -41,6 +45,7 @@ func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 
 func _on_bead_scorer_beads_scored(score: int) -> void:
 	RunEvents.score_generated.emit(score)
+	next_button.disabled = false
 
 func load_run_info():
 	terrarium.initialize(RunEvents.get_current_terrarium_info())
