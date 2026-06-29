@@ -693,6 +693,7 @@ offset_left = -14.0
 offset_top = 25.0
 offset_right = 14.0
 offset_bottom = 98.0
+mouse_behavior_recursive = 1
 alignment = 1
 
 [node name="AbilityIcon1" type="TextureRect" parent="AbilityIcons" unique_id=580766992]
@@ -731,6 +732,7 @@ shape = SubResource("CapsuleShape2D_0gxko")
 position = Vector2(0, -3)
 collision_layer = 0
 collision_mask = 4
+input_pickable = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea" unique_id=1297704867]
