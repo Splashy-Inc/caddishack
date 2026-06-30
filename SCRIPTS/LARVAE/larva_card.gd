@@ -111,7 +111,7 @@ func unlift():
 		animation_player.play_backwards("lift")
 
 func _on_clickable_area_area_entered(area: Area2D) -> void:
-	if area is CardHandler and not is_larva_view():
+	if area is CardHandler and not is_larva_view() and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		hover_changed.emit(true)
 
 func _on_clickable_area_area_exited(area: Area2D) -> void:
