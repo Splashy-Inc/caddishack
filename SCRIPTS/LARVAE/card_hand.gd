@@ -52,6 +52,12 @@ func add_card(card: LarvaCard):
 		card.reparent(self)
 	else:
 		add_child(card)
+	
+	if card in cards:
+		move_child(card, cards.find(card))
+	else:
+		move_child(card, hand_region.get_index())
+	
 	card.toggle_larva_view(false)
 	if not card.dropped.is_connected(add_card):
 			card.dropped.connect(add_card)
@@ -86,7 +92,8 @@ func duck():
 	animation_player.play("duck")
 
 func unduck():
-	animation_player.play_backwards("duck")
+	if position.y != 0:
+		animation_player.play_backwards("duck")
 
 func _on_card_hover_changed(is_hovered: bool, new_card: LarvaCard):
 	if is_hovered and not new_card in hover_queue:
@@ -100,7 +107,7 @@ func _on_card_hover_changed(is_hovered: bool, new_card: LarvaCard):
 	else:
 		var hover_card : LarvaCard
 		for card in cards:
-			if card in hover_queue and not card.is_larva_view():
+			if is_instance_valid(card) and card in hover_queue and not card.is_larva_view():
 				if not is_instance_valid(hover_card):
 					hover_card = card
 				# For now, we layer cards on top if they are further to the right

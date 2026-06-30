@@ -54,8 +54,11 @@ func is_larva_view() -> bool:
 	return not card.visible
 
 func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
-		CardEvents.card_clicked.emit(self, event.button_index)
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			CardEvents.card_pressed.emit(self, event.button_index)
+		else:
+			CardEvents.card_released.emit(self, event.button_index)
 
 func get_larva() -> Larva:
 	return larva
@@ -100,7 +103,8 @@ func load_larva_name():
 
 func lift():
 	if container.position == Vector2.ZERO and not is_larva_view():
-		animation_player.play("lift")
+		if get_parent() is CardHand:
+			animation_player.play("lift")
 
 func unlift():
 	if container.position != Vector2.ZERO:
