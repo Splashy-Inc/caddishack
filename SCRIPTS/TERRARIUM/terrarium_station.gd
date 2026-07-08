@@ -7,7 +7,6 @@ class_name TerrariumStation
 @onready var card_hand: CardHand = $HandSlot/CardHand
 @onready var terrarium: Terrarium = $Terrarium
 @onready var bead_scorer: BeadScorer = $BeadScorer
-@onready var terrarium_scoring_slot: Marker2D = $TerrariumScoringSlot
 @onready var terrarium_play_slot: Marker2D = $TerrariumPlaySlot
 @onready var next_button: Button = $PanelContainer/VBoxContainer/NextButton
 @onready var hand_number_label: Label = $HandCountTracker/HBoxContainer/Number
@@ -53,7 +52,6 @@ func _on_next_button_pressed() -> void:
 
 func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 	card_hand.hide()
-	terrarium.travel_to(terrarium_scoring_slot.transform)
 	bead_scorer.show()
 	bead_scorer.score_beads(full_terrarium.get_beads())
 

@@ -12,6 +12,6 @@ scale = Vector2(1.4, 1.4)
 
 [node name="InfoPanel" parent="." unique_id=1466671616 instance=ExtResource("3_pbr2u")]
 offset_left = -166.0
-offset_top = -522.0
+offset_top = -497.0
 offset_right = 166.0
-offset_bottom = -170.0
+offset_bottom = -145.0
