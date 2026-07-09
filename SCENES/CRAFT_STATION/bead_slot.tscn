@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://de4ncv1h326l0" path="res://SCENES/CRAFT_STATION/bracelet_slot_texture.tres" id="1_2voyj"]
 [ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_0qde3"]
 [ext_resource type="Script" uid="uid://bbxhjjxylx1ap" path="res://SCRIPTS/CRAFT_STATION/bead_slot.gd" id="2_aatqm"]
+[ext_resource type="LabelSettings" uid="uid://36xl0gfrun1m" path="res://ASSETS/Font/gui_point_label.tres" id="3_pyov1"]
+[ext_resource type="LabelSettings" uid="uid://dsbhln5iakbf7" path="res://ASSETS/Font/gui_mult_label.tres" id="4_r86f8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qde3"]
 
@@ -17,6 +19,30 @@ script = ExtResource("2_aatqm")
 ability_icons = [NodePath("AbilityIcons/Row1/Ability1/Icon"), NodePath("AbilityIcons/Row1/Ability2/Icon"), NodePath("AbilityIcons/Row2/Ability3/Icon")]
 
 [node name="SlotCenter" type="Marker2D" parent="." unique_id=115898961]
+
+[node name="Value" type="VBoxContainer" parent="." unique_id=1563545247]
+custom_minimum_size = Vector2(128, 120)
+offset_left = -64.0
+offset_top = -160.0
+offset_right = 64.0
+offset_bottom = -40.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Points" type="Label" parent="Value" unique_id=1352767363]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("3_pyov1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mult" type="Label" parent="Value" unique_id=1980862760]
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("4_r86f8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AbilityIcons" type="VBoxContainer" parent="." unique_id=1948432251]
 offset_left = -48.0

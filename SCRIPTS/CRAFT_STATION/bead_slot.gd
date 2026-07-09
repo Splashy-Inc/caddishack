@@ -3,6 +3,8 @@ extends Sprite2D
 class_name BeadSlot
 
 @onready var slot_center: Marker2D = $SlotCenter
+@onready var points_label: Label = $Value/Points
+@onready var mult_label: Label = $Value/Mult
 
 @export var ability_icons : Array[Sprite2D]
 
@@ -47,3 +49,17 @@ func get_bead() -> Bead:
 	if slot_center.get_child_count() > 0:
 		return slot_center.get_children().front()
 	return null
+
+func set_points(points: int):
+	points_label.text = str(points)
+
+func set_mult(mult: int):
+	mult_label.text = str(mult)
+
+func calculate_value(info: BeadArrayInfo):
+	var bead := get_bead()
+	if is_instance_valid(bead):
+		for bead_info in info.beads:
+			if bead.info == bead_info:
+				set_points(bead_info.calculate_points(info))
+				set_mult(bead_info.calculate_mult(info))
