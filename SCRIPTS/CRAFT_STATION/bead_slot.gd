@@ -10,6 +10,7 @@ class_name BeadSlot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	reset_value()
 	reset_icons()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,6 +31,10 @@ func reset_icons():
 	for icon in ability_icons:
 		icon.texture = null
 		icon.hide()
+
+func reset_value():
+	points_label.text = ""
+	mult_label.text = ""
 
 func has_bead():
 	return slot_center.get_child_count() > 0
