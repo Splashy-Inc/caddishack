@@ -1,16 +1,12 @@
 [gd_scene format=3 uid="uid://5xn7k3avxu3y"]
 
 [ext_resource type="Texture2D" uid="uid://de4ncv1h326l0" path="res://SCENES/CRAFT_STATION/bracelet_slot_texture.tres" id="1_2voyj"]
-[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_0qde3"]
 [ext_resource type="Script" uid="uid://bbxhjjxylx1ap" path="res://SCRIPTS/CRAFT_STATION/bead_slot.gd" id="2_aatqm"]
 [ext_resource type="LabelSettings" uid="uid://36xl0gfrun1m" path="res://ASSETS/Font/gui_point_label.tres" id="3_pyov1"]
 [ext_resource type="LabelSettings" uid="uid://dsbhln5iakbf7" path="res://ASSETS/Font/gui_mult_label.tres" id="4_r86f8"]
+[ext_resource type="PackedScene" uid="uid://dbkndg8s7akxg" path="res://SCENES/CRAFT_STATION/ability_icon.tscn" id="5_pyov1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qde3"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yeyyo"]
-atlas = ExtResource("2_0qde3")
-region = Rect2(0, 60, 20, 20)
 
 [node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons")]
 self_modulate = Color(0, 0, 0, 0.498039)
@@ -65,18 +61,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability1" unique_id=332374561]
+[node name="Icon" parent="AbilityIcons/Row1/Ability1" unique_id=118332374 instance=ExtResource("5_pyov1")]
 position = Vector2(11, 10)
-texture = SubResource("AtlasTexture_yeyyo")
 
 [node name="Ability2" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=1188986380]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability2" unique_id=958332418]
+[node name="Icon" parent="AbilityIcons/Row1/Ability2" unique_id=453219350 instance=ExtResource("5_pyov1")]
 position = Vector2(11, 10)
-texture = SubResource("AtlasTexture_yeyyo")
 
 [node name="Row2" type="HBoxContainer" parent="AbilityIcons" unique_id=1159261935]
 layout_mode = 2
@@ -88,6 +82,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row2/Ability3" unique_id=2144173521]
+[node name="Icon" parent="AbilityIcons/Row2/Ability3" unique_id=149927333 instance=ExtResource("5_pyov1")]
 position = Vector2(24, 10)
-texture = SubResource("AtlasTexture_yeyyo")

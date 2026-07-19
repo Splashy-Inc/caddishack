@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dbkndg8s7akxg"]
+
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_45ocw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeyyo"]
+atlas = ExtResource("1_45ocw")
+region = Rect2(0, 60, 20, 20)
+
+[node name="Icon" type="Sprite2D" unique_id=118332374]
+texture = SubResource("AtlasTexture_yeyyo")
