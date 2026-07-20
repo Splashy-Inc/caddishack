@@ -6,7 +6,7 @@ class_name BeadSlot
 @onready var points_label: Label = $Value/Points
 @onready var mult_label: Label = $Value/Mult
 
-@export var ability_icons : Array[Sprite2D]
+@export var ability_icons : Array[AbilityIcon]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,15 +21,15 @@ func load_abilities(abilities: Array[BeadAbilityInfo]):
 	reset_icons()
 	for i in ability_icons.size():
 		if i < abilities.size():
-			ability_icons[i].texture = abilities[i].icon
+			ability_icons[i].load_icons(abilities[i])
 			ability_icons[i].show()
 		else:
-			ability_icons[i].texture = null
+			ability_icons[i].reset_icon()
 			ability_icons[i].hide()
 
 func reset_icons():
 	for icon in ability_icons:
-		icon.texture = null
+		icon.reset_icon()
 		icon.hide()
 
 func reset_value():

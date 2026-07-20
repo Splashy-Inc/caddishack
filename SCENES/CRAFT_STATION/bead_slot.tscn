@@ -61,7 +61,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" parent="AbilityIcons/Row1/Ability1" unique_id=118332374 instance=ExtResource("5_pyov1")]
+[node name="Icon" parent="AbilityIcons/Row1/Ability1" unique_id=560328504 instance=ExtResource("5_pyov1")]
 position = Vector2(11, 10)
 
 [node name="Ability2" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=1188986380]

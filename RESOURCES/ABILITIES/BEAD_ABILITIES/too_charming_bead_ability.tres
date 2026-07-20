@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cnrrre31thu4f" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.gd" id="1_lcmpg"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pymp4"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjbqs"]
+atlas = SubResource("CompressedTexture2D_pymp4")
+region = Rect2(80, 0, 20, 20)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lcmpg"]
 load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
 
@@ -20,5 +27,6 @@ mult_bonus_tiers = Dictionary[int, int]({
 name = "Too Charming"
 description = "+Mult by # charm type in set: 1=+6, 2=+2, 3+=+0"
 icon = SubResource("AtlasTexture_pymp4")
+active_icon = SubResource("AtlasTexture_hjbqs")
 num_stacks = 1
 metadata/_custom_type_script = "uid://cnrrre31thu4f"
