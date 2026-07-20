@@ -2,6 +2,8 @@ extends BeadSet
 
 class_name Bracelet
 
+signal animated_value_calculated(value: int)
+
 @export var info : BraceletInfo
 
 var travel_target_global_position : Vector2
@@ -26,7 +28,7 @@ func _container_ready():
 
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position)
-	calculate_value(true)
+	#calculate_value()
 
 func get_open_slot_count():
 	var num_open_slots = 0
@@ -35,11 +37,13 @@ func get_open_slot_count():
 			num_open_slots += 1
 	return num_open_slots
 
-func calculate_value(is_animated: bool = false) -> int:
-	if is_animated:
-		for slot in bead_slots:
-			slot.calculate_value(info.get_bead_array_info())
+func calculate_value() -> int:
 	return info.calculate_value()
+
+func calculate_value_animated():
+	for slot in bead_slots:
+		await slot.calculate_value_animated(info.get_bead_array_info())
+	animated_value_calculated.emit(info.calculate_value())
 
 func is_complete() -> bool:
 	return get_beads().size() >= bead_slots.size()

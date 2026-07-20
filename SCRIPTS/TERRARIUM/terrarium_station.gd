@@ -53,7 +53,7 @@ func _on_next_button_pressed() -> void:
 func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 	card_hand.hide()
 	bead_scorer.show()
-	bead_scorer.score_beads(full_terrarium.get_beads())
+	bead_scorer.score_beads_animated(full_terrarium.get_beads())
 
 func _on_bead_scorer_beads_scored(score: int) -> void:
 	RunEvents.score_generated.emit(score)

@@ -123,3 +123,9 @@ func load_abilities():
 
 func clear_abilities():
 	info.clear_abilities()
+
+func toggle_color_highlight(is_highlighted: bool):
+	sand_sprite.material.set_shader_parameter("on", is_highlighted)
+	
+func toggle_charm_highlight(is_highlighted: bool):
+	item_sprite.material.set_shader_parameter("on", is_highlighted)

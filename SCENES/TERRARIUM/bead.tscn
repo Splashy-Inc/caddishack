@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_ebppn"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
 [ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="4_83cj8"]
+[ext_resource type="Shader" uid="uid://dj40a57yfeqqy" path="res://RESOURCES/SHADERS/highlight/highlight.gdshader" id="6_83cj8"]
+[ext_resource type="Material" uid="uid://cf3tuv5aidq14" path="res://RESOURCES/SHADERS/highlight/highlight_material.tres" id="6_360jh"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="6_pqv4s"]
 [ext_resource type="Texture2D" uid="uid://1igcsuser6x1" path="res://ASSETS/Art/TERRARIUM/CaddiCharms.png" id="7_wny20"]
 
@@ -21,6 +23,13 @@ resource_local_to_scene = true
 script = ExtResource("2_i8ivb")
 sand = SubResource("Resource_tohrt")
 special = SubResource("Resource_qg1fj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xocje"]
+resource_local_to_scene = true
+shader = ExtResource("6_83cj8")
+shader_parameter/line_color = Color(0.3647059, 0.54509807, 0.6156863, 1)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/on = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83cj8"]
 atlas = ExtResource("4_83cj8")
@@ -310,7 +319,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_apbex")
 }],
-"loop": false,
+"loop": 0,
 "name": &"COLORLESS",
 "speed": 4.0
 }, {
@@ -360,7 +369,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1kl0t")
 }],
-"loop": false,
+"loop": 0,
 "name": &"CYAN",
 "speed": 4.0
 }, {
@@ -410,7 +419,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ls4uo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"MAGENTA",
 "speed": 4.0
 }, {
@@ -460,7 +469,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7vbqh")
 }],
-"loop": false,
+"loop": 0,
 "name": &"YELLOW",
 "speed": 4.0
 }, {
@@ -477,7 +486,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gjsda")
 }],
-"loop": true,
+"loop": 1,
 "name": &"placeholder",
 "speed": 4.0
 }]
@@ -1016,7 +1025,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"BASIC",
 "speed": 5.0
 }, {
@@ -1066,7 +1075,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y4s4g")
 }],
-"loop": false,
+"loop": 0,
 "name": &"HEART",
 "speed": 1.0
 }, {
@@ -1116,7 +1125,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sir61")
 }],
-"loop": false,
+"loop": 0,
 "name": &"JIMMIE",
 "speed": 1.0
 }, {
@@ -1166,7 +1175,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nthst")
 }],
-"loop": false,
+"loop": 0,
 "name": &"PEARL",
 "speed": 1.0
 }, {
@@ -1216,7 +1225,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sncr0")
 }],
-"loop": false,
+"loop": 0,
 "name": &"SHELL",
 "speed": 1.0
 }, {
@@ -1266,7 +1275,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iemj6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"SPADE",
 "speed": 1.0
 }]
@@ -1280,6 +1289,7 @@ script = ExtResource("1_p27p0")
 info = SubResource("Resource_fx874")
 
 [node name="SandSprite" type="AnimatedSprite2D" parent="." unique_id=1501108153]
+material = SubResource("ShaderMaterial_xocje")
 sprite_frames = SubResource("SpriteFrames_ld082")
 animation = &"CYAN"
 autoplay = "COLORLESS"
@@ -1297,9 +1307,11 @@ anim_player = NodePath("..")
 parameters/incomplete/timescaled/TimeScale/scale = 1.0
 
 [node name="ItemSprite" type="AnimatedSprite2D" parent="." unique_id=633927193]
+material = ExtResource("6_360jh")
 sprite_frames = SubResource("SpriteFrames_mxfaq")
 animation = &"BASIC"
 autoplay = "BASIC"
+frame_progress = 0.094085
 
 [node name="ClickableArea" type="Area2D" parent="." unique_id=2128654152]
 visible = false

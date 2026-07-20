@@ -8,6 +8,8 @@ class_name BeadSlot
 
 @export var ability_icons : Array[AbilityIcon]
 
+@export var highlight_timeout := .5
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	reset_value()
@@ -68,3 +70,37 @@ func calculate_value(info: BeadArrayInfo):
 			if bead.info == bead_info:
 				set_points(bead_info.calculate_points(info))
 				set_mult(bead_info.calculate_mult(info))
+
+func calculate_value_animated(bead_array_info: BeadArrayInfo):
+	var bead := get_bead()
+	if is_instance_valid(bead):
+		for bead_info in bead_array_info.beads:
+			if bead.info == bead_info:
+				var value_breakdown := bead_info.get_value_breakdown(bead_array_info)
+				var points = value_breakdown["color_points"]
+				var mult = value_breakdown["charm_mult"]
+				
+				set_points(points)
+				bead.toggle_color_highlight(true)
+				await get_tree().create_timer(highlight_timeout).timeout
+				bead.toggle_color_highlight(false)
+				
+				set_mult(mult)
+				bead.toggle_charm_highlight(true)
+				await get_tree().create_timer(highlight_timeout).timeout
+				bead.toggle_charm_highlight(false)
+				
+				for ability_info in bead_info.abilities:
+					for icon in ability_icons:
+						if icon.info == ability_info:
+							icon.toggle_active(true)
+							if ability_info is BeadColorAbilityInfo:
+								points += value_breakdown["point_abilities"][ability_info]
+								set_points(points)
+							elif ability_info is BeadCharmAbilityInfo:
+								mult += value_breakdown["mult_abilities"][ability_info]
+								set_mult(mult)
+							await get_tree().create_timer(highlight_timeout).timeout
+							icon.toggle_active(false)
+				set_points(bead_info.calculate_points(bead_array_info))
+				set_mult(bead_info.calculate_mult(bead_array_info))

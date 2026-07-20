@@ -17,14 +17,28 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func set_beads(beads: Array[Bead]):
+	reset()
+	for bead in beads:
+		if bracelet_panel.bracelet.add_bead(bead):
+			info_panel.update_bracelet_info(bracelet_panel.bracelet)
+			await get_tree().create_timer(.1).timeout
+
 func score_beads(beads: Array[Bead]):
-	if not is_scoring_complete():
-		for bead in beads:
-			if bracelet_panel.bracelet.add_bead(bead):
-				info_panel.update_bracelet_info(bracelet_panel.bracelet)
-				await get_tree().create_timer(.1).timeout
-		score = bracelet_panel.bracelet.calculate_value()
-		beads_scored.emit(score)
+	set_beads(beads)
+	score = bracelet_panel.bracelet.calculate_value()
+	beads_scored.emit(score)
+
+func score_beads_animated(beads: Array[Bead]):
+	await set_beads(beads)
+	if not bracelet_panel.bracelet.animated_value_calculated.is_connected(_on_animated_value_calculated):
+		bracelet_panel.bracelet.animated_value_calculated.connect(_on_animated_value_calculated)
+	bracelet_panel.bracelet.calculate_value_animated()
+
+func _on_animated_value_calculated(value: int):
+	score = value
+	beads_scored.emit(value)
+	bracelet_panel.bracelet.animated_value_calculated.disconnect(_on_animated_value_calculated)
 
 func reset():
 	score = -1
