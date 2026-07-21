@@ -9,10 +9,12 @@ class_name BeadInfo
 const VALUE_BREAKDOWN_STRUCT := {
 	"color_points" : 0,
 	"charm_mult" : 0,
-	"point_abilities" : {
-	},
-	"mult_abilities" : {
-	},
+	"abilities" : {},
+}
+
+const ABILITY_BREAKDOWN_STRUCT := {
+	"value" : 0,
+	"affected_beads" : [],
 }
 
 func calculate_points(bead_array_info: BeadArrayInfo):
@@ -46,10 +48,10 @@ func get_value_breakdown(bead_array_info: BeadArrayInfo) -> Dictionary:
 		value_breakdown["charm_mult"] = 1
 		
 	for ability in abilities:
-		if ability is BeadColorAbilityInfo:
-			value_breakdown["point_abilities"][ability] = ability.use_ability(self, bead_array_info.get_beads())
-		elif ability is BeadCharmAbilityInfo:
-			value_breakdown["mult_abilities"][ability] = ability.use_ability(self, bead_array_info.get_beads())
+		value_breakdown["abilities"][ability] = ABILITY_BREAKDOWN_STRUCT.duplicate_deep()
+		value_breakdown["abilities"][ability]["value"] = ability.use_ability(self, bead_array_info.get_beads())
+		value_breakdown["abilities"][ability]["affected_beads"] = ability.get_affected_beads(self, bead_array_info.get_beads())
+	
 	return value_breakdown
 
 func add_ability(ability: BeadAbilityInfo):

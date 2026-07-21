@@ -92,25 +92,27 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo):
 				await get_tree().create_timer(highlight_timeout).timeout
 				bead.toggle_charm_highlight(false)
 				
-				if not bead_info.abilities.is_empty():
-					bead.toggle_color_highlight(true)
-					bead.toggle_charm_highlight(true)
 				for ability_info in bead_info.abilities:
 					for icon in ability_icons:
 						if icon.info == ability_info:
 							icon.toggle_active(true)
 							if ability_info is BeadColorAbilityInfo:
-								points += value_breakdown["point_abilities"][ability_info]
+								for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
+									BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
+								points += value_breakdown["abilities"][ability_info]["value"]
 								set_points(points)
 							elif ability_info is BeadCharmAbilityInfo:
-								mult += value_breakdown["mult_abilities"][ability_info]
+								for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
+									BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
+								mult += value_breakdown["abilities"][ability_info]["value"]
 								set_mult(mult)
 							await get_tree().create_timer(highlight_timeout).timeout
+							for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
+								BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
+								BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
 							icon.toggle_active(false)
 				set_points(bead_info.calculate_points(bead_array_info))
 				set_mult(bead_info.calculate_mult(bead_array_info))
-				bead.toggle_color_highlight(false)
-				bead.toggle_charm_highlight(false)
 				unlift_bead()
 
 func lift_bead():
