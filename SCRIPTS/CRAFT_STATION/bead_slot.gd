@@ -5,6 +5,7 @@ class_name BeadSlot
 @onready var slot_center: Marker2D = $SlotCenter
 @onready var points_label: Label = $Value/Points
 @onready var mult_label: Label = $Value/Mult
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var ability_icons : Array[AbilityIcon]
 
@@ -76,6 +77,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo):
 	if is_instance_valid(bead):
 		for bead_info in bead_array_info.beads:
 			if bead.info == bead_info:
+				lift_bead()
 				var value_breakdown := bead_info.get_value_breakdown(bead_array_info)
 				var points = value_breakdown["color_points"]
 				var mult = value_breakdown["charm_mult"]
@@ -90,6 +92,9 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo):
 				await get_tree().create_timer(highlight_timeout).timeout
 				bead.toggle_charm_highlight(false)
 				
+				if not bead_info.abilities.is_empty():
+					bead.toggle_color_highlight(true)
+					bead.toggle_charm_highlight(true)
 				for ability_info in bead_info.abilities:
 					for icon in ability_icons:
 						if icon.info == ability_info:
@@ -104,3 +109,12 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo):
 							icon.toggle_active(false)
 				set_points(bead_info.calculate_points(bead_array_info))
 				set_mult(bead_info.calculate_mult(bead_array_info))
+				bead.toggle_color_highlight(false)
+				bead.toggle_charm_highlight(false)
+				unlift_bead()
+
+func lift_bead():
+	animation_player.play("lift_bead", -1, 6.0)
+
+func unlift_bead():
+	animation_player.play("lift_bead", -1, -6.0, true)
