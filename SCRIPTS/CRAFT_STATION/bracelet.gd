@@ -28,7 +28,6 @@ func _container_ready():
 
 func position_bead(bead: Bead):
 	bead.travel_to(bead.get_parent().global_position)
-	#calculate_value()
 
 func get_open_slot_count():
 	var num_open_slots = 0
