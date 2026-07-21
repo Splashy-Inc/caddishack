@@ -27,7 +27,7 @@ special = SubResource("Resource_qg1fj")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xocje"]
 resource_local_to_scene = true
 shader = ExtResource("6_83cj8")
-shader_parameter/line_color = Color(0.3647059, 0.54509807, 0.6156863, 1)
+shader_parameter/line_color = Color(10.995, 10.995, 0, 1)
 shader_parameter/line_thickness = 2.000000095
 shader_parameter/on = false
 
@@ -1311,7 +1311,6 @@ material = ExtResource("6_360jh")
 sprite_frames = SubResource("SpriteFrames_mxfaq")
 animation = &"BASIC"
 autoplay = "BASIC"
-frame_progress = 0.094085
 
 [node name="ClickableArea" type="Area2D" parent="." unique_id=2128654152]
 visible = false
