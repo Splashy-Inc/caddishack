@@ -1,10 +1,16 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://cqe3jf4ia3cgx"]
 
-[ext_resource type="Texture2D" uid="uid://b3oatx07q1rnh" path="res://ASSETS/Art/GUI/Red_Button_Background.png" id="1_5ye56"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="1_hgdad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx3al"]
+atlas = ExtResource("1_hgdad")
+region = Rect2(0, 0, 128, 128)
 
 [resource]
-texture = ExtResource("1_5ye56")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture = SubResource("AtlasTexture_cx3al")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_top = 4.0
+expand_margin_bottom = 8.0

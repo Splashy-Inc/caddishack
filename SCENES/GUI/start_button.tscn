@@ -2,9 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="1_la1id"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="2_ufvro"]
+[ext_resource type="StyleBox" uid="uid://bckhto52x32om" path="res://RESOURCES/button_box_pressed_hover.tres" id="3_2quyk"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="3_e1wgb"]
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="4_mmupx"]
 [ext_resource type="Script" uid="uid://bptuqxn33vrtu" path="res://SCRIPTS/GUI/start_button.gd" id="5_ufvro"]
+[ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="5_uiy2g"]
 
 [sub_resource type="Theme" id="Theme_o2nxr"]
 default_font = ExtResource("1_la1id")
@@ -12,15 +14,16 @@ default_font_size = 32
 Button/colors/font_color = Color(0.941176, 0.827451, 0.760784, 1)
 Button/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 Button/constants/outline_size = 5
+Button/styles/disabled = ExtResource("4_mmupx")
+Button/styles/hover = ExtResource("3_e1wgb")
+Button/styles/hover_pressed = ExtResource("3_2quyk")
+Button/styles/normal = ExtResource("2_ufvro")
+Button/styles/pressed = ExtResource("5_uiy2g")
 
 [node name="StartButton" type="Button" unique_id=1561983071]
 custom_minimum_size = Vector2(100, 20)
 theme = SubResource("Theme_o2nxr")
 theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = ExtResource("2_ufvro")
-theme_override_styles/hover = ExtResource("3_e1wgb")
-theme_override_styles/hover_pressed = ExtResource("3_e1wgb")
-theme_override_styles/disabled = ExtResource("4_mmupx")
 text = "Start"
 script = ExtResource("5_ufvro")
 
