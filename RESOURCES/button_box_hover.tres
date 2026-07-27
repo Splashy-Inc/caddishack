@@ -4,7 +4,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kev4w"]
 atlas = ExtResource("1_4qdgs")
-region = Rect2(1024, 704, 192, 128)
+region = Rect2(832, 704, 192, 128)
 
 [resource]
 texture = SubResource("AtlasTexture_kev4w")
@@ -15,4 +15,3 @@ texture_margin_bottom = 14.0
 expand_margin_left = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 6.0
-modulate_color = Color(0.60933, 0.60933, 0.60933, 1)

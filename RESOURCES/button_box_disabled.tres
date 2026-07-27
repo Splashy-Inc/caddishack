@@ -4,13 +4,14 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cx3al"]
 atlas = ExtResource("1_hgdad")
-region = Rect2(0, 0, 128, 128)
+region = Rect2(640, 832, 192, 128)
 
 [resource]
 texture = SubResource("AtlasTexture_cx3al")
-texture_margin_left = 6.0
+texture_margin_left = 14.0
 texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-expand_margin_top = 4.0
-expand_margin_bottom = 8.0
+texture_margin_right = 26.0
+texture_margin_bottom = 14.0
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 6.0
