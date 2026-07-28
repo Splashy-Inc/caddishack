@@ -22,7 +22,7 @@ var test_run_info := preload("res://RESOURCES/test_run.tres")
 func _ready() -> void:
 	score_generated.connect(change_score)
 	round_started.connect(increment_round)
-	load_run_info(test_run_info)
+	load_run_info(new_run_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
