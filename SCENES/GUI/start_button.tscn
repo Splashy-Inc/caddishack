@@ -18,6 +18,7 @@ Button/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 Button/colors/font_pressed_color = Color(0.9411765, 0.827451, 0.7607843, 1)
 Button/constants/outline_size = 5
 Button/styles/disabled = ExtResource("4_mmupx")
+Button/styles/focus = ExtResource("3_e1wgb")
 Button/styles/hover = ExtResource("3_e1wgb")
 Button/styles/hover_pressed = ExtResource("5_uiy2g")
 Button/styles/normal = ExtResource("2_ufvro")

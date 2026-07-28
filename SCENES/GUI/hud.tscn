@@ -32,8 +32,13 @@ offset_bottom = 360.0
 [node name="ControlsScreen" parent="MenuScreens" unique_id=1678435254 instance=ExtResource("4_sgjn6")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_right = 1280.0
 offset_bottom = 720.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="WinScreen" parent="MenuScreens" unique_id=2007799528 instance=ExtResource("6_s7jfo")]
 visible = false

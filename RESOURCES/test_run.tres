@@ -9,5 +9,5 @@
 [resource]
 script = ExtResource("3_41am5")
 cur_round = 3
-score = 400
+score = -100
 deck = ExtResource("1_oirf4")
