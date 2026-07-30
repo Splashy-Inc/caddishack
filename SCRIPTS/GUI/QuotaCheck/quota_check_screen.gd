@@ -33,9 +33,6 @@ func fail_quota():
 	title.text = "Quota Failed!"
 	next_button.hide()
 	restart_button.show()
-	#RunEvents.reset_run()
-	#await get_tree().create_timer(1.0).timeout
-	#ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
 
 func _on_next_button_pressed() -> void:
 	if RunEvents.check_quota():

@@ -21,7 +21,6 @@ func set_beads(beads: Array[Bead]):
 	reset()
 	for bead in beads:
 		if bracelet_panel.bracelet.add_bead(bead):
-			#info_panel.update_bracelet_info(bracelet_panel.bracelet)
 			await get_tree().create_timer(.1).timeout
 
 func score_beads(beads: Array[Bead]):
