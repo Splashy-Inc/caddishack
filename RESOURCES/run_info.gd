@@ -10,4 +10,5 @@ class_name RunInfo
 @export var default_names := ["James","Jimbo","J.J.","Jay","Jamie","Jim","Jim Jim","Jim Jam","Slim Jim","Jimothy","Jiminy ","Jimmy-John","Jimmy-Jane","Jimmy-Joe","Jimmy-Lee","Jimmy-Rose","Jimmy-Jean","Jimmy-Dean","Jimmy-Ellie-May","Donald",]
 @export var available_shop_abilities := [preload("uid://cjcvtvdc83kbk"),
 										preload("uid://cr1v4818qsbg4"),
-										preload("uid://d24uyn8orn65n"),]
+										preload("uid://d24uyn8orn65n"),
+										preload("uid://cxuu8ukrpbpy7"),] as Array[ShopAbilityInfo]

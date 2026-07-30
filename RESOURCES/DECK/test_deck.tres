@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="3_oyug0"]
 [ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="4_k11nw"]
 [ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="5_v1nv0"]
+[ext_resource type="Resource" uid="uid://bbuq5n0pob56i" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/big_set_charms_bead_ability.tres" id="6_k11nw"]
 
 [sub_resource type="Resource" id="Resource_q338q"]
 script = ExtResource("1_q2f4l")
@@ -83,18 +84,22 @@ metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_6yl6g"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_trx43"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_q4xwd"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_qrfah"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [resource]
