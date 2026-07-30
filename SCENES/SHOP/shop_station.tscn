@@ -179,6 +179,7 @@ label_settings = ExtResource("13_klhbm")
 horizontal_alignment = 1
 
 [node name="ItemPanel" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection" unique_id=591457517]
+custom_minimum_size = Vector2(560, 560)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
