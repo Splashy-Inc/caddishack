@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cuaw4ejqtgj1r" path="res://SCRIPTS/CRAFT_STATION/bracelet_info_panel.gd" id="1_7kj4q"]
 [ext_resource type="Texture2D" uid="uid://cmuoseeihhp3q" path="res://ASSETS/Art/CRAFT_STATION/Run_Display.png" id="1_125mw"]
 [ext_resource type="LabelSettings" uid="uid://cl0nus6vr1r1s" path="res://ASSETS/Font/gui_label.tres" id="3_vbtn1"]
+[ext_resource type="LabelSettings" uid="uid://b6ai8nphacpi7" path="res://ASSETS/Font/gui_point_sublabel.tres" id="4_kny5g"]
+[ext_resource type="LabelSettings" uid="uid://c6jawqp8323jt" path="res://ASSETS/Font/gui_mult_sublabel.tres" id="5_271bc"]
+[ext_resource type="LabelSettings" uid="uid://dpdm2gqwudm4w" path="res://ASSETS/Font/gui_value_sublabel.tres" id="6_271bc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goyfq"]
 atlas = ExtResource("1_125mw")
@@ -42,22 +45,20 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.3647059, 0.54509807, 0.6156863, 1)
-theme_override_colors/font_outline_color = Color(0.007843138, 0.019607844, 0.08627451, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "Points"
+label_settings = ExtResource("4_kny5g")
 horizontal_alignment = 1
 
 [node name="PointsNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1453288698]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.3647059, 0.54509807, 0.6156863, 1)
-theme_override_colors/font_outline_color = Color(0.007843138, 0.019607844, 0.08627451, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "0"
+label_settings = ExtResource("4_kny5g")
 horizontal_alignment = 1
 
 [node name="MultLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1437237137]
@@ -69,37 +70,35 @@ theme_override_colors/font_outline_color = Color(0.10980392, 0, 0.105882354, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "Multiplier"
+label_settings = ExtResource("5_271bc")
 horizontal_alignment = 1
 
 [node name="MultNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=2064658862]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.6117647, 0.4627451, 0.6431373, 1)
-theme_override_colors/font_outline_color = Color(0.10980392, 0, 0.105882354, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "0"
+label_settings = ExtResource("5_271bc")
 horizontal_alignment = 1
 
 [node name="ValueLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1068725617]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_outline_color = Color(0.1882353, 0.03529412, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "Value"
+label_settings = ExtResource("6_271bc")
 horizontal_alignment = 1
 
 [node name="ValueNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1820600488]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(1, 0.69411767, 0, 1)
-theme_override_colors/font_outline_color = Color(0.1882353, 0.03529412, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "0"
+label_settings = ExtResource("6_271bc")
 horizontal_alignment = 1

@@ -4,6 +4,8 @@ extends PanelContainer
 @export var transfer_time_sec := 2.0
 
 @onready var title: Label = $PanelContainer/VBoxContainer/Title
+@onready var next_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/Control3/NextButton
+@onready var restart_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/Control3/RestartButton
 
 var check_quota : int
 
@@ -23,18 +25,17 @@ func _process(delta: float) -> void:
 			await get_tree().create_timer(1.0).timeout
 			ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
 
-func _on_timer_timeout() -> void:
-	if RunEvents.check_quota():
-		pass_quota()
-	else:
-		fail_quota()
-
 func pass_quota():
 	title.text = "Quota Passed!"
 	check_quota = RunEvents.get_quota()
 
 func fail_quota():
 	title.text = "Quota Failed!"
-	RunEvents.reset_run()
-	await get_tree().create_timer(1.0).timeout
-	ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+	next_button.hide()
+	restart_button.show()
+
+func _on_next_button_pressed() -> void:
+	if RunEvents.check_quota():
+		pass_quota()
+	else:
+		fail_quota()

@@ -1,13 +1,17 @@
 [gd_resource type="StyleBoxTexture" format=3 uid="uid://clyq3pof6wks3"]
 
-[ext_resource type="Texture2D" uid="uid://dtvhfr22op0fb" path="res://ASSETS/Art/CRAFT_STATION/Bead_Pile.png" id="1_nnhh7"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="1_esk5s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vpjn"]
-atlas = ExtResource("1_nnhh7")
+atlas = ExtResource("1_esk5s")
+region = Rect2(640, 704, 192, 128)
 
 [resource]
 texture = SubResource("AtlasTexture_7vpjn")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
+texture_margin_left = 14.0
+texture_margin_top = 6.0
+texture_margin_right = 26.0
+texture_margin_bottom = 14.0
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 6.0

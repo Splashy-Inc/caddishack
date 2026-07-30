@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dbkndg8s7akxg"]
+
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_45ocw"]
+[ext_resource type="Script" uid="uid://bhavuu80au6cq" path="res://SCENES/CRAFT_STATION/ability_icon.gd" id="1_vgk8t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmx7e"]
+atlas = ExtResource("1_45ocw")
+region = Rect2(0, 60, 20, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_45ocw"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgk8t"]
+atlas = SubResource("CompressedTexture2D_45ocw")
+region = Rect2(60, 60, 20, 20)
+
+[node name="AbilityIcon" type="Node2D" unique_id=560328504]
+script = ExtResource("1_vgk8t")
+
+[node name="Neutral" type="Sprite2D" parent="." unique_id=1006631543]
+texture = SubResource("AtlasTexture_rmx7e")
+
+[node name="Active" type="Sprite2D" parent="." unique_id=1430548923]
+visible = false
+texture = SubResource("AtlasTexture_vgk8t")

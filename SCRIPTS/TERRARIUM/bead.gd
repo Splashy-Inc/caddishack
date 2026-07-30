@@ -20,6 +20,8 @@ var is_travelling := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	BeadEvents.bead_color_highlight_toggle_requested.connect(_on_color_highlight_toggle_requested)
+	BeadEvents.bead_charm_highlight_toggle_requested.connect(_on_charm_highlight_toggle_requested)
 	set_completion_time(completion_time)
 	info = info.duplicate(true)
 	set_info(info)
@@ -123,3 +125,17 @@ func load_abilities():
 
 func clear_abilities():
 	info.clear_abilities()
+
+func toggle_color_highlight(is_highlighted: bool):
+	sand_sprite.material.set_shader_parameter("on", is_highlighted)
+	
+func toggle_charm_highlight(is_highlighted: bool):
+	item_sprite.material.set_shader_parameter("on", is_highlighted)
+
+func _on_color_highlight_toggle_requested(bead_info: BeadInfo, is_highlighted: bool):
+	if bead_info == info:
+		toggle_color_highlight(is_highlighted)
+
+func _on_charm_highlight_toggle_requested(bead_info: BeadInfo, is_highlighted: bool):
+	if bead_info == info:
+		toggle_charm_highlight(is_highlighted)

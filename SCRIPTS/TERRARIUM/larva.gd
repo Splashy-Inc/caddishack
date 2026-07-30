@@ -13,6 +13,7 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 @export var bead : Bead
 
+@onready var body_animated_sprite: AnimatedSprite2D = $Body
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var collection_area: Area2D = $CollectionArea
@@ -162,3 +163,8 @@ func add_ability(new_ability: AbilityInfo) -> bool:
 		return true
 	
 	return false
+
+func set_body_idle():
+	var random_index = randi_range(1, 3)
+	if not body_animated_sprite.animation.contains("idle"):
+		body_animated_sprite.play("idle_" + str(random_index))

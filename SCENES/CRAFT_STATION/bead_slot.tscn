@@ -1,14 +1,72 @@
 [gd_scene format=3 uid="uid://5xn7k3avxu3y"]
 
 [ext_resource type="Texture2D" uid="uid://de4ncv1h326l0" path="res://SCENES/CRAFT_STATION/bracelet_slot_texture.tres" id="1_2voyj"]
-[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_0qde3"]
 [ext_resource type="Script" uid="uid://bbxhjjxylx1ap" path="res://SCRIPTS/CRAFT_STATION/bead_slot.gd" id="2_aatqm"]
+[ext_resource type="LabelSettings" uid="uid://36xl0gfrun1m" path="res://ASSETS/Font/gui_point_label.tres" id="3_pyov1"]
+[ext_resource type="LabelSettings" uid="uid://dsbhln5iakbf7" path="res://ASSETS/Font/gui_mult_label.tres" id="4_r86f8"]
+[ext_resource type="PackedScene" uid="uid://dbkndg8s7akxg" path="res://SCENES/CRAFT_STATION/ability_icon.tscn" id="5_pyov1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qde3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yeyyo"]
-atlas = ExtResource("2_0qde3")
-region = Rect2(0, 60, 20, 20)
+[sub_resource type="Animation" id="Animation_pyov1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotCenter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlotCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r86f8"]
+resource_name = "lift_bead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotCenter:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SlotCenter:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3490658503988659, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lovp1"]
+_data = {
+&"RESET": SubResource("Animation_pyov1"),
+&"lift_bead": SubResource("Animation_r86f8")
+}
 
 [node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons")]
 self_modulate = Color(0, 0, 0, 0.498039)
@@ -17,6 +75,32 @@ script = ExtResource("2_aatqm")
 ability_icons = [NodePath("AbilityIcons/Row1/Ability1/Icon"), NodePath("AbilityIcons/Row1/Ability2/Icon"), NodePath("AbilityIcons/Row2/Ability3/Icon")]
 
 [node name="SlotCenter" type="Marker2D" parent="." unique_id=115898961]
+
+[node name="Value" type="VBoxContainer" parent="." unique_id=1563545247]
+custom_minimum_size = Vector2(128, 120)
+offset_left = -64.0
+offset_top = -160.0
+offset_right = 64.0
+offset_bottom = -40.0
+theme_override_constants/separation = 0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Points" type="Label" parent="Value" unique_id=1352767363]
+layout_mode = 2
+size_flags_vertical = 1
+text = "0"
+label_settings = ExtResource("3_pyov1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mult" type="Label" parent="Value" unique_id=1980862760]
+layout_mode = 2
+size_flags_vertical = 1
+text = "0"
+label_settings = ExtResource("4_r86f8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AbilityIcons" type="VBoxContainer" parent="." unique_id=1948432251]
 offset_left = -48.0
@@ -37,18 +121,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability1" unique_id=332374561]
+[node name="Icon" parent="AbilityIcons/Row1/Ability1" unique_id=560328504 instance=ExtResource("5_pyov1")]
 position = Vector2(11, 10)
-texture = SubResource("AtlasTexture_yeyyo")
 
 [node name="Ability2" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=1188986380]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row1/Ability2" unique_id=958332418]
+[node name="Icon" parent="AbilityIcons/Row1/Ability2" unique_id=453219350 instance=ExtResource("5_pyov1")]
 position = Vector2(11, 10)
-texture = SubResource("AtlasTexture_yeyyo")
 
 [node name="Row2" type="HBoxContainer" parent="AbilityIcons" unique_id=1159261935]
 layout_mode = 2
@@ -60,6 +142,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
-[node name="Icon" type="Sprite2D" parent="AbilityIcons/Row2/Ability3" unique_id=2144173521]
+[node name="Icon" parent="AbilityIcons/Row2/Ability3" unique_id=149927333 instance=ExtResource("5_pyov1")]
 position = Vector2(24, 10)
-texture = SubResource("AtlasTexture_yeyyo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=767631940]
+libraries/ = SubResource("AnimationLibrary_lovp1")

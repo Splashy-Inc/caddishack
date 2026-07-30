@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://k7ghjsy8g1k0"]
 
+[ext_resource type="PackedScene" uid="uid://fvqo1qe1kd3n" path="res://SCENES/GUI/main_menu/splash_screen.tscn" id="2_a16px"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="2_t4ldj"]
-[ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="3_10o7g"]
+[ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="3_bmvmn"]
 [ext_resource type="PackedScene" uid="uid://c1otanpx0pvxm" path="res://SCENES/GUI/main_menu/Menu_larva_1.tscn" id="4_hb3aj"]
 [ext_resource type="PackedScene" uid="uid://cgbdrhj2p6sin" path="res://SCENES/GUI/main_menu/Menu_larva_2.tscn" id="5_lsr8m"]
 [ext_resource type="Texture2D" uid="uid://bnp2q0bxwdejl" path="res://ASSETS/Art/GUI/Black_Semi_Trans.png" id="5_tkm0o"]
@@ -9,25 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://b55wovb2i7c7s" path="res://SCENES/GUI/start_button.tscn" id="6_k7bo5"]
 [ext_resource type="PackedScene" uid="uid://c8crwoa700a4l" path="res://SCENES/GUI/how_to_play_button.tscn" id="6_wpmqk"]
 [ext_resource type="PackedScene" uid="uid://do4he3vq6npki" path="res://SCENES/GUI/main_menu/Menu_larva_3.tscn" id="6_y3vti"]
-[ext_resource type="Texture2D" uid="uid://d0kqhtnu3hvca" path="res://ASSETS/Art/GUI/Bug_Overlord_1.png" id="11_bmvmn"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="12_1tren"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2mwv2"]
 font = ExtResource("12_1tren")
-font_size = 40
+font_size = 80
 font_color = Color(0.941176, 0.827451, 0.760784, 1)
-outline_size = 5
+outline_size = 16
 outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ucu1t"]
 font = ExtResource("12_1tren")
 font_size = 32
-font_color = Color(0.117647, 0.321569, 0.223529, 1)
+font_color = Color(0.19593626, 0.4889784, 0.3478298, 1)
 outline_size = 5
 outline_color = Color(0.054902, 0.14902, 0.105882, 1)
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.564706)
-shadow_offset = Vector2(3, 3)
 
 [sub_resource type="Animation" id="Animation_hakrt"]
 length = 0.001
@@ -216,6 +213,8 @@ grow_vertical = 2
 
 [node name="Craft_station_background" parent="." unique_id=485535588 instance=ExtResource("2_t4ldj")]
 
+[node name="SplashScreen" parent="." unique_id=987948715 instance=ExtResource("2_a16px")]
+
 [node name="MenuContent" type="VBoxContainer" parent="." unique_id=868902818]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 0
@@ -235,9 +234,8 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 108
-text = "CaddiShack
-"
-label_settings = ExtResource("3_10o7g")
+text = "CaddiShack"
+label_settings = ExtResource("3_bmvmn")
 horizontal_alignment = 1
 
 [node name="Subtitle" type="Label" parent="MenuContent" unique_id=1366647815]
@@ -280,6 +278,14 @@ texture = ExtResource("5_tkm0o")
 expand_mode = 2
 stretch_mode = 1
 
+[node name="Spacer2" type="TextureRect" parent="MenuContent" unique_id=125910145]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 90)
+layout_mode = 2
+texture = ExtResource("5_tkm0o")
+expand_mode = 2
+stretch_mode = 1
+
 [node name="…caddisfly" type="Label" parent="MenuContent" unique_id=382295981]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -296,6 +302,7 @@ libraries/ = SubResource("AnimationLibrary_bm7r2")
 autoplay = &"new_animation"
 
 [node name="Larvae" type="Node2D" parent="." unique_id=2104147273]
+visible = false
 
 [node name="MenuLarva_1" parent="Larvae" unique_id=1465352341 instance=ExtResource("4_hb3aj")]
 position = Vector2(649, -110)
@@ -320,8 +327,3 @@ rotation = -1.05869
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Larvae/MenuLarva_3" unique_id=174165123]
 libraries/ = SubResource("AnimationLibrary_126tu")
 autoplay = &"new_animation"
-
-[node name="BugOverlord1" type="Sprite2D" parent="." unique_id=1443478933]
-position = Vector2(916, 443)
-scale = Vector2(2, 2)
-texture = ExtResource("11_bmvmn")

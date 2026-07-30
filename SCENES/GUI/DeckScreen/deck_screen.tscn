@@ -45,6 +45,10 @@ region = Rect2(384, 0, 384, 384)
 atlas = ExtResource("4_q53bx")
 region = Rect2(768, 0, 384, 384)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss2ju"]
+atlas = ExtResource("4_q53bx")
+region = Rect2(768, 0, 384, 384)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_32x4l"]
 atlas = ExtResource("4_q53bx")
 region = Rect2(0, 384, 384, 384)
@@ -73,11 +77,14 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0tj61")
 }],
-"loop": false,
+"loop": 0,
 "name": &"activate",
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss2ju")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_32x4l")
 }, {
@@ -87,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r6jer")
 }],
-"loop": true,
+"loop": 1,
 "name": &"fire_lazer",
 "speed": 4.0
 }, {
@@ -95,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_flq6w")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 4.0
 }]
@@ -233,6 +240,7 @@ ability_item = NodePath("VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/Abili
 petri_dish = NodePath("VBoxContainer/PetriDishSpace/Center/PetriDish")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/AbilityLaserView" unique_id=260346815]
+z_index = 1
 layout_mode = 2
 theme_override_constants/separation = 16
 
@@ -249,9 +257,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Laser" type="AnimatedSprite2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center" unique_id=1240174142]
+position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_44cau")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.57802844
 
 [node name="AbilitySlot" type="PanelContainer" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser" unique_id=1254452592]
 offset_left = -96.0
