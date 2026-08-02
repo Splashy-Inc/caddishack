@@ -61,7 +61,7 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	if material_queue.is_empty() and body is BeadMaterial:
 		if not body.collected:
 			if body.info is SandMaterialInfo:
-				if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
+				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS], true).is_empty():
 					body.collected = true
 					body.remove_from_group("materials")
 					material_queue.append(body.info)
@@ -80,7 +80,7 @@ func place_material_from_queue():
 	if not material_queue.is_empty():
 		var material_to_place = material_queue.pop_front()
 		if material_to_place is SandMaterialInfo:
-			bead.set_color(material_to_place.color)
+			bead.add_color(material_to_place.colors.front())
 		elif material_to_place is SpecialMaterialInfo:
 			bead.set_special(material_to_place.type)
 
@@ -114,7 +114,7 @@ func _get_closest(nodes: Array) -> Node2D:
 		var closest_node
 		for node in nodes:
 			if node is SandMaterial:
-				if bead.has_sand_color():
+				if bead.is_sand_color_complete():
 					continue
 			else:
 				if bead.has_charm():
@@ -152,6 +152,7 @@ func load_abilities():
 			if ability is LarvaAbilityInfo:
 				ability.apply_ability(self)
 			elif ability is BeadAbilityInfo:
+				ability.apply_ability(bead)
 				bead.info.add_ability(ability)
 				bead.load_abilities()
 		else:

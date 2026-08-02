@@ -10,6 +10,8 @@ var travel_target_global_position : Vector2
 var travel_target_rotation : float
 var is_travelling := false
 
+@export var allowed_sand_colors = 1
+
 @export var completion_time := 1
 @export var complete := true
 
@@ -62,16 +64,18 @@ func set_info(new_info: BeadInfo):
 	if new_info == null:
 		new_info = BeadInfo.new()
 	new_info = new_info.duplicate(true)
-	if info.sand.color != new_info.sand.color:
-		set_color(new_info.sand.color)
+	if not info.sand.has_same_colors(new_info.sand):
+		set_sand(new_info.sand)
 	
 	if info.special.type != new_info.special.type:
 		set_special(new_info.special.type)
 
-func set_color(new_color: SandMaterialInfo.SandColor) -> bool:
-	if info.sand.color == SandMaterialInfo.SandColor.COLORLESS or new_color == SandMaterialInfo.SandColor.COLORLESS:
-		info.sand.color = new_color
-		sand_sprite.set_animation(SandMaterialInfo.SandColor.keys()[info.sand.color])
+func set_sand(new_sand: SandMaterialInfo):
+	info.sand = new_sand
+
+func add_color(new_color: SandMaterialInfo.SandColor) -> bool:
+	if info.sand.add_color(new_color):
+		update_sand_sprites(info.sand)
 		check_completed()
 		return true
 	return false
@@ -93,12 +97,12 @@ func force_complete():
 	check_completed()
 
 func is_completed():
-	if has_sand_color() and has_charm():
+	if is_sand_color_complete() and has_charm():
 		complete = true
 	return complete
 
-func has_sand_color():
-	return info.sand.color != null and info.sand.color != SandMaterialInfo.SandColor.COLORLESS
+func is_sand_color_complete():
+	return info.sand.get_unique_colors().size() >= allowed_sand_colors
 
 func has_charm():
 	return info.special.type != null and info.special.type != SpecialMaterialInfo.SpecialType.BASIC
@@ -139,3 +143,7 @@ func _on_color_highlight_toggle_requested(bead_info: BeadInfo, is_highlighted: b
 func _on_charm_highlight_toggle_requested(bead_info: BeadInfo, is_highlighted: bool):
 	if bead_info == info:
 		toggle_charm_highlight(is_highlighted)
+
+func update_sand_sprites(sand_info: SandMaterialInfo):
+	# TODO: Make this work with multiple colors
+	sand_sprite.set_animation(SandMaterialInfo.SandColor.keys()[sand_info.get_unique_colors().front()])

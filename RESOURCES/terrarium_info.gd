@@ -25,7 +25,7 @@ func randomize_materials(num_sand : int = base_num_sand, num_charm : int = base_
 	var new_materials : Array[MaterialInfo]
 	for i in num_sand:
 		var new_sand := SandMaterialInfo.new()
-		new_sand.color = sand_weights.keys()[rng.rand_weighted(sand_weights.values())]
+		new_sand.add_color(sand_weights.keys()[rng.rand_weighted(sand_weights.values())])
 		new_materials.append(new_sand)
 	
 	for i in num_charm:
