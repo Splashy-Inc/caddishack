@@ -8,7 +8,10 @@ class_name LarvaInfo
 const MAX_NUM_ABILITIES = 3
 
 func add_ability(ability: AbilityInfo) -> bool:
-	if abilities.size() < MAX_NUM_ABILITIES and not ability in abilities:
+	if ability in abilities:
+		if ability.change_stacks(1):
+			return true
+	elif abilities.size() < MAX_NUM_ABILITIES:
 		abilities.append(ability.duplicate())
 		return true
 	

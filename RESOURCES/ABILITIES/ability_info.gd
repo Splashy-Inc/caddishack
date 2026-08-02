@@ -23,5 +23,11 @@ func _apply_ability() -> bool:
 	
 	return false
 
-func change_stacks(change: int):
-	num_stacks = clamp(num_stacks + change, 0, max_stacks)
+func change_stacks(change: int) -> bool:
+	var new_stacks = num_stacks + change
+	
+	if new_stacks > max_stacks:
+		return false
+	
+	num_stacks = clamp(new_stacks, 0, max_stacks)
+	return true
