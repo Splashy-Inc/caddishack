@@ -53,5 +53,11 @@ func get_matching_colors(colors_to_match: Array[SandColor], include_colorless: b
 			matching_colors.append(color)
 	return matching_colors
 
+func is_complete():
+	for color in colors:
+		if color == SandColor.COLORLESS:
+			return false
+	return true
+
 func reset_colors():
 	colors = [SandColor.COLORLESS]

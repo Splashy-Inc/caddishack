@@ -10,8 +10,6 @@ var travel_target_global_position : Vector2
 var travel_target_rotation : float
 var is_travelling := false
 
-@export var allowed_sand_colors = 1
-
 @export var completion_time := 1
 @export var complete := true
 
@@ -103,7 +101,7 @@ func is_completed():
 	return complete
 
 func is_sand_color_complete():
-	return info.sand.get_unique_colors().size() >= allowed_sand_colors
+	return info.sand.is_complete()
 
 func has_charm():
 	return info.special.type != null and info.special.type != SpecialMaterialInfo.SpecialType.BASIC

@@ -114,7 +114,7 @@ func _get_closest(nodes: Array) -> Node2D:
 		var closest_node
 		for node in nodes:
 			if node is SandMaterial:
-				if bead.is_sand_color_complete():
+				if bead.is_sand_color_complete() or bead.info.sand.has_matching_color(node.info):
 					continue
 			else:
 				if bead.has_charm():
