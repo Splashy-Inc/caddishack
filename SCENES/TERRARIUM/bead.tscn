@@ -1641,7 +1641,7 @@ autoplay = "COLORLESS"
 [node name="ItemSprite" type="AnimatedSprite2D" parent="." unique_id=633927193]
 material = ExtResource("6_360jh")
 sprite_frames = SubResource("SpriteFrames_mxfaq")
-animation = &"HEART"
+animation = &"BASIC"
 autoplay = "BASIC"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1963746364]

@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="4_k11nw"]
 [ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="5_v1nv0"]
 [ext_resource type="Resource" uid="uid://bbuq5n0pob56i" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/big_set_charms_bead_ability.tres" id="6_k11nw"]
+[ext_resource type="Resource" uid="uid://co053gn62jucq" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/multi_color_bead_ability.tres" id="6_v1nv0"]
 
 [sub_resource type="Resource" id="Resource_q338q"]
 script = ExtResource("1_q2f4l")
@@ -40,6 +41,7 @@ metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_mcoxs"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_v1nv0"), ExtResource("4_k11nw"), ExtResource("6_k11nw")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_4dy1u"]
@@ -49,18 +51,22 @@ metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_md7jb"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_v1nv0")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_s5gay"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_v1nv0")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_pe14e"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_v1nv0")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_1psdt"]
 script = ExtResource("1_q2f4l")
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0"), ExtResource("6_v1nv0"), ExtResource("3_oyug0")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_blope"]
