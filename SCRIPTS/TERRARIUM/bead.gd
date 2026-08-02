@@ -15,10 +15,11 @@ var is_travelling := false
 @export var completion_time := 1
 @export var complete := true
 
-@onready var sand_sprite: AnimatedSprite2D = $SandSprite
+@export var sand_sprites : Array[AnimatedSprite2D]
+
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
-@onready var animation_tree: AnimationTree = $SandSprite/AnimationPlayer/AnimationTree
+@onready var animation_tree: AnimationTree = $AnimationPlayer/AnimationTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -131,7 +132,8 @@ func clear_abilities():
 	info.clear_abilities()
 
 func toggle_color_highlight(is_highlighted: bool):
-	sand_sprite.material.set_shader_parameter("on", is_highlighted)
+	for sand_sprite in sand_sprites:
+		sand_sprite.material.set_shader_parameter("on", is_highlighted)
 	
 func toggle_charm_highlight(is_highlighted: bool):
 	item_sprite.material.set_shader_parameter("on", is_highlighted)
@@ -145,5 +147,8 @@ func _on_charm_highlight_toggle_requested(bead_info: BeadInfo, is_highlighted: b
 		toggle_charm_highlight(is_highlighted)
 
 func update_sand_sprites(sand_info: SandMaterialInfo):
-	# TODO: Make this work with multiple colors
-	sand_sprite.set_animation(SandMaterialInfo.SandColor.keys()[sand_info.get_unique_colors().front()])
+	for i in sand_sprites.size():
+		if i < sand_info.get_unique_colors().size():
+			sand_sprites[i].set_animation(SandMaterialInfo.SandColor.keys()[sand_info.get_unique_colors()[i]])
+		else:
+			sand_sprites[i].set_animation(SandMaterialInfo.SandColor.keys()[SandMaterialInfo.SandColor.COLORLESS])
