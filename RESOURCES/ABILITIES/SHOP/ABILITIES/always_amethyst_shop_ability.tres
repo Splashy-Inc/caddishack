@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://dw4nxo1xjbug4"]
+
+[ext_resource type="Resource" uid="uid://bh14q3x27s0si" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_amethyst_bead_ability.tres" id="1_ytgm7"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_fbbpr"]
+
+[resource]
+script = ExtResource("2_fbbpr")
+ability = ExtResource("1_ytgm7")
+base_cost = 20
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"
