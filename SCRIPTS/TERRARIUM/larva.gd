@@ -61,12 +61,15 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	if material_queue.is_empty() and body is BeadMaterial:
 		if not body.collected:
 			if body.info is SandMaterialInfo:
+				# Make sure there's a colorless to replace
 				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS], true).is_empty():
-					body.collected = true
-					body.remove_from_group("materials")
-					material_queue.append(body.info)
-					body.queue_free()
-					animation_player.play("collect")
+					# Make sure this color doesn't already exist on this bead
+					if not bead.info.sand.has_matching_color(body.info):
+						body.collected = true
+						body.remove_from_group("materials")
+						material_queue.append(body.info)
+						body.queue_free()
+						animation_player.play("collect")
 			
 			if body.info is SpecialMaterialInfo:
 				if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
