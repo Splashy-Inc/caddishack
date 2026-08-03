@@ -9,6 +9,8 @@ signal load_info_completed(success: bool)
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var icon_space: PanelContainer = $ItemSpace/TopHalf/IconSpace
+@onready var active_icon_sprite: Sprite2D = $ItemSpace/TopHalf/IconSpace/Center/ActiveIcon
+@onready var center: Control = $ItemSpace/TopHalf/IconSpace/Center
 @onready var icon_sprite: Sprite2D = $ItemSpace/TopHalf/IconSpace/Center/Icon
 @onready var name_label: Label = $ItemSpace/TopHalf/TopRightSpace/Name
 @onready var cost_label: Label = $ItemSpace/TopHalf/TopRightSpace/Cost
@@ -39,7 +41,9 @@ func load_info(new_info: ShopItemInfo):
 		info = new_info
 		
 		icon_sprite.texture = info.get_icon()
+		active_icon_sprite.texture = info.get_active_icon()
 		icon_sprite.scale = Vector2(1,1) * icon_space.size.x/icon_sprite.texture.get_size().x
+		active_icon_sprite.scale = Vector2(1,1) * icon_space.size.x/active_icon_sprite.texture.get_size().x
 		name_label.text = info.get_item_name()
 		cost_label.text = "$" + str(info.get_base_cost())
 		description_label.text = info.get_description()

@@ -3,9 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://ddp3hd6wawxtu" path="res://ASSETS/Art/SHOP/SplashyFish.png" id="1_uuqy6"]
 [ext_resource type="Script" uid="uid://b3aah41smm1u6" path="res://RESOURCES/ABILITIES/SHOP/ITEMS/shop_item_info.gd" id="2_ctfor"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c1q3"]
+atlas = ExtResource("1_uuqy6")
+region = Rect2(40, 120, 40, 40)
+
 [resource]
 script = ExtResource("2_ctfor")
 icon = ExtResource("1_uuqy6")
+active_icon = SubResource("AtlasTexture_4c1q3")
 item_name = "Example item 1"
 base_cost = 25
 description = "An example item. Max length is this."
