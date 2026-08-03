@@ -155,11 +155,10 @@ func load_abilities():
 			if ability is LarvaAbilityInfo:
 				ability.apply_ability(self)
 			elif ability is BeadAbilityInfo:
-				ability.apply_ability(bead)
 				bead.info.add_ability(ability)
-				bead.load_abilities()
 		else:
 			ability_icons[i].texture = null
+	bead.load_abilities()
 
 func add_ability(new_ability: AbilityInfo) -> bool:
 	if info.add_ability(new_ability):

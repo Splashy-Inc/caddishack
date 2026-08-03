@@ -35,7 +35,9 @@ func change_stacks(change: int) -> bool:
 func get_matching_abilities(abilities: Array) -> Array:
 	var matching_abilities : Array
 	for ability in abilities:
-		if ability is AbilityInfo:
+		if ability is AlwaysColorBeadAbility and self is AlwaysColorBeadAbility:
+			matching_abilities.append(ability)
+		elif ability is AbilityInfo:
 			if ability.name == name:
 				matching_abilities.append(ability)
 	return matching_abilities

@@ -125,6 +125,7 @@ func set_completion_time(seconds: float):
 func load_abilities():
 	for ability in info.abilities:
 		ability.apply_ability(self)
+	update_sand_sprites(info.sand)
 
 func clear_abilities():
 	info.clear_abilities()

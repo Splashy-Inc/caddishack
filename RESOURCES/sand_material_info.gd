@@ -21,7 +21,7 @@ func get_unique_colors(include_colorless: bool = false) -> Array[SandColor]:
 
 func add_color(new_color: SandColor, overwrite_colorless: bool = true) -> bool:
 	if overwrite_colorless:
-		if colors.has(SandColor.COLORLESS):
+		if colors.has(SandColor.COLORLESS) and get_matching_colors([new_color]).is_empty():
 			colors[colors.find(SandColor.COLORLESS)] = new_color
 		else:
 			return false

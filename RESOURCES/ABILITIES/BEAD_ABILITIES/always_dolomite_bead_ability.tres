@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AlwaysColorBeadAbility" format=3 uid="uid://8cdcook8lkoo"]
+
+[ext_resource type="Script" uid="uid://2y7v2xqewast" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_color_bead_ability.gd" id="1_cpccl"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_imoqx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kx5dp"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_460ul"]
+atlas = SubResource("CompressedTexture2D_kx5dp")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imoqx"]
+atlas = ExtResource("1_imoqx")
+region = Rect2(0, 0, 20, 20)
+
+[resource]
+script = ExtResource("1_cpccl")
+color = 1
+name = "Always Dolomite"
+description = "Bead starts with Dolomite (Blue)"
+icon = SubResource("AtlasTexture_imoqx")
+active_icon = SubResource("AtlasTexture_460ul")
+max_stacks = 1
+metadata/_custom_type_script = "uid://2y7v2xqewast"
