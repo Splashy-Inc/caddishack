@@ -106,7 +106,7 @@ func initialize(new_info: LarvaInfo):
 func set_info(new_info: LarvaInfo):
 	if new_info == null:
 		new_info = LarvaInfo.new()
-	info = new_info.duplicate(true)
+	info = new_info
 
 func update_type():
 	pass

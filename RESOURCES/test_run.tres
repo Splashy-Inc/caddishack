@@ -8,6 +8,11 @@
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="3_xnau3"]
 [ext_resource type="Resource" uid="uid://cxuu8ukrpbpy7" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/big_set_charms_shop_ability.tres" id="5_bl0mt"]
 [ext_resource type="Resource" uid="uid://b68ptgvp5mhj3" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/multi_color_bead_shop_ability.tres" id="6_bl0mt"]
+[ext_resource type="Resource" uid="uid://b717al2bimweq" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/always_dolomite_shop_ability.tres" id="7_ltuxm"]
+[ext_resource type="Resource" uid="uid://dw4nxo1xjbug4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/always_amethyst_shop_ability.tres" id="8_f7emn"]
+[ext_resource type="Resource" uid="uid://csk0mcs73aud0" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/always_citrine_shop_ability.tres" id="9_1d163"]
+[ext_resource type="Resource" uid="uid://dq85imxfshxej" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/resourceful_larva_shop_ability.tres" id="10_5w75c"]
+[ext_resource type="Resource" uid="uid://cu2a7esxr4q2v" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/sand_synergy_shop_ability.tres" id="11_d35tu"]
 
 [resource]
 script = ExtResource("3_41am5")
