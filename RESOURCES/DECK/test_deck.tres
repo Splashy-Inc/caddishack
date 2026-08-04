@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bctoagob0npjk" path="res://RESOURCES/DECK/deck_info.gd" id="2_3edhx"]
 [ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="3_oyug0"]
 [ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="4_k11nw"]
+[ext_resource type="Resource" uid="uid://31shunna6n1a" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/sand_synergy_bead_ability.tres" id="4_yvcgr"]
 [ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="5_v1nv0"]
 [ext_resource type="Resource" uid="uid://bbuq5n0pob56i" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/big_set_charms_bead_ability.tres" id="6_k11nw"]
 [ext_resource type="Resource" uid="uid://co053gn62jucq" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/multi_color_bead_ability.tres" id="6_v1nv0"]
@@ -15,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_q338q"]
 script = ExtResource("1_q2f4l")
-abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0")])
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("3_oyug0"), ExtResource("4_yvcgr")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_y3dj5"]
@@ -40,7 +41,7 @@ metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_o71me"]
 script = ExtResource("1_q2f4l")
-abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0")])
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("5_v1nv0"), ExtResource("4_yvcgr")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_mcoxs"]
@@ -105,7 +106,7 @@ metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_q4xwd"]
 script = ExtResource("1_q2f4l")
-abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw")])
+abilities = Array[ExtResource("2_3dxbl")]([ExtResource("6_k11nw"), ExtResource("4_yvcgr")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [sub_resource type="Resource" id="Resource_qrfah"]

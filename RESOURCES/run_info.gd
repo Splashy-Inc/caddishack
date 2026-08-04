@@ -16,4 +16,5 @@ class_name RunInfo
 										preload("uid://b717al2bimweq"),
 										preload("uid://dw4nxo1xjbug4"),
 										preload("uid://csk0mcs73aud0"),
-										preload("uid://dq85imxfshxej"),] as Array[ShopAbilityInfo]
+										preload("uid://dq85imxfshxej"),
+										preload("uid://cu2a7esxr4q2v"),] as Array[ShopAbilityInfo]

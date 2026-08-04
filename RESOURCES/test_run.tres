@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cb6o2dvw1734g" path="res://RESOURCES/run_info.gd" id="3_41am5"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="3_xnau3"]
 [ext_resource type="Resource" uid="uid://cxuu8ukrpbpy7" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/big_set_charms_shop_ability.tres" id="5_bl0mt"]
-[ext_resource type="Resource" uid="uid://b68ptgvp5mhj3" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/mult_color_bead_shop_ability.tres" id="6_bl0mt"]
+[ext_resource type="Resource" uid="uid://b68ptgvp5mhj3" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/multi_color_bead_shop_ability.tres" id="6_bl0mt"]
 
 [resource]
 script = ExtResource("3_41am5")

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://dq85imxfshxej"]
 
-[ext_resource type="Resource" uid="uid://dygxageaewodg" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/resourceful_larva_ability.tres" id="1_32yhl"]
-[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_8rmc3"]
+[ext_resource type="Resource" uid="uid://dygxageaewodg" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/resourceful_larva_ability.tres" id="1_rpues"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_u4ot6"]
 
 [resource]
-script = ExtResource("2_8rmc3")
-ability = ExtResource("1_32yhl")
+script = ExtResource("2_u4ot6")
+ability = ExtResource("1_rpues")
 base_cost = 50
 metadata/_custom_type_script = "uid://b2iwjw75gf34h"
