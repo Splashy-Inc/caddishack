@@ -20,6 +20,9 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 var material_queue : Array[MaterialInfo]
 
+## If true, deletes materials when picking them up 
+@export var exhaust_material := true
+
 var bead_completed := false
 var target : Node2D
 var can_move : bool
@@ -33,7 +36,7 @@ func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
-	update_type()
+	initialize(info)
 	load_abilities()
 
 func _physics_process(delta: float) -> void:
@@ -65,18 +68,20 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS], true).is_empty():
 					# Make sure this color doesn't already exist on this bead
 					if not bead.info.sand.has_matching_color(body.info):
-						body.collected = true
-						body.remove_from_group("materials")
 						material_queue.append(body.info)
-						body.queue_free()
+						if exhaust_material:
+							body.collected = true
+							body.remove_from_group("materials")
+							body.queue_free()
 						animation_player.play("collect")
 			
 			if body.info is SpecialMaterialInfo:
 				if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
-					body.collected = true
-					body.remove_from_group("materials")
 					material_queue.append(body.info)
-					body.queue_free()
+					if exhaust_material:
+						body.collected = true
+						body.remove_from_group("materials")
+						body.queue_free()
 					animation_player.play("collect")
 
 func place_material_from_queue():
@@ -93,9 +98,16 @@ func _on_bead_completed():
 	bead_completed = true
 	animation_player.play("retract")
 
-func initialize():
-	pass
-	
+func initialize(new_info: LarvaInfo):
+	if not is_node_ready():
+		await ready
+	set_info(new_info)
+
+func set_info(new_info: LarvaInfo):
+	if new_info == null:
+		new_info = LarvaInfo.new()
+	info = new_info.duplicate(true)
+
 func update_type():
 	pass
 

@@ -23,5 +23,6 @@ name = "Always Citrine"
 description = "Bead starts with Citrine (Yellow)"
 icon = SubResource("AtlasTexture_cb6sv")
 active_icon = SubResource("AtlasTexture_mqd1j")
+num_stacks = 1
 max_stacks = 1
 metadata/_custom_type_script = "uid://2y7v2xqewast"

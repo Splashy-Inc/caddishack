@@ -21,5 +21,6 @@ name = "Always Dolomite"
 description = "Bead starts with Dolomite (Blue)"
 icon = SubResource("AtlasTexture_imoqx")
 active_icon = SubResource("AtlasTexture_460ul")
+num_stacks = 1
 max_stacks = 1
 metadata/_custom_type_script = "uid://2y7v2xqewast"

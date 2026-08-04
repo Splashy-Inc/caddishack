@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 func load_from_larva(new_larva: Larva):
 	if not is_node_ready():
 		await ready
-	larva.info = new_larva.info
+	larva.set_info(new_larva.info)
 	new_larva.queue_free()
 	load_larva_abilities()
 	load_larva_name()
@@ -34,7 +34,7 @@ func load_from_larva(new_larva: Larva):
 func load_from_larva_info(new_larva_info: LarvaInfo):
 	if not is_node_ready():
 		await ready
-	larva.info = new_larva_info
+	larva.set_info(new_larva_info)
 	load_larva_abilities()
 	load_larva_name()
 
