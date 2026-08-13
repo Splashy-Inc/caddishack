@@ -5,6 +5,8 @@ extends Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	RunEvents.score_updated.connect(_on_score_updated)
+	if RunEvents.get_quota():
+		cost = int(RunEvents.get_quota() * .1)
 	text = "Reroll $" + str(cost)
 	_on_score_updated(RunEvents.get_score())
 

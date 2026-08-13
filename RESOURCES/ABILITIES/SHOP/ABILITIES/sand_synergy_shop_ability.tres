@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://cu2a7esxr4q2v"]
+
+[ext_resource type="Resource" uid="uid://31shunna6n1a" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/sand_synergy_bead_ability.tres" id="1_takya"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_1bmrx"]
+
+[resource]
+script = ExtResource("2_1bmrx")
+ability = ExtResource("1_takya")
+base_cost = 10
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

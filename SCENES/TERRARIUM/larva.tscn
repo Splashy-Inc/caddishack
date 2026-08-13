@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c0xsejfofp4s3" path="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png" id="5_x1i4c"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="7_jj2xk"]
 [ext_resource type="PackedScene" uid="uid://bb4x60rlbdvlv" path="res://SCENES/TERRARIUM/bead.tscn" id="7_oknjm"]
-[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="8_m8k0v"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_sxk8d"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_566sv"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="10_4ycns"]
@@ -833,7 +832,7 @@ height = 136.0
 radius = 11.0
 height = 44.0
 
-[sub_resource type="Resource" id="Resource_tohrt"]
+[sub_resource type="Resource" id="Resource_cikro"]
 script = ExtResource("8_sxk8d")
 metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 
@@ -841,11 +840,10 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_aiwul"]
+[sub_resource type="Resource" id="Resource_rm28v"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
-abilities = Array[ExtResource("7_jj2xk")]([ExtResource("8_m8k0v")])
-sand = SubResource("Resource_tohrt")
+sand = SubResource("Resource_cikro")
 special = SubResource("Resource_qg1fj")
 
 [node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead", "ability_icons") groups=["larvae"]]
@@ -921,7 +919,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_aiwul")
+info = SubResource("Resource_rm28v")
 completion_time = 0
 complete = false
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://b717al2bimweq"]
+
+[ext_resource type="Resource" uid="uid://8cdcook8lkoo" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_dolomite_bead_ability.tres" id="1_etfp1"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_evvjt"]
+
+[resource]
+script = ExtResource("2_evvjt")
+ability = ExtResource("1_etfp1")
+base_cost = 20
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

@@ -42,7 +42,7 @@ func _on_animated_value_calculated(value: int):
 func reset():
 	score = -1
 	bracelet_panel.bracelet.clear_beads()
-	info_panel.update_bracelet_info(bracelet_panel.bracelet)
+	info_panel.reset()
 
 func is_scoring_complete():
 	return score >= 0

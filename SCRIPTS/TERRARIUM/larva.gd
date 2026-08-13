@@ -20,6 +20,9 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 
 var material_queue : Array[MaterialInfo]
 
+## If true, deletes materials when picking them up 
+@export var exhaust_material := true
+
 var bead_completed := false
 var target : Node2D
 var can_move : bool
@@ -33,7 +36,7 @@ func _ready() -> void:
 	if bead:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
-	update_type()
+	initialize(info)
 	load_abilities()
 
 func _physics_process(delta: float) -> void:
@@ -61,26 +64,31 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 	if material_queue.is_empty() and body is BeadMaterial:
 		if not body.collected:
 			if body.info is SandMaterialInfo:
-				if bead.info.sand.color == SandMaterialInfo.SandColor.COLORLESS:
-					body.collected = true
-					body.remove_from_group("materials")
-					material_queue.append(body.info)
-					body.queue_free()
-					animation_player.play("collect")
+				# Make sure there's a colorless to replace
+				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS], true).is_empty():
+					# Make sure this color doesn't already exist on this bead
+					if not bead.info.sand.has_matching_color(body.info):
+						material_queue.append(body.info)
+						if exhaust_material:
+							body.collected = true
+							body.remove_from_group("materials")
+							body.queue_free()
+						animation_player.play("collect")
 			
 			if body.info is SpecialMaterialInfo:
 				if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
-					body.collected = true
-					body.remove_from_group("materials")
 					material_queue.append(body.info)
-					body.queue_free()
+					if exhaust_material:
+						body.collected = true
+						body.remove_from_group("materials")
+						body.queue_free()
 					animation_player.play("collect")
 
 func place_material_from_queue():
 	if not material_queue.is_empty():
 		var material_to_place = material_queue.pop_front()
 		if material_to_place is SandMaterialInfo:
-			bead.set_color(material_to_place.color)
+			bead.add_color(material_to_place.colors.front())
 		elif material_to_place is SpecialMaterialInfo:
 			bead.set_special(material_to_place.type)
 
@@ -90,9 +98,16 @@ func _on_bead_completed():
 	bead_completed = true
 	animation_player.play("retract")
 
-func initialize():
-	pass
-	
+func initialize(new_info: LarvaInfo):
+	if not is_node_ready():
+		await ready
+	set_info(new_info)
+
+func set_info(new_info: LarvaInfo):
+	if new_info == null:
+		new_info = LarvaInfo.new()
+	info = new_info
+
 func update_type():
 	pass
 
@@ -114,7 +129,7 @@ func _get_closest(nodes: Array) -> Node2D:
 		var closest_node
 		for node in nodes:
 			if node is SandMaterial:
-				if bead.has_sand_color():
+				if bead.is_sand_color_complete() or bead.info.sand.has_matching_color(node.info):
 					continue
 			else:
 				if bead.has_charm():
@@ -153,9 +168,9 @@ func load_abilities():
 				ability.apply_ability(self)
 			elif ability is BeadAbilityInfo:
 				bead.info.add_ability(ability)
-				bead.load_abilities()
 		else:
 			ability_icons[i].texture = null
+	bead.load_abilities()
 
 func add_ability(new_ability: AbilityInfo) -> bool:
 	if info.add_ability(new_ability):

@@ -7,43 +7,43 @@
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("2_f1hoh")
-color = 1
+colors = Array[int]([1])
 
 [sub_resource type="Resource" id="Resource_jh2q2"]
 script = ExtResource("2_f1hoh")
-color = 1
+colors = Array[int]([1])
 
 [sub_resource type="Resource" id="Resource_lu261"]
 script = ExtResource("2_f1hoh")
-color = 1
+colors = Array[int]([1])
 
 [sub_resource type="Resource" id="Resource_06vpu"]
 script = ExtResource("2_f1hoh")
-color = 2
+colors = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_aypll"]
 script = ExtResource("2_f1hoh")
-color = 2
+colors = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_ct105"]
 script = ExtResource("2_f1hoh")
-color = 2
+colors = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_fnkbk"]
 script = ExtResource("2_f1hoh")
-color = 3
+colors = Array[int]([3])
 
 [sub_resource type="Resource" id="Resource_a2n2k"]
 script = ExtResource("2_f1hoh")
-color = 3
+colors = Array[int]([3])
 
 [sub_resource type="Resource" id="Resource_f7u7g"]
 script = ExtResource("2_f1hoh")
-color = 3
+colors = Array[int]([3])
 
 [sub_resource type="Resource" id="Resource_0cd06"]
 script = ExtResource("2_f1hoh")
-color = 1
+colors = Array[int]([3])
 metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 
 [sub_resource type="Resource" id="Resource_8ls7a"]

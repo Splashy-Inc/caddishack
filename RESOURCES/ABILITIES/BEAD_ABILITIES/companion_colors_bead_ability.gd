@@ -16,8 +16,8 @@ func use_ability(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]) -> 
 
 func get_affected_beads(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]) -> Array[BeadInfo]:
 	var affected_beads : Array[BeadInfo]
-	if origin_bead_info.sand.color != SandMaterialInfo.SandColor.COLORLESS:
+	if not origin_bead_info.sand.get_unique_colors().is_empty():
 		for bead_info in bead_info_set:
-			if bead_info != origin_bead_info and bead_info.sand.color == origin_bead_info.sand.color:
+			if bead_info != origin_bead_info and bead_info.sand.has_matching_color(origin_bead_info.sand):
 				affected_beads.append(bead_info)
 	return affected_beads

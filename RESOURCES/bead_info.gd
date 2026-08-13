@@ -18,15 +18,16 @@ const ABILITY_BREAKDOWN_STRUCT := {
 }
 
 func calculate_points(bead_array_info: BeadArrayInfo):
-	var points = 0
-	if sand.color != SandMaterialInfo.SandColor.COLORLESS:
-		points += 1
+	var points = calculate_color_points()
 	
 	for ability in abilities:
 		if ability is BeadColorAbilityInfo:
 			points += ability.use_ability(self, bead_array_info.get_beads())
 	
 	return points
+
+func calculate_color_points():
+	return sand.get_unique_colors().size()
 
 func calculate_mult(bead_array_info: BeadArrayInfo):
 	var mult = 0
@@ -42,8 +43,7 @@ func calculate_mult(bead_array_info: BeadArrayInfo):
 func get_value_breakdown(bead_array_info: BeadArrayInfo) -> Dictionary:
 	var value_breakdown = VALUE_BREAKDOWN_STRUCT.duplicate_deep()
 	
-	if sand.color != SandMaterialInfo.SandColor.COLORLESS:
-		value_breakdown["color_points"] = 1
+	value_breakdown["color_points"] += calculate_color_points()
 	if special.type != SpecialMaterialInfo.SpecialType.BASIC:
 		value_breakdown["charm_mult"] = 1
 		

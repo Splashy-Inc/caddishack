@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://csk0mcs73aud0"]
+
+[ext_resource type="Resource" uid="uid://dcynpenj2s130" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_citrine_bead_ability.tres" id="1_3q06v"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_cjuh1"]
+
+[resource]
+script = ExtResource("2_cjuh1")
+ability = ExtResource("1_3q06v")
+base_cost = 20
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

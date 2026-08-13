@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="ResourcefulLarvaAbility" format=3 uid="uid://dygxageaewodg"]
+
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_8axys"]
+[ext_resource type="Script" uid="uid://cq6337ie5qc57" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/resourceful_larva_ability.gd" id="1_8inhb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ill7"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_661ui"]
+atlas = SubResource("CompressedTexture2D_7ill7")
+region = Rect2(100, 80, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8axys"]
+atlas = ExtResource("1_8axys")
+region = Rect2(40, 80, 20, 20)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_8inhb")
+name = "Resourceful Larva"
+description = "Larva does not remove materials when collecting"
+icon = SubResource("AtlasTexture_8axys")
+active_icon = SubResource("AtlasTexture_661ui")
+num_stacks = 1
+max_stacks = 1
+metadata/_custom_type_script = "uid://cq6337ie5qc57"

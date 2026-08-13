@@ -18,6 +18,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func reset():
+	set_points(0)
+	set_mult(0)
+	set_value(0)
+
 func update_bracelet_info(bracelet: Bracelet):
 	set_value(bracelet.calculate_value())
 	set_points(bracelet.info.calculate_points())
