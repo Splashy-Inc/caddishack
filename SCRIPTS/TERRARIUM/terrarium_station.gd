@@ -9,7 +9,7 @@ class_name TerrariumStation
 @onready var bead_scorer: BeadScorer = $BeadScorer
 @onready var terrarium_play_slot: Marker2D = $TerrariumPlaySlot
 @onready var next_button: Button = $PanelContainer/VBoxContainer/NextButton
-@onready var hand_number_label: Label = $HandCountTracker/HBoxContainer/Number
+@onready var hand_number_label: Label = $HandCountTracker/VBoxContainer/HBoxContainer/Number
 @onready var hand_count_tracker: PanelContainer = $HandCountTracker
 @onready var hand_count_animation_player: AnimationPlayer = $HandCountTracker/AnimationPlayer
 var num_hands := 2
