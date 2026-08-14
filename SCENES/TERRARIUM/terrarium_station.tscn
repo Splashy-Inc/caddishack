@@ -93,7 +93,7 @@ script = ExtResource("9_shoaw")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_j82x7"]
+[sub_resource type="Resource" id="Resource_3e80k"]
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -197,10 +197,10 @@ position = Vector2(550, 337)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(550, 337)
-info = SubResource("Resource_j82x7")
+info = SubResource("Resource_3e80k")
 
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
-position = Vector2(550, 669)
+position = Vector2(550, 637)
 
 [node name="CardHand" parent="HandSlot" unique_id=1587952838 instance=ExtResource("10_04exf")]
 
