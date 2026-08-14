@@ -17,48 +17,38 @@
 [ext_resource type="PackedScene" uid="uid://l8c5hnvmqfwd" path="res://SCENES/TERRARIUM/bead_scorer.tscn" id="12_s7cx1"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="14_vl60u"]
 [ext_resource type="Theme" uid="uid://byvh0plwsui1w" path="res://global_theme.tres" id="17_j82x7"]
-[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="18_3e80k"]
+[ext_resource type="Texture2D" uid="uid://cxg6id5smvfve" path="res://ASSETS/Art/TERRARIUM/CaddiGUI_HandPannel.png" id="18_j82x7"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="19_50hya"]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_jh2q2"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_lu261"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_06vpu"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_aypll"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_ct105"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_fnkbk"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_a2n2k"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_f7u7g"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_0cd06"]
 script = ExtResource("8_j0koi")
-color = 1
 metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 
 [sub_resource type="Resource" id="Resource_8ls7a"]
@@ -106,6 +96,14 @@ metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3e80k"]
+texture = ExtResource("18_j82x7")
+texture_margin_left = 14.0
+texture_margin_top = 15.0
+texture_margin_right = 26.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(0, 0, 416, 240)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kqial"]
 font = ExtResource("19_50hya")
@@ -170,6 +168,11 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
+[node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="RunInfo" parent="PanelContainer/VBoxContainer" unique_id=1126309375 instance=ExtResource("3_dugvo")]
 layout_mode = 2
 
@@ -183,12 +186,6 @@ theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 disabled = true
 text = "Next"
-
-[node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
 
 [node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
 position = Vector2(550, 337)
@@ -217,13 +214,14 @@ visible = false
 position = Vector2(550, 582)
 
 [node name="HandCountTracker" type="PanelContainer" parent="." unique_id=1288205798]
+visible = false
 offset_left = 342.0
 offset_top = 208.0
 offset_right = 758.0
 offset_bottom = 448.0
 mouse_filter = 2
 theme = ExtResource("17_j82x7")
-theme_override_styles/panel = ExtResource("18_3e80k")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3e80k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HandCountTracker" unique_id=1804735368]
 layout_mode = 2

@@ -6,14 +6,14 @@
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="3_isb0c"]
 
 [node name="RunInfo" type="PanelContainer" unique_id=1126309375]
-custom_minimum_size = Vector2(192, 400)
+custom_minimum_size = Vector2(192, 320)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 1072.0
 offset_top = -344.0
 offset_right = 1264.0
-offset_bottom = 56.0
+offset_bottom = -17.0
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

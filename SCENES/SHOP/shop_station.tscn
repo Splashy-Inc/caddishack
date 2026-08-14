@@ -164,6 +164,7 @@ size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/ItemSection" unique_id=1709690206]
 layout_mode = 2
+size_flags_vertical = 6
 text = "Buy things and choose a terrarium"
 label_settings = ExtResource("13_klhbm")
 horizontal_alignment = 1
@@ -218,6 +219,18 @@ theme_override_styles/panel = ExtResource("5_v2i7w")
 [node name="Item4" parent="PanelContainer/HBoxContainer/ItemSection/ItemPanel/ItemGrid/Slot4" unique_id=371760213 instance=ExtResource("12_klhbm")]
 layout_mode = 2
 info = ExtResource("15_gkgmp")
+
+[node name="RerollButton" type="Button" parent="PanelContainer/HBoxContainer/ItemSection" unique_id=1897749597]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("4_wresu")
+theme_override_styles/hover = ExtResource("5_r8xvt")
+disabled = true
+text = "Reroll Everything $10"
+script = ExtResource("24_imspv")
 
 [node name="TerrariumPanel" type="PanelContainer" parent="PanelContainer/HBoxContainer" unique_id=1112454209]
 custom_minimum_size = Vector2(400, 0)
@@ -305,38 +318,26 @@ info = SubResource("Resource_qbksl")
 layout_mode = 2
 theme_override_constants/separation = 16
 
+[node name="PauseButton" parent="PanelContainer/HBoxContainer/UISection" unique_id=952429982 instance=ExtResource("23_xn1ka")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="RunInfo" parent="PanelContainer/HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("3_x1p5w")]
 layout_mode = 2
+size_flags_vertical = 6
 
 [node name="NextButton" type="Button" parent="PanelContainer/HBoxContainer/UISection" unique_id=1027374767]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_vertical = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
 theme_override_styles/disabled = ExtResource("6_4g004")
 disabled = true
 text = "Next"
-
-[node name="RerollButton" type="Button" parent="PanelContainer/HBoxContainer/UISection" unique_id=1897749597]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("4_wresu")
-theme_override_styles/hover = ExtResource("5_r8xvt")
-disabled = true
-text = "Reroll $10"
-script = ExtResource("24_imspv")
-
-[node name="PauseButton" parent="PanelContainer/HBoxContainer/UISection" unique_id=952429982 instance=ExtResource("23_xn1ka")]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
 
 [node name="TerrariumSelect" type="PanelContainer" parent="." unique_id=1431695911]
 visible = false
@@ -363,10 +364,10 @@ layout_mode = 2
 [node name="TerrariumZoomPoint" parent="TerrariumSelect" unique_id=319731991 instance=ExtResource("20_jvskc")]
 position = Vector2(640, 315)
 
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ItemSection/RerollButton" to="." method="_on_reroll_button_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/Button" to="." method="_on_terrarium_button_pressed" flags=18]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/Button" to="." method="_on_terrarium_button_pressed" flags=18]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/Button" to="." method="_on_terrarium_button_pressed" flags=18]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/UISection/NextButton" to="." method="_on_next_button_pressed"]
-[connection signal="pressed" from="PanelContainer/HBoxContainer/UISection/RerollButton" to="." method="_on_reroll_button_pressed"]
 [connection signal="pressed" from="TerrariumSelect/HBoxContainer/BackButton" to="." method="_on_terrarium_back_button_pressed"]
 [connection signal="pressed" from="TerrariumSelect/HBoxContainer/SelectButton" to="." method="_on_terrarium_select_button_pressed"]
