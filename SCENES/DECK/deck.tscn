@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cjrwl6e72vl8q"]
+
+[ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="1_uxaxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jy31"]
+atlas = ExtResource("1_uxaxp")
+region = Rect2(0, 0, 184, 256)
+
+[node name="Deck" type="PanelContainer" unique_id=1656390780]
+custom_minimum_size = Vector2(192, 192)
+size_flags_horizontal = 4
+
+[node name="Cards" type="PanelContainer" parent="." unique_id=1610868122]
+custom_minimum_size = Vector2(176, -16)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Bottom" type="TextureRect" parent="Cards" unique_id=898042821]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_4jy31")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Card4" type="TextureRect" parent="Cards" unique_id=457749420]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4, 4)
+texture = SubResource("AtlasTexture_4jy31")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Card3" type="TextureRect" parent="Cards" unique_id=1149913186]
+layout_mode = 2
+offset_transform_enabled = true
+texture = SubResource("AtlasTexture_4jy31")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Card2" type="TextureRect" parent="Cards" unique_id=1514989072]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-4, -4)
+texture = SubResource("AtlasTexture_4jy31")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Top" type="TextureRect" parent="Cards" unique_id=2001924177]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-8, -8)
+texture = SubResource("AtlasTexture_4jy31")
+expand_mode = 4
+stretch_mode = 5

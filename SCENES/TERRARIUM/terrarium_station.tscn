@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="6_ugda1"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_vl60u"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
+[ext_resource type="PackedScene" uid="uid://cjrwl6e72vl8q" path="res://SCENES/DECK/deck.tscn" id="8_3e80k"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_j0koi"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="9_shoaw"]
 [ext_resource type="PackedScene" uid="uid://dac4l330kaphs" path="res://SCENES/LARVAE/card_hand.tscn" id="10_04exf"]
@@ -175,6 +176,7 @@ size_flags_horizontal = 4
 
 [node name="RunInfo" parent="PanelContainer/VBoxContainer" unique_id=1126309375 instance=ExtResource("3_dugvo")]
 layout_mode = 2
+size_flags_vertical = 6
 
 [node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=513006651]
 custom_minimum_size = Vector2(128, 0)
@@ -186,6 +188,9 @@ theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 disabled = true
 text = "Next"
+
+[node name="Deck" parent="PanelContainer/VBoxContainer" unique_id=1656390780 instance=ExtResource("8_3e80k")]
+layout_mode = 2
 
 [node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
 position = Vector2(550, 337)
