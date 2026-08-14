@@ -9,6 +9,7 @@ var hover_queue : Array[LarvaCard]
 @onready var hand_region: CollisionShape2D = $HandRegion
 @export var deck_info : DeckInfo
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var deck : Deck
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +50,7 @@ func remove_card(card: LarvaCard) -> LarvaCard:
 
 func add_card(card: LarvaCard):
 	if is_instance_valid(card.get_parent()):
-		card.reparent(self)
+		card.reparent(self, false)
 	else:
 		add_child(card)
 	
@@ -80,7 +81,12 @@ func draw_cards(num_cards: int):
 		var draw_info = deck_info.larvae.pick_random()
 		deck_info.larvae.erase(draw_info)
 		var new_card = Globals.generate_card(draw_info)
+		if deck:
+			deck.add_card(new_card)
+			new_card.global_position = deck.get_draw_point_global()
+			await get_tree().create_timer(.1).timeout
 		add_card(new_card)
+		await get_tree().create_timer(.1).timeout
 	update_cards()
 
 func discard():

@@ -202,7 +202,8 @@ info = SubResource("Resource_3e80k")
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
 position = Vector2(550, 637)
 
-[node name="CardHand" parent="HandSlot" unique_id=1587952838 instance=ExtResource("10_04exf")]
+[node name="CardHand" parent="HandSlot" unique_id=1587952838 node_paths=PackedStringArray("deck") instance=ExtResource("10_04exf")]
+deck = NodePath("../../PanelContainer/VBoxContainer/Deck")
 
 [node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
 
