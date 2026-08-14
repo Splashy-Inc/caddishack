@@ -11,6 +11,8 @@ signal larva_card_added(added_card : LarvaCard)
 var larva : Larva
 var larva_card : LarvaCard
 
+@onready var lazer_zap: AnimatedSprite2D = $LazerZap
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -61,3 +63,6 @@ func check_for_card():
 
 func toggle_enabled(is_enabled: bool):
 	collision_shape.disabled = not is_enabled
+
+func zap_larva():
+	lazer_zap.play("zap")

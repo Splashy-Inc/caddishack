@@ -10,7 +10,7 @@ class_name ShopStation
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
 @export var item_slots : Array[PanelContainer]
-@onready var reroll_button: Button = $PanelContainer/HBoxContainer/UISection/RerollButton
+@onready var reroll_button: Button = $PanelContainer/HBoxContainer/ItemSection/RerollButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
