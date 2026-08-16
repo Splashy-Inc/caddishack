@@ -7,9 +7,50 @@
 atlas = ExtResource("1_uxaxp")
 region = Rect2(0, 0, 184, 256)
 
+[sub_resource type="Animation" id="Animation_1msou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k3x0k"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2mno7"]
+_data = {
+&"RESET": SubResource("Animation_1msou"),
+&"hover": SubResource("Animation_k3x0k")
+}
+
 [node name="Deck" type="PanelContainer" unique_id=1656390780]
 custom_minimum_size = Vector2(192, 192)
 size_flags_horizontal = 4
+offset_transform_enabled = true
+mouse_filter = 2
 script = ExtResource("1_1msou")
 
 [node name="Cards" type="PanelContainer" parent="." unique_id=1610868122]
@@ -17,11 +58,13 @@ custom_minimum_size = Vector2(176, -16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="Bottom" type="TextureRect" parent="Cards" unique_id=898042821]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(8, 8)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_4jy31")
 expand_mode = 4
 stretch_mode = 5
@@ -30,6 +73,7 @@ stretch_mode = 5
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(4, 4)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_4jy31")
 expand_mode = 4
 stretch_mode = 5
@@ -37,6 +81,7 @@ stretch_mode = 5
 [node name="Card3" type="TextureRect" parent="Cards" unique_id=1149913186]
 layout_mode = 2
 offset_transform_enabled = true
+mouse_filter = 2
 texture = SubResource("AtlasTexture_4jy31")
 expand_mode = 4
 stretch_mode = 5
@@ -45,6 +90,7 @@ stretch_mode = 5
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-4, -4)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_4jy31")
 expand_mode = 4
 stretch_mode = 5
@@ -53,6 +99,7 @@ stretch_mode = 5
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(-8, -8)
+mouse_filter = 2
 texture = SubResource("AtlasTexture_4jy31")
 expand_mode = 4
 stretch_mode = 5
@@ -60,3 +107,15 @@ stretch_mode = 5
 [node name="Center" type="Node2D" parent="." unique_id=226458726]
 position = Vector2(96, 96)
 scale = Vector2(0.68, 0.68)
+
+[node name="HoverSpace" type="PanelContainer" parent="." unique_id=410093704]
+custom_minimum_size = Vector2(142, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=663775092]
+libraries/ = SubResource("AnimationLibrary_2mno7")
+
+[connection signal="mouse_entered" from="HoverSpace" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="HoverSpace" to="." method="_on_mouse_exited"]

@@ -29,7 +29,9 @@
 [ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="23_xn1ka"]
 [ext_resource type="Script" uid="uid://c5lgelir0meoy" path="res://SCENES/SHOP/reroll_button.gd" id="24_imspv"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://dckr5fknm50se" path="res://terrarium_button_state_machine.tres" id="25_qbksl"]
 [ext_resource type="PackedScene" uid="uid://cjrwl6e72vl8q" path="res://SCENES/DECK/deck.tscn" id="28_1qkbm"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://m0qa02yugxmd" path="res://next_button_state_machine.tres" id="29_aq40q"]
 
 [sub_resource type="Resource" id="Resource_1qkbm"]
 script = ExtResource("3_1qkbm")
@@ -115,11 +117,6 @@ script = ExtResource("9_iea1b")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_f7wxv"]
-resource_local_to_scene = true
-script = ExtResource("10_klhbm")
-materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
-
 [sub_resource type="Resource" id="Resource_qbksl"]
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
@@ -129,6 +126,135 @@ materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubRes
 resource_local_to_scene = true
 script = ExtResource("10_klhbm")
 materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="Resource" id="Resource_td8h1"]
+resource_local_to_scene = true
+script = ExtResource("10_klhbm")
+materials = Array[ExtResource("7_ncq4r")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="Animation" id="Animation_qbksl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TerrariumSlot2:offset_transform_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TerrariumSlot3:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_aq40q"]
+resource_name = "enabled"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TerrariumSlot2:offset_transform_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TerrariumSlot3:offset_transform_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qbksl"]
+_data = {
+&"RESET": SubResource("Animation_qbksl"),
+&"enabled": SubResource("Animation_aq40q")
+}
+
+[sub_resource type="Animation" id="Animation_50hya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_td8h1"]
+resource_name = "enabled"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_td8h1"]
+_data = {
+&"RESET": SubResource("Animation_50hya"),
+&"enabled": SubResource("Animation_td8h1")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uayd7"]
 bg_color = Color(0, 0, 0, 0.4745098)
@@ -246,6 +372,7 @@ theme_override_constants/separation = 24
 [node name="TerrariumSlot1" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=1127637775]
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1" unique_id=1662353209]
@@ -265,11 +392,12 @@ mouse_filter = 1
 
 [node name="Terrarium1" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot1/TerrariumPosition" unique_id=1014177116 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_f7wxv")
+info = SubResource("Resource_qbksl")
 
 [node name="TerrariumSlot2" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=1021539569]
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2" unique_id=1409220129]
@@ -289,11 +417,12 @@ mouse_filter = 1
 
 [node name="Terrarium2" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/TerrariumPosition" unique_id=2133777414 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_qbksl")
+info = SubResource("Resource_aq40q")
 
 [node name="TerrariumSlot3" type="PanelContainer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=477348113]
 layout_mode = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4g004")
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3" unique_id=1601225434]
@@ -313,7 +442,18 @@ mouse_filter = 1
 
 [node name="Terrarium3" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/TerrariumPosition" unique_id=1048169566 instance=ExtResource("6_4d8e5")]
 scale = Vector2(0.333, 0.333)
-info = SubResource("Resource_aq40q")
+info = SubResource("Resource_td8h1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=1290510025]
+root_node = NodePath("../TerrariumSlot1")
+libraries/ = SubResource("AnimationLibrary_qbksl")
+
+[node name="AnimationTree" type="AnimationTree" parent="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums" unique_id=467667985]
+root_node = NodePath("../TerrariumSlot1")
+tree_root = ExtResource("25_qbksl")
+advance_expression_base_node = NodePath("../../../../..")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/reset = true
 
 [node name="UISection" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1679442781]
 layout_mode = 2
@@ -333,12 +473,21 @@ custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+offset_transform_enabled = true
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
 theme_override_styles/disabled = ExtResource("6_4g004")
 disabled = true
 text = "Next"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/HBoxContainer/UISection/NextButton" unique_id=63378486]
+libraries/ = SubResource("AnimationLibrary_td8h1")
+
+[node name="AnimationTree" type="AnimationTree" parent="PanelContainer/HBoxContainer/UISection/NextButton" unique_id=541110453]
+tree_root = ExtResource("29_aq40q")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="Deck" parent="PanelContainer/HBoxContainer/UISection" unique_id=1656390780 instance=ExtResource("28_1qkbm")]
 layout_mode = 2

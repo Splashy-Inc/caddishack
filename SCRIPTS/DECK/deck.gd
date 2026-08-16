@@ -3,6 +3,7 @@ extends PanelContainer
 class_name Deck
 
 @onready var center: Node2D = $Center
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const TOP_OFFSET = Vector2(-8,-8)
 
@@ -19,3 +20,10 @@ func get_draw_point_global() -> Vector2:
 
 func add_card(card: LarvaCard):
 	center.add_child(card)
+
+
+func _on_mouse_entered() -> void:
+	animation_player.play("hover")
+
+func _on_mouse_exited() -> void:
+	animation_player.play("RESET")
