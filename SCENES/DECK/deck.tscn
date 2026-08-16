@@ -7,6 +7,18 @@
 atlas = ExtResource("1_uxaxp")
 region = Rect2(0, 0, 184, 256)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmx7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_of7f0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rfqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dmvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksvyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ykhq"]
+
 [sub_resource type="Animation" id="Animation_1msou"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,14 +120,21 @@ stretch_mode = 5
 position = Vector2(96, 96)
 scale = Vector2(0.68, 0.68)
 
-[node name="HoverSpace" type="PanelContainer" parent="." unique_id=410093704]
+[node name="HoverSpace" type="Button" parent="." unique_id=1727234931]
 custom_minimum_size = Vector2(142, 192)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rmx7e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_of7f0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7rfqe")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2dmvo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksvyu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ykhq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=663775092]
 libraries/ = SubResource("AnimationLibrary_2mno7")
 
 [connection signal="mouse_entered" from="HoverSpace" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="HoverSpace" to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="HoverSpace" to="." method="_on_hover_space_pressed"]

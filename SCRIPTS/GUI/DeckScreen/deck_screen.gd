@@ -6,6 +6,7 @@ class_name DeckScreen
 @export var ability_laser_view: AbilityLaserView
 @export var info : DeckScreenInfo
 @onready var petri_dish: PetriDish = $HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish
+@onready var info_label: Label = $HBoxContainer/DeckSection/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +31,7 @@ func initialize(new_info: DeckScreenInfo):
 		ability_laser_view.show()
 	else:
 		ability_laser_view.hide()
+		info_label.hide()
 
 func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool) -> void:
 	petri_dish.zap_larva()

@@ -2,6 +2,8 @@ extends PanelContainer
 
 class_name Deck
 
+signal pressed
+
 @onready var center: Node2D = $Center
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -27,3 +29,6 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	animation_player.play("RESET")
+
+func _on_hover_space_pressed() -> void:
+	pressed.emit()

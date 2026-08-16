@@ -522,5 +522,6 @@ position = Vector2(640, 315)
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot2/Button" to="." method="_on_terrarium_button_pressed" flags=18]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/TerrariumSlot3/Button" to="." method="_on_terrarium_button_pressed" flags=18]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/UISection/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/UISection/Deck" to="." method="_on_deck_pressed"]
 [connection signal="pressed" from="TerrariumSelect/HBoxContainer/BackButton" to="." method="_on_terrarium_back_button_pressed"]
 [connection signal="pressed" from="TerrariumSelect/HBoxContainer/SelectButton" to="." method="_on_terrarium_select_button_pressed"]

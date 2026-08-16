@@ -171,3 +171,9 @@ func _on_item_chosen(item : ShopItem):
 		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, deck_screen_info)
 	else:
 		ShopEvents.purchase_item(item.info)
+
+
+func _on_deck_pressed() -> void:
+	var deck_screen_info := DeckScreenInfo.new()
+	deck_screen_info.shop_info = info
+	ScreenEvents.request_screen(ScreenEvents.Screen.DECK, deck_screen_info)

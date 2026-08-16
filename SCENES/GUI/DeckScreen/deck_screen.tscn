@@ -220,6 +220,7 @@ alignment = 1
 
 [node name="DeckSection" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/DeckSection" unique_id=62143601]
 layout_mode = 2
@@ -230,6 +231,7 @@ autowrap_mode = 2
 
 [node name="DeckView" type="ScrollContainer" parent="HBoxContainer/DeckSection" unique_id=1845271702 groups=["card_container"]]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/scrollbar_h_separation = 8
@@ -308,6 +310,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item", "petri_dish")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_egpel")
@@ -393,6 +396,7 @@ frame_progress = 1.0
 
 [node name="UISection" type="VBoxContainer" parent="HBoxContainer" unique_id=1144805401]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="RunInfo" parent="HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("14_44cau")]
