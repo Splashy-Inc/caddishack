@@ -172,7 +172,6 @@ func _on_item_chosen(item : ShopItem):
 	else:
 		ShopEvents.purchase_item(item.info)
 
-
 func _on_deck_pressed() -> void:
 	var deck_screen_info := DeckScreenInfo.new()
 	deck_screen_info.shop_info = info

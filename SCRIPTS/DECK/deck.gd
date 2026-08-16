@@ -6,6 +6,7 @@ signal pressed
 
 @onready var center: Node2D = $Center
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var clickable := false
 
 const TOP_OFFSET = Vector2(-8,-8)
 
@@ -22,13 +23,6 @@ func get_draw_point_global() -> Vector2:
 
 func add_card(card: LarvaCard):
 	center.add_child(card)
-
-
-func _on_mouse_entered() -> void:
-	animation_player.play("hover")
-
-func _on_mouse_exited() -> void:
-	animation_player.play("RESET")
 
 func _on_hover_space_pressed() -> void:
 	pressed.emit()

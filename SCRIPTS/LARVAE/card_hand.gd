@@ -24,6 +24,8 @@ func _process(delta: float) -> void:
 func space_cards():
 	var num_cards = cards.size()
 	var spacing = hand_width/num_cards
+	if spacing > hand_width/7:
+		spacing = hand_width/7
 	var middle = num_cards/2.0 - .5
 	for i in num_cards:
 		var card = cards.get(i)
@@ -38,17 +40,17 @@ func get_cards() -> Array[LarvaCard]:
 	
 	return card_array
 
-func remove_card(card: LarvaCard) -> LarvaCard:
+func remove_card(card: LarvaCard, check_duck: bool = false) -> LarvaCard:
 	if card in get_cards():
 		remove_child(card)
 		hover_queue.erase(card)
 		card.unlift()
 	else:
 		card = null
-	update_cards()
+	update_cards(check_duck)
 	return card
 
-func add_card(card: LarvaCard):
+func add_card(card: LarvaCard, check_duck: bool = true):
 	if is_instance_valid(card.get_parent()):
 		card.reparent(self, false)
 	else:
@@ -67,11 +69,16 @@ func add_card(card: LarvaCard):
 	if not card.hover_changed.is_connected(_on_card_hover_changed.bind(card)):
 		card.hover_changed.connect(_on_card_hover_changed.bind(card))
 	
-	update_cards()
+	update_cards(check_duck)
 
-func update_cards():
+func update_cards(check_duck: bool = true):
 	cards = get_cards()
 	space_cards()
+	if check_duck:
+		if cards.size() < 3:
+			duck()
+		else:
+			unduck()
 
 func draw_cards(num_cards: int):
 	if num_cards > deck_info.larvae.size():
@@ -85,20 +92,21 @@ func draw_cards(num_cards: int):
 			deck.add_card(new_card)
 			new_card.global_position = deck.get_draw_point_global()
 			await get_tree().create_timer(.1).timeout
-		add_card(new_card)
+		add_card(new_card, false)
 		await get_tree().create_timer(.1).timeout
 	update_cards()
 
 func discard():
 	for card in get_cards():
-		card.queue_free()
+		remove_card(card)
 		await get_tree().create_timer(.25).timeout
 
 func duck():
-	animation_player.play("duck")
+	if position.y == 0:
+		animation_player.play("duck")
 
 func unduck():
-	if position.y != 0:
+	if position.y != 0 and get_cards().size() > 2:
 		animation_player.play_backwards("duck")
 
 func _on_card_hover_changed(is_hovered: bool, new_card: LarvaCard):

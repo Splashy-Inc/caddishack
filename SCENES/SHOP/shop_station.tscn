@@ -491,6 +491,7 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="Deck" parent="PanelContainer/HBoxContainer/UISection" unique_id=1656390780 instance=ExtResource("28_1qkbm")]
 layout_mode = 2
+clickable = true
 
 [node name="TerrariumSelect" type="PanelContainer" parent="." unique_id=1431695911]
 visible = false

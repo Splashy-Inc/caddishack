@@ -25,7 +25,7 @@ func _ready() -> void:
 	hand_count_animation_player.play("fade_out")
 
 func _process(delta: float) -> void:
-	next_button.disabled = not bead_scorer.score > -1 and not terrarium.check_larvae_limit_reached()
+	next_button.disabled = not bead_scorer.score > -1 and not (terrarium.check_larvae_limit_reached() and not terrarium.larvae_running)
 
 func _on_terrarium_larvae_done() -> void:
 	hand_num += 1

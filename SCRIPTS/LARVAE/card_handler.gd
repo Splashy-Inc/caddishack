@@ -39,9 +39,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_released():
 			if event.button_index == MOUSE_BUTTON_LEFT and card:
-				if card_start_parent is CardHand:
-					card_start_parent.unduck()
-					
 				if not click_window.is_stopped():
 					CardEvents.card_clicked.emit(card, event.button_index)
 					
@@ -56,6 +53,10 @@ func _unhandled_input(event: InputEvent) -> void:
 								card_container.add_card(card, true)
 							else:
 								card.queue_free()
+				
+				if card_start_parent is CardHand:
+					card_start_parent.update_cards()
+				
 				card = null
 
 func _on_body_entered(body: Node2D) -> void:
