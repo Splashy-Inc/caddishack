@@ -29,8 +29,10 @@ func space_cards():
 	var middle = num_cards/2.0 - .5
 	for i in num_cards:
 		var card = cards.get(i)
-		card.position.x = 0 - spacing * (middle - i)
-		card.global_position.y = global_position.y
+		var new_transform = transform
+		new_transform.origin.x = 0 - spacing * (middle - i)
+		new_transform.origin.y = card.to_local(Vector2(0, global_position.y)).y
+		card.travel_to(new_transform)
 
 func get_cards() -> Array[LarvaCard]:
 	var card_array : Array[LarvaCard]
@@ -50,9 +52,9 @@ func remove_card(card: LarvaCard, check_duck: bool = false) -> LarvaCard:
 	update_cards(check_duck)
 	return card
 
-func add_card(card: LarvaCard, check_duck: bool = true):
+func add_card(card: LarvaCard, check_duck: bool = true, keep_global_transform: bool = false):
 	if is_instance_valid(card.get_parent()):
-		card.reparent(self, false)
+		card.reparent(self, keep_global_transform)
 	else:
 		add_child(card)
 	
@@ -92,7 +94,7 @@ func draw_cards(num_cards: int):
 			deck.add_card(new_card)
 			new_card.global_position = deck.get_draw_point_global()
 			await get_tree().create_timer(.1).timeout
-		add_card(new_card, false)
+		add_card(new_card, false, true)
 		await get_tree().create_timer(.1).timeout
 	update_cards()
 

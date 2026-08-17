@@ -23,6 +23,7 @@ func get_draw_point_global() -> Vector2:
 
 func add_card(card: LarvaCard):
 	center.add_child(card)
+	card.position += TOP_OFFSET
 
 func _on_hover_space_pressed() -> void:
 	pressed.emit()

@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="5_3n04h"]
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="6_c5vmk"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmx7e"]
+atlas = ExtResource("2_wnpqk")
+region = Rect2(0, 0, 184, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5g11q"]
 atlas = ExtResource("2_wnpqk")
 region = Rect2(184, 0, 184, 256)
@@ -65,16 +69,23 @@ _data = {
 
 [node name="LarvaCard" type="Node2D" unique_id=1227121871 node_paths=PackedStringArray("ability_slots")]
 script = ExtResource("1_icnma")
-ability_slots = [NodePath("Container/Card/CardAbilities/CardAbilitySlot1"), NodePath("Container/Card/CardAbilities/CardAbilitySlot2"), NodePath("Container/Card/CardAbilities/CardAbilitySlot3")]
+ability_slots = [NodePath("Container/Front/Card/CardAbilities/CardAbilitySlot1"), NodePath("Container/Front/Card/CardAbilities/CardAbilitySlot2"), NodePath("Container/Front/Card/CardAbilities/CardAbilitySlot3")]
 
 [node name="Container" type="Node2D" parent="." unique_id=2026981897]
 
-[node name="Card" type="Node2D" parent="Container" unique_id=294962098]
+[node name="Back" type="Node2D" parent="Container" unique_id=2092220221]
 
-[node name="Sprite2D" type="Sprite2D" parent="Container/Card" unique_id=642097255]
+[node name="Sprite2D" type="Sprite2D" parent="Container/Back" unique_id=416562458]
+texture = SubResource("AtlasTexture_rmx7e")
+
+[node name="Front" type="Node2D" parent="Container" unique_id=1924605010]
+
+[node name="Card" type="Node2D" parent="Container/Front" unique_id=294962098]
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/Front/Card" unique_id=642097255]
 texture = SubResource("AtlasTexture_5g11q")
 
-[node name="Name" type="Label" parent="Container/Card" unique_id=1693507074]
+[node name="Name" type="Label" parent="Container/Front/Card" unique_id=1693507074]
 offset_left = -70.0
 offset_top = -110.0
 offset_right = 70.0
@@ -86,7 +97,7 @@ horizontal_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
 
-[node name="CardAbilities" type="VBoxContainer" parent="Container/Card" unique_id=1109222485]
+[node name="CardAbilities" type="VBoxContainer" parent="Container/Front/Card" unique_id=1109222485]
 offset_left = -70.0
 offset_top = 6.0
 offset_right = 70.0
@@ -95,37 +106,37 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_behavior_recursive = 1
 
-[node name="CardAbilitySlot1" parent="Container/Card/CardAbilities" unique_id=1389389967 instance=ExtResource("3_w8ko2")]
+[node name="CardAbilitySlot1" parent="Container/Front/Card/CardAbilities" unique_id=1389389967 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
 
-[node name="CardAbilitySlot2" parent="Container/Card/CardAbilities" unique_id=798858145 instance=ExtResource("3_w8ko2")]
+[node name="CardAbilitySlot2" parent="Container/Front/Card/CardAbilities" unique_id=798858145 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
 
-[node name="CardAbilitySlot3" parent="Container/Card/CardAbilities" unique_id=1871285072 instance=ExtResource("3_w8ko2")]
+[node name="CardAbilitySlot3" parent="Container/Front/Card/CardAbilities" unique_id=1871285072 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
 
-[node name="LarvaSlot" type="Area2D" parent="Container" unique_id=957539115]
+[node name="LarvaSlot" type="Area2D" parent="Container/Front" unique_id=957539115]
 position = Vector2(46, -53)
 rotation = 1.5707964
 collision_layer = 0
 collision_mask = 16
 input_pickable = false
 
-[node name="Larva" parent="Container/LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
+[node name="Larva" parent="Container/Front/LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
 z_index = 0
 info = SubResource("Resource_c5vmk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/LarvaSlot" unique_id=2083541082]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Front/LarvaSlot" unique_id=2083541082]
 shape = SubResource("CircleShape2D_icnma")
 
-[node name="ClickableArea" type="Area2D" parent="Container" unique_id=1641301708]
+[node name="ClickableArea" type="Area2D" parent="Container/Front" unique_id=1641301708]
 collision_layer = 8
 collision_mask = 48
 
-[node name="CardViewCollisionShape" type="CollisionShape2D" parent="Container/ClickableArea" unique_id=1075871762]
+[node name="CardViewCollisionShape" type="CollisionShape2D" parent="Container/Front/ClickableArea" unique_id=1075871762]
 shape = SubResource("RectangleShape2D_wnpqk")
 
-[node name="LarvaViewCollisionShape" type="CollisionShape2D" parent="Container/ClickableArea" unique_id=1015897179]
+[node name="LarvaViewCollisionShape" type="CollisionShape2D" parent="Container/Front/ClickableArea" unique_id=1015897179]
 position = Vector2(-7, -53)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_lmto1")
@@ -134,6 +145,6 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551450647]
 libraries/ = SubResource("AnimationLibrary_lmto1")
 
-[connection signal="area_entered" from="Container/ClickableArea" to="." method="_on_clickable_area_area_entered"]
-[connection signal="area_exited" from="Container/ClickableArea" to="." method="_on_clickable_area_area_exited"]
-[connection signal="input_event" from="Container/ClickableArea" to="." method="_on_clickable_area_input_event"]
+[connection signal="area_entered" from="Container/Front/ClickableArea" to="." method="_on_clickable_area_area_entered"]
+[connection signal="area_exited" from="Container/Front/ClickableArea" to="." method="_on_clickable_area_area_exited"]
+[connection signal="input_event" from="Container/Front/ClickableArea" to="." method="_on_clickable_area_input_event"]

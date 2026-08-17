@@ -6,15 +6,22 @@ signal hover_changed(is_hovered: bool)
 signal dropped
 signal died
 
-@onready var larva_slot: Area2D = $Container/LarvaSlot
-@onready var larva: Larva = $Container/LarvaSlot/Larva
-@onready var card: Node2D = $Container/Card
+@onready var larva_slot: Area2D = $Container/Front/LarvaSlot
+@onready var larva: Larva = $Container/Front/LarvaSlot/Larva
+@onready var card: Node2D = $Container/Front/Card
 @export var ability_slots : Array[CardAbilitySlot]
-@onready var card_view_collision_shape: CollisionShape2D = $Container/ClickableArea/CardViewCollisionShape
-@onready var larva_view_collision_shape: CollisionShape2D = $Container/ClickableArea/LarvaViewCollisionShape
-@onready var name_label: Label = $Container/Card/Name
+@onready var card_view_collision_shape: CollisionShape2D = $Container/Front/ClickableArea/CardViewCollisionShape
+@onready var larva_view_collision_shape: CollisionShape2D = $Container/Front/ClickableArea/LarvaViewCollisionShape
+@onready var name_label: Label = $Container/Front/Card/Name
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var container: Node2D = $Container
+@onready var back: Node2D = $Container/Back
+@onready var front: Node2D = $Container/Front
+
+var original_transform : Transform2D
+var target_transform : Transform2D
+var travelling := false
+var drawn := false
 
 func _ready() -> void:
 	load_larva_abilities()
@@ -22,6 +29,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	toggle_larva_view(is_larva_view())
+	if travelling and target_transform != null:
+		if transform.origin.distance_to(target_transform.origin) < 10:
+			toggle_travel(false)
+			transform = target_transform
+		else:
+			transform = transform.interpolate_with(target_transform, .05)
+		
+		var travel_progress = 1 -  transform.origin.distance_to(target_transform.origin)/original_transform.origin.distance_to(target_transform.origin)
+		front.scale.x = clamp(2 * (travel_progress - .5), 0, 1)
+		back.scale.x = clamp(2 * (.5 - travel_progress), 0, 1)
 
 func load_from_larva(new_larva: Larva):
 	if not is_node_ready():
@@ -117,3 +134,12 @@ func _on_clickable_area_area_entered(area: Area2D) -> void:
 func _on_clickable_area_area_exited(area: Area2D) -> void:
 	if area is CardHandler and not is_larva_view():
 		hover_changed.emit(false)
+
+func travel_to(new_target_transform: Transform2D):
+	if not travelling:
+		original_transform = transform
+	toggle_travel(true)
+	target_transform = new_target_transform
+
+func toggle_travel(is_travelling: bool):
+	travelling = is_travelling
