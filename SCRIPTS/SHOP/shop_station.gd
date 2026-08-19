@@ -10,7 +10,8 @@ class_name ShopStation
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
 @export var item_slots : Array[PanelContainer]
-@onready var reroll_button: Button = $PanelContainer/HBoxContainer/UISection/RerollButton
+@onready var reroll_button: Button = $PanelContainer/HBoxContainer/ItemSection/RerollButton
+@onready var terrariums_animation_tree: AnimationTree = $PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/AnimationTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -138,6 +139,7 @@ func _on_terrarium_button_pressed(source_button: Button) -> void:
 				terrarium.toggle_travel(false)
 				terrarium_zoom_point.zoom_node(terrarium)
 				terrarium_select_button.set_select_target(terrarium)
+				terrariums_animation_tree.set("parameters/conditions/reset", true)
 
 func _on_terrarium_select_button_pressed() -> void:
 	terrarium_select.hide()
@@ -169,3 +171,8 @@ func _on_item_chosen(item : ShopItem):
 		ScreenEvents.request_screen(ScreenEvents.Screen.DECK, deck_screen_info)
 	else:
 		ShopEvents.purchase_item(item.info)
+
+func _on_deck_pressed() -> void:
+	var deck_screen_info := DeckScreenInfo.new()
+	deck_screen_info.shop_info = info
+	ScreenEvents.request_screen(ScreenEvents.Screen.DECK, deck_screen_info)

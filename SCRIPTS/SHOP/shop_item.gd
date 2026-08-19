@@ -29,10 +29,10 @@ func _process(delta: float) -> void:
 
 func _on_mouse_entered() -> void:
 	if not disabled:
-		animation_player.play("highlight")
+		active_icon_sprite.show()
 
 func _on_mouse_exited() -> void:
-	animation_player.play("RESET")
+	active_icon_sprite.hide()
 
 func load_info(new_info: ShopItemInfo):
 	if is_instance_valid(new_info):

@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="9_r6jer"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="11_flq6w"]
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="14_44cau"]
+[ext_resource type="Texture2D" uid="uid://baigfkwodc15q" path="res://ASSETS/Art/GUI/DeckScreen/zap_256x256.png" id="14_g6mnv"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="15_ss2ju"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
@@ -114,12 +115,152 @@ region = Rect2(0, 128, 128, 128)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss2ju"]
 texture = SubResource("AtlasTexture_44cau")
 
+[sub_resource type="Gradient" id="Gradient_rmx7e"]
+colors = PackedColorArray(0.9999998, 0.8314512, 0.5816338, 1, 1, 0.69411767, 0, 1)
+
+[sub_resource type="Animation" id="Animation_g6mnv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pgajy"]
+resource_name = "zapping"
+length = 0.5
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s46fp"]
+_data = {
+&"RESET": SubResource("Animation_g6mnv"),
+&"zapping": SubResource("Animation_pgajy")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_36kts"]
 atlas = ExtResource("5_q53bx")
 region = Rect2(0, 384, 384, 384)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2l54r"]
 radius = 184.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgajy"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s46fp"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v4au"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxxav"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4dw1"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0um3"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3htqo"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4mhq"]
+atlas = ExtResource("14_g6mnv")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4jy31"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgajy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s46fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxxav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4dw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0um3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3htqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4mhq")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"zap",
+"speed": 12.0
+}]
 
 [node name="DeckScreen" type="PanelContainer" unique_id=1723208829 node_paths=PackedStringArray("deck_view", "ability_laser_view")]
 anchors_preset = 15
@@ -144,6 +285,7 @@ alignment = 1
 
 [node name="DeckSection" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="HBoxContainer/DeckSection" unique_id=62143601]
 layout_mode = 2
@@ -154,6 +296,7 @@ autowrap_mode = 2
 
 [node name="DeckView" type="ScrollContainer" parent="HBoxContainer/DeckSection" unique_id=1845271702 groups=["card_container"]]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/scrollbar_h_separation = 8
@@ -257,6 +400,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Laser" type="AnimatedSprite2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center" unique_id=1240174142]
+z_index = 2
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_44cau")
 animation = &"idle"
@@ -279,6 +423,22 @@ in_shop = false
 
 [node name="Cost" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem/ItemSpace/TopHalf/TopRightSpace" parent_id_path=PackedInt32Array(1788279766, 1417132163) index="1" unique_id=1970155121]
 visible = false
+
+[node name="LaserPath" type="Line2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser" unique_id=2045112587]
+visible = false
+z_index = -1
+position = Vector2(0, 114)
+points = PackedVector2Array(0, 0, 18, 57, -23, 107, 18, 173, 0, 261)
+width = 5.0
+default_color = Color(1, 0.69411767, 0, 1)
+gradient = SubResource("Gradient_rmx7e")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/LaserPath" unique_id=1360110877]
+libraries/ = SubResource("AnimationLibrary_s46fp")
+autoplay = &"RESET"
 
 [node name="PetriDishSpace" type="PanelContainer" parent="HBoxContainer/AbilityLaserView/VBoxContainer" unique_id=1067820854]
 layout_mode = 2
@@ -307,8 +467,18 @@ disabled = true
 position = Vector2(63, 0)
 rotation = 1.5707964
 
+[node name="LazerZap" type="AnimatedSprite2D" parent="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" unique_id=1787111177]
+z_index = 5
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_4jy31")
+animation = &"zap"
+autoplay = "default"
+frame = 8
+frame_progress = 1.0
+
 [node name="UISection" type="VBoxContainer" parent="HBoxContainer" unique_id=1144805401]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
 [node name="RunInfo" parent="HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("14_44cau")]

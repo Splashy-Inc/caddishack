@@ -39,9 +39,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_released():
 			if event.button_index == MOUSE_BUTTON_LEFT and card:
-				if card_start_parent is CardHand:
-					card_start_parent.unduck()
-					
 				if not click_window.is_stopped():
 					CardEvents.card_clicked.emit(card, event.button_index)
 					
@@ -49,13 +46,17 @@ func _unhandled_input(event: InputEvent) -> void:
 					if not card.drop(card_start_parent):
 						var card_container = get_tree().get_first_node_in_group("card_hand")
 						if card_container is CardHand:
-							card_container.add_card(card)
+							card_container.add_card(card, true, true)
 						else:
 							card_container = get_tree().get_first_node_in_group("card_container")
 							if card_container is DeckView:
 								card_container.add_card(card, true)
 							else:
 								card.queue_free()
+				
+				if card_start_parent is CardHand:
+					card_start_parent.update_cards()
+				
 				card = null
 
 func _on_body_entered(body: Node2D) -> void:

@@ -149,6 +149,7 @@ func start_larvae(round_length: float = 0.0) -> bool:
 				if add_larva(node.larva, true):
 					node.larva.start_making_bead()
 					node.queue_free()
+					larvae_running = true
 			elif node is Larva:
 				larvae_running = true
 				node.start_making_bead()

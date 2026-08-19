@@ -9,6 +9,7 @@ var hover_queue : Array[LarvaCard]
 @onready var hand_region: CollisionShape2D = $HandRegion
 @export var deck_info : DeckInfo
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@export var deck : Deck
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,11 +24,15 @@ func _process(delta: float) -> void:
 func space_cards():
 	var num_cards = cards.size()
 	var spacing = hand_width/num_cards
+	if spacing > hand_width/7:
+		spacing = hand_width/7
 	var middle = num_cards/2.0 - .5
 	for i in num_cards:
 		var card = cards.get(i)
-		card.position.x = 0 - spacing * (middle - i)
-		card.global_position.y = global_position.y
+		var new_transform = transform
+		new_transform.origin.x = 0 - spacing * (middle - i)
+		new_transform.origin.y = 0
+		card.travel_to(new_transform)
 
 func get_cards() -> Array[LarvaCard]:
 	var card_array : Array[LarvaCard]
@@ -37,19 +42,19 @@ func get_cards() -> Array[LarvaCard]:
 	
 	return card_array
 
-func remove_card(card: LarvaCard) -> LarvaCard:
+func remove_card(card: LarvaCard, check_duck: bool = false) -> LarvaCard:
 	if card in get_cards():
 		remove_child(card)
 		hover_queue.erase(card)
 		card.unlift()
 	else:
 		card = null
-	update_cards()
+	update_cards(check_duck)
 	return card
 
-func add_card(card: LarvaCard):
+func add_card(card: LarvaCard, check_duck: bool = true, keep_global_transform: bool = false):
 	if is_instance_valid(card.get_parent()):
-		card.reparent(self)
+		card.reparent(self, keep_global_transform)
 	else:
 		add_child(card)
 	
@@ -66,11 +71,16 @@ func add_card(card: LarvaCard):
 	if not card.hover_changed.is_connected(_on_card_hover_changed.bind(card)):
 		card.hover_changed.connect(_on_card_hover_changed.bind(card))
 	
-	update_cards()
+	update_cards(check_duck)
 
-func update_cards():
+func update_cards(check_duck: bool = true):
 	cards = get_cards()
 	space_cards()
+	if check_duck:
+		if cards.size() < 3:
+			duck()
+		else:
+			unduck()
 
 func draw_cards(num_cards: int):
 	if num_cards > deck_info.larvae.size():
@@ -80,19 +90,25 @@ func draw_cards(num_cards: int):
 		var draw_info = deck_info.larvae.pick_random()
 		deck_info.larvae.erase(draw_info)
 		var new_card = Globals.generate_card(draw_info)
-		add_card(new_card)
+		new_card.flip()
+		if deck:
+			deck.add_card(new_card)
+			await get_tree().create_timer(.1).timeout
+		add_card(new_card, false, true)
+		await get_tree().create_timer(.1).timeout
 	update_cards()
 
 func discard():
 	for card in get_cards():
-		card.queue_free()
+		remove_card(card)
 		await get_tree().create_timer(.25).timeout
 
 func duck():
-	animation_player.play("duck")
+	if position.y == 0:
+		animation_player.play("duck")
 
 func unduck():
-	if position.y != 0:
+	if position.y != 0 and get_cards().size() > 2:
 		animation_player.play_backwards("duck")
 
 func _on_card_hover_changed(is_hovered: bool, new_card: LarvaCard):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mttjvvwcrp46"
-path="res://.godot/imported/Special_Egg_T.png-ccdd497ad2a43bc0431281d68a5a9764.ctex"
+uid="uid://baigfkwodc15q"
+path="res://.godot/imported/zap_256x256.png-71bb6067f37eb3f9f841c57ef46c3f0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/Art/TERRARIUM/Eggs/Special_Egg_T.png"
-dest_files=["res://.godot/imported/Special_Egg_T.png-ccdd497ad2a43bc0431281d68a5a9764.ctex"]
+source_file="res://ASSETS/Art/GUI/DeckScreen/zap_256x256.png"
+dest_files=["res://.godot/imported/zap_256x256.png-71bb6067f37eb3f9f841c57ef46c3f0c.ctex"]
 
 [params]
 

@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="6_ugda1"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="7_vl60u"]
 [ext_resource type="StyleBox" uid="uid://b4ohcrep4kgqi" path="res://RESOURCES/button_box_hover.tres" id="7_yxfdh"]
+[ext_resource type="PackedScene" uid="uid://cjrwl6e72vl8q" path="res://SCENES/DECK/deck.tscn" id="8_3e80k"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="8_j0koi"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="9_shoaw"]
 [ext_resource type="PackedScene" uid="uid://dac4l330kaphs" path="res://SCENES/LARVAE/card_hand.tscn" id="10_04exf"]
@@ -17,48 +18,100 @@
 [ext_resource type="PackedScene" uid="uid://l8c5hnvmqfwd" path="res://SCENES/TERRARIUM/bead_scorer.tscn" id="12_s7cx1"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="14_vl60u"]
 [ext_resource type="Theme" uid="uid://byvh0plwsui1w" path="res://global_theme.tres" id="17_j82x7"]
-[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="18_3e80k"]
+[ext_resource type="Texture2D" uid="uid://cxg6id5smvfve" path="res://ASSETS/Art/TERRARIUM/CaddiGUI_HandPannel.png" id="18_j82x7"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="19_50hya"]
+
+[sub_resource type="Animation" id="Animation_50hya"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3acb6"]
+resource_name = "enabled"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646259971647, 0.0, -0.08726646259971647, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqial"]
+_data = {
+&"RESET": SubResource("Animation_50hya"),
+&"enabled": SubResource("Animation_3acb6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8o7bm"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bmhf0"]
+animation = &"enabled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5mdnq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_np646"]
+advance_mode = 2
+advance_expression = "disabled == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3f6jv"]
+advance_mode = 2
+advance_expression = "disabled == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rmx7e"]
+states/RESET/node = SubResource("AnimationNodeAnimation_8o7bm")
+states/RESET/position = Vector2(379, 155)
+states/enabled/node = SubResource("AnimationNodeAnimation_bmhf0")
+states/enabled/position = Vector2(379, 53)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_5mdnq"), "RESET", "enabled", SubResource("AnimationNodeStateMachineTransition_np646"), "enabled", "RESET", SubResource("AnimationNodeStateMachineTransition_3f6jv")]
 
 [sub_resource type="Resource" id="Resource_d1wso"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_jh2q2"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_lu261"]
 script = ExtResource("8_j0koi")
-color = 1
 
 [sub_resource type="Resource" id="Resource_06vpu"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_aypll"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_ct105"]
 script = ExtResource("8_j0koi")
-color = 2
 
 [sub_resource type="Resource" id="Resource_fnkbk"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_a2n2k"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_f7u7g"]
 script = ExtResource("8_j0koi")
-color = 3
 
 [sub_resource type="Resource" id="Resource_0cd06"]
 script = ExtResource("8_j0koi")
-color = 1
 metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 
 [sub_resource type="Resource" id="Resource_8ls7a"]
@@ -102,10 +155,18 @@ script = ExtResource("9_shoaw")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_j82x7"]
+[sub_resource type="Resource" id="Resource_3e80k"]
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3e80k"]
+texture = ExtResource("18_j82x7")
+texture_margin_left = 14.0
+texture_margin_top = 15.0
+texture_margin_right = 26.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(0, 0, 416, 240)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kqial"]
 font = ExtResource("19_50hya")
@@ -170,37 +231,50 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 16
 
+[node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="RunInfo" parent="PanelContainer/VBoxContainer" unique_id=1126309375 instance=ExtResource("3_dugvo")]
 layout_mode = 2
+size_flags_vertical = 6
 
 [node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=513006651]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+offset_transform_enabled = true
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("6_ugda1")
 theme_override_styles/hover = ExtResource("7_yxfdh")
 disabled = true
 text = "Next"
 
-[node name="PauseButton" parent="PanelContainer/VBoxContainer" unique_id=374039595 instance=ExtResource("6_j0koi")]
-custom_minimum_size = Vector2(128, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer/VBoxContainer/NextButton" unique_id=45986360]
+libraries/ = SubResource("AnimationLibrary_kqial")
+
+[node name="AnimationTree" type="AnimationTree" parent="PanelContainer/VBoxContainer/NextButton" unique_id=1432756754]
+tree_root = SubResource("AnimationNodeStateMachine_rmx7e")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Deck" parent="PanelContainer/VBoxContainer" unique_id=1656390780 instance=ExtResource("8_3e80k")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
 
 [node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
 position = Vector2(550, 337)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(550, 337)
-info = SubResource("Resource_j82x7")
+info = SubResource("Resource_3e80k")
 
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
-position = Vector2(550, 669)
+position = Vector2(550, 637)
 
-[node name="CardHand" parent="HandSlot" unique_id=1587952838 instance=ExtResource("10_04exf")]
+[node name="CardHand" parent="HandSlot" unique_id=1587952838 node_paths=PackedStringArray("deck") instance=ExtResource("10_04exf")]
+deck = NodePath("../../PanelContainer/VBoxContainer/Deck")
 
 [node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
 
@@ -217,13 +291,14 @@ visible = false
 position = Vector2(550, 582)
 
 [node name="HandCountTracker" type="PanelContainer" parent="." unique_id=1288205798]
+visible = false
 offset_left = 342.0
 offset_top = 208.0
 offset_right = 758.0
 offset_bottom = 448.0
 mouse_filter = 2
 theme = ExtResource("17_j82x7")
-theme_override_styles/panel = ExtResource("18_3e80k")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3e80k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HandCountTracker" unique_id=1804735368]
 layout_mode = 2

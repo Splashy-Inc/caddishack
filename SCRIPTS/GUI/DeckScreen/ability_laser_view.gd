@@ -6,6 +6,7 @@ signal card_completed(larva_card: LarvaCard, success: bool)
 
 @export var ability_item: ShopItem
 @export var petri_dish: PetriDish
+@onready var animation_player: AnimationPlayer = $VBoxContainer/LaserSpace/Center/Laser/LaserPath/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,8 @@ func _on_petri_dish_larva_card_added(larva_card: LarvaCard) -> void:
 	if is_instance_valid(ability_item):
 		if ability_item.info is ShopAbilityInfo:
 			if larva_card.add_ability(ability_item.info.ability):
+				animation_player.play("zapping")
+				await animation_player.animation_finished
 				ShopEvents.purchase_item(ability_item.info)
 				ability_item.queue_free()
 				card_completed.emit(larva_card, true)

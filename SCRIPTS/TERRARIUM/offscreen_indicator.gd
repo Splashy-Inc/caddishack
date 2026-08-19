@@ -23,9 +23,9 @@ func _process(delta: float) -> void:
 	
 	if (camera and is_instance_valid(camera)) and (parent and is_instance_valid(parent)):
 		if cur_larva and is_instance_valid(cur_larva):
-			if parent.info is SandMaterialInfo and (cur_larva.egg_info.type == EggMaterialInfo.EggType.SANDY or cur_larva.egg_info.type == EggMaterialInfo.EggType.GOED):
+			if parent.info is SandMaterialInfo:
 				visible = true
-			elif parent.info is SpecialMaterialInfo and cur_larva.egg_info.type == EggMaterialInfo.EggType.GOED:
+			elif parent.info is SpecialMaterialInfo:
 				visible = true
 			else:
 				visible = false

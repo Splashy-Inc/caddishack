@@ -1,0 +1,27 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://dckr5fknm50se"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8o7bm"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bmhf0"]
+animation = &"enabled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5mdnq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_np646"]
+advance_mode = 2
+advance_expression = "next_button.disabled and terrarium_zoom_point.targets.is_empty()
+"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3f6jv"]
+advance_mode = 2
+advance_condition = &"reset"
+advance_expression = "not next_button.disabled or not terrarium_zoom_point.targets.is_empty()"
+
+[resource]
+states/RESET/node = SubResource("AnimationNodeAnimation_8o7bm")
+states/RESET/position = Vector2(379, 155)
+states/enabled/node = SubResource("AnimationNodeAnimation_bmhf0")
+states/enabled/position = Vector2(379, 53)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_5mdnq"), "RESET", "enabled", SubResource("AnimationNodeStateMachineTransition_np646"), "enabled", "RESET", SubResource("AnimationNodeStateMachineTransition_3f6jv")]

@@ -1,0 +1,25 @@
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://m0qa02yugxmd"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8o7bm"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bmhf0"]
+animation = &"enabled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5mdnq"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qp5i"]
+advance_mode = 2
+advance_expression = "disabled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_scvde"]
+advance_mode = 2
+advance_expression = "not disabled"
+
+[resource]
+states/RESET/node = SubResource("AnimationNodeAnimation_8o7bm")
+states/RESET/position = Vector2(379, 155)
+states/enabled/node = SubResource("AnimationNodeAnimation_bmhf0")
+states/enabled/position = Vector2(379, 53)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_5mdnq"), "enabled", "RESET", SubResource("AnimationNodeStateMachineTransition_8qp5i"), "RESET", "enabled", SubResource("AnimationNodeStateMachineTransition_scvde")]
