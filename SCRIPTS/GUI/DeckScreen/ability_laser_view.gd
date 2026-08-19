@@ -6,7 +6,6 @@ signal card_completed(larva_card: LarvaCard, success: bool)
 
 @export var ability_item: ShopItem
 @export var petri_dish: PetriDish
-@onready var laser_origin: Marker2D = $VBoxContainer/LaserSpace/Center/Laser/LaserOrigin
 @onready var animation_player: AnimationPlayer = $VBoxContainer/LaserSpace/Center/Laser/LaserPath/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
