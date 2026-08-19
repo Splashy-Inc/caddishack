@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmiraoyeq5xh6"]
+[gd_scene format=3 uid="uid://cmiraoyeq5xh6"]
 
-[ext_resource type="Script" path="res://SCRIPTS/sfx_manager.gd" id="1_craok"]
+[ext_resource type="Script" uid="uid://ctuttpvhrv1v4" path="res://SCRIPTS/sfx_manager.gd" id="1_craok"]
 
-[node name="SFXManager" type="Node2D"]
+[node name="SFXManager" type="Node2D" unique_id=421924504]
 script = ExtResource("1_craok")

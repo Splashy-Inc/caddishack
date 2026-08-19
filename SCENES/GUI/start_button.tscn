@@ -6,6 +6,8 @@
 [ext_resource type="StyleBox" uid="uid://cqe3jf4ia3cgx" path="res://RESOURCES/button_box_disabled.tres" id="4_mmupx"]
 [ext_resource type="Script" uid="uid://bptuqxn33vrtu" path="res://SCRIPTS/GUI/start_button.gd" id="5_ufvro"]
 [ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="5_uiy2g"]
+[ext_resource type="AudioStream" uid="uid://cqx86gb0x1fw5" path="res://ASSETS/Audio/Buttons/button_option_1.ogg" id="7_uiy2g"]
+[ext_resource type="AudioStream" uid="uid://dkc01be6mrega" path="res://ASSETS/Audio/Buttons/button_option_2.ogg" id="8_imj7i"]
 
 [sub_resource type="Theme" id="Theme_o2nxr"]
 default_font = ExtResource("1_la1id")
@@ -31,4 +33,14 @@ theme_override_font_sizes/font_size = 44
 text = "Start"
 script = ExtResource("5_ufvro")
 
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=185300183]
+stream = ExtResource("7_uiy2g")
+bus = &"Buttons"
+
+[node name="PressSound" type="AudioStreamPlayer" parent="." unique_id=1846505743]
+stream = ExtResource("8_imj7i")
+pitch_scale = 0.76
+bus = &"Buttons"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
