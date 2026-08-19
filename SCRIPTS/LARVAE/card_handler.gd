@@ -46,7 +46,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					if not card.drop(card_start_parent):
 						var card_container = get_tree().get_first_node_in_group("card_hand")
 						if card_container is CardHand:
-							card_container.add_card(card)
+							card_container.add_card(card, true, true)
 						else:
 							card_container = get_tree().get_first_node_in_group("card_container")
 							if card_container is DeckView:

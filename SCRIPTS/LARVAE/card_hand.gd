@@ -31,7 +31,7 @@ func space_cards():
 		var card = cards.get(i)
 		var new_transform = transform
 		new_transform.origin.x = 0 - spacing * (middle - i)
-		new_transform.origin.y = card.to_local(Vector2(0, global_position.y)).y
+		new_transform.origin.y = 0
 		card.travel_to(new_transform)
 
 func get_cards() -> Array[LarvaCard]:

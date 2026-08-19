@@ -30,15 +30,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	toggle_larva_view(is_larva_view())
 	if travelling and target_transform != null:
-		if transform.origin.distance_to(target_transform.origin) < 10:
+		if transform.origin.distance_to(target_transform.origin) < 2:
 			toggle_travel(false)
 			transform = target_transform
+			drawn = true
+			front.scale.x = 1
+			back.scale.x = 0
 		else:
-			transform = transform.interpolate_with(target_transform, .05)
+			transform = transform.interpolate_with(target_transform, .1)
 		
-		var travel_progress = 1 -  transform.origin.distance_to(target_transform.origin)/original_transform.origin.distance_to(target_transform.origin)
-		front.scale.x = clamp(2 * (travel_progress - .5), 0, 1)
-		back.scale.x = clamp(2 * (.5 - travel_progress), 0, 1)
+		if not drawn:
+			var travel_progress = 1 -  transform.origin.distance_to(target_transform.origin)/original_transform.origin.distance_to(target_transform.origin)
+			front.scale.x = clamp(2 * (travel_progress - .5), 0, 1)
+			back.scale.x = clamp(2 * (.5 - travel_progress), 0, 1)
 
 func load_from_larva(new_larva: Larva):
 	if not is_node_ready():
@@ -63,6 +67,10 @@ func toggle_larva_view(is_larva: bool):
 		larva.scale /= larva_slot.scale
 		unlift()
 		card.hide()
+		drawn = true
+		travelling = false
+		front.scale.x = 1
+		back.scale.x = 0
 	else:
 		larva.scale *= larva_slot.scale
 		card.show()
