@@ -151,3 +151,14 @@ func travel_to(new_target_transform: Transform2D):
 
 func toggle_travel(is_travelling: bool):
 	travelling = is_travelling
+
+func flip():
+	if not is_node_ready():
+		await ready
+	
+	if front.scale.x > .5:
+		front.scale.x = 0
+		back.scale.x = 1
+	else:
+		front.scale.x = 1
+		back.scale.x = 0

@@ -8,7 +8,7 @@ signal pressed
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var clickable := false
 
-const TOP_OFFSET = Vector2(-8,-8)
+const TOP_OFFSET = Vector2(-12,-12)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +23,7 @@ func get_draw_point_global() -> Vector2:
 
 func add_card(card: LarvaCard):
 	center.add_child(card)
-	card.position += TOP_OFFSET
+	card.position = TOP_OFFSET
 
 func _on_hover_space_pressed() -> void:
 	pressed.emit()

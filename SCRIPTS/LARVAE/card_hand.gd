@@ -90,9 +90,9 @@ func draw_cards(num_cards: int):
 		var draw_info = deck_info.larvae.pick_random()
 		deck_info.larvae.erase(draw_info)
 		var new_card = Globals.generate_card(draw_info)
+		new_card.flip()
 		if deck:
 			deck.add_card(new_card)
-			new_card.global_position = deck.get_draw_point_global()
 			await get_tree().create_timer(.1).timeout
 		add_card(new_card, false, true)
 		await get_tree().create_timer(.1).timeout
