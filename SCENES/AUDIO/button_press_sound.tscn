@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dsismqget8078"]
+
+[ext_resource type="AudioStream" uid="uid://dkc01be6mrega" path="res://ASSETS/Audio/Buttons/button_option_2.ogg" id="1_w6ut3"]
+
+[node name="ButtonPressSound" type="AudioStreamPlayer" unique_id=2014348394]
+stream = ExtResource("1_w6ut3")
+pitch_scale = 0.76
+bus = &"Buttons"

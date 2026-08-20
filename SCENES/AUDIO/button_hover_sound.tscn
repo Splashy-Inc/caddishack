@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b541wyt8ubmd7"]
+
+[ext_resource type="AudioStream" uid="uid://cqx86gb0x1fw5" path="res://ASSETS/Audio/Buttons/button_option_1.ogg" id="1_cyuo7"]
+
+[node name="ButtonHoverSound" type="AudioStreamPlayer" unique_id=585325135]
+stream = ExtResource("1_cyuo7")
+bus = &"Buttons"
