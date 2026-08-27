@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fvqo1qe1kd3n" path="res://SCENES/GUI/main_menu/splash_screen.tscn" id="3_4aa6m"]
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="4_0qco7"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_28rho"]
+[ext_resource type="Script" uid="uid://bht4bf1m4rfc3" path="res://SCRIPTS/GUI/ui_button.gd" id="6_toi61"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="7_0qco7"]
 [ext_resource type="PackedScene" uid="uid://067en6je8uvm" path="res://SCENES/GUI/restart_button.tscn" id="9_ikw0v"]
 
@@ -101,6 +102,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Next"
+script = ExtResource("6_toi61")
 
 [node name="RestartButton" parent="PanelContainer/VBoxContainer/HBoxContainer/Control3" unique_id=1516624254 instance=ExtResource("9_ikw0v")]
 visible = false

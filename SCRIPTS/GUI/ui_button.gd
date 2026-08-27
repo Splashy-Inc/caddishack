@@ -34,5 +34,5 @@ func play_pressed_sound():
 		press_sound.play()
 
 func play_hover_sound():
-	if is_instance_valid(hover_sound):
+	if is_instance_valid(hover_sound) and not disabled:
 		hover_sound.play()

@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="14_44cau"]
 [ext_resource type="Texture2D" uid="uid://baigfkwodc15q" path="res://ASSETS/Art/GUI/DeckScreen/zap_256x256.png" id="14_g6mnv"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="15_ss2ju"]
+[ext_resource type="Script" uid="uid://bht4bf1m4rfc3" path="res://SCRIPTS/GUI/ui_button.gd" id="16_pgajy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
 content_margin_left = 8.0
@@ -490,6 +491,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Back"
+script = ExtResource("16_pgajy")
 
 [node name="PauseButton" parent="HBoxContainer/UISection" unique_id=374039595 instance=ExtResource("15_ss2ju")]
 custom_minimum_size = Vector2(128, 0)

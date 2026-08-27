@@ -1,4 +1,4 @@
-extends Button
+extends UIButton
 
 class_name ShopItem
 
@@ -17,15 +17,9 @@ signal load_info_completed(success: bool)
 @onready var description_label: Label = $ItemSpace/Description
 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _button_ready() -> void:
 	load_info(info)
 	RunEvents.score_updated.connect(check_disabled)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_mouse_entered() -> void:
 	if not disabled:
