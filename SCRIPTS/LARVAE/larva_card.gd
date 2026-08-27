@@ -17,6 +17,7 @@ signal died
 @onready var container: Node2D = $Container
 @onready var back: Node2D = $Container/Back
 @onready var front: Node2D = $Container/Front
+@onready var draw_sound: AudioStreamPlayer = $DrawSound
 
 var original_transform : Transform2D
 var target_transform : Transform2D
@@ -144,6 +145,8 @@ func _on_clickable_area_area_exited(area: Area2D) -> void:
 		hover_changed.emit(false)
 
 func travel_to(new_target_transform: Transform2D):
+	if not drawn and not draw_sound.playing:
+		draw_sound.play()
 	if not travelling:
 		original_transform = transform
 	toggle_travel(true)
