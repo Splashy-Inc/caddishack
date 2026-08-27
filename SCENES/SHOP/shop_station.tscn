@@ -23,6 +23,7 @@
 [ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="15_xn1ka"]
 [ext_resource type="StyleBox" uid="uid://ckqkgqr7o6hy2" path="res://RESOURCES/shop_button_disabled.tres" id="16_v2i7w"]
 [ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="16_yqt8j"]
+[ext_resource type="PackedScene" uid="uid://dsvnebt4fje6g" path="res://SCENES/AUDIO/reroll_sound.tscn" id="17_td8h1"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="17_yqt8j"]
 [ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="18_yqt8j"]
 [ext_resource type="PackedScene" uid="uid://cbemq6u2ind3k" path="res://SCENES/GUI/select_button.tscn" id="20_6bml6"]
@@ -359,6 +360,7 @@ theme_override_styles/hover = ExtResource("5_r8xvt")
 disabled = true
 text = "Reroll Everything $10"
 script = ExtResource("24_imspv")
+press_sound_scene = ExtResource("17_td8h1")
 
 [node name="TerrariumPanel" type="PanelContainer" parent="PanelContainer/HBoxContainer" unique_id=1112454209]
 custom_minimum_size = Vector2(400, 0)

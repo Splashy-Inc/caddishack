@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dsvnebt4fje6g"]
+
+[ext_resource type="AudioStream" uid="uid://mc4i50pxitri" path="res://ASSETS/Audio/Buttons/reroll_option_5.ogg" id="1_tugab"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tugab"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("1_tugab")
+
+[node name="RerollSound" type="AudioStreamPlayer" unique_id=2014348394]
+stream = SubResource("AudioStreamRandomizer_tugab")
+pitch_scale = 0.8
+bus = &"SFX"
