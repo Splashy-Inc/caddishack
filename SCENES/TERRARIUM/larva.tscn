@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c3uroawhm7hrj" path="res://ASSETS/Audio/bug_move_2.ogg" id="12_7ec3c"]
 [ext_resource type="AudioStream" uid="uid://nkxgok7f8p7y" path="res://ASSETS/Audio/bug_move_3.ogg" id="13_oknjm"]
 [ext_resource type="AudioStream" uid="uid://bpvtm7e2nj76v" path="res://ASSETS/Audio/bug_move_4.ogg" id="14_sxk8d"]
+[ext_resource type="AudioStream" uid="uid://srwgq7cttt4w" path="res://ASSETS/Audio/bug_collect_1.ogg" id="15_7ec3c"]
 
 [sub_resource type="Resource" id="Resource_m8k0v"]
 resource_local_to_scene = true
@@ -686,6 +687,20 @@ tracks/4/keys = {
 "method": &"set_body_idle"
 }]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollectSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_pgsy6"]
 resource_name = "idle"
@@ -878,6 +893,11 @@ stream_1/stream = ExtResource("12_7ec3c")
 stream_2/stream = ExtResource("13_oknjm")
 stream_3/stream = ExtResource("14_sxk8d")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xs24i"]
+random_pitch = 1.122462
+streams_count = 1
+stream_0/stream = ExtResource("15_7ec3c")
+
 [node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead", "ability_icons") groups=["larvae"]]
 z_index = 2
 disable_mode = 2
@@ -963,6 +983,12 @@ neighbor_distance = 100.0
 
 [node name="MoveSound" type="AudioStreamPlayer" parent="." unique_id=1991520064]
 stream = SubResource("AudioStreamRandomizer_rmx7e")
+bus = &"SFX"
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="." unique_id=743916980]
+stream = SubResource("AudioStreamRandomizer_xs24i")
+volume_db = 5.0
+pitch_scale = 1.75
 bus = &"SFX"
 
 [connection signal="died" from="." to="." method="_on_died"]
