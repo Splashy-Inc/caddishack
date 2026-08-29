@@ -10,6 +10,10 @@
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_566sv"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="10_4ycns"]
 [ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="10_rm28v"]
+[ext_resource type="AudioStream" uid="uid://dntsif0en5jm2" path="res://ASSETS/Audio/bug_move_1.ogg" id="11_ddlee"]
+[ext_resource type="AudioStream" uid="uid://c3uroawhm7hrj" path="res://ASSETS/Audio/bug_move_2.ogg" id="12_7ec3c"]
+[ext_resource type="AudioStream" uid="uid://nkxgok7f8p7y" path="res://ASSETS/Audio/bug_move_3.ogg" id="13_oknjm"]
+[ext_resource type="AudioStream" uid="uid://bpvtm7e2nj76v" path="res://ASSETS/Audio/bug_move_4.ogg" id="14_sxk8d"]
 
 [sub_resource type="Resource" id="Resource_m8k0v"]
 resource_local_to_scene = true
@@ -730,7 +734,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_8n1sv"]
 resource_name = "move"
 length = 0.58334166
-loop_mode = 1
+loop_mode = 2
 step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -767,6 +771,26 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"move"]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoveSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.5833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_pue2t"]
@@ -840,11 +864,19 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_rm28v"]
+[sub_resource type="Resource" id="Resource_566sv"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
 sand = SubResource("Resource_cikro")
 special = SubResource("Resource_qg1fj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rmx7e"]
+random_pitch = 1.122462
+streams_count = 4
+stream_0/stream = ExtResource("11_ddlee")
+stream_1/stream = ExtResource("12_7ec3c")
+stream_2/stream = ExtResource("13_oknjm")
+stream_3/stream = ExtResource("14_sxk8d")
 
 [node name="Larva" type="CharacterBody2D" unique_id=1438854672 node_paths=PackedStringArray("bead", "ability_icons") groups=["larvae"]]
 z_index = 2
@@ -919,7 +951,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_rm28v")
+info = SubResource("Resource_566sv")
 completion_time = 0
 complete = false
 
@@ -928,6 +960,10 @@ path_max_distance = 10.0
 avoidance_enabled = true
 radius = 8.0
 neighbor_distance = 100.0
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="." unique_id=1991520064]
+stream = SubResource("AudioStreamRandomizer_rmx7e")
+bus = &"SFX"
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
