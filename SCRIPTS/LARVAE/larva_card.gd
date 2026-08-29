@@ -14,6 +14,7 @@ signal died
 @onready var larva_view_collision_shape: CollisionShape2D = $Container/Front/ClickableArea/LarvaViewCollisionShape
 @onready var name_label: Label = $Container/Front/Card/Name
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var flip_animation_player: AnimationPlayer = $FlipAnimationPlayer
 @onready var container: Node2D = $Container
 @onready var back: Node2D = $Container/Back
 @onready var front: Node2D = $Container/Front
@@ -158,4 +159,7 @@ func flip():
 		back.scale.x = 0
 
 func start_draw_flip():
-	animation_player.play("flip_up")
+	flip_animation_player.play("flip_up")
+
+func draw_no_flip():
+	$DrawSound.play()

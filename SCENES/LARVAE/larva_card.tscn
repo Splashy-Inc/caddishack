@@ -213,6 +213,9 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=551450647]
 libraries/ = SubResource("AnimationLibrary_lmto1")
 
+[node name="FlipAnimationPlayer" type="AnimationPlayer" parent="." unique_id=906051041]
+libraries/ = SubResource("AnimationLibrary_lmto1")
+
 [node name="DrawSound" parent="." unique_id=2014348394 instance=ExtResource("7_lmto1")]
 
 [connection signal="area_entered" from="Container/Front/ClickableArea" to="." method="_on_clickable_area_area_entered"]

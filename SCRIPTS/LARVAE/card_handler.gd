@@ -74,3 +74,4 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_click_window_timeout() -> void:
 	if card_start_parent is CardHand and is_instance_valid(card):
 		card_start_parent.duck()
+		card.draw_no_flip()
