@@ -749,8 +749,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_8n1sv"]
 resource_name = "move"
-length = 0.58334166
-loop_mode = 2
+length = 1.0833416989527642
 step = 0.083333336
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -771,10 +770,10 @@ tracks/1/path = NodePath("Head:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5833333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5833333, 1.0833334),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 6]
+"values": [0, 6, 0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -795,9 +794,12 @@ tracks/3/path = NodePath("MoveSound")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.5833333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.33333334, 0.5833333, 0.8333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}, {
 "args": [0.0],
 "method": &"play"
 }, {
@@ -894,7 +896,7 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_566sv"]
+[sub_resource type="Resource" id="Resource_oknjm"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
 sand = SubResource("Resource_cikro")
@@ -991,7 +993,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_566sv")
+info = SubResource("Resource_oknjm")
 completion_time = 0
 complete = false
 
