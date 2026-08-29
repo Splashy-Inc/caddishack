@@ -17,11 +17,11 @@ signal died
 @onready var container: Node2D = $Container
 @onready var back: Node2D = $Container/Back
 @onready var front: Node2D = $Container/Front
-@onready var draw_sound: AudioStreamPlayer = $DrawSound
 
 var original_transform : Transform2D
 var target_transform : Transform2D
 var travelling := false
+var travel_progress := 0.0
 var drawn := false
 
 func _ready() -> void:
@@ -35,15 +35,8 @@ func _process(delta: float) -> void:
 			toggle_travel(false)
 			transform = target_transform
 			drawn = true
-			front.scale.x = 1
-			back.scale.x = 0
 		else:
 			transform = transform.interpolate_with(target_transform, .1)
-		
-		if not drawn:
-			var travel_progress = 1 -  transform.origin.distance_to(target_transform.origin)/original_transform.origin.distance_to(target_transform.origin)
-			front.scale.x = clamp(2 * (travel_progress - .5), 0, 1)
-			back.scale.x = clamp(2 * (.5 - travel_progress), 0, 1)
 
 func load_from_larva(new_larva: Larva):
 	if not is_node_ready():
@@ -145,8 +138,6 @@ func _on_clickable_area_area_exited(area: Area2D) -> void:
 		hover_changed.emit(false)
 
 func travel_to(new_target_transform: Transform2D):
-	if not drawn and not draw_sound.playing:
-		draw_sound.play()
 	if not travelling:
 		original_transform = transform
 	toggle_travel(true)
@@ -165,3 +156,6 @@ func flip():
 	else:
 		front.scale.x = 1
 		back.scale.x = 0
+
+func start_draw_flip():
+	animation_player.play("flip_up")
