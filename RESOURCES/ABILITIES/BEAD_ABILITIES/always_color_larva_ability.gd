@@ -1,4 +1,4 @@
-extends BeadColorAbilityInfo
+extends BeadAbilityInfo
 
 ## Adds color to a bead by default, cannot stack multiple "always" abilities
 class_name AlwaysColorBeadAbility

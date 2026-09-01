@@ -6,13 +6,16 @@ class_name BeadSlot
 @onready var points_label: Label = $Value/Points
 @onready var mult_label: Label = $Value/Mult
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var fail_sound: AudioStreamPlayer = $FailSound
 
 @export var ability_icons : Array[AbilityIcon]
 
-@export var highlight_timeout := .5
+@export var highlight_timeout := .25
 
 var points := 0
 var mult := 0
+
+var scoring_sound : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -64,10 +67,14 @@ func get_bead() -> Bead:
 	return null
 
 func set_points(new_points: int):
+	if is_instance_valid(scoring_sound):
+		scoring_sound.play()
 	points = new_points
 	points_label.text = str(points)
 
 func set_mult(new_mult: int):
+	if is_instance_valid(scoring_sound):
+		scoring_sound.play()
 	mult = new_mult
 	mult_label.text = str(new_mult)
 
@@ -79,11 +86,12 @@ func calculate_value(info: BeadArrayInfo):
 				set_points(bead_info.calculate_points(info))
 				set_mult(bead_info.calculate_mult(info))
 
-func calculate_value_animated(bead_array_info: BeadArrayInfo):
+func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound: AudioStreamPlayer = null):
 	var bead := get_bead()
 	if is_instance_valid(bead):
 		for bead_info in bead_array_info.beads:
 			if bead.info == bead_info:
+				scoring_sound = new_scoring_sound
 				lift_bead()
 				var value_breakdown := bead_info.get_value_breakdown(bead_array_info)
 				var bead_points = value_breakdown["color_points"]
@@ -102,22 +110,33 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo):
 				for ability_info in bead_info.abilities:
 					for icon in ability_icons:
 						if icon.info == ability_info:
-							icon.toggle_active(true)
+							var ability_value = 0
 							if ability_info is BeadColorAbilityInfo:
+								icon.toggle_active(true)
 								for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
 									BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
-								bead_points += value_breakdown["abilities"][ability_info]["value"]
-								set_points(bead_points)
+								ability_value += value_breakdown["abilities"][ability_info]["value"]
+								if ability_value > 0:
+									set_points(bead_points + ability_value)
+								else:
+									fail_sound.play()
 							elif ability_info is BeadCharmAbilityInfo:
+								icon.toggle_active(true)
 								for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
 									BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
-								bead_mult += value_breakdown["abilities"][ability_info]["value"]
-								set_mult(bead_mult)
-							await get_tree().create_timer(highlight_timeout).timeout
+								ability_value += value_breakdown["abilities"][ability_info]["value"]
+								if ability_value > 0:
+									set_mult(bead_mult + ability_value)
+								else:
+									fail_sound.play()
+							else:
+								continue
+							await get_tree().create_timer(highlight_timeout*2).timeout
 							for affected_bead_info in value_breakdown["abilities"][ability_info]["affected_beads"]:
 								BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
 								BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
 							icon.toggle_active(false)
+				scoring_sound = null
 				set_points(bead_info.calculate_points(bead_array_info))
 				set_mult(bead_info.calculate_mult(bead_array_info))
 				complete_bead_scoring()

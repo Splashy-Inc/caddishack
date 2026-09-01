@@ -5,6 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://36xl0gfrun1m" path="res://ASSETS/Font/gui_point_label.tres" id="3_pyov1"]
 [ext_resource type="LabelSettings" uid="uid://dsbhln5iakbf7" path="res://ASSETS/Font/gui_mult_label.tres" id="4_r86f8"]
 [ext_resource type="PackedScene" uid="uid://dbkndg8s7akxg" path="res://SCENES/CRAFT_STATION/ability_icon.tscn" id="5_pyov1"]
+[ext_resource type="AudioStream" uid="uid://bfrjxkxogpdq4" path="res://ASSETS/Audio/bead_plink_fail_1.ogg" id="6_r86f8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qde3"]
 
@@ -147,3 +148,8 @@ position = Vector2(24, 10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=767631940]
 libraries/ = SubResource("AnimationLibrary_lovp1")
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=224625239]
+stream = ExtResource("6_r86f8")
+volume_db = 5.0
+bus = &"SFX"

@@ -5,6 +5,7 @@ class_name Bracelet
 signal animated_value_calculated(value: int)
 
 @export var info : BraceletInfo
+@onready var scoring_sound: AudioStreamPlayer = $ScoringSound
 
 var travel_target_global_position : Vector2
 var travel_target_rotation : float
@@ -41,7 +42,9 @@ func calculate_value() -> int:
 
 func calculate_value_animated():
 	for slot in bead_slots:
-		await slot.calculate_value_animated(info.get_bead_array_info())
+		await slot.calculate_value_animated(info.get_bead_array_info(), scoring_sound)
+		scoring_sound.pitch_scale += .025
+	scoring_sound.pitch_scale = .5
 	animated_value_calculated.emit(info.calculate_value())
 
 func is_complete() -> bool:

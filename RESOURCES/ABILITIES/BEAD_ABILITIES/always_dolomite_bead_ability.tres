@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AlwaysColorBeadAbility" format=3 uid="uid://8cdcook8lkoo"]
 
-[ext_resource type="Script" uid="uid://2y7v2xqewast" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_color_bead_ability.gd" id="1_cpccl"]
+[ext_resource type="Script" uid="uid://2y7v2xqewast" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_color_larva_ability.gd" id="1_cpccl"]
 [ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_imoqx"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kx5dp"]

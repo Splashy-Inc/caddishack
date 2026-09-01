@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="5_ahedr"]
 [ext_resource type="PackedScene" uid="uid://5xn7k3avxu3y" path="res://SCENES/CRAFT_STATION/bead_slot.tscn" id="6_ahedr"]
+[ext_resource type="AudioStream" uid="uid://b7owejwec084n" path="res://ASSETS/Audio/bead_plink_1.ogg" id="7_pfo2p"]
 
 [sub_resource type="Resource" id="Resource_dmabb"]
 resource_local_to_scene = true
@@ -86,3 +87,8 @@ position = Vector2(577, 0)
 visible = false
 position = Vector2(-15, 1)
 shape = SubResource("RectangleShape2D_nso2t")
+
+[node name="ScoringSound" type="AudioStreamPlayer" parent="." unique_id=2028091687]
+stream = ExtResource("7_pfo2p")
+pitch_scale = 0.5
+bus = &"SFX"
