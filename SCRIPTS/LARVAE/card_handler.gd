@@ -34,6 +34,9 @@ func _on_card_pressed(pressed_card: LarvaCard, button_index: MouseButton) -> voi
 			card_start_parent = card.get_parent()
 			card.reparent(self, false)
 			click_window.start()
+			
+			if not card.is_larva_view():
+				card.draw_no_flip()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -47,12 +50,16 @@ func _unhandled_input(event: InputEvent) -> void:
 						var card_container = get_tree().get_first_node_in_group("card_hand")
 						if card_container is CardHand:
 							card_container.add_card(card, true, true)
+							card.draw_no_flip()
 						else:
 							card_container = get_tree().get_first_node_in_group("card_container")
 							if card_container is DeckView:
 								card_container.add_card(card, true)
+								card.draw_no_flip()
 							else:
 								card.queue_free()
+				else:
+					card.larva.collect_sound.play()
 				
 				if card_start_parent is CardHand:
 					card_start_parent.update_cards()
@@ -72,6 +79,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 # Indicates a card in being dragged
 func _on_click_window_timeout() -> void:
-	if card_start_parent is CardHand and is_instance_valid(card):
-		card_start_parent.duck()
-		card.draw_no_flip()
+	if is_instance_valid(card):
+		if card_start_parent is CardHand:
+			card_start_parent.duck()

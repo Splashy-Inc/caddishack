@@ -45,6 +45,7 @@ func add_larva_card(new_larva_card: LarvaCard):
 		larva_card = new_larva_card
 		larva = larva_card.larva
 		larva_card_added.emit(larva_card)
+		larva.collect_sound.play()
 		return true
 	
 	return false

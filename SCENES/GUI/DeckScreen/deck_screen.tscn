@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://ddeuxqlfst4ic" path="res://SCENES/LARVAE/card_handler.tscn" id="6_egpel"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="9_r6jer"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="11_flq6w"]
+[ext_resource type="AudioStream" uid="uid://43ho2gf5nhth" path="res://ASSETS/Audio/laser_zap.ogg" id="12_7v4au"]
+[ext_resource type="AudioStream" uid="uid://bhaso4ca2msmd" path="res://ASSETS/Audio/laser_blast.ogg" id="13_uxxav"]
 [ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="14_44cau"]
 [ext_resource type="Texture2D" uid="uid://baigfkwodc15q" path="res://ASSETS/Art/GUI/DeckScreen/zap_256x256.png" id="14_g6mnv"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="15_ss2ju"]
@@ -173,6 +175,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ZapSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../BlastSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s46fp"]
@@ -440,6 +470,12 @@ end_cap_mode = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/LaserPath" unique_id=1360110877]
 libraries/ = SubResource("AnimationLibrary_s46fp")
 autoplay = &"RESET"
+
+[node name="ZapSound" type="AudioStreamPlayer" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser" unique_id=2086336715]
+stream = ExtResource("12_7v4au")
+
+[node name="BlastSound" type="AudioStreamPlayer" parent="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser" unique_id=2127838686]
+stream = ExtResource("13_uxxav")
 
 [node name="PetriDishSpace" type="PanelContainer" parent="HBoxContainer/AbilityLaserView/VBoxContainer" unique_id=1067820854]
 layout_mode = 2
