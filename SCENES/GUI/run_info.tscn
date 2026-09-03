@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b6xk65j55ag6c" path="res://SCRIPTS/GUI/run_info.gd" id="2_isb0c"]
 [ext_resource type="LabelSettings" uid="uid://cl0nus6vr1r1s" path="res://ASSETS/Font/gui_label.tres" id="2_srsse"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="3_isb0c"]
+[ext_resource type="PackedScene" uid="uid://cxwi6x08rgjhh" path="res://SCENES/GUI/number_label.tscn" id="5_isb0c"]
 
 [node name="RunInfo" type="PanelContainer" unique_id=1126309375]
 custom_minimum_size = Vector2(192, 320)
@@ -45,11 +46,16 @@ text = "Quota"
 label_settings = ExtResource("2_srsse")
 horizontal_alignment = 1
 
-[node name="QuotaNumber" type="Label" parent="VBoxContainer" unique_id=730445945]
+[node name="Quota" type="HBoxContainer" parent="VBoxContainer" unique_id=1067380109]
 layout_mode = 2
-text = "#"
-label_settings = ExtResource("3_isb0c")
-horizontal_alignment = 1
+alignment = 1
+
+[node name="$" type="Label" parent="VBoxContainer/Quota" unique_id=1572414211]
+layout_mode = 2
+text = "$"
+
+[node name="QuotaNumber" parent="VBoxContainer/Quota" unique_id=2067468411 instance=ExtResource("5_isb0c")]
+layout_mode = 2
 
 [node name="Spacer2" type="Control" parent="VBoxContainer" unique_id=260567459]
 layout_mode = 2
@@ -61,8 +67,13 @@ text = "Score"
 label_settings = ExtResource("2_srsse")
 horizontal_alignment = 1
 
-[node name="ScoreNumber" type="Label" parent="VBoxContainer" unique_id=653912657]
+[node name="Score" type="HBoxContainer" parent="VBoxContainer" unique_id=1926167940]
 layout_mode = 2
-text = "#"
-label_settings = ExtResource("3_isb0c")
-horizontal_alignment = 1
+alignment = 1
+
+[node name="$" type="Label" parent="VBoxContainer/Score" unique_id=979321580]
+layout_mode = 2
+text = "$"
+
+[node name="ScoreNumber" parent="VBoxContainer/Score" unique_id=199950165 instance=ExtResource("5_isb0c")]
+layout_mode = 2

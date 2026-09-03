@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxwi6x08rgjhh"]
+
+[ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="1_jm284"]
+[ext_resource type="Script" uid="uid://bj7pshrtdtfbx" path="res://SCRIPTS/GUI/number_label.gd" id="2_w8e8a"]
+[ext_resource type="AudioStream" uid="uid://6s07tyjmflja" path="res://ASSETS/Audio/plink.ogg" id="3_e53bh"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lj02w"]
+random_pitch = 1.0116194
+streams_count = 1
+stream_0/stream = ExtResource("3_e53bh")
+
+[node name="NumberLabel" type="Label" unique_id=2067468411]
+text = "#"
+label_settings = ExtResource("1_jm284")
+horizontal_alignment = 1
+script = ExtResource("2_w8e8a")
+
+[node name="ChangeSound" type="AudioStreamPlayer" parent="." unique_id=1963055786]
+stream = SubResource("AudioStreamRandomizer_lj02w")
+volume_db = -10.0
+max_polyphony = 2
+bus = &"SFX"

@@ -19,14 +19,13 @@ shadow_size = 32
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(8, 8)
 
-[node name="QuotaCheckScreen" type="PanelContainer" unique_id=2107446891 node_paths=PackedStringArray("run_info_panel")]
+[node name="QuotaCheckScreen" type="PanelContainer" unique_id=2107446891]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4aa6m")
-run_info_panel = NodePath("PanelContainer/VBoxContainer/HBoxContainer/RunInfo")
 
 [node name="StationBackgroun" parent="." unique_id=650297141 instance=ExtResource("1_i5igs")]
 
