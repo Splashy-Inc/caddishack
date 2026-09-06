@@ -15,8 +15,15 @@ label_settings = ExtResource("1_jm284")
 horizontal_alignment = 1
 script = ExtResource("2_w8e8a")
 
-[node name="ChangeSound" type="AudioStreamPlayer" parent="." unique_id=1963055786]
+[node name="ChangeUpSound" type="AudioStreamPlayer" parent="." unique_id=1963055786]
 stream = SubResource("AudioStreamRandomizer_lj02w")
 volume_db = -10.0
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="ChangeDownSound" type="AudioStreamPlayer" parent="." unique_id=667995697]
+stream = SubResource("AudioStreamRandomizer_lj02w")
+volume_db = -10.0
+pitch_scale = 0.75
 max_polyphony = 2
 bus = &"SFX"

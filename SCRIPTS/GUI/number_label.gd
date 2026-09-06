@@ -4,11 +4,12 @@ class_name NumberLabel
 
 signal change_complete
 
-@onready var change_sound: AudioStreamPlayer = $ChangeSound
+@onready var change_up_sound: AudioStreamPlayer = $ChangeUpSound
+@onready var change_down_sound: AudioStreamPlayer = $ChangeDownSound
 
-var number_target = 0.0
+var number_target := 0
 var time_to_target = 2.0
-var number = 0
+var number := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,11 +18,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if time_to_target > 0:
-		if number < number_target:
-			var change = clamp(int(number_target / time_to_target * delta), 1, number_target)
-			number += change
+		if abs(number - number_target) > 0:
+			print(number)
+			print(lerp(number, number_target, time_to_target * delta))
+			if number < number_target:
+				number = ceil(lerp(number, number_target, time_to_target * delta))
+				change_up_sound.play()
+			else:
+				number = floor(lerp(number, number_target, time_to_target * delta))
+				change_down_sound.play()
+			print(number)
 			text = str(number)
-			change_sound.play()
 		else:
 			set_number(number_target)
 			change_complete.emit()
