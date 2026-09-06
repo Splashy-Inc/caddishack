@@ -19,15 +19,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if time_to_target > 0:
 		if abs(number - number_target) > 0:
-			print(number)
-			print(lerp(number, number_target, time_to_target * delta))
 			if number < number_target:
 				number = ceil(lerp(number, number_target, time_to_target * delta))
 				change_up_sound.play()
 			else:
 				number = floor(lerp(number, number_target, time_to_target * delta))
 				change_down_sound.play()
-			print(number)
 			text = str(number)
 		else:
 			set_number(number_target)
