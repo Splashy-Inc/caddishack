@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bs2nlb63pwojy"]
+
+[ext_resource type="AudioStream" uid="uid://bj4cppd7nbnsw" path="res://ASSETS/Audio/card_draw_1.ogg" id="1_8bi8e"]
+[ext_resource type="AudioStream" uid="uid://b53x3uddmkvxf" path="res://ASSETS/Audio/card_draw_3.ogg" id="2_5xbfl"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3n7ei"]
+random_pitch = 1.0594631
+streams_count = 2
+stream_0/stream = ExtResource("1_8bi8e")
+stream_1/stream = ExtResource("2_5xbfl")
+
+[node name="DrawSound" type="AudioStreamPlayer" unique_id=2014348394]
+stream = SubResource("AudioStreamRandomizer_3n7ei")
+bus = &"SFX"

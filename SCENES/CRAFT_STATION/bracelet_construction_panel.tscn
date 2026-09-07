@@ -3,6 +3,23 @@
 [ext_resource type="Script" uid="uid://3o7o87sr8n2r" path="res://SCRIPTS/CRAFT_STATION/bracelet_construction_panel.gd" id="1_s0p0p"]
 [ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="2_5dtdn"]
 [ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="2_bvenq"]
+[ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="4_bvenq"]
+[ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="5_1urby"]
+[ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="6_x647x"]
+
+[sub_resource type="Resource" id="Resource_2oasa"]
+resource_local_to_scene = true
+script = ExtResource("5_1urby")
+
+[sub_resource type="Resource" id="Resource_0g5fi"]
+resource_local_to_scene = true
+script = ExtResource("6_x647x")
+bead_array_info = SubResource("Resource_2oasa")
+
+[sub_resource type="Resource" id="Resource_yhce0"]
+resource_local_to_scene = true
+script = ExtResource("5_1urby")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [node name="BraceletContructionPanel" type="Node2D" unique_id=1555672016 node_paths=PackedStringArray("bracelet")]
 script = ExtResource("1_s0p0p")
@@ -17,3 +34,5 @@ offset_bottom = 93.0
 theme_override_styles/panel = ExtResource("2_bvenq")
 
 [node name="Bracelet" parent="." unique_id=1630865641 instance=ExtResource("2_5dtdn")]
+info = SubResource("Resource_0g5fi")
+bead_array_info = SubResource("Resource_yhce0")

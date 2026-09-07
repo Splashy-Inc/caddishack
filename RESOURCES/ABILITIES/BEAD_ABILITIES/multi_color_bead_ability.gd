@@ -1,4 +1,4 @@
-extends BeadColorAbilityInfo
+extends BeadAbilityInfo
 
 ## Allows additional colors per bead with each stack
 class_name MultiColorBeadAbility

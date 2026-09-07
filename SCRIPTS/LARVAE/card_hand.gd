@@ -93,7 +93,8 @@ func draw_cards(num_cards: int):
 		new_card.flip()
 		if deck:
 			deck.add_card(new_card)
-			await get_tree().create_timer(.1).timeout
+			await get_tree().create_timer(.05).timeout
+		new_card.start_draw_flip()
 		add_card(new_card, false, true)
 		await get_tree().create_timer(.1).timeout
 	update_cards()

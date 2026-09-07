@@ -17,6 +17,7 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var collection_area: Area2D = $CollectionArea
+@onready var collect_sound: AudioStreamPlayer = $CollectSound
 
 var material_queue : Array[MaterialInfo]
 

@@ -1,4 +1,4 @@
-extends Button
+extends UIButton
 
 class_name ShopItem
 
@@ -17,15 +17,9 @@ signal load_info_completed(success: bool)
 @onready var description_label: Label = $ItemSpace/Description
 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _button_ready() -> void:
 	load_info(info)
 	RunEvents.score_updated.connect(check_disabled)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_mouse_entered() -> void:
 	if not disabled:
@@ -45,7 +39,7 @@ func load_info(new_info: ShopItemInfo):
 		icon_sprite.scale = Vector2(1,1) * icon_space.size.x/icon_sprite.texture.get_size().x
 		active_icon_sprite.scale = Vector2(1,1) * icon_space.size.x/active_icon_sprite.texture.get_size().x
 		name_label.text = info.get_item_name()
-		cost_label.text = "$" + str(info.get_base_cost())
+		cost_label.text = "$" + str(info.get_adjusted_cost())
 		description_label.text = info.get_description()
 		check_disabled()
 		load_info_completed.emit(true)
@@ -55,4 +49,4 @@ func load_info(new_info: ShopItemInfo):
 		hide()
 
 func check_disabled(new_score: int = 0):
-	disabled = info.get_base_cost() > RunEvents.get_score()
+	disabled = info.get_adjusted_cost() > RunEvents.get_score()

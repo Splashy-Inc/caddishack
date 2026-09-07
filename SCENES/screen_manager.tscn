@@ -14,6 +14,7 @@ script = ExtResource("1_7yicb")
 stream = ExtResource("4_6scp0")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="main_menu_pressed" from="HUD" to="." method="_on_main_menu_pressed"]
 [connection signal="play_pressed" from="HUD" to="." method="_on_play_pressed"]

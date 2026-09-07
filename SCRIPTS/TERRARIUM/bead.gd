@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 			rotation = travel_target_rotation
 			scale = Vector2(1.0, 1.0)
 			is_travelling = false
+			$PlinkSound.play()
 		else:
 			global_position = global_position.lerp(travel_target_global_position, .25)
 			rotation = lerpf(rotation, travel_target_rotation, .25)

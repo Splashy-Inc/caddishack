@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://cf3tuv5aidq14" path="res://RESOURCES/SHADERS/highlight/highlight_material.tres" id="6_360jh"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="6_pqv4s"]
 [ext_resource type="Texture2D" uid="uid://1igcsuser6x1" path="res://ASSETS/Art/TERRARIUM/CaddiCharms.png" id="7_wny20"]
+[ext_resource type="Shader" uid="uid://dj40a57yfeqqy" path="res://RESOURCES/SHADERS/highlight/highlight.gdshader" id="9_pqv4s"]
+[ext_resource type="AudioStream" uid="uid://b7owejwec084n" path="res://ASSETS/Audio/bead_plink_1.ogg" id="10_xocje"]
 
 [sub_resource type="Resource" id="Resource_cikro"]
 script = ExtResource("3_83cj8")
@@ -778,6 +780,13 @@ animations = [{
 "name": &"placeholder",
 "speed": 4.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tohrt"]
+resource_local_to_scene = true
+shader = ExtResource("9_pqv4s")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/on = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_360jh"]
 atlas = ExtResource("7_wny20")
@@ -1613,6 +1622,11 @@ graph_offset = Vector2(0, -13.179913)
 radius = 30.0
 height = 128.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rmx7e"]
+random_pitch = 1.0594631
+streams_count = 1
+stream_0/stream = ExtResource("10_xocje")
+
 [node name="Bead" type="Node2D" unique_id=1566611383 node_paths=PackedStringArray("sand_sprites")]
 script = ExtResource("1_p27p0")
 info = SubResource("Resource_fx874")
@@ -1639,7 +1653,7 @@ animation = &"COLORLESS"
 autoplay = "COLORLESS"
 
 [node name="ItemSprite" type="AnimatedSprite2D" parent="." unique_id=633927193]
-material = ExtResource("6_360jh")
+material = SubResource("ShaderMaterial_tohrt")
 sprite_frames = SubResource("SpriteFrames_mxfaq")
 animation = &"BASIC"
 autoplay = "BASIC"
@@ -1661,5 +1675,10 @@ visible = false
 [node name="ClickableShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1114555111]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_05tin")
+
+[node name="PlinkSound" type="AudioStreamPlayer" parent="." unique_id=868454620]
+stream = SubResource("AudioStreamRandomizer_rmx7e")
+volume_db = -8.0
+bus = &"SFX"
 
 [connection signal="input_event" from="ClickableArea" to="." method="_on_clickable_area_input_event"]

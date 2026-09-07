@@ -1,18 +1,13 @@
-extends Button
+extends UIButton
 
 @export var cost := 50
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _button_ready() -> void:
 	RunEvents.score_updated.connect(_on_score_updated)
 	if RunEvents.get_quota():
 		cost = int(RunEvents.get_quota() * .1)
 	text = "Reroll Everything $" + str(cost)
 	_on_score_updated(RunEvents.get_score())
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_score_updated(new_score):
 	disabled = new_score < cost
