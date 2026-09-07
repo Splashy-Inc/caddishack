@@ -47,6 +47,7 @@ func _on_round_max_reached():
 	print("Max round reached!")
 
 func _on_restart_pressed():
+	AudioServer.set_bus_effect_enabled(1, 0, false)
 	RunEvents.reset_run()
 	var random_terrarium = TerrariumInfo.new()
 	random_terrarium.randomize_materials()

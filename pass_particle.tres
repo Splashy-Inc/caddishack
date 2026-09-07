@@ -1,0 +1,7 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://b4ewnxlowpn1d"]
+
+[resource]
+particle_flag_disable_z = true
+radial_velocity_min = 333.33997
+radial_velocity_max = 999.99994
+gravity = Vector3(0, 0, 0)

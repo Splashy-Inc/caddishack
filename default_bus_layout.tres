@@ -1,5 +1,9 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://c3v0hlrjpi0so"]
 
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+pitch_scale = 0.75
+
 [resource]
 bus/1/name = &"Music"
 bus/1/solo = false
@@ -7,6 +11,8 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = -5.045384
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/1/effect/0/enabled = false
 bus/2/name = &"Buttons"
 bus/2/solo = false
 bus/2/mute = false

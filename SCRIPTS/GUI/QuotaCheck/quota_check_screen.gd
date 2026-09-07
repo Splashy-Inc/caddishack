@@ -4,6 +4,8 @@ extends PanelContainer
 @onready var title: Label = $PanelContainer/VBoxContainer/Title
 @onready var next_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/Control3/NextButton
 @onready var restart_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/Control3/RestartButton
+@onready var pass_particles: GPUParticles2D = $PassParticles
+@onready var overlord_animations: AnimationPlayer = $SplashScreen/BugOverlord1/OverlordAnimations
 
 var quota_passed := false
 
@@ -16,6 +18,8 @@ func _process(delta: float) -> void:
 	pass
 
 func pass_quota():
+	pass_particles.emitting = true
+	overlord_animations.play("pass")
 	title.text = "Quota Passed!"
 	quota_passed = true
 	next_button.disabled = true
@@ -25,6 +29,8 @@ func pass_quota():
 	next_button.disabled = false
 
 func fail_quota():
+	overlord_animations.play("fail")
+	AudioServer.set_bus_effect_enabled(1, 0, true)
 	title.text = "Quota Failed!"
 	quota_passed = false
 	next_button.hide()
