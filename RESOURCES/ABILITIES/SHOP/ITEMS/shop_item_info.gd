@@ -20,5 +20,8 @@ func get_item_name():
 func get_base_cost():
 	return base_cost
 
+func get_adjusted_cost():
+	return base_cost * RunEvents.get_quota()/100
+
 func get_description():
 	return description
