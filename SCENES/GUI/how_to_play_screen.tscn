@@ -21,10 +21,12 @@ theme_override_styles/panel = ExtResource("1_kt1ik")
 
 [node name="ScreenRows" type="VBoxContainer" parent="." unique_id=1916017719]
 layout_mode = 2
+theme_override_constants/separation = 4
 
 [node name="TitleLabel" type="Label" parent="ScreenRows" unique_id=152219815]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 1
 text = "How To Play"
 label_settings = ExtResource("3_iob5o")
 horizontal_alignment = 1
@@ -43,58 +45,10 @@ current_tab = 0
 switch_on_drag_hover = false
 script = ExtResource("4_kt1ik")
 
-[node name="Quota" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1113051741]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 8
-alignment = 1
-metadata/_tab_index = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=279570597]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1866863235]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("5_7u4vj")
-
-[node name="Label" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1267222538]
-custom_minimum_size = Vector2(512, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Meet quota every 3 rounds!
-Quota doubles every time you succeed!"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=417384867]
-layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
-
-[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=621195908]
-layout_mode = 2
-size_flags_horizontal = 2
-text = "< Previous"
-script = ExtResource("4_k8t63")
-
-[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=157157033 instance=ExtResource("5_hrpar")]
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=301473430]
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-text = "Next >"
-script = ExtResource("4_hrpar")
-
 [node name="Terrarium" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=353348555]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 1
+metadata/_tab_index = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium" unique_id=2494544]
 layout_mode = 2
@@ -141,7 +95,7 @@ script = ExtResource("4_hrpar")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring" unique_id=564778297]
 layout_mode = 2
@@ -187,7 +141,7 @@ script = ExtResource("4_hrpar")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 3
+metadata/_tab_index = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop" unique_id=2126241411]
 layout_mode = 2
@@ -228,11 +182,59 @@ size_flags_vertical = 4
 text = "Next >"
 script = ExtResource("4_hrpar")
 
-[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
-[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[node name="Quota" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1113051741]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+metadata/_tab_index = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=279570597]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1866863235]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_7u4vj")
+
+[node name="Label" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1267222538]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Meet quota every 3 rounds!
+Quota doubles every time you succeed!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=417384867]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=621195908]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=157157033 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=301473430]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]

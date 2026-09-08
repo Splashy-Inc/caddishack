@@ -1,9 +1,11 @@
 [gd_resource type="LabelSettings" format=3 uid="uid://bksphet7qdqp"]
 
-[ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="1_nyc4a"]
+[sub_resource type="FontVariation" id="FontVariation_vo5je"]
+spacing_top = -24
+spacing_bottom = 16
 
 [resource]
-font = ExtResource("1_nyc4a")
+font = SubResource("FontVariation_vo5je")
 font_size = 128
 font_color = Color(0.941176, 0.827451, 0.760784, 1)
 outline_size = 24
