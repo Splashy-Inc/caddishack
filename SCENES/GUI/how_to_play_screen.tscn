@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c6tdu4r5v8bbs"]
 
-[ext_resource type="LabelSettings" uid="uid://bnqjqtejx428p" path="res://RESOURCES/text_title.tres" id="1_hrpar"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="1_k8t63"]
 [ext_resource type="StyleBox" uid="uid://cirbca3v3qq8k" path="res://RESOURCES/full_gui_panel.tres" id="1_kt1ik"]
-[ext_resource type="LabelSettings" uid="uid://utia0ir401fs" path="res://RESOURCES/text_subtitle.tres" id="2_k8t63"]
-[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="3_kt1ik"]
+[ext_resource type="LabelSettings" uid="uid://bksphet7qdqp" path="res://RESOURCES/text_minor_title.tres" id="3_iob5o"]
+[ext_resource type="Script" uid="uid://bjdknm0022n3u" path="res://SCRIPTS/GUI/menu_next_button.gd" id="4_hrpar"]
+[ext_resource type="Script" uid="uid://8n0t10ct2y4j" path="res://SCRIPTS/GUI/menu_previous_button.gd" id="4_k8t63"]
+[ext_resource type="Script" uid="uid://bbipa5lka1m53" path="res://SCRIPTS/GUI/game_info_tabs.gd" id="4_kt1ik"]
+[ext_resource type="Texture2D" uid="uid://ddp3hd6wawxtu" path="res://ASSETS/Art/SHOP/SplashyFish.png" id="5_7u4vj"]
 [ext_resource type="PackedScene" uid="uid://fvpsq85ge5ut" path="res://SCENES/GUI/back_button.tscn" id="5_hrpar"]
-[ext_resource type="StyleBox" uid="uid://btlg5diojxo7t" path="res://RESOURCES/panel_gray.tres" id="6_kt1ik"]
 
 [node name="HowToPlayScreen" type="PanelContainer" unique_id=1616816326]
 anchors_preset = 15
@@ -20,119 +21,218 @@ theme_override_styles/panel = ExtResource("1_kt1ik")
 
 [node name="ScreenRows" type="VBoxContainer" parent="." unique_id=1916017719]
 layout_mode = 2
-theme_override_constants/separation = 16
 
 [node name="TitleLabel" type="Label" parent="ScreenRows" unique_id=152219815]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "How To Play"
-label_settings = ExtResource("1_hrpar")
+label_settings = ExtResource("3_iob5o")
 horizontal_alignment = 1
-
-[node name="Goal" type="VBoxContainer" parent="ScreenRows" unique_id=1113051741]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="TopicTitle" type="Label" parent="ScreenRows/Goal" unique_id=1324631881]
-custom_minimum_size = Vector2(312, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("3_kt1ik")
-text = "Goal"
-label_settings = ExtResource("2_k8t63")
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="ScreenRows/Goal" unique_id=1267222538]
-custom_minimum_size = Vector2(640, 0)
-layout_mode = 2
-text = "Meet quota every 3 rounds!"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Label2" type="Label" parent="ScreenRows/Goal" unique_id=993753880]
-custom_minimum_size = Vector2(640, 0)
-layout_mode = 2
-text = "Quota doubles every time you succeed!"
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="KeyConcepts" type="VBoxContainer" parent="ScreenRows" unique_id=1185718936]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="TopicTitle" type="Label" parent="ScreenRows/KeyConcepts" unique_id=1089449246]
-custom_minimum_size = Vector2(312, 0)
+[node name="GameInfoTabs" type="TabContainer" parent="ScreenRows/KeyConcepts" unique_id=1427715323]
+layout_mode = 2
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 0
+switch_on_drag_hover = false
+script = ExtResource("4_kt1ik")
+
+[node name="Quota" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1113051741]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("3_kt1ik")
-text = "Key Concepts"
-label_settings = ExtResource("2_k8t63")
-horizontal_alignment = 1
-
-[node name="TopicItem" type="HBoxContainer" parent="ScreenRows/KeyConcepts" unique_id=1342793507]
-layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
+metadata/_tab_index = 0
 
-[node name="TerrariumInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=353348555]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=279570597]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1866863235]
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("5_7u4vj")
 
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/TerrariumInfo" unique_id=16285372]
+[node name="Label" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1267222538]
+custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
-theme_override_styles/normal = ExtResource("6_kt1ik")
-text = "Terrarium"
-label_settings = ExtResource("2_k8t63")
+size_flags_horizontal = 3
+text = "Meet quota every 3 rounds!
+Quota doubles every time you succeed!"
 horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/TerrariumInfo" unique_id=73336289]
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=417384867]
 layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=621195908]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=157157033 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons" unique_id=301473430]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
+[node name="Terrarium" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=353348555]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium" unique_id=2494544]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer" unique_id=554693349]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_7u4vj")
+
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer" unique_id=73336289]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Use larvae and their abilities to make beads.
 Color = points
 Charm = mult"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="JewelryInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1612361132]
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium" unique_id=1883314135]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons" unique_id=1759566029]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons" unique_id=1934450237 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons" unique_id=1737271012]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
+[node name="Scoring" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1612361132]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/_tab_index = 2
 
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/JewelryInfo" unique_id=857673606]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring" unique_id=564778297]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("6_kt1ik")
-text = "Jewelry"
-label_settings = ExtResource("2_k8t63")
-horizontal_alignment = 1
+size_flags_vertical = 3
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/JewelryInfo" unique_id=704821803]
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer" unique_id=1258923914]
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_7u4vj")
+
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer" unique_id=704821803]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Combine beads to generate score.
 (points x mult)"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ShopInfo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/TopicItem" unique_id=1310023712]
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring" unique_id=2019467982]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons" unique_id=197247848]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons" unique_id=1737614500 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons" unique_id=397738096]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
+[node name="Shop" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1310023712]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+metadata/_tab_index = 3
 
-[node name="Title" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/ShopInfo" unique_id=1447977468]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop" unique_id=2126241411]
 layout_mode = 2
-theme_override_styles/normal = ExtResource("6_kt1ik")
-text = "Shop"
-label_settings = ExtResource("2_k8t63")
-horizontal_alignment = 1
+size_flags_vertical = 3
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/TopicItem/ShopInfo" unique_id=9929521]
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer" unique_id=1818812783]
 layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("5_7u4vj")
+
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer" unique_id=9929521]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Buy abilities and apply them to larvae to craft deck synergies."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="BackButton" parent="ScreenRows" unique_id=157157033 instance=ExtResource("5_hrpar")]
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop" unique_id=504147745]
 layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons" unique_id=152582052]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons" unique_id=1294015439 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons" unique_id=1635449253]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
