@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 				number = floor(lerp(number, number_target, time_to_target * delta))
 				change_down_sound.play()
 			text = str(number)
-			offset_transform_position = getRandomOffset()
+			offset_transform_position = Shaker2D.get_random_position_offset(shake_strength)
 		else:
 			set_number(number_target)
 			change_complete.emit()
@@ -41,6 +41,3 @@ func set_number(new_number : int, time : float = 0.0):
 	else:
 		number = new_number
 		text = str(number)
-
-func getRandomOffset() -> Vector2:
-	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))

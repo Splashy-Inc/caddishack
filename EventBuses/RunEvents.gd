@@ -68,7 +68,7 @@ func change_score(change: int):
 	set_score(run_info.score + change)
 
 func reset_run():
-	load_run_info(new_run_info.duplicate(true))
+	load_run_info(test_run_info.duplicate(true))
 
 func load_run_info(loaded_run_info: RunInfo):
 	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)

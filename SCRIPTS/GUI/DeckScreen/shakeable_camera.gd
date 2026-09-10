@@ -14,7 +14,4 @@ func _process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shake_fade_time * delta)
 		
-		offset = getRandomOffset()
-
-func getRandomOffset() -> Vector2:
-	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
+		offset = Shaker2D.get_random_position_offset(shake_strength)
