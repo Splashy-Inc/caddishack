@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://baigfkwodc15q" path="res://ASSETS/Art/GUI/DeckScreen/zap_256x256.png" id="14_g6mnv"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="15_ss2ju"]
 [ext_resource type="Script" uid="uid://bht4bf1m4rfc3" path="res://SCRIPTS/GUI/ui_button.gd" id="16_pgajy"]
-[ext_resource type="Script" uid="uid://b3vnm7aj2x3gs" path="res://SCRIPTS/GUI/DeckScreen/camera.gd" id="21_uxxav"]
+[ext_resource type="Script" uid="uid://b3vnm7aj2x3gs" path="res://SCRIPTS/GUI/DeckScreen/shakeable_camera.gd" id="21_uxxav"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rweia"]
 content_margin_left = 8.0
