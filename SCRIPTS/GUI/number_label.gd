@@ -5,7 +5,6 @@ class_name NumberLabel
 signal change_complete
 
 @export var shake_strength := 5.0
-@export var shake_fade_time := 5.0
 
 @onready var change_up_sound: AudioStreamPlayer = $ChangeUpSound
 @onready var change_down_sound: AudioStreamPlayer = $ChangeDownSound
