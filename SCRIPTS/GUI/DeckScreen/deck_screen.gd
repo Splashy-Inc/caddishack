@@ -35,9 +35,10 @@ func initialize(new_info: DeckScreenInfo):
 		info_label.hide()
 
 func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool) -> void:
-	camera.shake()
-	petri_dish.zap_larva()
-	await petri_dish.lazer_zap.animation_finished
+	if success:
+		camera.shake()
+		petri_dish.zap_larva()
+		await petri_dish.lazer_zap.animation_finished
 	deck_view.add_card(larva_card)
 	if success:
 		# TODO: Probably a better way to do this, but good enough for now!
