@@ -7,6 +7,7 @@ class_name DeckScreen
 @export var info : DeckScreenInfo
 @onready var petri_dish: PetriDish = $HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish
 @onready var info_label: Label = $HBoxContainer/DeckSection/Label
+@onready var camera: ShakeableCamera = $Camera
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +35,7 @@ func initialize(new_info: DeckScreenInfo):
 		info_label.hide()
 
 func _on_ability_laser_view_card_completed(larva_card: LarvaCard, success: bool) -> void:
+	camera.shake()
 	petri_dish.zap_larva()
 	await petri_dish.lazer_zap.animation_finished
 	deck_view.add_card(larva_card)
