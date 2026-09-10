@@ -10,6 +10,51 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp42j"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ykhq"]
+atlas = ExtResource("7_3m3sy")
+region = Rect2(0, 704, 184, 120)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ksvyu"]
+texture = SubResource("AtlasTexture_7ykhq")
+texture_margin_left = 14.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+region_rect = Rect2(0, 0, 184, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqr8x"]
+atlas = ExtResource("7_3m3sy")
+region = Rect2(192, 704, 184, 114)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flkus"]
+texture = SubResource("AtlasTexture_nqr8x")
+texture_margin_left = 12.0
+texture_margin_top = 6.0
+texture_margin_right = 12.0
+region_rect = Rect2(0, 0, 184, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dmvo"]
+atlas = ExtResource("7_3m3sy")
+region = Rect2(0, 704, 184, 120)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rfqe"]
+texture = SubResource("AtlasTexture_2dmvo")
+texture_margin_left = 10.0
+texture_margin_top = 6.0
+texture_margin_right = 10.0
+region_rect = Rect2(0, 0, 184, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of7f0"]
+atlas = ExtResource("7_3m3sy")
+region = Rect2(384, 704, 184, 120)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmx7e"]
+texture = SubResource("AtlasTexture_of7f0")
+texture_margin_left = 10.0
+texture_margin_top = 6.0
+texture_margin_right = 10.0
+region_rect = Rect2(0, 0, 184, 110)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lf1r"]
 atlas = ExtResource("7_3m3sy")
 region = Rect2(128, 0, 128, 128)
@@ -85,12 +130,21 @@ Button/styles/hover = ExtResource("2_vp42j")
 Button/styles/hover_pressed = ExtResource("3_3m3sy")
 Button/styles/normal = ExtResource("4_0lf1r")
 Button/styles/pressed = ExtResource("5_7ts2r")
-Label/colors/font_color = Color(0.941176, 0.827451, 0.760784, 1)
-Label/colors/font_outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
+Label/colors/font_color = Color(0.9411765, 0.827451, 0.7607843, 1)
+Label/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_vp42j")
 PanelContainer/styles/panel = SubResource("StyleBoxEmpty_vp42j")
+TabContainer/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
+TabContainer/colors/font_selected_color = Color(0.9411765, 0.827451, 0.7607843, 1)
+TabContainer/constants/outline_size = 4
+TabContainer/constants/tab_separation = 4
+TabContainer/font_sizes/font_size = 48
+TabContainer/styles/panel = SubResource("StyleBoxTexture_ksvyu")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_flkus")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_7rfqe")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_rmx7e")
 VScrollBar/constants/padding_left = 12
 VScrollBar/constants/padding_right = 12
 VScrollBar/styles/grabber = SubResource("StyleBoxTexture_7ts2r")
