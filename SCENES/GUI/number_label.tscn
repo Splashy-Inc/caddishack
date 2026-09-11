@@ -10,6 +10,7 @@ streams_count = 1
 stream_0/stream = ExtResource("3_e53bh")
 
 [node name="NumberLabel" type="Label" unique_id=2067468411]
+offset_transform_enabled = true
 text = "#"
 label_settings = ExtResource("1_jm284")
 horizontal_alignment = 1

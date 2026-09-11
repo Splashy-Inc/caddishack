@@ -4,6 +4,8 @@ class_name NumberLabel
 
 signal change_complete
 
+@export var shake_strength := 5.0
+
 @onready var change_up_sound: AudioStreamPlayer = $ChangeUpSound
 @onready var change_down_sound: AudioStreamPlayer = $ChangeDownSound
 
@@ -26,9 +28,11 @@ func _process(delta: float) -> void:
 				number = floor(lerp(number, number_target, time_to_target * delta))
 				change_down_sound.play()
 			text = str(number)
+			offset_transform_position = Shaker2D.get_random_position_offset(shake_strength)
 		else:
 			set_number(number_target)
 			change_complete.emit()
+			offset_transform_position = Vector2.ZERO
 
 func set_number(new_number : int, time : float = 0.0):
 	time_to_target = time
@@ -37,4 +41,3 @@ func set_number(new_number : int, time : float = 0.0):
 	else:
 		number = new_number
 		text = str(number)
-		
