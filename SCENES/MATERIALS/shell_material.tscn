@@ -2,24 +2,34 @@
 
 [ext_resource type="Script" uid="uid://dn7weca4gggkh" path="res://SCRIPTS/MATERIALS/shell_material.gd" id="1_qkuv4"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="2_1n2kn"]
-[ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="3_qkuv4"]
+[ext_resource type="Shader" uid="uid://dj40a57yfeqqy" path="res://RESOURCES/SHADERS/highlight/highlight.gdshader" id="3_1n2kn"]
+[ext_resource type="Texture2D" uid="uid://6vbhckpvgkat" path="res://ASSETS/Art/TERRARIUM/MaterialsAtlas_66x66.png" id="4_1n2kn"]
 [ext_resource type="PackedScene" uid="uid://c7iv6evm4yvgl" path="res://SCENES/TERRARIUM/offscreen_indicator.tscn" id="4_tbpnf"]
 
 [sub_resource type="Resource" id="Resource_0abyr"]
 script = ExtResource("2_1n2kn")
 type = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qkuv4"]
-atlas = ExtResource("3_qkuv4")
-region = Rect2(448, 64, 64, 64)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xicji"]
+resource_local_to_scene = true
+shader = ExtResource("3_1n2kn")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/on = false
 
-[node name="ShellMaterial" type="StaticBody2D" unique_id=97204412 groups=["materials"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkuv4"]
+atlas = ExtResource("4_1n2kn")
+region = Rect2(66, 66, 66, 66)
+
+[node name="ShellMaterial" type="StaticBody2D" unique_id=97204412 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["materials"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_qkuv4")
 info = SubResource("Resource_0abyr")
+highlight_enabled_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1525953986]
+material = SubResource("ShaderMaterial_xicji")
 texture = SubResource("AtlasTexture_qkuv4")
 
 [node name="OffscreenIndicator" parent="." unique_id=266569565 node_paths=PackedStringArray("parent") instance=ExtResource("4_tbpnf")]

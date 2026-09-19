@@ -69,11 +69,13 @@ _data = {
 &"lift_bead": SubResource("Animation_r86f8")
 }
 
-[node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons")]
+[node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons", "sand_slot", "charm_slot")]
 self_modulate = Color(0, 0, 0, 0.498039)
 texture = ExtResource("1_2voyj")
 script = ExtResource("2_aatqm")
 ability_icons = [NodePath("AbilityIcons/Row1/Ability1/Icon"), NodePath("AbilityIcons/Row1/Ability2/Icon"), NodePath("AbilityIcons/Row2/Ability3/Icon")]
+sand_slot = NodePath("AbilityIcons/ComboRow/Sand/SandSlot")
+charm_slot = NodePath("AbilityIcons/ComboRow/Charm/CharmSlot")
 
 [node name="SlotCenter" type="Marker2D" parent="." unique_id=115898961]
 
@@ -112,7 +114,34 @@ theme_override_constants/separation = 0
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="ComboRow" type="HBoxContainer" parent="AbilityIcons" unique_id=1781265209]
+custom_minimum_size = Vector2(48, 20)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Sand" type="PanelContainer" parent="AbilityIcons/ComboRow" unique_id=490659848]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
+
+[node name="SandSlot" type="Marker2D" parent="AbilityIcons/ComboRow/Sand" unique_id=1871054856]
+modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(13, 10)
+scale = Vector2(0.25, 0.25)
+
+[node name="Charm" type="PanelContainer" parent="AbilityIcons/ComboRow" unique_id=580155268]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
+
+[node name="CharmSlot" type="Marker2D" parent="AbilityIcons/ComboRow/Charm" unique_id=182248065]
+modulate = Color(1, 1, 1, 0.49803922)
+position = Vector2(9, 10)
+scale = Vector2(0.25, 0.25)
+
 [node name="Row1" type="HBoxContainer" parent="AbilityIcons" unique_id=1096259736]
+custom_minimum_size = Vector2(48, 24)
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -123,7 +152,7 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
 [node name="Icon" parent="AbilityIcons/Row1/Ability1" unique_id=560328504 instance=ExtResource("5_pyov1")]
-position = Vector2(11, 10)
+position = Vector2(11, 12)
 
 [node name="Ability2" type="PanelContainer" parent="AbilityIcons/Row1" unique_id=1188986380]
 layout_mode = 2
@@ -131,9 +160,10 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_0qde3")
 
 [node name="Icon" parent="AbilityIcons/Row1/Ability2" unique_id=453219350 instance=ExtResource("5_pyov1")]
-position = Vector2(11, 10)
+position = Vector2(11, 12)
 
 [node name="Row2" type="HBoxContainer" parent="AbilityIcons" unique_id=1159261935]
+custom_minimum_size = Vector2(48, 20)
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
