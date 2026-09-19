@@ -83,8 +83,8 @@ func calculate_value(info: BeadArrayInfo):
 	if is_instance_valid(bead):
 		for bead_info in info.beads:
 			if bead.info == bead_info:
-				set_points(bead_info.calculate_points(info))
-				set_mult(bead_info.calculate_mult(info))
+				set_points(bead_info.calculate_points(info) * bead_info.calculate_base_multiplier(info))
+				set_mult(bead_info.calculate_mult(info) * bead_info.calculate_base_multiplier(info))
 
 func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound: AudioStreamPlayer = null):
 	var bead := get_bead()
@@ -117,7 +117,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 									BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
 								ability_value += value_breakdown["abilities"][ability_info]["value"]
 								if ability_value > 0:
-									set_points(bead_points + ability_value)
+									set_points(points + ability_value)
 								else:
 									fail_sound.play()
 							elif ability_info is BeadCharmAbilityInfo:
@@ -126,7 +126,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 									BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
 								ability_value += value_breakdown["abilities"][ability_info]["value"]
 								if ability_value > 0:
-									set_mult(bead_mult + ability_value)
+									set_mult(points + ability_value)
 								else:
 									fail_sound.play()
 							else:
@@ -136,9 +136,21 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 								BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
 								BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
 							icon.toggle_active(false)
+					if ability_info is BaseAbilityInfo:
+						var bonus_base_multiplier = value_breakdown["base_abilities"][ability_info]["value"]
+						set_points(points * bonus_base_multiplier)
+						set_mult(mult * bonus_base_multiplier)
+						for affected_bead_info in value_breakdown["base_abilities"][ability_info]["affected_beads"]:
+							BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
+							BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
+						await get_tree().create_timer(highlight_timeout*2).timeout
+						for affected_bead_info in value_breakdown["base_abilities"][ability_info]["affected_beads"]:
+							BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
+							BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
+						
 				scoring_sound = null
-				set_points(bead_info.calculate_points(bead_array_info))
-				set_mult(bead_info.calculate_mult(bead_array_info))
+				set_points(bead_info.calculate_points(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
+				set_mult(bead_info.calculate_mult(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
 				complete_bead_scoring()
 				unlift_bead()
 

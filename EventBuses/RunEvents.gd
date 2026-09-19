@@ -91,6 +91,10 @@ func set_deck_info(new_deck: DeckInfo):
 			var new_name = default_names.pick_random()
 			larva.name = new_name
 			default_names.erase(new_name)
+		if larva.base_abilities.is_empty():
+			var new_base_ability = WomboComboBaseAbilityInfo.new()
+			new_base_ability.randomize_combo()
+			larva.add_ability(new_base_ability)
 
 func get_current_deck_info() -> DeckInfo:
 	return run_info.deck

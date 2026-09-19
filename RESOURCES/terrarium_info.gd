@@ -14,6 +14,7 @@ class_name TerrariumInfo
 	SpecialMaterialInfo.SpecialType.HEART: 50,
 	SpecialMaterialInfo.SpecialType.SPADE: 50,
 }
+
 const MAX_NUM_MATERIALS := 20
 @export var base_min_sand := 5
 @export var base_min_charm := 5

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WomboComboBaseAbilityInfo" format=3 uid="uid://2nv6ye62w0df"]
+
+[ext_resource type="Script" uid="uid://di2i085asckfu" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability_info.gd" id="1_v3v4d"]
+
+[resource]
+script = ExtResource("1_v3v4d")
+name = "Wombo Combo"
+max_stacks = 0
+metadata/_custom_type_script = "uid://di2i085asckfu"

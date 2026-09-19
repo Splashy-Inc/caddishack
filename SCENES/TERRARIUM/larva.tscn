@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu3ihax16o6sw" path="res://SCRIPTS/TERRARIUM/larva.gd" id="1_rm28v"]
 [ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="2_x1i4c"]
+[ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="3_sxk8d"]
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="4_jj2xk"]
 [ext_resource type="Texture2D" uid="uid://c0xsejfofp4s3" path="res://ASSETS/Art/TERRARIUM/LarvaSpriteSheet.png" id="5_x1i4c"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="7_jj2xk"]
@@ -896,7 +897,7 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_oknjm"]
+[sub_resource type="Resource" id="Resource_566sv"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
 sand = SubResource("Resource_cikro")
@@ -993,7 +994,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_oknjm")
+info = SubResource("Resource_566sv")
 completion_time = 0
 complete = false
 

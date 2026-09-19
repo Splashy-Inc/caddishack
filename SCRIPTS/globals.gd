@@ -27,6 +27,19 @@ const material_scenes = {
 	"spade": preload("res://SCENES/MATERIALS/spade_material.tscn"),
 }
 
+var sand_weights : Dictionary[SandMaterialInfo.SandColor, int] = {
+	SandMaterialInfo.SandColor.CYAN: 100,
+	SandMaterialInfo.SandColor.MAGENTA: 100,
+	SandMaterialInfo.SandColor.YELLOW: 100,
+}
+var charm_weights : Dictionary[SpecialMaterialInfo.SpecialType, int] = {
+	SpecialMaterialInfo.SpecialType.PEARL: 100,
+	SpecialMaterialInfo.SpecialType.SHELL: 100,
+	SpecialMaterialInfo.SpecialType.JIMMIE: 100,
+	SpecialMaterialInfo.SpecialType.HEART: 50,
+	SpecialMaterialInfo.SpecialType.SPADE: 50,
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.joy_connection_changed.connect(_on_joy_connection_changed)
