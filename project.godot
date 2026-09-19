@@ -38,6 +38,10 @@ ScoringEvents="*uid://sjufwnrcp5ct"
 ParticlesCache="*uid://c0sb6nrlcp3hb"
 Shaker2D="*uid://dvn8qokgtg8g4"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=1280
@@ -51,6 +55,10 @@ mouse_cursor/tooltip_position_offset=Vector2(8, 8)
 [dotnet]
 
 project/assembly_name="CaddiShack"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg")
 
 [file_customization]
 
@@ -109,3 +117,9 @@ renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
+
+[steam]
+
+initialization/app_data/app_id=5188500
+initialization/processes/initialize_on_startup=true
+initialization/processes/embed_callbacks=true
