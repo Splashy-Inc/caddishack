@@ -18,6 +18,8 @@ signal died
 @onready var container: Node2D = $Container
 @onready var back: Node2D = $Container/Back
 @onready var front: Node2D = $Container/Front
+@onready var sand_slot: Marker2D = $Container/Front/Card/SandSlot
+@onready var charm_slot: Marker2D = $Container/Front/Card/CharmSlot
 
 var original_transform : Transform2D
 var target_transform : Transform2D
@@ -110,6 +112,16 @@ func load_larva_abilities():
 			ability_slots[i].show()
 		else:
 			ability_slots[i].clear()
+	
+	for ability in larva.info.base_abilities:
+		if ability is WomboComboBaseAbilityInfo:
+			var color_material_info = SandMaterialInfo.new()
+			color_material_info.add_color(ability.color)
+			sand_slot.add_child(Globals.generate_material(color_material_info))
+			
+			var charm_material_info = SpecialMaterialInfo.new()
+			charm_material_info.type = ability.charm
+			charm_slot.add_child(Globals.generate_material(charm_material_info))
 
 func add_ability(new_ability: AbilityInfo) -> bool:
 	if larva.add_ability(new_ability):

@@ -171,6 +171,10 @@ func load_abilities():
 				bead.info.add_ability(ability)
 		else:
 			ability_icons[i].texture = null
+	
+	for ability in info.base_abilities:
+		bead.info.add_ability(ability)
+	
 	bead.load_abilities()
 
 func add_ability(new_ability: AbilityInfo) -> bool:

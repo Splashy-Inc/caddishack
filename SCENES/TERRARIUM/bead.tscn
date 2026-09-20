@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="2_360jh"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="3_83cj8"]
+[ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="3_tohrt"]
 [ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="4_83cj8"]
 [ext_resource type="SpriteFrames" uid="uid://p6k2525ne10t" path="res://full_bead_sprites.tres" id="5_360jh"]
 [ext_resource type="Material" uid="uid://cf3tuv5aidq14" path="res://RESOURCES/SHADERS/highlight/highlight_material.tres" id="6_360jh"]

@@ -15,7 +15,7 @@ func calculate_points() -> int:
 	points = POINTS_BASE
 	
 	for bead in bead_array_info.get_beads():
-		points += bead.calculate_points(bead_array_info)
+		points += bead.calculate_points(bead_array_info) * bead.calculate_base_multiplier(bead_array_info)
 	
 	return points
 
@@ -23,7 +23,7 @@ func calculate_mult() -> int:
 	mult = MULT_BASE
 	
 	for bead in bead_array_info.get_beads():
-		mult += bead.calculate_mult(bead_array_info)
+		mult += bead.calculate_mult(bead_array_info) * bead.calculate_base_multiplier(bead_array_info)
 	
 	return mult
 

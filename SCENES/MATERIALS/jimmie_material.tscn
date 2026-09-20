@@ -2,24 +2,34 @@
 
 [ext_resource type="Script" uid="uid://dn3af6eom8rd2" path="res://SCRIPTS/MATERIALS/jimmie_material.gd" id="1_60584"]
 [ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="2_hcane"]
-[ext_resource type="Texture2D" uid="uid://jdyt4rpsbkvs" path="res://ASSETS/Art/TERRARIUM/CaddiShackAtlas.png" id="3_60584"]
+[ext_resource type="Shader" uid="uid://dj40a57yfeqqy" path="res://RESOURCES/SHADERS/highlight/highlight.gdshader" id="3_hcane"]
+[ext_resource type="Texture2D" uid="uid://6vbhckpvgkat" path="res://ASSETS/Art/TERRARIUM/MaterialsAtlas_66x66.png" id="4_hcane"]
 [ext_resource type="PackedScene" uid="uid://c7iv6evm4yvgl" path="res://SCENES/TERRARIUM/offscreen_indicator.tscn" id="4_y4bey"]
 
 [sub_resource type="Resource" id="Resource_4onm5"]
 script = ExtResource("2_hcane")
 type = 3
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hcane"]
-atlas = ExtResource("3_60584")
-region = Rect2(512, 64, 64, 64)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6dxsu"]
+resource_local_to_scene = true
+shader = ExtResource("3_hcane")
+shader_parameter/line_color = Color(1, 1, 0, 1)
+shader_parameter/line_thickness = 2.000000095
+shader_parameter/on = false
 
-[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773 groups=["materials"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcane"]
+atlas = ExtResource("4_hcane")
+region = Rect2(132, 66, 66, 66)
+
+[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["materials"]]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_60584")
 info = SubResource("Resource_4onm5")
+highlight_enabled_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1955389465]
+material = SubResource("ShaderMaterial_6dxsu")
 texture = SubResource("AtlasTexture_hcane")
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="." unique_id=1506669091]

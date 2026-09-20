@@ -9,6 +9,8 @@ class_name BeadSlot
 @onready var fail_sound: AudioStreamPlayer = $FailSound
 
 @export var ability_icons : Array[AbilityIcon]
+@export var sand_slot : Marker2D
+@export var charm_slot : Marker2D
 
 @export var highlight_timeout := .25
 
@@ -26,7 +28,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func load_abilities(abilities: Array[BeadAbilityInfo]):
+func load_abilities(abilities: Array[BeadAbilityInfo], base_abilities: Array[BaseAbilityInfo] = []):
 	reset_icons()
 	for i in ability_icons.size():
 		if i < abilities.size():
@@ -35,11 +37,26 @@ func load_abilities(abilities: Array[BeadAbilityInfo]):
 		else:
 			ability_icons[i].reset_icon()
 			ability_icons[i].hide()
+	
+	for ability in base_abilities:
+		if ability is WomboComboBaseAbilityInfo:
+			var color_material_info = SandMaterialInfo.new()
+			color_material_info.add_color(ability.color)
+			sand_slot.add_child(Globals.generate_material(color_material_info))
+			
+			var charm_material_info = SpecialMaterialInfo.new()
+			charm_material_info.type = ability.charm
+			charm_slot.add_child(Globals.generate_material(charm_material_info))
 
 func reset_icons():
 	for icon in ability_icons:
 		icon.reset_icon()
 		icon.hide()
+	
+	for child in sand_slot.get_children():
+		child.queue_free()
+	for child in charm_slot.get_children():
+		child.queue_free()
 
 func reset_value():
 	set_points(0)
@@ -57,7 +74,7 @@ func add_bead(new_bead: Bead):
 		else:
 			slot_center.add_child(new_bead)
 		
-		load_abilities(new_bead.info.abilities)
+		load_abilities(new_bead.info.abilities, new_bead.info.base_abilities)
 		return true
 	return false
 
@@ -83,8 +100,8 @@ func calculate_value(info: BeadArrayInfo):
 	if is_instance_valid(bead):
 		for bead_info in info.beads:
 			if bead.info == bead_info:
-				set_points(bead_info.calculate_points(info))
-				set_mult(bead_info.calculate_mult(info))
+				set_points(bead_info.calculate_points(info) * bead_info.calculate_base_multiplier(info))
+				set_mult(bead_info.calculate_mult(info) * bead_info.calculate_base_multiplier(info))
 
 func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound: AudioStreamPlayer = null):
 	var bead := get_bead()
@@ -117,7 +134,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 									BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
 								ability_value += value_breakdown["abilities"][ability_info]["value"]
 								if ability_value > 0:
-									set_points(bead_points + ability_value)
+									set_points(points + ability_value)
 								else:
 									fail_sound.play()
 							elif ability_info is BeadCharmAbilityInfo:
@@ -126,7 +143,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 									BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
 								ability_value += value_breakdown["abilities"][ability_info]["value"]
 								if ability_value > 0:
-									set_mult(bead_mult + ability_value)
+									set_mult(mult + ability_value)
 								else:
 									fail_sound.play()
 							else:
@@ -136,9 +153,39 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 								BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
 								BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
 							icon.toggle_active(false)
+					if ability_info is BaseAbilityInfo:
+						var bonus_base_multiplier = value_breakdown["base_abilities"][ability_info]["value"]
+						if bonus_base_multiplier > 1:
+							set_points(points * bonus_base_multiplier)
+							set_mult(mult * bonus_base_multiplier)
+						else:
+							fail_sound.play()
+							
+						var sand = sand_slot.get_children().front()
+						var charm = charm_slot.get_children().front()
+						for affected_bead_info in value_breakdown["base_abilities"][ability_info]["affected_beads"]:
+							BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, true)
+							BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, true)
+							if sand is BeadMaterial:
+								sand.toggle_highlight(true)
+								if sand.info.colors.front() in bead_info.sand.colors:
+									sand_slot.modulate.a = 1
+							if charm is BeadMaterial:
+								charm.toggle_highlight(true)
+								if charm.info.type == bead_info.special.type:
+									charm_slot.modulate.a = 1
+						await get_tree().create_timer(highlight_timeout*2).timeout
+						for affected_bead_info in value_breakdown["base_abilities"][ability_info]["affected_beads"]:
+							BeadEvents.bead_color_highlight_toggle_requested.emit(affected_bead_info, false)
+							BeadEvents.bead_charm_highlight_toggle_requested.emit(affected_bead_info, false)
+							if sand is BeadMaterial:
+								sand.toggle_highlight(false)
+							if charm is BeadMaterial:
+								charm.toggle_highlight(false)
+						
 				scoring_sound = null
-				set_points(bead_info.calculate_points(bead_array_info))
-				set_mult(bead_info.calculate_mult(bead_array_info))
+				set_points(bead_info.calculate_points(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
+				set_mult(bead_info.calculate_mult(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
 				complete_bead_scoring()
 				unlift_bead()
 
