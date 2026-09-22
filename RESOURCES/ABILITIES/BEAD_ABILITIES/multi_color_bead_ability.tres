@@ -18,6 +18,7 @@ region = Rect2(0, 100, 20, 20)
 script = ExtResource("1_nom7g")
 name = "Multi-Color Bead"
 description = "+1 bead color per stack (Max +2)"
+long_description = "This bead can hold +1 color, up to 3 total."
 icon = SubResource("AtlasTexture_3vu2r")
 active_icon = SubResource("AtlasTexture_vv2hb")
 num_stacks = 1

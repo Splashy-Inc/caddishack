@@ -6,9 +6,8 @@
 [ext_resource type="StyleBox" uid="uid://bckhto52x32om" path="res://RESOURCES/button_box_pressed_hover.tres" id="3_3m3sy"]
 [ext_resource type="StyleBox" uid="uid://clyq3pof6wks3" path="res://RESOURCES/button_box_normal.tres" id="4_0lf1r"]
 [ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="5_7ts2r"]
+[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="7_0lf1r"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="7_3m3sy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vp42j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ykhq"]
 atlas = ExtResource("7_3m3sy")
@@ -135,7 +134,7 @@ Label/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
 Label/constants/outline_size = 4
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_vp42j")
-PanelContainer/styles/panel = SubResource("StyleBoxEmpty_vp42j")
+PanelContainer/styles/panel = ExtResource("7_0lf1r")
 TabContainer/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
 TabContainer/colors/font_selected_color = Color(0.9411765, 0.827451, 0.7607843, 1)
 TabContainer/constants/outline_size = 4

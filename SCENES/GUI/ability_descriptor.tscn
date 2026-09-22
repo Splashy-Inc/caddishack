@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="1_jn58x"]
 [ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="1_uletf"]
+[ext_resource type="Script" uid="uid://cdud5a45o267h" path="res://SCENES/GUI/ability_descriptor.gd" id="2_fsg73"]
 [ext_resource type="LabelSettings" uid="uid://c8lwo0mgqxvin" path="res://RESOURCES/shop_item_label.tres" id="2_uletf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1lti"]
@@ -13,6 +14,7 @@ custom_minimum_size = Vector2(578, 230)
 offset_right = 594.0
 offset_bottom = 226.0
 theme_override_styles/panel = ExtResource("1_uletf")
+script = ExtResource("2_fsg73")
 
 [node name="TopHalf" type="HBoxContainer" parent="." unique_id=1895778130]
 layout_mode = 2
@@ -44,6 +46,5 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "This is a long description that has a lot of characters just to test the limit of how each ability can be explained. It seems like 4 lines is it."
 label_settings = ExtResource("2_uletf")
-horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

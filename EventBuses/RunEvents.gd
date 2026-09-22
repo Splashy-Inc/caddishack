@@ -115,3 +115,6 @@ func get_names():
 
 func get_abilities():
 	return run_info.available_shop_abilities
+
+func get_unlocked_abilities():
+	return run_info.unlocked_abilities

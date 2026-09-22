@@ -21,6 +21,7 @@ script = ExtResource("1_uqwxq")
 color = 3
 name = "Always Citrine"
 description = "Bead starts with Citrine (Yellow)"
+long_description = "This bead always starts with Citrine (yellow). Multi-color still allows collecting other colors."
 icon = SubResource("AtlasTexture_cb6sv")
 active_icon = SubResource("AtlasTexture_mqd1j")
 num_stacks = 1

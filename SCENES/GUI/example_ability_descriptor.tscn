@@ -42,9 +42,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(438, 164)
 layout_mode = 2
 size_flags_vertical = 3
-text = "This bead generates mult based on the types of charms in the bracelet.
-Charm types    -  1 | 2 | 3+
-Mult generated -  2 | 6 | 0"
+text = "This bead generates mult based on the types of charms in the bracelet.                        Charm types    -  1 | 2 | 3+    Mult generated -  2 | 6 | 0"
 label_settings = ExtResource("3_3jg0o")
 vertical_alignment = 1
 autowrap_mode = 2
