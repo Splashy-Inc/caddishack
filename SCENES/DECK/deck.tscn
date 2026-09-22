@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://du1gtp1nkwimm" path="res://SCRIPTS/DECK/deck.gd" id="1_1msou"]
 [ext_resource type="Texture2D" uid="uid://cq5g41rtqdjk7" path="res://ASSETS/Art/CaddiCards.png" id="1_uxaxp"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rh0j0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bu3r"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jy31"]
 atlas = ExtResource("1_uxaxp")
 region = Rect2(0, 0, 184, 256)
@@ -87,6 +91,7 @@ custom_minimum_size = Vector2(192, 192)
 size_flags_horizontal = 4
 offset_transform_enabled = true
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rh0j0")
 script = ExtResource("1_1msou")
 
 [node name="Cards" type="PanelContainer" parent="." unique_id=1610868122]
@@ -95,6 +100,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1bu3r")
 
 [node name="Bottom" type="TextureRect" parent="Cards" unique_id=898042821]
 layout_mode = 2

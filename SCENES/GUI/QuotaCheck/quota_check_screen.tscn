@@ -140,6 +140,8 @@ _data = {
 &"pass": SubResource("Animation_glxtm")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1msou"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_0qco7"]
 font = ExtResource("4_28rho")
 font_size = 192
@@ -186,6 +188,7 @@ position = Vector2(481, 683)
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2092239943]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1msou")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1689385044]
 layout_mode = 2

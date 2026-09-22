@@ -7,7 +7,6 @@
 custom_minimum_size = Vector2(100, 20)
 size_flags_horizontal = 4
 theme = ExtResource("1_jtvkf")
-theme_override_font_sizes/font_size = 36
 text = "Restart Run"
 script = ExtResource("3_trhtq")
 
