@@ -26,6 +26,7 @@ mult_bonus_tiers = Dictionary[int, int]({
 })
 name = "Too Charming"
 description = "+Mult by # charm type in set: 1=+6, 2=+2, 3+=+0"
+long_description = "This bead generates mult based on the types of charms in the bracelet.\\nCharm types    -  1 | 2 | 3+\\nMult generated -  2 | 6 | 0"
 icon = SubResource("AtlasTexture_pymp4")
 active_icon = SubResource("AtlasTexture_hjbqs")
 num_stacks = 1

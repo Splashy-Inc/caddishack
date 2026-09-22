@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bhysj1sqtsay1"]
+
+[ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="1_cuvt6"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_ke8bq"]
+[ext_resource type="LabelSettings" uid="uid://c8lwo0mgqxvin" path="res://RESOURCES/shop_item_label.tres" id="3_3jg0o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1lti"]
+atlas = ExtResource("2_ke8bq")
+region = Rect2(0, 60, 20, 20)
+
+[node name="PanelContainer" type="PanelContainer" unique_id=1862806792]
+custom_minimum_size = Vector2(578, 230)
+offset_right = 594.0
+offset_bottom = 226.0
+theme_override_styles/panel = ExtResource("1_cuvt6")
+
+[node name="TopHalf" type="HBoxContainer" parent="." unique_id=1895778130]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="TopHalf" unique_id=961680068]
+custom_minimum_size = Vector2(120, 120)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_k1lti")
+
+[node name="Info" type="VBoxContainer" parent="TopHalf" unique_id=1754493252]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="TopHalf/Info" unique_id=531724947]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Companion Colors"
+label_settings = ExtResource("3_3jg0o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="TopHalf/Info" unique_id=368913923]
+custom_minimum_size = Vector2(438, 164)
+layout_mode = 2
+size_flags_vertical = 3
+text = "This bead generates mult based on the types of charms in the bracelet.
+Charm types    -  1 | 2 | 3+
+Mult generated -  2 | 6 | 0"
+label_settings = ExtResource("3_3jg0o")
+vertical_alignment = 1
+autowrap_mode = 2

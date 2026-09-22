@@ -19,6 +19,7 @@ resource_local_to_scene = true
 script = ExtResource("1_8inhb")
 name = "Resourceful Larva"
 description = "Larva does not remove materials when collecting"
+long_description = "This larva does not remove materials from the terrarium when collecting them."
 icon = SubResource("AtlasTexture_8axys")
 active_icon = SubResource("AtlasTexture_661ui")
 num_stacks = 1

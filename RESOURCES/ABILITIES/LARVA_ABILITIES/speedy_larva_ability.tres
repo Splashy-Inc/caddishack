@@ -22,6 +22,7 @@ script = ExtResource("1_5ymlc")
 percent_change = 50
 name = "Speedy Larva"
 description = "+50% larva speed"
+long_description = "This larva is 50% faster."
 icon = SubResource("AtlasTexture_wiqm3")
 active_icon = SubResource("AtlasTexture_kv104")
 num_stacks = 1
