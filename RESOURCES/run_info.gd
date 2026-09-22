@@ -18,3 +18,14 @@ class_name RunInfo
 										preload("uid://csk0mcs73aud0"),
 										preload("uid://dq85imxfshxej"),
 										preload("uid://cu2a7esxr4q2v"),] as Array[ShopAbilityInfo]
+@export var unlocked_abilities := [preload("uid://bh14q3x27s0si"),
+									preload("uid://dcynpenj2s130"),
+									preload("uid://8cdcook8lkoo"),
+									preload("uid://bbuq5n0pob56i"),
+									preload("uid://dwmp14ku03fm"),
+									preload("uid://co053gn62jucq"),
+									preload("uid://31shunna6n1a"),
+									preload("uid://dtprlafpcjuvc"),
+									preload("uid://dygxageaewodg"),
+									preload("uid://5bx2xh3vbjqi"),
+]

@@ -21,6 +21,7 @@ script = ExtResource("2_uh37r")
 color = 2
 name = "Always Amethyst"
 description = "Bead starts with Amethyst (Purple)"
+long_description = "This bead always starts with Amethyst (purple). Multi-color still allows collecting other colors."
 icon = SubResource("AtlasTexture_cb6sv")
 active_icon = SubResource("AtlasTexture_mqd1j")
 num_stacks = 1

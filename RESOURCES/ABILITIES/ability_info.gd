@@ -4,6 +4,7 @@ class_name AbilityInfo
 
 @export var name : String
 @export var description : String
+@export var long_description : String
 @export var icon : Texture2D
 @export var active_icon : Texture2D
 @export var num_stacks := 0

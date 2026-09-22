@@ -7,11 +7,14 @@
 [ext_resource type="Script" uid="uid://8n0t10ct2y4j" path="res://SCRIPTS/GUI/menu_previous_button.gd" id="4_k8t63"]
 [ext_resource type="Script" uid="uid://bbipa5lka1m53" path="res://SCRIPTS/GUI/game_info_tabs.gd" id="4_kt1ik"]
 [ext_resource type="Texture2D" uid="uid://dl18byxtuv6dv" path="res://ASSETS/Screenshots/Deck_1.png" id="5_3njql"]
+[ext_resource type="StyleBox" uid="uid://crh5rffv5o6gu" path="res://RESOURCES/panel_image.tres" id="5_6y17j"]
 [ext_resource type="PackedScene" uid="uid://fvpsq85ge5ut" path="res://SCENES/GUI/back_button.tscn" id="5_hrpar"]
 [ext_resource type="Texture2D" uid="uid://dxn0lkbxqmxs0" path="res://ASSETS/Screenshots/Terrarium_1.png" id="9_7u4vj"]
 [ext_resource type="Texture2D" uid="uid://btmtvssttj8tp" path="res://ASSETS/Screenshots/Scoring_1.png" id="10_hf6af"]
 [ext_resource type="Texture2D" uid="uid://dioclxx8yqeav" path="res://ASSETS/Screenshots/Shop_1.png" id="11_3njql"]
 [ext_resource type="Texture2D" uid="uid://bh3h7c5qwta4h" path="res://ASSETS/Screenshots/Quota_1.png" id="12_3njql"]
+[ext_resource type="PackedScene" uid="uid://bwr6fwfnjsoxi" path="res://SCENES/GUI/ability_descriptor.tscn" id="13_1ouls"]
+[ext_resource type="Script" uid="uid://botdeqgtv1aa4" path="res://SCENES/GUI/abilities_tab.gd" id="13_vc44l"]
 
 [node name="HowToPlayScreen" type="PanelContainer" unique_id=1616816326]
 anchors_preset = 15
@@ -59,11 +62,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=554693349]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=257951874]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer/PanelContainer" unique_id=554693349]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_3njql")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=73336289]
@@ -110,11 +119,18 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer" unique_id=1503192878]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer" unique_id=1955692767]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer/PanelContainer" unique_id=1503192878]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 texture = ExtResource("9_7u4vj")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/HBoxContainer" unique_id=1184644167]
@@ -159,11 +175,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer" unique_id=1258923914]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer" unique_id=1141610528]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer/PanelContainer" unique_id=1258923914]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("10_hf6af")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/HBoxContainer" unique_id=704821803]
@@ -210,11 +232,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer" unique_id=1818812783]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer" unique_id=796256318]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer/PanelContainer" unique_id=1818812783]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("11_3njql")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop/HBoxContainer" unique_id=9929521]
@@ -263,11 +291,17 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1866863235]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1369766469]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer/PanelContainer" unique_id=1866863235]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("12_3njql")
-expand_mode = 2
+expand_mode = 5
 stretch_mode = 5
 
 [node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota/HBoxContainer" unique_id=1267222538]
@@ -303,6 +337,64 @@ size_flags_vertical = 4
 text = "Next >"
 script = ExtResource("4_hrpar")
 
+[node name="Abilities" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=18954938]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("13_vc44l")
+ability_descriptor_scene = ExtResource("13_1ouls")
+metadata/_tab_index = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities" unique_id=1570756782]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer" unique_id=1862224282]
+layout_mode = 2
+columns = 2
+
+[node name="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=1862806792 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=1159007507 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=1306863646 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=814466841 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=1517158191 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/ScrollContainer/GridContainer" unique_id=1330370220 instance=ExtResource("13_1ouls")]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities" unique_id=804810757]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/Buttons" unique_id=980925309]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/Buttons" unique_id=1794726599 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/Buttons" unique_id=1365985642]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
@@ -313,3 +405,5 @@ script = ExtResource("4_hrpar")
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Shop/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Quota/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Abilities/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]

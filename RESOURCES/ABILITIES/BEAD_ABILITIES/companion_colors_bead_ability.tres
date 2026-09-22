@@ -18,6 +18,7 @@ region = Rect2(0, 60, 20, 20)
 script = ExtResource("1_xo0xc")
 name = "Companion Colors"
 description = "+1 point per matching color in bracelet"
+long_description = "This bead generates +1 point for each other bead containing a matching color."
 icon = SubResource("AtlasTexture_3uvpn")
 active_icon = SubResource("AtlasTexture_aan8v")
 num_stacks = 1

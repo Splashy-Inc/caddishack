@@ -18,6 +18,7 @@ region = Rect2(0, 80, 20, 20)
 script = ExtResource("1_7nn7g")
 name = "Sand Synergy"
 description = "+1 point per bead with no color"
+long_description = "This bead generates +1 point for each bead in the bracelet that has no color."
 icon = SubResource("AtlasTexture_a6hn4")
 active_icon = SubResource("AtlasTexture_80r8n")
 num_stacks = 1
