@@ -1,6 +1,7 @@
 extends Node
 
 signal score_generated(score: int)
+signal vouchers_generated(num_vouchers: int)
 signal round_started
 signal round_max_reached
 signal quota_passed
@@ -9,6 +10,7 @@ signal quota_failed(old_run_info: RunInfo)
 signal round_updated(new_current_round: int, new_max_rounds: int)
 signal quota_updated(new_quota: int)
 signal score_updated(new_score: int)
+signal vouchers_updated(new_vouchers: int)
 
 signal terrarium_info_updated(info: TerrariumInfo)
 
@@ -21,6 +23,7 @@ var test_run_info := preload("res://RESOURCES/test_run.tres")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	score_generated.connect(change_score)
+	vouchers_generated.connect(change_vouchers)
 	round_started.connect(increment_round)
 	load_run_info(new_run_info)
 
@@ -67,6 +70,16 @@ func get_score() -> int:
 func change_score(change: int):
 	set_score(run_info.score + change)
 
+func set_vouchers(new_vouchers: int):
+	run_info.vouchers = new_vouchers
+	vouchers_updated.emit(run_info.vouchers)
+
+func get_vouchers() -> int:
+	return run_info.vouchers
+
+func change_vouchers(change: int):
+	set_vouchers(run_info.vouchers + change)
+
 func reset_run():
 	load_run_info(new_run_info.duplicate(true))
 
@@ -74,6 +87,7 @@ func load_run_info(loaded_run_info: RunInfo):
 	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)
 	set_quota(loaded_run_info.cur_quota)
 	set_score(loaded_run_info.score)
+	set_vouchers(loaded_run_info.vouchers)
 	set_deck_info(loaded_run_info.deck)
 
 func set_current_terrarium_info(new_info: TerrariumInfo):
