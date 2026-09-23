@@ -117,7 +117,7 @@ func randomize_abilities():
 		slot.add_child(new_item)
 
 func _on_reroll_button_pressed() -> void:
-	RunEvents.change_score(-reroll_button.cost)
+	RunEvents.change_vouchers(-reroll_button.cost)
 	randomize_abilities()
 	randomize_terrariums()
 	sync_info()
