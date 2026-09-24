@@ -97,6 +97,8 @@ func set_mult(new_mult: int):
 	mult_label.text = str(mult)
 
 func set_vouchers(new_vouchers: int):
+	if is_instance_valid(scoring_sound):
+		scoring_sound.play()
 	vouchers = new_vouchers
 	vouchers_label.text = str(vouchers)
 
@@ -203,6 +205,8 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 						if bonus_base_multiplier > 1:
 							set_points(points * bonus_base_multiplier)
 							set_mult(mult * bonus_base_multiplier)
+							if ability_info is WomboComboBaseAbilityInfo:
+								set_vouchers(vouchers + 1)
 						else:
 							fail_sound.play()
 						
