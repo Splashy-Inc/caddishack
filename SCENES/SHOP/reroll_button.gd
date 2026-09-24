@@ -12,7 +12,9 @@ func _on_vouchers_updated(new_vouchers: int):
 	disabled = new_vouchers < cost
 
 func _on_pressed() -> void:
-	change_cost(cost)
+	# Going to start with not doubling cost for each reroll
+	#change_cost(cost)
+	pass
 
 func change_cost(change: int):
 	cost += change
