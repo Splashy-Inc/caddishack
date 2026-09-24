@@ -70,10 +70,11 @@ _data = {
 &"lift_bead": SubResource("Animation_r86f8")
 }
 
-[node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("sand_slot", "charm_slot")]
+[node name="BeadSlot" type="Sprite2D" unique_id=1263753534 node_paths=PackedStringArray("ability_icons", "sand_slot", "charm_slot")]
 self_modulate = Color(0, 0, 0, 0.498039)
 texture = ExtResource("1_2voyj")
 script = ExtResource("2_aatqm")
+ability_icons = [NodePath("AbilityIcons/Row1/Ability1/Icon"), NodePath("AbilityIcons/Row1/Ability2/Icon"), NodePath("AbilityIcons/Row2/Ability3/Icon")]
 sand_slot = NodePath("AbilityIcons/ComboRow/Sand/SandSlot")
 charm_slot = NodePath("AbilityIcons/ComboRow/Charm/CharmSlot")
 

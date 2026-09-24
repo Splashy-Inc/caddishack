@@ -20,6 +20,7 @@ func _ready() -> void:
 	RunEvents.score_updated.connect(set_score)
 	RunEvents.vouchers_updated.connect(set_vouchers)
 	quota_number.change_complete.connect(_on_quota_change_complete)
+	score_number.change_complete.connect(_on_score_change_complete)
 	voucher_number.change_complete.connect(_on_voucher_change_complete)
 	
 	set_round(RunEvents.get_round(), RunEvents.get_max_rounds())
@@ -51,15 +52,15 @@ func set_vouchers(current_vouchers: int, time : float = 2.0):
 
 func _on_quota_change_complete():
 	awaiting_quota_change = false
-	if not (awaiting_quota_change or awaiting_score_change):
+	if not (awaiting_quota_change or awaiting_score_change or awaiting_voucher_change):
 		number_change_complete.emit()
 
 func _on_score_change_complete():
 	awaiting_score_change = false
-	if not (awaiting_quota_change or awaiting_score_change):
+	if not (awaiting_quota_change or awaiting_score_change or awaiting_voucher_change):
 		number_change_complete.emit()
 
 func _on_voucher_change_complete():
 	awaiting_voucher_change = false
-	if not (awaiting_quota_change or awaiting_voucher_change):
+	if not (awaiting_quota_change or awaiting_score_change or awaiting_voucher_change):
 		number_change_complete.emit()

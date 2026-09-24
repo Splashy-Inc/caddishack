@@ -231,6 +231,17 @@ custom_minimum_size = Vector2(320, 400)
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="Spacer" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="2" unique_id=1219021022]
+custom_minimum_size = Vector2(0, 16)
+size_flags_vertical = 1
+
+[node name="Spacer2" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="5" unique_id=260567459]
+custom_minimum_size = Vector2(0, 16)
+size_flags_vertical = 1
+
+[node name="Vouchers" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="8" unique_id=40423095]
+visible = false
+
 [node name="Control3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1592156889]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -268,3 +279,4 @@ process_material = ExtResource("10_glxtm")
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Control3/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="SplashScreen"]
+[editable path="PanelContainer/VBoxContainer/HBoxContainer/RunInfo"]

@@ -131,7 +131,6 @@ func calculate_value(info: BeadArrayInfo):
 				set_mult(bead_info.calculate_mult(info) * bead_info.calculate_base_multiplier(info))
 				set_vouchers(bead_info.calculate_vouchers(info))
 				check_wombo()
-				
 
 func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound: AudioStreamPlayer = null):
 	var bead := get_bead()

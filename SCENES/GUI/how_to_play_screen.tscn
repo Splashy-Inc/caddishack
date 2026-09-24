@@ -6,12 +6,13 @@
 [ext_resource type="Script" uid="uid://bjdknm0022n3u" path="res://SCRIPTS/GUI/menu_next_button.gd" id="4_hrpar"]
 [ext_resource type="Script" uid="uid://8n0t10ct2y4j" path="res://SCRIPTS/GUI/menu_previous_button.gd" id="4_k8t63"]
 [ext_resource type="Script" uid="uid://bbipa5lka1m53" path="res://SCRIPTS/GUI/game_info_tabs.gd" id="4_kt1ik"]
-[ext_resource type="Texture2D" uid="uid://dl18byxtuv6dv" path="res://ASSETS/Screenshots/Deck_1.png" id="5_3njql"]
+[ext_resource type="Texture2D" uid="uid://clf4a2ckhid58" path="res://ASSETS/Screenshots/Deck_1.png" id="5_3njql"]
 [ext_resource type="StyleBox" uid="uid://crh5rffv5o6gu" path="res://RESOURCES/panel_image.tres" id="5_6y17j"]
 [ext_resource type="PackedScene" uid="uid://fvpsq85ge5ut" path="res://SCENES/GUI/back_button.tscn" id="5_hrpar"]
 [ext_resource type="Texture2D" uid="uid://dxn0lkbxqmxs0" path="res://ASSETS/Screenshots/Terrarium_1.png" id="9_7u4vj"]
-[ext_resource type="Texture2D" uid="uid://btmtvssttj8tp" path="res://ASSETS/Screenshots/Scoring_1.png" id="10_hf6af"]
-[ext_resource type="Texture2D" uid="uid://dioclxx8yqeav" path="res://ASSETS/Screenshots/Shop_1.png" id="11_3njql"]
+[ext_resource type="Texture2D" uid="uid://bpbgo415ik7k6" path="res://ASSETS/Screenshots/Scoring_1.png" id="10_hf6af"]
+[ext_resource type="Texture2D" uid="uid://cbempmduvaito" path="res://ASSETS/Screenshots/Combos_1.png" id="10_jtchj"]
+[ext_resource type="Texture2D" uid="uid://br815agjw0p67" path="res://ASSETS/Screenshots/Shop_1.png" id="11_3njql"]
 [ext_resource type="Texture2D" uid="uid://bh3h7c5qwta4h" path="res://ASSETS/Screenshots/Quota_1.png" id="12_3njql"]
 [ext_resource type="PackedScene" uid="uid://bwr6fwfnjsoxi" path="res://SCENES/GUI/ability_descriptor.tscn" id="13_1ouls"]
 [ext_resource type="Script" uid="uid://botdeqgtv1aa4" path="res://SCENES/GUI/abilities_tab.gd" id="13_vc44l"]
@@ -52,56 +53,114 @@ current_tab = 0
 switch_on_drag_hover = false
 script = ExtResource("4_kt1ik")
 
-[node name="Deck" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=353348555]
+[node name="Deck" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=1802477544]
 layout_mode = 2
 size_flags_horizontal = 3
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck" unique_id=2494544]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck" unique_id=2135880375]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=257951874]
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=653438829]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("5_6y17j")
 
-[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer/PanelContainer" unique_id=554693349]
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer/PanelContainer" unique_id=514339041]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("5_3njql")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=73336289]
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/HBoxContainer" unique_id=162209299]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "The Deck is a collection of Caddisfly larvae that start as a blank slate
+text = "The Deck is a collection of Caddisfly larvae that start as a blank slate.
 
-Abilities can be bought in the shop to genetically enhance larvae each round
+Abilities can be bought in the shop to genetically enhance larvae each round.
 
-As you play, you will acquire abilities to synergize for maximum points"
+As you play, you will acquire abilities to synergize for maximum points."
 autowrap_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck" unique_id=1883314135]
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck" unique_id=195225487]
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=1759566029]
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=450255204]
 layout_mode = 2
 size_flags_horizontal = 2
 text = "< Previous"
 script = ExtResource("4_k8t63")
 
-[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=1934450237 instance=ExtResource("5_hrpar")]
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=157157033 instance=ExtResource("5_hrpar")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=1737271012]
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons" unique_id=1975682844]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Next >"
+script = ExtResource("4_hrpar")
+
+[node name="Combo" type="VBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs" unique_id=353348555]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo" unique_id=2494544]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/HBoxContainer" unique_id=257951874]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("5_6y17j")
+
+[node name="TextureRect" type="TextureRect" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/HBoxContainer/PanelContainer" unique_id=554693349]
+custom_maximum_size = Vector2(-1, 450)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("10_jtchj")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/HBoxContainer" unique_id=73336289]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Each larva has a \"Wombo Combo\", indicated by a color and charm on the left side of their card.
+
+A Wombo Combo is triggered when a larva collects both the color and the charm shown.
+
+Beads that trigger the Wombo Combo double their Points and Mult, and earn an extra Voucher!"
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo" unique_id=1883314135]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PreviousButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/Buttons" unique_id=1759566029]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "< Previous"
+script = ExtResource("4_k8t63")
+
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/Buttons" unique_id=1934450237 instance=ExtResource("5_hrpar")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="NextButton" type="Button" parent="ScreenRows/KeyConcepts/GameInfoTabs/Combo/Buttons" unique_id=1737271012]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -112,7 +171,7 @@ script = ExtResource("4_hrpar")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium" unique_id=403250602]
 layout_mode = 2
@@ -137,9 +196,9 @@ stretch_mode = 5
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "In the Terrarium, you play 2 hands of 5 larva cards and watch the larvae collect materials
+text = "In the Terrarium, you play 2 hands of 5 larva cards and watch the larvae collect materials.
 
-The larvae use these materials to create beads"
+The larvae use these materials to create beads imbued with their abilities."
 autowrap_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium" unique_id=1313887858]
@@ -153,7 +212,7 @@ size_flags_horizontal = 2
 text = "< Previous"
 script = ExtResource("4_k8t63")
 
-[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons" unique_id=157157033 instance=ExtResource("5_hrpar")]
+[node name="BackButton" parent="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons" unique_id=1605941217 instance=ExtResource("5_hrpar")]
 layout_mode = 2
 size_flags_horizontal = 6
 
@@ -168,7 +227,7 @@ script = ExtResource("4_hrpar")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring" unique_id=564778297]
 layout_mode = 2
@@ -192,11 +251,13 @@ stretch_mode = 5
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Once 10 beads have been created, a bracelet is automatically assembled and sold for money
+text = "Once 10 beads have been created, a bracelet is automatically assembled and sold for money.
 
 Color = points | Charm = mult
 
-Points x Mult = Value"
+Points x Mult = Value
+
+Each bead earns 1 voucher by default, but extra can be earned with Wombo Combos!"
 autowrap_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Scoring" unique_id=2019467982]
@@ -225,7 +286,7 @@ script = ExtResource("4_hrpar")
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_tab_index = 3
+metadata/_tab_index = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop" unique_id=2126241411]
 layout_mode = 2
@@ -249,11 +310,11 @@ stretch_mode = 5
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "In the Shop, you spend money on genetic abilities to enhance your larva cards
+text = "In the Shop, you spend vouchers on genetic abilities to enhance your larva cards.
 
-You also have to choose 1 of 3 randomized Terrariums for the next round
+You also have to choose 1 of 3 randomized Terrariums for the next round.
 
-Choose the optimal Terrarium for your deck to maximize score"
+Choose the optimal Terrarium for your deck to maximize score."
 autowrap_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Shop" unique_id=504147745]
@@ -284,7 +345,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
 alignment = 1
-metadata/_tab_index = 4
+metadata/_tab_index = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Quota" unique_id=279570597]
 layout_mode = 2
@@ -308,9 +369,9 @@ stretch_mode = 5
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "A Quota check is performed every 3 rounds
+text = "A Quota check is performed every 3 rounds.
 
-The Larva Queen will collect the quota, or else you fail
+The Larva Queen will collect the quota, or else you fail.
 
 Success only means a higher quota and higher shop prices, so make sure to plan your deck synergies wisely!"
 autowrap_mode = 2
@@ -345,7 +406,7 @@ theme_override_constants/separation = 8
 alignment = 1
 script = ExtResource("13_vc44l")
 ability_descriptor_scene = ExtResource("13_1ouls")
-metadata/_tab_index = 5
+metadata/_tab_index = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ScreenRows/KeyConcepts/GameInfoTabs/Abilities" unique_id=1570756782]
 layout_mode = 2
@@ -397,6 +458,8 @@ script = ExtResource("4_hrpar")
 
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Deck/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Combo/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
+[connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Combo/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Terrarium/Buttons/NextButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_next_pressed"]
 [connection signal="pressed" from="ScreenRows/KeyConcepts/GameInfoTabs/Scoring/Buttons/PreviousButton" to="ScreenRows/KeyConcepts/GameInfoTabs" method="_on_previous_pressed"]
