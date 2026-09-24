@@ -25,7 +25,6 @@
 [ext_resource type="Resource" uid="uid://cjcvtvdc83kbk" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/companion_colors_shop_ability.tres" id="16_yqt8j"]
 [ext_resource type="PackedScene" uid="uid://dsvnebt4fje6g" path="res://SCENES/AUDIO/reroll_sound.tscn" id="17_td8h1"]
 [ext_resource type="Resource" uid="uid://d24uyn8orn65n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/too_charming_shop_ability.tres" id="17_yqt8j"]
-[ext_resource type="Script" uid="uid://br8xej43trkjn" path="res://SCRIPTS/SHOP/voucher_panel.gd" id="18_2fqp4"]
 [ext_resource type="Resource" uid="uid://cr1v4818qsbg4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/speedy_larva_shop_ability.tres" id="18_yqt8j"]
 [ext_resource type="PackedScene" uid="uid://cbemq6u2ind3k" path="res://SCENES/GUI/select_button.tscn" id="20_6bml6"]
 [ext_resource type="PackedScene" uid="uid://bc6xbb4kxxw6q" path="res://SCENES/zoom_point.tscn" id="20_jvskc"]
@@ -363,27 +362,9 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("4_wresu")
 theme_override_styles/hover = ExtResource("5_r8xvt")
 disabled = true
-text = "Reroll All - 1V"
+text = "Reroll Everything - 1V"
 script = ExtResource("24_imspv")
 press_sound_scene = ExtResource("17_td8h1")
-
-[node name="VoucherPanel" type="PanelContainer" parent="PanelContainer/HBoxContainer/ItemSection/LowerSection" unique_id=1994986874]
-layout_mode = 2
-size_flags_horizontal = 3
-script = ExtResource("18_2fqp4")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/ItemSection/LowerSection/VoucherPanel" unique_id=965320561]
-layout_mode = 2
-
-[node name="Vouchers" type="Label" parent="PanelContainer/HBoxContainer/ItemSection/LowerSection/VoucherPanel/HBoxContainer" unique_id=1311749133]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Vouchers:"
-
-[node name="Number" type="Label" parent="PanelContainer/HBoxContainer/ItemSection/LowerSection/VoucherPanel/HBoxContainer" unique_id=478213036]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "#V"
 
 [node name="TerrariumPanel" type="PanelContainer" parent="PanelContainer/HBoxContainer" unique_id=1112454209]
 custom_minimum_size = Vector2(400, 0)
@@ -486,7 +467,7 @@ parameters/conditions/reset = true
 
 [node name="UISection" type="VBoxContainer" parent="PanelContainer/HBoxContainer" unique_id=1679442781]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 8
 
 [node name="PauseButton" parent="PanelContainer/HBoxContainer/UISection" unique_id=952429982 instance=ExtResource("23_xn1ka")]
 custom_minimum_size = Vector2(128, 0)
