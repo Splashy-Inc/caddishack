@@ -46,7 +46,7 @@ func calculate_base_multiplier(bead_array_info: BeadArrayInfo):
 	var base_multiplier = 1
 
 	for ability in base_abilities:
-		base_multiplier *= ability.use_ability(self, bead_array_info.get_beads())
+		base_multiplier += ability.use_ability(self, bead_array_info.get_beads())
 	
 	return base_multiplier
 

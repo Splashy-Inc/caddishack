@@ -20,10 +20,10 @@ var charm_weights : Dictionary[SpecialMaterialInfo.SpecialType, int] = {
 }
 
 func use_ability(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]):
-	var bonus_base_multiplier = 1
+	var bonus_base_multiplier = 0
 	
 	if color in origin_bead_info.sand.colors and charm == origin_bead_info.special.type:
-		bonus_base_multiplier = 2
+		bonus_base_multiplier = 1
 	
 	return bonus_base_multiplier
 
