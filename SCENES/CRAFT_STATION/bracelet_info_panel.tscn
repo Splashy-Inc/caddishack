@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://b6ai8nphacpi7" path="res://ASSETS/Font/gui_point_sublabel.tres" id="4_kny5g"]
 [ext_resource type="LabelSettings" uid="uid://c6jawqp8323jt" path="res://ASSETS/Font/gui_mult_sublabel.tres" id="5_271bc"]
 [ext_resource type="LabelSettings" uid="uid://dpdm2gqwudm4w" path="res://ASSETS/Font/gui_value_sublabel.tres" id="6_271bc"]
+[ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="7_e165q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goyfq"]
 atlas = ExtResource("1_125mw")
@@ -37,11 +38,15 @@ text = "Bracelet Stats"
 label_settings = ExtResource("3_vbtn1")
 horizontal_alignment = 1
 
-[node name="GridContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1920532940]
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=2061784309]
+layout_mode = 2
+
+[node name="ValueSection" type="GridContainer" parent="VBoxContainer/HBoxContainer" unique_id=226378173]
 layout_mode = 2
 size_flags_vertical = 3
+columns = 2
 
-[node name="PointsLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=583503151]
+[node name="PointsLabel" type="Label" parent="VBoxContainer/HBoxContainer/ValueSection" unique_id=583503151]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -51,17 +56,7 @@ text = "Points"
 label_settings = ExtResource("4_kny5g")
 horizontal_alignment = 1
 
-[node name="PointsNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1453288698]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/outline_size = 5
-theme_override_font_sizes/font_size = 48
-text = "0"
-label_settings = ExtResource("4_kny5g")
-horizontal_alignment = 1
-
-[node name="MultLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1437237137]
+[node name="MultLabel" type="Label" parent="VBoxContainer/HBoxContainer/ValueSection" unique_id=1437237137]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -73,7 +68,17 @@ text = "Multiplier"
 label_settings = ExtResource("5_271bc")
 horizontal_alignment = 1
 
-[node name="MultNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=2064658862]
+[node name="PointsNumber" type="Label" parent="VBoxContainer/HBoxContainer/ValueSection" unique_id=1453288698]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+text = "0"
+label_settings = ExtResource("4_kny5g")
+horizontal_alignment = 1
+
+[node name="MultNumber" type="Label" parent="VBoxContainer/HBoxContainer/ValueSection" unique_id=2064658862]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -83,7 +88,10 @@ text = "0"
 label_settings = ExtResource("5_271bc")
 horizontal_alignment = 1
 
-[node name="ValueLabel" type="Label" parent="VBoxContainer/GridContainer" unique_id=1068725617]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1341064476]
+layout_mode = 2
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1068725617]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,7 +101,7 @@ text = "Value"
 label_settings = ExtResource("6_271bc")
 horizontal_alignment = 1
 
-[node name="ValueNumber" type="Label" parent="VBoxContainer/GridContainer" unique_id=1820600488]
+[node name="ValueNumber" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1820600488]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -101,4 +109,28 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 48
 text = "0"
 label_settings = ExtResource("6_271bc")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=855299465]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="VouchersLabel" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2109076077]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+text = "Vouchers"
+label_settings = ExtResource("7_e165q")
+horizontal_alignment = 1
+
+[node name="VouchersNumber" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1893872567]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 48
+text = "0"
+label_settings = ExtResource("7_e165q")
 horizontal_alignment = 1

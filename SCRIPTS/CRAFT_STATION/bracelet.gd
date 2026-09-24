@@ -2,7 +2,7 @@ extends BeadSet
 
 class_name Bracelet
 
-signal animated_value_calculated(value: int)
+signal animated_value_calculated(value: int, vouchers: int)
 
 @export var info : BraceletInfo
 @onready var scoring_sound: AudioStreamPlayer = $ScoringSound
@@ -40,12 +40,15 @@ func get_open_slot_count():
 func calculate_value() -> int:
 	return info.calculate_value()
 
+func calculate_vouchers() -> int:
+	return info.calculate_vouchers()
+
 func calculate_value_animated():
 	for slot in bead_slots:
 		await slot.calculate_value_animated(info.get_bead_array_info(), scoring_sound)
 		scoring_sound.pitch_scale += .025
 	scoring_sound.pitch_scale = .5
-	animated_value_calculated.emit(info.calculate_value())
+	animated_value_calculated.emit(info.calculate_value(), info.calculate_vouchers())
 
 func is_complete() -> bool:
 	return get_beads().size() >= bead_slots.size()
