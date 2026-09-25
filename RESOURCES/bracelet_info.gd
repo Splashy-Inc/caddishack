@@ -10,6 +10,7 @@ const MULT_BASE := 0
 var points := POINTS_BASE
 var mult := MULT_BASE
 var value := 0
+var vouchers := 0
 
 func calculate_points() -> int:
 	points = POINTS_BASE
@@ -32,6 +33,12 @@ func calculate_value() -> int:
 	mult = calculate_mult()
 	value = points * mult
 	return value
+
+func calculate_vouchers() -> int:
+	vouchers = 0
+	for bead in bead_array_info.get_beads():
+		vouchers += bead.calculate_vouchers(bead_array_info)
+	return vouchers
 
 func get_bead_array_info() -> BeadArrayInfo:
 	return bead_array_info

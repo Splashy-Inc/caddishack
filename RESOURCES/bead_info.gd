@@ -10,6 +10,7 @@ class_name BeadInfo
 const VALUE_BREAKDOWN_STRUCT := {
 	"color_points" : 0,
 	"charm_mult" : 0,
+	"base_vouchers" : 1,
 	"abilities" : {},
 	"base_abilities" : {},
 }
@@ -46,9 +47,22 @@ func calculate_base_multiplier(bead_array_info: BeadArrayInfo):
 	var base_multiplier = 1
 
 	for ability in base_abilities:
-		base_multiplier *= ability.use_ability(self, bead_array_info.get_beads())
+		base_multiplier += ability.use_ability(self, bead_array_info.get_beads())
 	
 	return base_multiplier
+
+func calculate_vouchers(bead_array_info: BeadArrayInfo):
+	var vouchers = 1
+
+	for ability in abilities:
+		if ability is BeadVoucherAbilityInfo:
+			vouchers += ability.use_ability(self, bead_array_info.get_beads())
+	
+	for ability in base_abilities:
+		if ability is WomboComboBaseAbilityInfo:
+			vouchers += ability.use_ability(self, bead_array_info.get_beads())
+	
+	return vouchers
 
 func get_value_breakdown(bead_array_info: BeadArrayInfo) -> Dictionary:
 	var value_breakdown = VALUE_BREAKDOWN_STRUCT.duplicate_deep()

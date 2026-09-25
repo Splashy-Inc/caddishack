@@ -1,13 +1,22 @@
 extends UIButton
 
-@export var cost := 50
+@export var cost := 1
 
 func _button_ready() -> void:
-	RunEvents.score_updated.connect(_on_score_updated)
-	if RunEvents.get_quota():
-		cost = int(RunEvents.get_quota() * .1)
-	text = "Reroll Everything $" + str(cost)
-	_on_score_updated(RunEvents.get_score())
+	RunEvents.vouchers_updated.connect(_on_vouchers_updated)
+	# TODO: Make voucher icon/symbol
+	text = "Reroll Everything - " + str(cost) + "V"
+	_on_vouchers_updated(RunEvents.get_vouchers())
 
-func _on_score_updated(new_score):
-	disabled = new_score < cost
+func _on_vouchers_updated(new_vouchers: int):
+	disabled = new_vouchers < cost
+
+func _on_pressed() -> void:
+	# Going to start with not doubling cost for each reroll
+	#change_cost(cost)
+	pass
+
+func change_cost(change: int):
+	cost += change
+	text = "Reroll Everything - " + str(cost) + "V"
+	_on_vouchers_updated(RunEvents.get_vouchers())

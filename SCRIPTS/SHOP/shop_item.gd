@@ -19,7 +19,7 @@ signal load_info_completed(success: bool)
 
 func _button_ready() -> void:
 	load_info(info)
-	RunEvents.score_updated.connect(check_disabled)
+	RunEvents.vouchers_updated.connect(check_disabled)
 
 func _on_mouse_entered() -> void:
 	if not disabled:
@@ -39,7 +39,7 @@ func load_info(new_info: ShopItemInfo):
 		icon_sprite.scale = Vector2(1,1) * icon_space.size.x/icon_sprite.texture.get_size().x
 		active_icon_sprite.scale = Vector2(1,1) * icon_space.size.x/active_icon_sprite.texture.get_size().x
 		name_label.text = info.get_item_name()
-		cost_label.text = "$" + str(info.get_adjusted_cost())
+		cost_label.text = str(info.get_base_cost()) + "V"
 		description_label.text = info.get_description()
 		check_disabled()
 		load_info_completed.emit(true)
@@ -48,5 +48,5 @@ func load_info(new_info: ShopItemInfo):
 		load_info_completed.emit(false)
 		hide()
 
-func check_disabled(new_score: int = 0):
-	disabled = info.get_adjusted_cost() > RunEvents.get_score()
+func check_disabled(new_vouchers: int = 0):
+	disabled = info.get_base_cost() > RunEvents.get_vouchers()

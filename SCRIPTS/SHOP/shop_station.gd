@@ -10,7 +10,7 @@ class_name ShopStation
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
 @export var item_slots : Array[PanelContainer]
-@onready var reroll_button: Button = $PanelContainer/HBoxContainer/ItemSection/RerollButton
+@onready var reroll_button: UIButton = $PanelContainer/HBoxContainer/ItemSection/LowerSection/RerollButton
 @onready var terrariums_animation_tree: AnimationTree = $PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/AnimationTree
 
 # Called when the node enters the scene tree for the first time.
@@ -117,7 +117,7 @@ func randomize_abilities():
 		slot.add_child(new_item)
 
 func _on_reroll_button_pressed() -> void:
-	RunEvents.change_score(-reroll_button.cost)
+	RunEvents.change_vouchers(-reroll_button.cost)
 	randomize_abilities()
 	randomize_terrariums()
 	sync_info()
