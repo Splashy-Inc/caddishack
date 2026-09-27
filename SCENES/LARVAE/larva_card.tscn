@@ -17,7 +17,7 @@ region = Rect2(0, 0, 184, 256)
 atlas = ExtResource("2_wnpqk")
 region = Rect2(184, 0, 184, 256)
 
-[sub_resource type="Resource" id="Resource_3n04h"]
+[sub_resource type="Resource" id="Resource_lpp0k"]
 resource_local_to_scene = true
 script = ExtResource("6_c5vmk")
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
@@ -203,7 +203,7 @@ input_pickable = false
 
 [node name="Larva" parent="Container/Front/LarvaSlot" unique_id=1438854672 instance=ExtResource("1_4xgy5")]
 z_index = 0
-info = SubResource("Resource_3n04h")
+info = SubResource("Resource_lpp0k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Front/LarvaSlot" unique_id=2083541082]
 shape = SubResource("CircleShape2D_icnma")

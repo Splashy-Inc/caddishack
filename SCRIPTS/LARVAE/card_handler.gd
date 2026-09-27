@@ -18,14 +18,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = global_position.lerp(get_viewport().get_mouse_position(), .5)
 	if card:
+		var new_pos = global_position.lerp(get_viewport().get_mouse_position(), .5)
 		card.toggle_larva_view(is_instance_valid(drop_target))
 		if card.is_larva_view():
 			card_offset = -card.larva_slot.position
+			if new_pos.distance_to(global_position) > 1:
+				rotation = lerpf(rotation, global_position.angle_to_point(new_pos), .5)
 		else:
 			card_offset = Vector2.ZERO
-		card.global_position = global_position + card_offset
+			rotation = 0
+		global_position = new_pos
+		card.position = card_offset
+	
 
 func _on_card_pressed(pressed_card: LarvaCard, button_index: MouseButton) -> void:
 	if not is_instance_valid(card):
@@ -33,6 +38,7 @@ func _on_card_pressed(pressed_card: LarvaCard, button_index: MouseButton) -> voi
 			card = pressed_card
 			card_start_parent = card.get_parent()
 			card.reparent(self, false)
+			card.rotation = 0
 			click_window.start()
 			
 			if not card.is_larva_view():

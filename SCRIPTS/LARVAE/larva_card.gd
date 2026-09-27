@@ -68,8 +68,10 @@ func toggle_larva_view(is_larva: bool):
 		travelling = false
 		front.scale.x = 1
 		back.scale.x = 0
+		back.hide()
 	else:
 		larva.scale *= larva_slot.scale
+		back.show()
 		card.show()
 
 func is_larva_view() -> bool:
