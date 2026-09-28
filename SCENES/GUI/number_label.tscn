@@ -18,13 +18,13 @@ script = ExtResource("2_w8e8a")
 
 [node name="ChangeUpSound" type="AudioStreamPlayer" parent="." unique_id=1963055786]
 stream = SubResource("AudioStreamRandomizer_lj02w")
-volume_db = -10.0
+volume_db = -15.0
 max_polyphony = 2
 bus = &"SFX"
 
 [node name="ChangeDownSound" type="AudioStreamPlayer" parent="." unique_id=667995697]
 stream = SubResource("AudioStreamRandomizer_lj02w")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.75
 max_polyphony = 2
 bus = &"SFX"
