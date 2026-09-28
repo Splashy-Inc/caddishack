@@ -24,7 +24,7 @@ func pass_quota():
 	quota_passed = true
 	next_button.disabled = true
 	RunEvents.change_score(-RunEvents.get_quota())
-	RunEvents.change_quota(RunEvents.get_quota())
+	RunEvents.change_quota(RunEvents.get_quota(), true)
 	await run_info.number_change_complete
 	next_button.disabled = false
 

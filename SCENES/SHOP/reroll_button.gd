@@ -8,7 +8,7 @@ func _button_ready() -> void:
 	text = "Reroll Everything - " + str(cost) + "V"
 	_on_vouchers_updated(RunEvents.get_vouchers())
 
-func _on_vouchers_updated(new_vouchers: int):
+func _on_vouchers_updated(new_vouchers: int, silent: bool = true):
 	disabled = new_vouchers < cost
 
 func _on_pressed() -> void:

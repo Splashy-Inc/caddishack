@@ -48,5 +48,5 @@ func load_info(new_info: ShopItemInfo):
 		load_info_completed.emit(false)
 		hide()
 
-func check_disabled(new_vouchers: int = 0):
+func check_disabled(new_vouchers: int = 0, silent: bool = false):
 	disabled = info.get_base_cost() > RunEvents.get_vouchers()

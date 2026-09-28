@@ -37,7 +37,8 @@ func _process(delta: float) -> void:
 			change_complete.emit()
 			offset_transform_position = Vector2.ZERO
 
-func set_number(new_number : int, time : float = 0.0):
+func set_number(new_number : int, time : float = 0.0, silent: bool = is_silent):
+	is_silent = silent
 	time_to_target = time
 	if time_to_target > 0:
 		number_target = new_number
