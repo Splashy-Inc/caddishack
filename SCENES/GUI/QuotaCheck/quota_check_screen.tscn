@@ -235,6 +235,9 @@ size_flags_horizontal = 6
 custom_minimum_size = Vector2(0, 16)
 size_flags_vertical = 1
 
+[node name="QuotaNumber" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer/Quota" parent_id_path=PackedInt32Array(1126309375, 1067380109) index="1" unique_id=2067468411]
+is_silent = true
+
 [node name="Spacer2" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="5" unique_id=260567459]
 custom_minimum_size = Vector2(0, 16)
 size_flags_vertical = 1

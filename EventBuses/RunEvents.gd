@@ -8,9 +8,9 @@ signal quota_passed
 signal quota_failed(old_run_info: RunInfo)
 
 signal round_updated(new_current_round: int, new_max_rounds: int)
-signal quota_updated(new_quota: int)
-signal score_updated(new_score: int)
-signal vouchers_updated(new_vouchers: int)
+signal quota_updated(new_quota: int, silent: bool)
+signal score_updated(new_score: int, silent: bool)
+signal vouchers_updated(new_vouchers: int, silent: bool)
 
 signal terrarium_info_updated(info: TerrariumInfo)
 
@@ -50,44 +50,44 @@ func increment_round() -> bool:
 		round_max_reached.emit()
 		return false
 
-func set_quota(new_quota: int):
+func set_quota(new_quota: int, silent: bool = false):
 	run_info.cur_quota = new_quota
-	quota_updated.emit(run_info.cur_quota)
+	quota_updated.emit(run_info.cur_quota, silent)
 
 func get_quota() -> int:
 	return run_info.cur_quota
 
-func change_quota(change: int):
-	set_quota(run_info.cur_quota + change)
+func change_quota(change: int, silent: bool = false):
+	set_quota(run_info.cur_quota + change, silent)
 
-func set_score(new_score: int):
+func set_score(new_score: int, silent: bool = false):
 	run_info.score = new_score
-	score_updated.emit(run_info.score)
+	score_updated.emit(run_info.score, silent)
 
 func get_score() -> int:
 	return run_info.score
 
-func change_score(change: int):
-	set_score(run_info.score + change)
+func change_score(change: int, silent: bool = false):
+	set_score(run_info.score + change, silent)
 
-func set_vouchers(new_vouchers: int):
+func set_vouchers(new_vouchers: int, silent: bool = false):
 	run_info.vouchers = new_vouchers
-	vouchers_updated.emit(run_info.vouchers)
+	vouchers_updated.emit(run_info.vouchers, silent)
 
 func get_vouchers() -> int:
 	return run_info.vouchers
 
-func change_vouchers(change: int):
-	set_vouchers(run_info.vouchers + change)
+func change_vouchers(change: int, silent: bool = false):
+	set_vouchers(run_info.vouchers + change, silent)
 
 func reset_run():
 	load_run_info(new_run_info.duplicate(true))
 
 func load_run_info(loaded_run_info: RunInfo):
 	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)
-	set_quota(loaded_run_info.cur_quota)
-	set_score(loaded_run_info.score)
-	set_vouchers(loaded_run_info.vouchers)
+	set_quota(loaded_run_info.cur_quota, true)
+	set_score(loaded_run_info.score, true)
+	set_vouchers(loaded_run_info.vouchers, true)
 	set_deck_info(loaded_run_info.deck)
 
 func set_current_terrarium_info(new_info: TerrariumInfo):

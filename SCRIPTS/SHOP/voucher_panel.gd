@@ -8,5 +8,5 @@ func _ready() -> void:
 	RunEvents.vouchers_updated.connect(_on_vouchers_updated)
 	number.text = str(RunEvents.get_vouchers()) + "V"
 
-func _on_vouchers_updated(new_vouchers: int):
+func _on_vouchers_updated(new_vouchers: int, silent: bool):
 	number.text = str(new_vouchers) + "V"

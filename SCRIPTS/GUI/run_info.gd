@@ -24,9 +24,9 @@ func _ready() -> void:
 	voucher_number.change_complete.connect(_on_voucher_change_complete)
 	
 	set_round(RunEvents.get_round(), RunEvents.get_max_rounds())
-	set_quota(RunEvents.get_quota(), 0.0)
-	set_score(RunEvents.get_score(), 0.0)
-	set_vouchers(RunEvents.get_vouchers(), 0.0)
+	set_quota(RunEvents.get_quota(), true, 0.0)
+	set_score(RunEvents.get_score(), true, 0.0)
+	set_vouchers(RunEvents.get_vouchers(), true, 0.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -35,20 +35,20 @@ func _process(delta: float) -> void:
 func set_round(current_round: int, max_rounds: int):
 	round_number.text = str(current_round) + "/" + str(max_rounds)
 
-func set_quota(current_quota: int, time : float = 2.0):
+func set_quota(current_quota: int, silent: bool = false, time : float = 2.0):
 	if time > 0:
 		awaiting_quota_change = true
-	quota_number.set_number(current_quota, time)
+	quota_number.set_number(current_quota, time, silent)
 
-func set_score(current_score: int, time : float = 2.0):
+func set_score(current_score: int, silent: bool = false, time : float = 2.0):
 	if time > 0:
 		awaiting_score_change = true
-	score_number.set_number(current_score, time)
+	score_number.set_number(current_score, time, silent)
 
-func set_vouchers(current_vouchers: int, time : float = 2.0):
+func set_vouchers(current_vouchers: int, silent: bool = false, time : float = 2.0):
 	if time > 0:
 		awaiting_voucher_change = true
-	voucher_number.set_number(current_vouchers, time)
+	voucher_number.set_number(current_vouchers, time, silent)
 
 func _on_quota_change_complete():
 	awaiting_quota_change = false
