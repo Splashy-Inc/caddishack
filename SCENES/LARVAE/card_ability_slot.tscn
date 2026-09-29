@@ -3,21 +3,33 @@
 [ext_resource type="Script" uid="uid://dhvf141ua80kt" path="res://SCRIPTS/LARVAE/card_ability_slot.gd" id="1_j0owk"]
 [ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_528ul"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8ko2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmx7e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_of7f0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7rfqe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2dmvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksvyu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ykhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0owk"]
 atlas = ExtResource("2_528ul")
-region = Rect2(40, 0, 20, 20)
+region = Rect2(0, 60, 20, 20)
 
-[node name="CardAbilitySlot" type="HBoxContainer" unique_id=1389389967]
-size_flags_vertical = 3
-script = ExtResource("1_j0owk")
-
-[node name="Icon" type="TextureRect" parent="." unique_id=534095772]
-layout_mode = 2
-texture = SubResource("AtlasTexture_w8ko2")
-stretch_mode = 3
-
-[node name="Name" type="Label" parent="." unique_id=753161131]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="CardAbilitySlot" type="Button" unique_id=623429349]
+offset_right = 94.0
+offset_bottom = 20.0
 theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rmx7e")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_of7f0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7rfqe")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2dmvo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksvyu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7ykhq")
+toggle_mode = true
 text = "Speedy Larva"
+icon = SubResource("AtlasTexture_j0owk")
+script = ExtResource("1_j0owk")

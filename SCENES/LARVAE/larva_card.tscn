@@ -177,12 +177,15 @@ mouse_behavior_recursive = 1
 
 [node name="CardAbilitySlot1" parent="Container/Front/Card/CardAbilities" unique_id=1389389967 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="CardAbilitySlot2" parent="Container/Front/Card/CardAbilities" unique_id=798858145 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="CardAbilitySlot3" parent="Container/Front/Card/CardAbilities" unique_id=1871285072 instance=ExtResource("3_w8ko2")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SandSlot" type="Marker2D" parent="Container/Front/Card" unique_id=2079871439]
 z_index = 7

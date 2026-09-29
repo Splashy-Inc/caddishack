@@ -1,9 +1,8 @@
-extends HBoxContainer
+extends Button
 
 class_name CardAbilitySlot
 
-@onready var icon: TextureRect = $Icon
-@onready var name_label: Label = $Name
+var ability_info : AbilityInfo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,9 +13,10 @@ func _process(delta: float) -> void:
 	pass
 
 func load_ability_info(new_info: AbilityInfo):
-	icon.texture = new_info.icon
-	name_label.text = new_info.name
+	ability_info = new_info
+	icon = new_info.icon
+	text = new_info.name
 
 func clear():
-	icon.texture = null
-	name_label.text = ""
+	icon = null
+	text = ""
