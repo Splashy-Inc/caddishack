@@ -28,9 +28,9 @@
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="25_flq72"]
 [ext_resource type="Script" uid="uid://cquaxc1wmu0op" path="res://SCRIPTS/TERRARIUM/clickable_abilities.gd" id="26_6ck46"]
 [ext_resource type="PackedScene" uid="uid://cuvp23unrxlp1" path="res://SCENES/LARVAE/card_ability_slot.tscn" id="26_wc3oh"]
-[ext_resource type="StyleBox" uid="uid://kl3kibnqkknj" path="res://RESOURCES/shop_button_pressed.tres" id="27_3f6jv"]
-[ext_resource type="StyleBox" uid="uid://dhodbg0qaumgd" path="res://RESOURCES/shop_button_hover.tres" id="28_cv174"]
 [ext_resource type="PackedScene" uid="uid://bwr6fwfnjsoxi" path="res://SCENES/GUI/ability_descriptor.tscn" id="28_q4o6j"]
+[ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="29_6ck46"]
+[ext_resource type="Texture2D" uid="uid://q6ty57on23r1" path="res://ASSETS/Art/GUI/Mouse.png" id="30_flq72"]
 
 [sub_resource type="Animation" id="Animation_50hya"]
 length = 0.001
@@ -166,7 +166,7 @@ script = ExtResource("9_shoaw")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_6ck46"]
+[sub_resource type="Resource" id="Resource_cv174"]
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -222,9 +222,23 @@ _data = {
 &"fade_out": SubResource("Animation_3e80k")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv174"]
+texture = ExtResource("18_j82x7")
+texture_margin_left = 14.0
+texture_margin_top = 15.0
+texture_margin_right = 26.0
+texture_margin_bottom = 24.0
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 416, 240)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmx7e"]
 
-[sub_resource type="Resource" id="Resource_flq72"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcm1y"]
+
+[sub_resource type="Resource" id="Resource_6ck46"]
 resource_local_to_scene = true
 script = ExtResource("25_flq72")
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
@@ -287,7 +301,7 @@ position = Vector2(550, 337)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(550, 337)
-info = SubResource("Resource_6ck46")
+info = SubResource("Resource_cv174")
 
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
 position = Vector2(550, 637)
@@ -354,13 +368,13 @@ label_settings = SubResource("LabelSettings_kqial")
 libraries/ = SubResource("AnimationLibrary_50hya")
 
 [node name="LarvaInfoPanel" type="PanelContainer" parent="." unique_id=683530082 node_paths=PackedStringArray("larva")]
-offset_left = 91.0
-offset_top = 61.0
-offset_right = 1005.0
-offset_bottom = 512.0
+offset_left = 99.0
+offset_top = 78.0
+offset_right = 1013.0
+offset_bottom = 529.0
 mouse_filter = 2
 theme = ExtResource("17_j82x7")
-theme_override_styles/panel = SubResource("StyleBoxTexture_3e80k")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cv174")
 script = ExtResource("22_flq72")
 larva = NodePath("HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer/LarvaSlot/Marker2D/Larva")
 
@@ -379,6 +393,8 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer" unique_id=821356199]
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_xcm1y")
 
 [node name="LarvaSlot" type="Control" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer" unique_id=562679361]
 layout_mode = 2
@@ -386,14 +402,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Marker2D" type="Marker2D" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer/LarvaSlot" unique_id=987796488]
-position = Vector2(64, 0)
-rotation = 1.5707964
-scale = Vector2(1.5, 1.5)
+scale = Vector2(3, 3)
 
 [node name="Larva" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer/LarvaSlot/Marker2D" unique_id=1438854672 instance=ExtResource("22_3f6jv")]
-info = SubResource("Resource_flq72")
+position = Vector2(0, -44)
+info = SubResource("Resource_6ck46")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer" unique_id=190553280]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -402,64 +418,72 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("26_6ck46")
-ability_slots = [NodePath("CardAbilitySlot"), NodePath("CardAbilitySlot2"), NodePath("CardAbilitySlot3")]
+ability_slots = [null, null, null]
 
 [node name="CardAbilitySlot" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/VBoxContainer/ClickableAbilities" unique_id=623429349 instance=ExtResource("26_wc3oh")]
-custom_minimum_size = Vector2(292, 76)
-custom_maximum_size = Vector2(292, 76)
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
 theme_override_font_sizes/font_size = 40
-theme_override_styles/pressed = ExtResource("27_3f6jv")
-theme_override_styles/hover = ExtResource("28_cv174")
-theme_override_styles/hover_pressed = ExtResource("27_3f6jv")
-text = "Ability Name 2 lines"
-autowrap_mode = 2
 expand_icon = true
 
-[node name="CardAbilitySlot2" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/VBoxContainer/ClickableAbilities" unique_id=1696574887 instance=ExtResource("26_wc3oh")]
-custom_minimum_size = Vector2(292, 76)
-custom_maximum_size = Vector2(292, 76)
+[node name="CardAbilitySlot2" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/VBoxContainer/ClickableAbilities" unique_id=291832693 instance=ExtResource("26_wc3oh")]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
 theme_override_font_sizes/font_size = 40
-theme_override_styles/pressed = ExtResource("27_3f6jv")
-theme_override_styles/hover = ExtResource("28_cv174")
-theme_override_styles/hover_pressed = ExtResource("27_3f6jv")
-text = "Ability Name 2 lines"
-autowrap_mode = 2
 expand_icon = true
 
-[node name="CardAbilitySlot3" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/VBoxContainer/ClickableAbilities" unique_id=1683948592 instance=ExtResource("26_wc3oh")]
-custom_minimum_size = Vector2(292, 76)
-custom_maximum_size = Vector2(292, 76)
+[node name="CardAbilitySlot3" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/VBoxContainer/ClickableAbilities" unique_id=1610440097 instance=ExtResource("26_wc3oh")]
 layout_mode = 2
 size_flags_vertical = 3
-mouse_filter = 1
 theme_override_font_sizes/font_size = 40
-theme_override_styles/pressed = ExtResource("27_3f6jv")
-theme_override_styles/hover = ExtResource("28_cv174")
-theme_override_styles/hover_pressed = ExtResource("27_3f6jv")
-text = "Ability Name 2 lines"
-autowrap_mode = 2
 expand_icon = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LarvaInfoPanel/HBoxContainer" unique_id=2101304659]
 custom_minimum_size = Vector2(578, 412)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer" unique_id=1448711280]
+[node name="PanelContainer" type="PanelContainer" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer" unique_id=1435431791]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_styles/panel = ExtResource("29_6ck46")
+
+[node name="Label" type="Label" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer/PanelContainer" unique_id=1448711280]
 layout_mode = 2
 size_flags_vertical = 2
 text = "Larva Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AbilityDescriptor" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer" unique_id=1862806792 instance=ExtResource("28_q4o6j")]
+[node name="TabContainer" type="TabContainer" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer" unique_id=1523262852]
 layout_mode = 2
-size_flags_vertical = 6
+current_tab = 0
+tab_0/icon = ExtResource("30_flq72")
+tab_1/icon = ExtResource("30_flq72")
+tab_2/icon = ExtResource("30_flq72")
+tab_3/title = "Wombo Combo"
+
+[node name="Ability1" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer/TabContainer" unique_id=1862806792 instance=ExtResource("28_q4o6j")]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = ""
+
+[node name="Ability2" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer/TabContainer" unique_id=711145922 instance=ExtResource("28_q4o6j")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = ""
+
+[node name="Ability3" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer/TabContainer" unique_id=804836548 instance=ExtResource("28_q4o6j")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = ""
+
+[node name="Ability4" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer/TabContainer" unique_id=109341124 instance=ExtResource("28_q4o6j")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "Wombo Combo"
 
 [node name="CloseButton" type="Button" parent="LarvaInfoPanel/HBoxContainer/VBoxContainer" unique_id=414649167]
 layout_mode = 2

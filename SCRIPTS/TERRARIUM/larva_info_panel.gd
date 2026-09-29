@@ -7,7 +7,8 @@ class_name LarvaInfoPanel
 @onready var ability_descriptor: AbilityDescriptor = $HBoxContainer/VBoxContainer/AbilityDescriptor
 
 func _ready() -> void:
-	ability_descriptor.visible = clickable_abilities.load_abilities(larva.info.abilities)
+	#ability_descriptor.visible = clickable_abilities.load_abilities(larva.info.abilities)
+	pass
 
 func _on_close_button_pressed() -> void:
 	hide()
