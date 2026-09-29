@@ -37,6 +37,9 @@ func _process(delta: float) -> void:
 			transform = target_transform
 		else:
 			transform = transform.interpolate_with(target_transform, .25)
+	
+	if not check_larva_targets_exist():
+		complete_all_larvae()
 
 func spawn_material(material_info: MaterialInfo):
 	var new_material := Globals.generate_material(material_info)
@@ -214,3 +217,15 @@ func initialize(new_info: TerrariumInfo):
 
 func check_larvae_limit_reached() -> bool:
 	return larvae_container.get_children().size() >= larvae_limit
+
+func check_larva_targets_exist() -> bool:
+	for larva in larvae_container.get_children():
+		if larva is Larva:
+			if larva._get_closest_target():
+				return true
+	return false
+
+func complete_all_larvae():
+	for larva in larvae_container.get_children():
+		if larva is Larva:
+			larva._on_bead_completed()

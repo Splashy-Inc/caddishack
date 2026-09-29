@@ -871,6 +871,20 @@ tracks/3/keys = {
 "method": &"play"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bead")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_complete"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6cf02"]
 _data = {
@@ -897,7 +911,7 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("10_4ycns")
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_566sv"]
+[sub_resource type="Resource" id="Resource_sxk8d"]
 resource_local_to_scene = true
 script = ExtResource("9_566sv")
 sand = SubResource("Resource_cikro")
@@ -994,7 +1008,7 @@ position = Vector2(0, 63)
 [node name="Bead" parent="." unique_id=560506520 instance=ExtResource("7_oknjm")]
 position = Vector2(0, 63)
 rotation = -1.5707964
-info = SubResource("Resource_566sv")
+info = SubResource("Resource_sxk8d")
 completion_time = 0
 complete = false
 
