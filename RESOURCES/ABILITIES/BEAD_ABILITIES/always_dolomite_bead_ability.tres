@@ -10,9 +10,23 @@ load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e24
 atlas = SubResource("CompressedTexture2D_kx5dp")
 region = Rect2(60, 0, 20, 20)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_imoqx"]
+load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx5dp"]
+atlas = SubResource("CompressedTexture2D_imoqx")
+region = Rect2(120, 0, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_imoqx"]
 atlas = ExtResource("1_imoqx")
 region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_460ul"]
+load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncic6"]
+atlas = SubResource("CompressedTexture2D_460ul")
+region = Rect2(0, 0, 40, 40)
 
 [resource]
 script = ExtResource("1_cpccl")
@@ -22,6 +36,8 @@ description = "Bead starts with Dolomite (Blue)"
 long_description = "This bead always starts with Dolomite (blue). Multi-color still allows collecting other colors."
 icon = SubResource("AtlasTexture_imoqx")
 active_icon = SubResource("AtlasTexture_460ul")
+icon_medium = SubResource("AtlasTexture_ncic6")
+active_icon_medium = SubResource("AtlasTexture_kx5dp")
 num_stacks = 1
 max_stacks = 1
 metadata/_custom_type_script = "uid://2y7v2xqewast"

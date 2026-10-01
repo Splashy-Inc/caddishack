@@ -22,4 +22,4 @@ func set_larva_info(new_info: LarvaInfo):
 		elif descriptor is AbilityDescriptor:
 			if i - 1 < larva.info.abilities.size():
 				descriptor.load_ability(larva.info.abilities[i - 1])
-				tab_container.set_tab_icon(i, larva.info.abilities[i - 1].icon)
+				tab_container.set_tab_icon(i, larva.info.abilities[i - 1].icon_medium)
