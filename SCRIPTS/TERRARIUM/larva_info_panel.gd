@@ -7,6 +7,7 @@ class_name LarvaInfoPanel
 
 @export var larva : Larva
 @onready var tab_container: TabContainer = $HBoxContainer/VBoxContainer/TabContainer
+@onready var name_label: Label = $HBoxContainer/VBoxContainer/NamePanel/NameLabel
 
 func _ready() -> void:
 	set_larva_info(larva.info)
@@ -18,6 +19,8 @@ func _on_close_button_pressed() -> void:
 
 func set_larva_info(new_info: LarvaInfo):
 	larva.set_info(new_info)
+	
+	name_label.text = larva.info.name
 	
 	var tabs_to_clear : Array
 	for i in tab_container.get_tab_count():

@@ -83,12 +83,12 @@ info = SubResource("Resource_kpll3")
 custom_minimum_size = Vector2(578, 412)
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=925574780]
+[node name="NamePanel" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=925574780]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_styles/panel = ExtResource("13_7epp0")
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=984642419]
+[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer/NamePanel" unique_id=984642419]
 layout_mode = 2
 size_flags_vertical = 2
 text = "Larva Name"

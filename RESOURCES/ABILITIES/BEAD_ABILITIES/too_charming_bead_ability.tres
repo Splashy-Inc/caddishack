@@ -23,6 +23,13 @@ load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e24
 atlas = SubResource("CompressedTexture2D_lcmpg")
 region = Rect2(20, 0, 20, 20)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hg4kk"]
+load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yeuk"]
+atlas = SubResource("CompressedTexture2D_hg4kk")
+region = Rect2(40, 0, 40, 40)
+
 [resource]
 script = ExtResource("1_lcmpg")
 mult_bonus_tiers = Dictionary[int, int]({
@@ -36,6 +43,7 @@ description = "+Mult by # charm type in set: 1=+6, 2=+2, 3+=+0"
 long_description = "This bead generates mult based on the types of charms in the bracelet.                        Charm types    -  1 | 2 | 3+    Mult generated -  6 | 2 | 0"
 icon = SubResource("AtlasTexture_pymp4")
 active_icon = SubResource("AtlasTexture_hjbqs")
+icon_medium = SubResource("AtlasTexture_0yeuk")
 active_icon_medium = SubResource("AtlasTexture_hg4kk")
 num_stacks = 1
 metadata/_custom_type_script = "uid://cnrrre31thu4f"

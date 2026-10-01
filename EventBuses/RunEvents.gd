@@ -81,7 +81,7 @@ func change_vouchers(change: int, silent: bool = false):
 	set_vouchers(run_info.vouchers + change, silent)
 
 func reset_run():
-	load_run_info(new_run_info.duplicate(true))
+	load_run_info(test_run_info.duplicate(true))
 
 func load_run_info(loaded_run_info: RunInfo):
 	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)
