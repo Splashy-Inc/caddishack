@@ -20,11 +20,15 @@ func load_ability(new_ability: WomboComboBaseAbilityInfo):
 	if new_ability is WomboComboBaseAbilityInfo:
 		var color_material_info = SandMaterialInfo.new()
 		color_material_info.add_color(new_ability.color)
-		sand_slot.add_child(Globals.generate_material(color_material_info))
+		var color = Globals.generate_material(color_material_info)
+		color.disable()
+		sand_slot.add_child(color)
 		
 		var charm_material_info = SpecialMaterialInfo.new()
 		charm_material_info.type = new_ability.charm
-		charm_slot.add_child(Globals.generate_material(charm_material_info))
+		var charm = Globals.generate_material(charm_material_info)
+		charm.disable()
+		charm_slot.add_child(charm)
 	
 	name_label.text = new_ability.name
 	description.text = new_ability.long_description
