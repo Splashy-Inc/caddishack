@@ -28,7 +28,6 @@
 [ext_resource type="Script" uid="uid://cxpts1at6sxjr" path="res://RESOURCES/larva_info.gd" id="25_flq72"]
 [ext_resource type="Resource" uid="uid://bh14q3x27s0si" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_amethyst_bead_ability.tres" id="25_n4ujt"]
 [ext_resource type="Resource" uid="uid://co053gn62jucq" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/multi_color_bead_ability.tres" id="26_q4o6j"]
-[ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="27_na4ve"]
 [ext_resource type="PackedScene" uid="uid://bwr6fwfnjsoxi" path="res://SCENES/GUI/ability_descriptor.tscn" id="28_q4o6j"]
 [ext_resource type="StyleBox" uid="uid://b4xhb3lg2t0al" path="res://RESOURCES/shop_button_normal.tres" id="29_6ck46"]
 [ext_resource type="Resource" uid="uid://2nv6ye62w0df" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability.tres" id="29_sneva"]
@@ -169,7 +168,7 @@ script = ExtResource("9_shoaw")
 type = 2
 metadata/_custom_type_script = "uid://cm33vxylxpkwp"
 
-[sub_resource type="Resource" id="Resource_na4ve"]
+[sub_resource type="Resource" id="Resource_q4o6j"]
 resource_local_to_scene = true
 script = ExtResource("10_o26bk")
 materials = Array[ExtResource("7_vl60u")]([SubResource("Resource_d1wso"), SubResource("Resource_jh2q2"), SubResource("Resource_lu261"), SubResource("Resource_06vpu"), SubResource("Resource_aypll"), SubResource("Resource_ct105"), SubResource("Resource_fnkbk"), SubResource("Resource_a2n2k"), SubResource("Resource_f7u7g"), SubResource("Resource_0cd06"), SubResource("Resource_8ls7a"), SubResource("Resource_2bpk4"), SubResource("Resource_g2uq7"), SubResource("Resource_ybw82"), SubResource("Resource_xq384"), SubResource("Resource_qn30w"), SubResource("Resource_nqhej"), SubResource("Resource_ttxry"), SubResource("Resource_ka58w"), SubResource("Resource_j45q7")])
@@ -241,10 +240,10 @@ region_rect = Rect2(0, 0, 416, 240)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcm1y"]
 
-[sub_resource type="Resource" id="Resource_sneva"]
+[sub_resource type="Resource" id="Resource_na4ve"]
 resource_local_to_scene = true
 script = ExtResource("25_flq72")
-abilities = Array[ExtResource("23_cv174")]([ExtResource("25_n4ujt"), ExtResource("26_q4o6j"), ExtResource("27_na4ve")])
+abilities = Array[ExtResource("23_cv174")]([ExtResource("25_n4ujt"), ExtResource("26_q4o6j")])
 base_abilities = Array[ExtResource("24_6ck46")]([ExtResource("29_sneva")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
@@ -306,7 +305,7 @@ position = Vector2(550, 337)
 
 [node name="Terrarium" parent="." unique_id=1014177116 instance=ExtResource("5_bnkvk")]
 position = Vector2(550, 337)
-info = SubResource("Resource_na4ve")
+info = SubResource("Resource_q4o6j")
 
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
 position = Vector2(550, 637)
@@ -381,6 +380,8 @@ mouse_filter = 2
 theme = ExtResource("17_j82x7")
 theme_override_styles/panel = SubResource("StyleBoxTexture_cv174")
 script = ExtResource("22_flq72")
+wombo_combo_descriptor_scene = ExtResource("33_q4o6j")
+ability_descriptor_scene = ExtResource("28_q4o6j")
 larva = NodePath("HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer/Center/LarvaSlot/Larva")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="LarvaInfoPanel" unique_id=264579014]
@@ -411,7 +412,7 @@ scale = Vector2(3, 3)
 
 [node name="Larva" parent="LarvaInfoPanel/HBoxContainer/LarvaDescriptor/VBoxContainer/PanelContainer/Center/LarvaSlot" unique_id=1438854672 instance=ExtResource("22_3f6jv")]
 position = Vector2(0, -44)
-info = SubResource("Resource_sneva")
+info = SubResource("Resource_na4ve")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="LarvaInfoPanel/HBoxContainer" unique_id=2101304659]
 custom_minimum_size = Vector2(578, 412)

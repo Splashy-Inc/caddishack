@@ -9,26 +9,12 @@ load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e24
 atlas = SubResource("CompressedTexture2D_wiqm3")
 region = Rect2(100, 0, 20, 20)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kv104"]
-load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_866t3"]
-atlas = SubResource("CompressedTexture2D_kv104")
-region = Rect2(200, 0, 40, 40)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ymlc"]
 load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wiqm3"]
 atlas = SubResource("CompressedTexture2D_5ymlc")
 region = Rect2(40, 0, 20, 20)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2gklv"]
-load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsrs2"]
-atlas = SubResource("CompressedTexture2D_2gklv")
-region = Rect2(80, 0, 40, 40)
 
 [resource]
 resource_local_to_scene = true
@@ -39,7 +25,5 @@ description = "+50% larva speed"
 long_description = "This larva is 50% faster."
 icon = SubResource("AtlasTexture_wiqm3")
 active_icon = SubResource("AtlasTexture_kv104")
-icon_medium = SubResource("AtlasTexture_jsrs2")
-active_icon_medium = SubResource("AtlasTexture_866t3")
 num_stacks = 1
 metadata/_custom_type_script = "uid://dy424sqq23xy1"

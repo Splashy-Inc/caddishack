@@ -46,7 +46,7 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="TopHalf/Info" unique_id=531724947]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_vertical = 3
 text = "Name"
 label_settings = ExtResource("2_uletf")
 horizontal_alignment = 1
@@ -58,5 +58,4 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "This is a long description that has a lot of characters just to test the limit of how each ability can be explained. It seems like 4 lines is it."
 label_settings = ExtResource("2_uletf")
-vertical_alignment = 1
 autowrap_mode = 2
