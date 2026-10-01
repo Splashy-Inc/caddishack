@@ -274,6 +274,7 @@ position = Vector2(550, 337)
 info = SubResource("Resource_3acb6")
 
 [node name="HandSlot" type="Marker2D" parent="." unique_id=982946100]
+z_index = 1
 position = Vector2(550, 637)
 
 [node name="CardHand" parent="HandSlot" unique_id=1587952838 node_paths=PackedStringArray("deck") instance=ExtResource("10_04exf")]
@@ -338,11 +339,10 @@ label_settings = SubResource("LabelSettings_kqial")
 libraries/ = SubResource("AnimationLibrary_50hya")
 
 [node name="LarvaInfoPanel" parent="." unique_id=796170008 instance=ExtResource("22_3acb6")]
-visible = false
 offset_left = 99.0
-offset_top = 78.0
+offset_top = 23.0
 offset_right = 1013.0
-offset_bottom = 537.0
+offset_bottom = 482.0
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]
