@@ -18,17 +18,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var old_pos = global_position
+	global_position = global_position.lerp(get_viewport().get_mouse_position(), .5)
 	if card:
-		var new_pos = global_position.lerp(get_viewport().get_mouse_position(), .5)
 		card.toggle_larva_view(is_instance_valid(drop_target))
 		if card.is_larva_view():
 			card_offset = -card.larva_slot.position
-			if new_pos.distance_to(global_position) > 1:
-				rotation = lerpf(rotation, global_position.angle_to_point(new_pos), .5)
+			if global_position.distance_to(old_pos) > 1:
+				rotation = lerpf(rotation, old_pos.angle_to_point(global_position), .5)
 		else:
 			card_offset = Vector2.ZERO
 			rotation = 0
-		global_position = new_pos
 		card.position = card_offset
 	
 
