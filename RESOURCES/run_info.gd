@@ -30,3 +30,4 @@ class_name RunInfo
 									preload("uid://dygxageaewodg"),
 									preload("uid://5bx2xh3vbjqi"),
 ]
+@export var wombo_combo_base := preload("uid://2nv6ye62w0df")

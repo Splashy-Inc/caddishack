@@ -10,6 +10,7 @@ class_name LarvaInfoPanel
 
 func _ready() -> void:
 	set_larva_info(larva.info)
+	CardEvents.card_clicked.connect(_on_card_clicked)
 	pass
 
 func _on_close_button_pressed() -> void:
@@ -41,3 +42,7 @@ func set_larva_info(new_info: LarvaInfo):
 				descriptor.load_ability(larva.info.abilities[i - 1])
 				tab_container.set_tab_title(i, "")
 				tab_container.set_tab_icon(i, larva.info.abilities[i - 1].icon_medium)
+
+func _on_card_clicked(larva_card: LarvaCard, button_index: MouseButton):
+	set_larva_info(larva_card.larva.info)
+	show()

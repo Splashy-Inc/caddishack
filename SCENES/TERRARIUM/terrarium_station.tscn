@@ -338,7 +338,6 @@ label_settings = SubResource("LabelSettings_kqial")
 libraries/ = SubResource("AnimationLibrary_50hya")
 
 [node name="LarvaInfoPanel" parent="." unique_id=796170008 instance=ExtResource("22_3acb6")]
-visible = false
 offset_left = 99.0
 offset_top = 78.0
 offset_right = 1013.0
