@@ -22,7 +22,8 @@ atlas = ExtResource("1_jn58x")
 region = Rect2(0, 60, 20, 20)
 
 [node name="AbilityDescriptor" type="PanelContainer" unique_id=1862806792]
-custom_minimum_size = Vector2(578, 230)
+custom_minimum_size = Vector2(594, 230)
+custom_maximum_size = Vector2(594, 230)
 offset_right = 594.0
 offset_bottom = 226.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_qsihd")

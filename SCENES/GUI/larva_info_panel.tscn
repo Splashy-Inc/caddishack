@@ -39,6 +39,8 @@ base_abilities = Array[ExtResource("10_3cnq0")]([ExtResource("11_y0nau")])
 metadata/_custom_type_script = "uid://cxpts1at6sxjr"
 
 [node name="LarvaInfoPanel" type="PanelContainer" unique_id=796170008 node_paths=PackedStringArray("larva")]
+custom_minimum_size = Vector2(914, 459)
+custom_maximum_size = Vector2(914, 459)
 offset_right = 914.0
 offset_bottom = 459.0
 mouse_filter = 2
