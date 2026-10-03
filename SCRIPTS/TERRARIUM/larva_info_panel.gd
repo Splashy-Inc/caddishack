@@ -12,6 +12,7 @@ class_name LarvaInfoPanel
 func _ready() -> void:
 	set_larva_info(larva.info)
 	CardEvents.card_clicked.connect(_on_card_clicked)
+	CardEvents.card_drag_started.connect(_on_card_drag_started)
 	pass
 
 func _on_close_button_pressed() -> void:
@@ -49,3 +50,6 @@ func set_larva_info(new_info: LarvaInfo):
 func _on_card_clicked(larva_card: LarvaCard, button_index: MouseButton):
 	set_larva_info(larva_card.larva.info)
 	show()
+
+func _on_card_drag_started(larva_card: LarvaCard):
+	hide()

@@ -88,3 +88,4 @@ func _on_click_window_timeout() -> void:
 		card.rotation = 0
 		if card_start_parent is CardHand:
 			card_start_parent.duck()
+		CardEvents.card_drag_started.emit(card)
