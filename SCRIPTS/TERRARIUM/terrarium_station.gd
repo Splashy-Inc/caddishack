@@ -12,6 +12,7 @@ class_name TerrariumStation
 @onready var hand_number_label: Label = $HandCountTracker/VBoxContainer/HBoxContainer/Number
 @onready var hand_count_tracker: PanelContainer = $HandCountTracker
 @onready var hand_count_animation_player: AnimationPlayer = $HandCountTracker/AnimationPlayer
+@onready var larva_info_panel: LarvaInfoPanel = $LarvaInfoPanel
 var num_hands := 2
 var hand_num := 1
 
@@ -41,6 +42,7 @@ func _on_terrarium_larvae_started() -> void:
 	card_hand.discard()
 
 func _on_next_button_pressed() -> void:
+	larva_info_panel.hide()
 	if bead_scorer.is_scoring_complete():
 		if not RunEvents.is_final_round():
 			RunEvents.increment_round()

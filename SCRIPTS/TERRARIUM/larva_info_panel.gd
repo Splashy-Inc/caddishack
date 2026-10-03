@@ -48,8 +48,11 @@ func set_larva_info(new_info: LarvaInfo):
 				tab_container.set_tab_icon(i, larva.info.abilities[i - 1].icon_medium)
 
 func _on_card_clicked(larva_card: LarvaCard, button_index: MouseButton):
-	set_larva_info(larva_card.larva.info)
-	show()
+	if not visible or larva_card.larva.info != larva.info:
+		set_larva_info(larva_card.larva.info)
+		show()
+	else:
+		hide()
 
 func _on_card_drag_started(larva_card: LarvaCard):
 	hide()

@@ -20,6 +20,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var old_pos = global_position
 	global_position = global_position.lerp(get_viewport().get_mouse_position(), .5)
+	if old_pos.distance_to(global_position) > 10:
+		start_drag()
 	if card and card.get_parent() == self:
 		card.toggle_larva_view(is_instance_valid(drop_target))
 		if card.is_larva_view():
@@ -83,6 +85,10 @@ func _on_body_exited(body: Node2D) -> void:
 
 # Indicates a card in being dragged
 func _on_click_window_timeout() -> void:
+	start_drag()
+
+func start_drag():
+	click_window.stop()
 	if is_instance_valid(card):
 		card.reparent(self, true)
 		card.rotation = 0
