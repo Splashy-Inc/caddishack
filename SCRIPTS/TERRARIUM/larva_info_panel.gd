@@ -13,7 +13,6 @@ func _ready() -> void:
 	set_larva_info(larva.info)
 	CardEvents.card_clicked.connect(_on_card_clicked)
 	CardEvents.card_drag_started.connect(_on_card_drag_started)
-	pass
 
 func _on_close_button_pressed() -> void:
 	hide()
