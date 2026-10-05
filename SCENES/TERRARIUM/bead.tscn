@@ -1663,6 +1663,7 @@ parameters/incomplete/timescaled/TimeScale/scale = 1.0
 [node name="ClickableShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1114555111]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_05tin")
+disabled = true
 
 [node name="PlinkSound" type="AudioStreamPlayer" parent="." unique_id=868454620]
 stream = SubResource("AudioStreamRandomizer_rmx7e")

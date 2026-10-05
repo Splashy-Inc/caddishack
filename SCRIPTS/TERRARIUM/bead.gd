@@ -30,7 +30,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	set_clickable(complete)
 	if is_travelling:
 		if global_position.distance_to(travel_target_global_position) < 10:
 			global_position = travel_target_global_position

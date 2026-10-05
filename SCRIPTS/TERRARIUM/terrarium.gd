@@ -144,6 +144,7 @@ func _on_larva_died(larva: Larva):
 	if larvae_container.get_children().size() == 0:
 		larvae_done.emit()
 		larvae_running = false
+		set_beads_clickable(not larvae_running)
 
 func start_larvae(round_length: float = 0.0) -> bool:
 	if check_larvae_limit_reached():
@@ -158,6 +159,7 @@ func start_larvae(round_length: float = 0.0) -> bool:
 				node.start_making_bead()
 		
 		if larvae_running:
+			set_beads_clickable(not larvae_running)
 			if round_length > 0:
 				simulation_timer.start(round_length)
 			larvae_started.emit()
@@ -229,3 +231,8 @@ func complete_all_larvae():
 	for larva in larvae_container.get_children():
 		if larva is Larva:
 			larva._on_bead_completed()
+
+func set_beads_clickable(clickable: bool):
+	for bead in beads_container.get_children():
+		if bead is Bead:
+			bead.set_clickable(clickable)
