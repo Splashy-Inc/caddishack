@@ -9,6 +9,8 @@ class_name LarvaInfoPanel
 @onready var tab_container: TabContainer = $HBoxContainer/VBoxContainer/TabContainer
 @onready var name_label: Label = $HBoxContainer/VBoxContainer/NamePanel/NameLabel
 
+@export var info_panels: Array[Control]
+
 func _ready() -> void:
 	set_larva_info(larva.info)
 	CardEvents.card_clicked.connect(_on_card_clicked)
@@ -48,6 +50,9 @@ func set_larva_info(new_info: LarvaInfo):
 
 func _on_card_clicked(larva_card: LarvaCard, button_index: MouseButton):
 	if not visible or larva_card.larva.info != larva.info:
+		for panel in info_panels:
+			if panel is BeadInfoPanel:
+				panel.hide()
 		set_larva_info(larva_card.larva.info)
 		show()
 	else:

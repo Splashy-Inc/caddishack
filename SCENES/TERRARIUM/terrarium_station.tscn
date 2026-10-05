@@ -339,19 +339,21 @@ label_settings = SubResource("LabelSettings_kqial")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HandCountTracker" unique_id=113193559]
 libraries/ = SubResource("AnimationLibrary_50hya")
 
-[node name="LarvaInfoPanel" parent="." unique_id=796170008 instance=ExtResource("22_3acb6")]
+[node name="LarvaInfoPanel" parent="." unique_id=796170008 node_paths=PackedStringArray("info_panels") instance=ExtResource("22_3acb6")]
 visible = false
 offset_left = 99.0
 offset_top = 23.0
 offset_right = 1013.0
 offset_bottom = 482.0
+info_panels = [NodePath("../BeadInfoPanel")]
 
-[node name="BeadInfoPanel" parent="." unique_id=1152844377 instance=ExtResource("23_kqial")]
+[node name="BeadInfoPanel" parent="." unique_id=1152844377 node_paths=PackedStringArray("info_panels") instance=ExtResource("23_kqial")]
 visible = false
 offset_left = 99.0
 offset_top = 23.0
 offset_right = 1013.0
 offset_bottom = 482.0
+info_panels = [NodePath("../LarvaInfoPanel")]
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="bead_limit_reached" from="Terrarium" to="." method="_on_terrarium_bead_limit_reached"]

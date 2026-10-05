@@ -9,6 +9,8 @@ class_name BeadInfoPanel
 @onready var tab_container: TabContainer = $HBoxContainer/VBoxContainer/TabContainer
 @onready var name_label: Label = $HBoxContainer/VBoxContainer/NamePanel/NameLabel
 
+@export var info_panels: Array[Control]
+
 func _ready() -> void:
 	set_bead_info(bead.info)
 	BeadEvents.bead_clicked.connect(_on_bead_clicked)
@@ -46,6 +48,10 @@ func set_bead_info(new_info: BeadInfo):
 
 func _on_bead_clicked(new_bead: Bead):
 	if not visible or new_bead.info != bead.info:
+		for panel in info_panels:
+			if panel.visible:
+				hide()
+				return
 		set_bead_info(new_bead.info)
 		show()
 	else:

@@ -16,8 +16,10 @@ var is_travelling := false
 @export var sand_sprites : Array[AnimatedSprite2D]
 
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
+@onready var clickable_area: Area2D = $ClickableArea
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
 @onready var animation_tree: AnimationTree = $AnimationPlayer/AnimationTree
+@onready var click_window: Timer = $ClickableArea/ClickWindow
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,9 +53,12 @@ func set_clickable(new_clickable: bool):
 	clickable_shape.disabled = not new_clickable
 
 func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("select"):
-		clicked.emit()
-		BeadEvents.bead_clicked.emit(self)
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			click_window.start()
+		elif event.is_released() and not click_window.is_stopped():
+			clicked.emit()
+			BeadEvents.bead_clicked.emit(self)
 
 func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(1.0,1.0), target_rotation: float = 0.0):
 	travel_target_global_position = target_global_position
