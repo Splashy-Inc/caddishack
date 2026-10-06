@@ -5,8 +5,10 @@ class_name AbilityInfo
 @export var name : String
 @export var description : String
 @export var long_description : String
-@export var icon : Texture2D
-@export var active_icon : Texture2D
+@export var icon : Texture2D ## Smallest icon
+@export var active_icon : Texture2D ## Smallest active icon
+@export var icon_medium : Texture2D
+@export var active_icon_medium : Texture2D
 @export var num_stacks := 0
 @export var max_stacks := 3
 var applied := false

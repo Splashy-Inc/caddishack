@@ -18,17 +18,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if card:
-		var new_pos = global_position.lerp(get_viewport().get_mouse_position(), .5)
+	var old_pos = global_position
+	global_position = global_position.lerp(get_viewport().get_mouse_position(), .5)
+	if old_pos.distance_to(global_position) > 10:
+		start_drag()
+	if card and card.get_parent() == self:
 		card.toggle_larva_view(is_instance_valid(drop_target))
 		if card.is_larva_view():
 			card_offset = -card.larva_slot.position
-			if new_pos.distance_to(global_position) > 1:
-				rotation = lerpf(rotation, global_position.angle_to_point(new_pos), .5)
+			if global_position.distance_to(old_pos) > 1:
+				rotation = lerpf(rotation, old_pos.angle_to_point(global_position), .5)
 		else:
 			card_offset = Vector2.ZERO
 			rotation = 0
-		global_position = new_pos
 		card.position = card_offset
 	
 
@@ -37,8 +39,6 @@ func _on_card_pressed(pressed_card: LarvaCard, button_index: MouseButton) -> voi
 		if button_index == MOUSE_BUTTON_LEFT:
 			card = pressed_card
 			card_start_parent = card.get_parent()
-			card.reparent(self, false)
-			card.rotation = 0
 			click_window.start()
 			
 			if not card.is_larva_view():
@@ -50,25 +50,25 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_LEFT and card:
 				if not click_window.is_stopped():
 					CardEvents.card_clicked.emit(card, event.button_index)
-					
-				if not card.drop(drop_target):
-					if not card.drop(card_start_parent):
-						var card_container = get_tree().get_first_node_in_group("card_hand")
-						if card_container is CardHand:
-							card_container.add_card(card, true, true)
-							card.draw_no_flip()
-						else:
-							card_container = get_tree().get_first_node_in_group("card_container")
-							if card_container is DeckView:
-								card_container.add_card(card, true)
+				else:
+					if not card.drop(drop_target):
+						if not card.drop(card_start_parent):
+							var card_container = get_tree().get_first_node_in_group("card_hand")
+							if card_container is CardHand:
+								card_container.add_card(card, true, true)
 								card.draw_no_flip()
 							else:
-								card.queue_free()
-				else:
-					card.larva.collect_sound.play()
-				
-				if card_start_parent is CardHand:
-					card_start_parent.update_cards()
+								card_container = get_tree().get_first_node_in_group("card_container")
+								if card_container is DeckView:
+									card_container.add_card(card, true)
+									card.draw_no_flip()
+								else:
+									card.queue_free()
+					else:
+						card.larva.collect_sound.play()
+					
+					if card_start_parent is CardHand:
+						card_start_parent.update_cards()
 				
 				card = null
 
@@ -85,6 +85,13 @@ func _on_body_exited(body: Node2D) -> void:
 
 # Indicates a card in being dragged
 func _on_click_window_timeout() -> void:
+	start_drag()
+
+func start_drag():
+	click_window.stop()
 	if is_instance_valid(card):
+		card.reparent(self, true)
+		card.rotation = 0
 		if card_start_parent is CardHand:
 			card_start_parent.duck()
+		CardEvents.card_drag_started.emit(card)

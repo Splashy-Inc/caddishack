@@ -106,7 +106,7 @@ func set_deck_info(new_deck: DeckInfo):
 			larva.name = new_name
 			default_names.erase(new_name)
 		if larva.base_abilities.is_empty():
-			var new_base_ability = WomboComboBaseAbilityInfo.new()
+			var new_base_ability = RunEvents.run_info.wombo_combo_base.duplicate()
 			new_base_ability.randomize_combo()
 			larva.add_ability(new_base_ability)
 

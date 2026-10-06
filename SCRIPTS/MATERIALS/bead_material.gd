@@ -15,3 +15,7 @@ func _material_ready():
 
 func toggle_highlight(is_highlighted: bool):
 	highlight_enabled_sprite.material.set_shader_parameter("on", is_highlighted)
+
+# This function should be overridden to allow color and charm materials to not be collected/targeted
+func disable():
+	pass

@@ -3,29 +3,17 @@
 [ext_resource type="Script" uid="uid://byqdkqw17qegd" path="res://SCRIPTS/TERRARIUM/bead.gd" id="1_p27p0"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="2_360jh"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_i8ivb"]
-[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="3_83cj8"]
 [ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="3_tohrt"]
 [ext_resource type="Texture2D" uid="uid://d1dxyggc5qdj7" path="res://ASSETS/Art/TERRARIUM/BeadSpriteSheet.png" id="4_83cj8"]
 [ext_resource type="SpriteFrames" uid="uid://p6k2525ne10t" path="res://full_bead_sprites.tres" id="5_360jh"]
 [ext_resource type="Material" uid="uid://cf3tuv5aidq14" path="res://RESOURCES/SHADERS/highlight/highlight_material.tres" id="6_360jh"]
-[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="6_pqv4s"]
 [ext_resource type="Texture2D" uid="uid://1igcsuser6x1" path="res://ASSETS/Art/TERRARIUM/CaddiCharms.png" id="7_wny20"]
 [ext_resource type="Shader" uid="uid://dj40a57yfeqqy" path="res://RESOURCES/SHADERS/highlight/highlight.gdshader" id="9_pqv4s"]
 [ext_resource type="AudioStream" uid="uid://b7owejwec084n" path="res://ASSETS/Audio/bead_plink_1.ogg" id="10_xocje"]
 
-[sub_resource type="Resource" id="Resource_cikro"]
-script = ExtResource("3_83cj8")
-metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
-
-[sub_resource type="Resource" id="Resource_qg1fj"]
-script = ExtResource("6_pqv4s")
-metadata/_custom_type_script = "uid://cm33vxylxpkwp"
-
-[sub_resource type="Resource" id="Resource_fx874"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_tohrt"]
 script = ExtResource("2_i8ivb")
-sand = SubResource("Resource_cikro")
-special = SubResource("Resource_qg1fj")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83cj8"]
 atlas = ExtResource("4_83cj8")
@@ -1583,7 +1571,7 @@ animation = &"incomplete"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_83cj8"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tohrt"]
-graph_offset = Vector2(-54.881317, 46.043945)
+graph_offset = Vector2(-59.32318, 37.530533)
 nodes/output/position = Vector2(620, 180)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_xocje")
 nodes/Animation/position = Vector2(20, 140)
@@ -1630,7 +1618,7 @@ stream_0/stream = ExtResource("10_xocje")
 
 [node name="Bead" type="Node2D" unique_id=1566611383 node_paths=PackedStringArray("sand_sprites")]
 script = ExtResource("1_p27p0")
-info = SubResource("Resource_fx874")
+info = SubResource("Resource_tohrt")
 sand_sprites = [NodePath("SandSprites/Color1"), NodePath("SandSprites/Color2"), NodePath("SandSprites/Color3")]
 
 [node name="SandSprites" type="Node2D" parent="." unique_id=895249186]
@@ -1671,11 +1659,16 @@ anim_player = NodePath("..")
 parameters/incomplete/timescaled/TimeScale/scale = 1.0
 
 [node name="ClickableArea" type="Area2D" parent="." unique_id=2128654152]
-visible = false
+collision_mask = 9
 
 [node name="ClickableShape" type="CollisionShape2D" parent="ClickableArea" unique_id=1114555111]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_05tin")
+disabled = true
+
+[node name="ClickWindow" type="Timer" parent="ClickableArea" unique_id=290645975]
+wait_time = 0.1
+one_shot = true
 
 [node name="PlinkSound" type="AudioStreamPlayer" parent="." unique_id=868454620]
 stream = SubResource("AudioStreamRandomizer_rmx7e")

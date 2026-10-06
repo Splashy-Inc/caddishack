@@ -38,7 +38,6 @@ func _ready() -> void:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
 	initialize(info)
-	load_abilities()
 
 func _physics_process(delta: float) -> void:
 		target = _get_closest_target()
@@ -108,6 +107,7 @@ func set_info(new_info: LarvaInfo):
 	if new_info == null:
 		new_info = LarvaInfo.new()
 	info = new_info
+	load_abilities()
 
 func update_type():
 	pass

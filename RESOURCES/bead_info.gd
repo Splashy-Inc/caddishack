@@ -87,7 +87,7 @@ func add_ability(ability: BeadAbilityInfo):
 	if ability is BaseAbilityInfo:
 		if not ability in base_abilities:
 			base_abilities.append(ability)
-	if not ability in abilities:
+	elif not ability in abilities:
 		abilities.append(ability)
 
 func clear_abilities():

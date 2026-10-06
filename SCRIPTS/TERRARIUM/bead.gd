@@ -16,8 +16,10 @@ var is_travelling := false
 @export var sand_sprites : Array[AnimatedSprite2D]
 
 @onready var item_sprite: AnimatedSprite2D = $ItemSprite
+@onready var clickable_area: Area2D = $ClickableArea
 @onready var clickable_shape: CollisionShape2D = $ClickableArea/ClickableShape
 @onready var animation_tree: AnimationTree = $AnimationPlayer/AnimationTree
+@onready var click_window: Timer = $ClickableArea/ClickWindow
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,8 +53,12 @@ func set_clickable(new_clickable: bool):
 	clickable_shape.disabled = not new_clickable
 
 func _on_clickable_area_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("select"):
-		clicked.emit()
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			click_window.start()
+		elif event.is_released() and not click_window.is_stopped():
+			clicked.emit()
+			BeadEvents.bead_clicked.emit(self)
 
 func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(1.0,1.0), target_rotation: float = 0.0):
 	travel_target_global_position = target_global_position
@@ -60,18 +66,20 @@ func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(
 	travel_target_rotation = target_rotation
 	is_travelling = true
 
-func set_info(new_info: BeadInfo):
+func set_info(new_info: BeadInfo, force: bool = false):
 	if new_info == null:
 		new_info = BeadInfo.new()
-	new_info = new_info.duplicate(true)
-	if not info.sand.has_same_colors(new_info.sand):
-		set_sand(new_info.sand)
+	info = new_info.duplicate(true)
+	if force or not info.sand.has_same_colors(new_info.sand):
+		set_sand(info.sand)
 	
-	if info.special.type != new_info.special.type:
-		set_special(new_info.special.type)
+	set_special(info.special.type, force)
+	
+	load_abilities()
 
 func set_sand(new_sand: SandMaterialInfo):
 	info.sand = new_sand
+	update_sand_sprites(info.sand)
 
 func add_color(new_color: SandMaterialInfo.SandColor) -> bool:
 	if info.sand.add_color(new_color):
@@ -80,8 +88,8 @@ func add_color(new_color: SandMaterialInfo.SandColor) -> bool:
 		return true
 	return false
 
-func set_special(new_special_type: SpecialMaterialInfo.SpecialType) -> bool:
-	if info.special.type == SpecialMaterialInfo.SpecialType.BASIC or new_special_type == SpecialMaterialInfo.SpecialType.BASIC:
+func set_special(new_special_type: SpecialMaterialInfo.SpecialType, force: bool = false) -> bool:
+	if force or info.special.type == SpecialMaterialInfo.SpecialType.BASIC or new_special_type == SpecialMaterialInfo.SpecialType.BASIC:
 		info.special.type = new_special_type
 		item_sprite.play(SpecialMaterialInfo.SpecialType.keys()[info.special.type])
 		check_completed()

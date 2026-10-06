@@ -10,9 +10,23 @@ load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e24
 atlas = SubResource("CompressedTexture2D_boo8s")
 region = Rect2(60, 100, 20, 20)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3vu2r"]
+load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boo8s"]
+atlas = SubResource("CompressedTexture2D_3vu2r")
+region = Rect2(120, 200, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vu2r"]
 atlas = ExtResource("1_3vu2r")
 region = Rect2(0, 100, 20, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vv2hb"]
+load_path = "res://.godot/imported/CaddiTattoo_40X40.png-3eab0bf54dd275826de30cf9a99f4e76.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p085x"]
+atlas = SubResource("CompressedTexture2D_vv2hb")
+region = Rect2(0, 200, 40, 40)
 
 [resource]
 script = ExtResource("1_nom7g")
@@ -21,6 +35,8 @@ description = "+1 bead color per stack (Max +2)"
 long_description = "This bead can hold +1 color, up to 3 total."
 icon = SubResource("AtlasTexture_3vu2r")
 active_icon = SubResource("AtlasTexture_vv2hb")
+icon_medium = SubResource("AtlasTexture_p085x")
+active_icon_medium = SubResource("AtlasTexture_boo8s")
 num_stacks = 1
 max_stacks = 2
 metadata/_custom_type_script = "uid://db7a7mgocsk8o"

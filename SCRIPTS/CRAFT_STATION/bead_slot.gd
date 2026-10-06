@@ -161,7 +161,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 				bead.toggle_charm_highlight(false)
 				bead.toggle_color_highlight(false)
 				
-				for ability_info in bead_info.abilities:
+				for ability_info in bead_info.abilities + bead_info.base_abilities:
 					for icon in ability_icons:
 						if icon.info == ability_info:
 							var ability_value = 0

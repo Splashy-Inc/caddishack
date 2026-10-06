@@ -4,6 +4,10 @@
 
 [resource]
 script = ExtResource("1_v3v4d")
+color = 1
+charm = 3
 name = "Wombo Combo"
+description = "Collect the shown color and charm to double the bead's points, mult, and get an extra voucher."
+long_description = "Collect the shown color and charm to double the bead's points, mult, and get an extra voucher."
 max_stacks = 0
 metadata/_custom_type_script = "uid://di2i085asckfu"
