@@ -53,6 +53,34 @@ label_settings = ExtResource("2_uletf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Stacks" type="HBoxContainer" parent="TopHalf/Info" unique_id=1162756238]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NumStacks" type="Label" parent="TopHalf/Info/Stacks" unique_id=264326719]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "20"
+label_settings = ExtResource("2_uletf")
+
+[node name="Slash" type="Label" parent="TopHalf/Info/Stacks" unique_id=1115302172]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("2_uletf")
+
+[node name="MaxStacks" type="Label" parent="TopHalf/Info/Stacks" unique_id=2116063610]
+layout_mode = 2
+text = "20"
+label_settings = ExtResource("2_uletf")
+
+[node name="Stacks" type="Label" parent="TopHalf/Info/Stacks" unique_id=1199482922]
+layout_mode = 2
+size_flags_horizontal = 0
+text = " Stacks"
+label_settings = ExtResource("2_uletf")
+
 [node name="Description" type="Label" parent="TopHalf/Info" unique_id=368913923]
 custom_minimum_size = Vector2(438, 164)
 custom_maximum_size = Vector2(438, 164)

@@ -35,6 +35,5 @@ icon = SubResource("AtlasTexture_xwefc")
 active_icon = SubResource("AtlasTexture_0fqoq")
 icon_medium = SubResource("AtlasTexture_o0a2p")
 active_icon_medium = SubResource("AtlasTexture_e3gn5")
-num_stacks = 1
 max_stacks = 1
 metadata/_custom_type_script = "uid://bjskd5gh17a4h"
