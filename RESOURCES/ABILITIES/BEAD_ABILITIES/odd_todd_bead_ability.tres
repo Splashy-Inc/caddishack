@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="OddToddBeadAbility" format=3 uid="uid://oiu4b8v21yhr"]
+
+[ext_resource type="Script" uid="uid://dp0fpkeamm8gg" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/odd_todd_bead_ability.gd" id="1_1dmrp"]
+[ext_resource type="Texture2D" uid="uid://ciyfejq5acgeh" path="res://ASSETS/Art/SHOP/CaddiTattoo_40X40.png" id="1_n3jy8"]
+[ext_resource type="Texture2D" uid="uid://c2c823bcy7qcu" path="res://ASSETS/Art/SHOP/CaddiTattoo_20X20.png" id="2_64qal"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hfoi6"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twoua"]
+atlas = SubResource("CompressedTexture2D_hfoi6")
+region = Rect2(60, 140, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy8ce"]
+atlas = ExtResource("1_n3jy8")
+region = Rect2(120, 280, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nqjo"]
+atlas = ExtResource("2_64qal")
+region = Rect2(0, 140, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we5mt"]
+atlas = ExtResource("1_n3jy8")
+region = Rect2(0, 280, 40, 40)
+
+[resource]
+script = ExtResource("1_1dmrp")
+points_if_triggered = 10
+name = "Odd Todd"
+description = "+10 points if odd number of beads with matching colors"
+long_description = "+10 points if the total number of beads matching the colors of this bead is odd. One per larva."
+icon = SubResource("AtlasTexture_0nqjo")
+active_icon = SubResource("AtlasTexture_twoua")
+icon_medium = SubResource("AtlasTexture_we5mt")
+active_icon_medium = SubResource("AtlasTexture_dy8ce")
+max_stacks = 1
+metadata/_custom_type_script = "uid://dp0fpkeamm8gg"
