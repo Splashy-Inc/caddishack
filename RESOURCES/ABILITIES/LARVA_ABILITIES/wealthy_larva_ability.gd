@@ -5,7 +5,7 @@ class_name WealthyLarvaAbility
 @export_custom(PROPERTY_HINT_NONE, "suffix:%") var percent_score : int
 @export var uses := 1
 
-## When initially applied [percent_score]% of quota to score, one per larva
+## When initially applied [param percent_score]% of quota to score, one per larva
 ## Worth a lot
 ## One time use (takes up a slot forever)
 func apply_ability(larva: Larva):

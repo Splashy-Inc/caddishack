@@ -29,6 +29,7 @@ var target : Node2D
 var can_move : bool
 var making_bead := false
 @export var lifespan_sec := 0
+var lifespan_mod := 1.0
 
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]
@@ -151,7 +152,7 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func set_lifespan(seconds: int):
 	lifespan_sec = seconds
 	if bead and making_bead:
-		bead.set_completion_time(lifespan_sec)
+		bead.set_completion_time(lifespan_sec * lifespan_mod)
 
 func start_making_bead():
 	collection_area.monitoring = true
