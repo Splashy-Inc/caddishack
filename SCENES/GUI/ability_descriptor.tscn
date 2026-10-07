@@ -55,6 +55,7 @@ vertical_alignment = 1
 
 [node name="Description" type="Label" parent="TopHalf/Info" unique_id=368913923]
 custom_minimum_size = Vector2(438, 164)
+custom_maximum_size = Vector2(438, 164)
 layout_mode = 2
 size_flags_vertical = 3
 text = "This is a long description that has a lot of characters just to test the limit of how each ability can be explained. It seems like 4 lines is it."
