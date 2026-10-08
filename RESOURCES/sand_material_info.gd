@@ -40,8 +40,8 @@ func has_same_colors(sand_to_compare: SandMaterialInfo) -> bool:
 	
 	return true
 
-func has_matching_color(sand_to_compare: SandMaterialInfo) -> bool:
-	if get_matching_colors(sand_to_compare.get_unique_colors()).is_empty():
+func has_matching_color(sand_to_compare: SandMaterialInfo, include_colorless: bool = false) -> bool:
+	if get_matching_colors(sand_to_compare.get_unique_colors(include_colorless)).is_empty():
 		return false
 	else:
 		return true

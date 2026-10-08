@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://mtbiv4n3xnhn"]
+
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="1_bt0cc"]
+[ext_resource type="Resource" uid="uid://dfnqv318f6dtl" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/lone_wolf_color_bead_ability.tres" id="1_eicbl"]
+
+[resource]
+script = ExtResource("1_bt0cc")
+ability = ExtResource("1_eicbl")
+base_cost = 5
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"
