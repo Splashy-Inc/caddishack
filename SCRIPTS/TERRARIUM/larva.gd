@@ -66,7 +66,7 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 		if not body.collected:
 			if body.info is SandMaterialInfo:
 				# Make sure there's a colorless to replace
-				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS], true).is_empty():
+				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS]).is_empty():
 					# Make sure this color doesn't already exist on this bead
 					if not bead.info.sand.has_matching_color(body.info):
 						material_queue.append(body.info)

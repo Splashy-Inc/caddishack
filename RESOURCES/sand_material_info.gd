@@ -15,7 +15,7 @@ func get_unique_colors(include_colorless: bool = false) -> Array[SandColor]:
 	var colors_to_return : Array[SandColor]
 	for color in colors:
 		if not color in colors_to_return:
-			if include_colorless or color != SandColor.COLORLESS:
+			if (include_colorless and colors.size() < 2) or color != SandColor.COLORLESS:
 				colors_to_return.append(color)
 	return colors_to_return
 
@@ -41,12 +41,13 @@ func has_same_colors(sand_to_compare: SandMaterialInfo) -> bool:
 	return true
 
 func has_matching_color(sand_to_compare: SandMaterialInfo, include_colorless: bool = false) -> bool:
+	include_colorless = include_colorless and SandColor.COLORLESS in get_unique_colors(true)
 	if get_matching_colors(sand_to_compare.get_unique_colors(include_colorless)).is_empty():
 		return false
 	else:
 		return true
 
-func get_matching_colors(colors_to_match: Array[SandColor], include_colorless: bool = false) -> Array[SandColor]:
+func get_matching_colors(colors_to_match: Array[SandColor]) -> Array[SandColor]:
 	var matching_colors : Array[SandColor]
 	for color in colors_to_match:
 		if color in colors and not color in matching_colors:
