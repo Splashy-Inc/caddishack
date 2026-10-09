@@ -13,8 +13,13 @@
 [ext_resource type="Resource" uid="uid://csk0mcs73aud0" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/always_citrine_shop_ability.tres" id="9_1d163"]
 [ext_resource type="Resource" uid="uid://dq85imxfshxej" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/resourceful_larva_shop_ability.tres" id="10_5w75c"]
 [ext_resource type="Resource" uid="uid://cu2a7esxr4q2v" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/sand_synergy_shop_ability.tres" id="11_d35tu"]
+[ext_resource type="Resource" uid="uid://blcrvgu1rxyv4" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/wealthy_larva_shop_ability.tres" id="12_ek0fh"]
+[ext_resource type="Resource" uid="uid://bacpw2uu31kbt" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/long_lived_larva_shop_ability.tres" id="13_76gjc"]
+[ext_resource type="Resource" uid="uid://5yo28sf7i477" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/points_please_shop_ability.tres" id="14_7gdy1"]
 [ext_resource type="Resource" uid="uid://bh14q3x27s0si" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_amethyst_bead_ability.tres" id="14_p51ld"]
+[ext_resource type="Resource" uid="uid://b7ntscw1laowj" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/even_steven_shop_ability.tres" id="15_fn5sw"]
 [ext_resource type="Resource" uid="uid://dcynpenj2s130" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_citrine_bead_ability.tres" id="15_oikq7"]
+[ext_resource type="Resource" uid="uid://fdyjr813lja0" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/odd_todd_shop_ability.tres" id="16_bt12j"]
 [ext_resource type="Resource" uid="uid://8cdcook8lkoo" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/always_dolomite_bead_ability.tres" id="16_umoa0"]
 [ext_resource type="Resource" uid="uid://bbuq5n0pob56i" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/big_set_charms_bead_ability.tres" id="17_ms513"]
 [ext_resource type="Resource" uid="uid://dwmp14ku03fm" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/companion_colors_bead_ability.tres" id="18_n8shy"]
@@ -23,10 +28,16 @@
 [ext_resource type="Resource" uid="uid://dtprlafpcjuvc" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/too_charming_bead_ability.tres" id="21_r4dxt"]
 [ext_resource type="Resource" uid="uid://dygxageaewodg" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/resourceful_larva_ability.tres" id="22_0brc1"]
 [ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="23_hha8g"]
+[ext_resource type="Resource" uid="uid://c2b24aqm8ksg6" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/wealthy_larva_ability.tres" id="29_xgpw2"]
+[ext_resource type="Resource" uid="uid://c4hv0ggmu1bwy" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/long_lived_larva_ability.tres" id="30_xpny1"]
+[ext_resource type="Resource" uid="uid://c7u24lvgdwck" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/points_please_bead_ability.tres" id="31_cf512"]
+[ext_resource type="Resource" uid="uid://5878tyywqm83" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/even_steven_bead_ability.tres" id="32_hr84n"]
+[ext_resource type="Resource" uid="uid://oiu4b8v21yhr" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/odd_todd_bead_ability.tres" id="33_htwiy"]
+[ext_resource type="Resource" uid="uid://2nv6ye62w0df" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability.tres" id="34_wokw3"]
 
 [resource]
 script = ExtResource("3_41am5")
 cur_round = 3
 score = 400
-vouchers = 20
+vouchers = 1000
 deck = ExtResource("1_oirf4")

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="SameCharmBeadAbility" format=3 uid="uid://cbtroclmkmpv1"]
+
+[ext_resource type="Script" uid="uid://dhnjj1iaf8o08" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/same_charm_bead_ability.gd" id="1_2aqcq"]
+[ext_resource type="Texture2D" uid="uid://ciyfejq5acgeh" path="res://ASSETS/Art/SHOP/CaddiTattoo_40X40.png" id="1_vdfaq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ib87u"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmg04"]
+atlas = SubResource("CompressedTexture2D_ib87u")
+region = Rect2(80, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppww8"]
+atlas = ExtResource("1_vdfaq")
+region = Rect2(160, 80, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rw36m"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cu0c"]
+atlas = SubResource("CompressedTexture2D_rw36m")
+region = Rect2(20, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwavl"]
+atlas = ExtResource("1_vdfaq")
+region = Rect2(40, 80, 40, 40)
+
+[resource]
+script = ExtResource("1_2aqcq")
+mult_bonus_tiers = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 1,
+3: 3,
+4: 3,
+5: 8
+})
+name = "Same Charm"
+description = "+Mult by # same charm in set: 1=1, 2=1, 3=3, 4=3, 5+=8"
+long_description = "This bead generates mult based on the number of matching charms in the bracelet.                        Matching charms - 1 | 2 | 3 | 4 | 5+ Mult generated -  1 | 1 | 3 | 3 | 8"
+icon = SubResource("AtlasTexture_2cu0c")
+active_icon = SubResource("AtlasTexture_lmg04")
+icon_medium = SubResource("AtlasTexture_pwavl")
+active_icon_medium = SubResource("AtlasTexture_ppww8")
+metadata/_custom_type_script = "uid://dhnjj1iaf8o08"

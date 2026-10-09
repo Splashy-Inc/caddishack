@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://6a3gv2y8vhvt"]
+
+[ext_resource type="Resource" uid="uid://bsbxutibgv8an" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/diverse_charms_bead_ability.tres" id="1_ifkgn"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="1_qqur7"]
+
+[resource]
+script = ExtResource("1_qqur7")
+ability = ExtResource("1_ifkgn")
+base_cost = 3
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

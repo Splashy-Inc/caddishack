@@ -1,13 +1,14 @@
 extends BeadCharmAbilityInfo
 
-## Bonus mult for number of different charms in bracelet, 0 bonus mult if too many
+## Bonus mult for largest set of matching charms in bracelet, 0 bonus mult if too many
+## Lots of mult if just right
 class_name TooCharmingBeadAbility
 
 ## Key is number charm types, value is bonus mult
 @export var mult_bonus_tiers : Dictionary[int, int]
 
-## Generate mult depending on how many different charm types are in [param bead_info_set].
-## Does not exclude origin bead, if in set. Assumes [param mult_bonus_tier] it sorted smallest to largest
+## Generate mult depending on how many charms are in the largest set in [param bead_info_set].
+## Includes origin bead, if in set. Assumes [param mult_bonus_tier] is sorted smallest to largest
 func use_ability(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]) -> int:
 	var bonus_mult := 0
 	
@@ -20,7 +21,7 @@ func use_ability(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]) -> 
 
 func get_affected_beads(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInfo]) -> Array[BeadInfo]:
 	var affected_beads : Array[BeadInfo]
-	var charm_types : Array[SpecialMaterialInfo.SpecialType]
+	var charm_type_sets : Dictionary[SpecialMaterialInfo.SpecialType, Array]
 	
 	for bead_info in bead_info_set:
 		match bead_info.special.type:
@@ -29,8 +30,14 @@ func get_affected_beads(origin_bead_info: BeadInfo, bead_info_set: Array[BeadInf
 			SpecialMaterialInfo.SpecialType.BASIC:
 				pass
 			_:
-				if not charm_types.has(bead_info.special.type):
-					charm_types.append(bead_info.special.type)
-					affected_beads.append(bead_info)
+				if not charm_type_sets.has(bead_info.special.type):
+					charm_type_sets.set(bead_info.special.type, [] as Array[BeadInfo])
+				charm_type_sets[bead_info.special.type].append(bead_info)
+
+	for charm_type in charm_type_sets.keys():
+		if affected_beads.size() == 0:
+			affected_beads = charm_type_sets[charm_type]
+		elif affected_beads.size() < charm_type_sets[charm_type].size():
+			affected_beads = charm_type_sets[charm_type]
 
 	return affected_beads

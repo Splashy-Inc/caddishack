@@ -620,6 +620,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [&"move"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MagnetismArea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_c51dj"]
 resource_name = "collect"
@@ -885,6 +897,18 @@ tracks/4/keys = {
 "method": &"force_complete"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MagnetismArea:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6cf02"]
 _data = {
@@ -902,6 +926,9 @@ height = 136.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7hui"]
 radius = 11.0
 height = 44.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rmx7e"]
+radius = 96.0
 
 [sub_resource type="Resource" id="Resource_cikro"]
 script = ExtResource("8_sxk8d")
@@ -1002,6 +1029,17 @@ monitoring = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_g7hui")
 
+[node name="MagnetismArea" type="Area2D" parent="." unique_id=1113259990]
+position = Vector2(0, -3)
+collision_layer = 0
+collision_mask = 4
+input_pickable = false
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MagnetismArea" unique_id=1320311845]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_rmx7e")
+
 [node name="BeadCenter" type="Marker2D" parent="." unique_id=1300347040]
 position = Vector2(0, 63)
 
@@ -1036,4 +1074,6 @@ bus = &"SFX"
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
+[connection signal="body_entered" from="MagnetismArea" to="." method="_on_magnetism_area_body_entered"]
+[connection signal="body_exited" from="MagnetismArea" to="." method="_on_magnetism_area_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

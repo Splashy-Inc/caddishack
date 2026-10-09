@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="WealthyLarvaAbility" format=3 uid="uid://c2b24aqm8ksg6"]
+
+[ext_resource type="Script" uid="uid://bjskd5gh17a4h" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/wealthy_larva_ability.gd" id="1_7i402"]
+[ext_resource type="Texture2D" uid="uid://ciyfejq5acgeh" path="res://ASSETS/Art/SHOP/CaddiTattoo_40X40.png" id="1_yeawd"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ataxy"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fqoq"]
+atlas = SubResource("CompressedTexture2D_ataxy")
+region = Rect2(100, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3gn5"]
+atlas = ExtResource("1_yeawd")
+region = Rect2(200, 80, 40, 40)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4v41t"]
+load_path = "res://.godot/imported/CaddiTattoo_20X20.png-3e9495b35b3834a2d7d9e240195c9216.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwefc"]
+atlas = SubResource("CompressedTexture2D_4v41t")
+region = Rect2(40, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0a2p"]
+atlas = ExtResource("1_yeawd")
+region = Rect2(80, 80, 40, 40)
+
+[resource]
+script = ExtResource("1_7i402")
+percent_score = 25
+name = "Wealthy Larva"
+description = "Score 25% of the quota immediately upon purchase. (Max 1/larva)"
+long_description = "This larva scores 25% of the current quota immediately upon purchase. One use only. Occupies a slot after use. One per larva."
+icon = SubResource("AtlasTexture_xwefc")
+active_icon = SubResource("AtlasTexture_0fqoq")
+icon_medium = SubResource("AtlasTexture_o0a2p")
+active_icon_medium = SubResource("AtlasTexture_e3gn5")
+max_stacks = 1
+metadata/_custom_type_script = "uid://bjskd5gh17a4h"
