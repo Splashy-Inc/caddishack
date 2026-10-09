@@ -28,6 +28,7 @@ region = Rect2(40, 80, 40, 40)
 [resource]
 script = ExtResource("1_2aqcq")
 mult_bonus_tiers = Dictionary[int, int]({
+0: 0,
 1: 1,
 2: 1,
 3: 3,

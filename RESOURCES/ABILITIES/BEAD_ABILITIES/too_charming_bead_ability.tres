@@ -34,12 +34,12 @@ region = Rect2(40, 0, 40, 40)
 script = ExtResource("1_lcmpg")
 mult_bonus_tiers = Dictionary[int, int]({
 0: 0,
-1: 6,
-2: 2,
+1: 10,
+2: 5,
 3: 0
 })
 name = "Too Charming"
-description = "+Mult by # charm type in set: 1=+6, 2=+2, 3+=+0"
+description = "+Mult by # charm in largest set, 1-3+: +10, +5, +0"
 long_description = "This bead generates mult based on the types of charms in the bracelet.                        Charm types    -  1 | 2 | 3+    Mult generated -  6 | 2 | 0"
 icon = SubResource("AtlasTexture_pymp4")
 active_icon = SubResource("AtlasTexture_hjbqs")
