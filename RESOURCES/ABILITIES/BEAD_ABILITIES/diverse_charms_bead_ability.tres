@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DifferingCharmsBeadAbility" format=3 uid="uid://bsbxutibgv8an"]
+[gd_resource type="Resource" script_class="DiverseCharmsBeadAbility" format=3 uid="uid://bsbxutibgv8an"]
 
 [ext_resource type="Texture2D" uid="uid://ciyfejq5acgeh" path="res://ASSETS/Art/SHOP/CaddiTattoo_40X40.png" id="1_mnhfx"]
 [ext_resource type="Script" uid="uid://cbetagi0672dv" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/diverse_charms_bead_ability.gd" id="2_tmjnf"]
