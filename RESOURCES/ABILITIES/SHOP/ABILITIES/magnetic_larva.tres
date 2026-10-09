@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://cwvxb068efqqx"]
+
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="1_4jvpo"]
+[ext_resource type="Resource" uid="uid://de3nn0plx0syl" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/magnetic_larva_ability.tres" id="1_6efgx"]
+
+[resource]
+script = ExtResource("1_4jvpo")
+ability = ExtResource("1_6efgx")
+base_cost = 1
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"
