@@ -1074,6 +1074,7 @@ bus = &"SFX"
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
+[connection signal="body_exited" from="CollectionArea" to="." method="_on_collection_area_body_exited"]
 [connection signal="body_entered" from="MagnetismArea" to="." method="_on_magnetism_area_body_entered"]
 [connection signal="body_exited" from="MagnetismArea" to="." method="_on_magnetism_area_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

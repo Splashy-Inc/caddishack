@@ -34,6 +34,7 @@ var lifespan_mod := 1.0
 @export var magnetic := false
 var magnetism_speed := SPEED * .5
 var materials_to_magnetize : Array[BeadMaterial]
+var greedy := false
 
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]
@@ -93,6 +94,10 @@ func _on_collection_area_body_entered(body: Node2D) -> void:
 						body.queue_free()
 					animation_player.play("collect")
 
+func _on_collection_area_body_exited(body: Node2D) -> void:
+	if body is BeadMaterial:
+		material_queue.erase(body.info)
+
 func place_material_from_queue():
 	if not material_queue.is_empty():
 		var material_to_place = material_queue.pop_front()
@@ -139,7 +144,7 @@ func _get_closest(nodes: Array) -> Node2D:
 		var closest_node
 		for node in nodes:
 			if node is SandMaterial:
-				if bead.is_sand_color_complete() or bead.info.sand.has_matching_color(node.info):
+				if bead.is_sand_color_complete() or bead.info.sand.has_matching_color(node.info) or (not bead.has_charm() and greedy):
 					continue
 			else:
 				if bead.has_charm():
