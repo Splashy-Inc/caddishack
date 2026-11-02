@@ -77,6 +77,8 @@ larvae=""
 materials=""
 card_hand=""
 card_container=""
+sand=""
+charm=""
 
 [gui]
 
@@ -105,6 +107,8 @@ select={
 2d_physics/layer_3="materials"
 2d_physics/layer_4="Cards"
 2d_physics/layer_5="Playable Terrarium"
+2d_physics/layer_6="Sand"
+2d_physics/layer_7="Charm"
 
 [physics]
 

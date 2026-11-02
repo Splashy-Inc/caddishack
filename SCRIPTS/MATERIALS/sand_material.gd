@@ -28,4 +28,5 @@ func disable():
 	if not is_node_ready():
 		await ready
 	remove_from_group("materials")
+	remove_from_group("sand")
 	collision_shape_2d.disabled = true

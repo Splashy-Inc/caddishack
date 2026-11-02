@@ -19,4 +19,5 @@ func disable():
 	if not is_node_ready():
 		await ready
 	remove_from_group("materials")
+	remove_from_group("charm")
 	collision_polygon_2d.disabled = true

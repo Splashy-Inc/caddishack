@@ -15,8 +15,8 @@ shader_parameter/on = false
 atlas = ExtResource("3_pgxoo")
 region = Rect2(0, 132, 66, 66)
 
-[node name="SpadeMaterial" type="StaticBody2D" unique_id=97204412 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["materials"]]
-collision_layer = 4
+[node name="SpadeMaterial" type="StaticBody2D" unique_id=97204412 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["charm", "materials"]]
+collision_layer = 68
 collision_mask = 0
 script = ExtResource("1_jkolj")
 highlight_enabled_sprite = NodePath("Sprite2D")
