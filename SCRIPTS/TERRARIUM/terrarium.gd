@@ -25,6 +25,7 @@ var travelling := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	TerrariumEvents.material_spawn_requested.connect(spawn_material)
 	target_transform = transform
 	material_layer.enabled = false
 	initialize(info)
@@ -41,11 +42,14 @@ func _process(delta: float) -> void:
 	if not check_larva_targets_exist():
 		complete_all_larvae()
 
-func spawn_material(material_info: MaterialInfo):
+func spawn_material(material_info: MaterialInfo, global_spawn_pos: Vector2 = Vector2.INF):
 	var new_material := Globals.generate_material(material_info)
 	material_layer.add_child(new_material)
 	if material_info.cell == Vector2i.ZERO:
-		new_material.global_position = get_spawnable_material_cell_center()
+		if global_spawn_pos != Vector2.INF:
+			new_material.global_position = get_spawnable_material_cell_center(global_spawn_pos)
+		else:
+			new_material.global_position = get_spawnable_material_cell_center()
 		material_info.cell = get_material_cell_at(new_material.global_position)
 	else:
 		new_material.global_position = get_material_cell_center(material_info.cell)
@@ -97,7 +101,15 @@ func get_open_material_cells() -> Array[Vector2i]:
 			open_cells.append(cell)
 	return open_cells
 
-func get_spawnable_material_cell_center() -> Vector2:
+func get_spawnable_material_cell_center(global_pos: Vector2 = Vector2.INF) -> Vector2:
+	if global_pos != Vector2.INF:
+		var closest_center := Vector2.INF
+		for open_cell in get_open_material_cells():
+			var open_center = to_global(material_layer.map_to_local(open_cell))
+			if global_pos.distance_to(open_center) < global_pos.distance_to(closest_center):
+				closest_center = open_center
+		return closest_center
+	
 	return to_global(material_layer.map_to_local(get_open_material_cells().pick_random()))
 
 func get_material_cell_at(global_pos: Vector2):

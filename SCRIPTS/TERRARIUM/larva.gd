@@ -36,6 +36,7 @@ var lifespan_mod := 1.0
 var magnetism_speed := SPEED * .5
 var materials_to_magnetize : Array[BeadMaterial]
 var greedy := false
+var dig_type := SpecialMaterialInfo.SpecialType.HEART
 
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]
@@ -100,6 +101,12 @@ func reserve_material_from_queue() -> bool:
 		if is_instance_valid(material_queue.front()) and not material_queue.front().collected:
 			var material_to_place = material_queue.front()
 			material_info_to_place = material_to_place.info
+			if material_info_to_place is SpecialMaterialInfo:
+				if material_info_to_place.type == SpecialMaterialInfo.SpecialType.SPADE:
+					if dig_type != SpecialMaterialInfo.SpecialType.BASIC:
+						var new_material_info := SpecialMaterialInfo.new()
+						new_material_info.type = dig_type
+						TerrariumEvents.material_spawn_requested.emit(new_material_info, global_position)
 			if exhaust_material:
 				material_to_place.collected = true
 				material_to_place.remove_from_group("materials")
