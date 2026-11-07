@@ -130,5 +130,19 @@ func get_names():
 func get_abilities():
 	return run_info.available_shop_abilities
 
+func get_random_ability(weighted: bool = false):
+	if weighted:
+		var rng := RandomNumberGenerator.new()
+		var ability_weights := get_ability_weights()
+		return get_abilities()[rng.rand_weighted(ability_weights)]
+	else:
+		return get_abilities().pick_random()
+
+func get_ability_weights() -> Array[int]:
+	var weights : Array[int]
+	for ability in get_abilities():
+		weights.append(ability.weight)
+	return weights
+
 func get_unlocked_abilities():
 	return run_info.unlocked_abilities
