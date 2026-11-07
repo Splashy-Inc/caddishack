@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://dfog0206isydh"]
+
+[ext_resource type="Resource" uid="uid://dm7x4flieu6r6" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_heart_larva_ability.tres" id="1_bohxm"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="2_h7tl6"]
+
+[resource]
+script = ExtResource("2_h7tl6")
+ability = ExtResource("1_bohxm")
+base_cost = 2
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"
