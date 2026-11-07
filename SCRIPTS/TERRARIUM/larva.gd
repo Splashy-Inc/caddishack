@@ -36,7 +36,7 @@ var lifespan_mod := 1.0
 var magnetism_speed := SPEED * .5
 var materials_to_magnetize : Array[BeadMaterial]
 var greedy := false
-var dig_type := SpecialMaterialInfo.SpecialType.HEART
+var dig_type : SpecialMaterialInfo.SpecialType
 
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]

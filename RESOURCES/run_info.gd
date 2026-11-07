@@ -36,7 +36,8 @@ class_name RunInfo
 										preload("uid://bqgvf3xcdqhtl"), 
 										preload("uid://c5c5r2pxvl66l"), 
 										preload("uid://dld8tayv5f1ki"), 
-										preload("uid://8teidxtsbf18"),] as Array[ShopAbilityInfo]
+										preload("uid://8teidxtsbf18"),
+										preload("uid://dnjlppxggw1ge"),] as Array[ShopAbilityInfo]
 @export var unlocked_abilities := [preload("uid://bh14q3x27s0si"),
 									preload("uid://dcynpenj2s130"),
 									preload("uid://8cdcook8lkoo"),
@@ -65,5 +66,6 @@ class_name RunInfo
 									preload("uid://ocey6md8iow5"), 
 									preload("uid://baad6pxuiwhxs"), 
 									preload("uid://dtuxdbyjjf6pg"),
+									preload("uid://dyg81p4pa4gla"),
 ]
 @export var wombo_combo_base := preload("uid://2nv6ye62w0df")
