@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ShopAbilityInfo" format=3 uid="uid://do1xney8sl50n"]
+
+[ext_resource type="Resource" uid="uid://djiv3v3hjuphj" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/greedy_larva_ability.tres" id="1_8dl1g"]
+[ext_resource type="Script" uid="uid://b2iwjw75gf34h" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/shop_ability_info.gd" id="1_qdwwa"]
+
+[resource]
+script = ExtResource("1_qdwwa")
+ability = ExtResource("1_8dl1g")
+base_cost = 1
+metadata/_custom_type_script = "uid://b2iwjw75gf34h"

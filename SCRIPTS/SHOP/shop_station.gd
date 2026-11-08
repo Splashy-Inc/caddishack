@@ -112,7 +112,7 @@ func randomize_abilities():
 		if not slot.get_children().is_empty():
 			for child in slot.get_children():
 				child.free()
-		var new_item = Globals.generate_shop_item(RunEvents.get_abilities().pick_random())
+		var new_item = Globals.generate_shop_item(RunEvents.get_random_ability(true))
 		new_item.pressed.connect(_on_item_chosen.bind(new_item))
 		slot.add_child(new_item)
 

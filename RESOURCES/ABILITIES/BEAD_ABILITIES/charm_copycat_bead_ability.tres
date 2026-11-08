@@ -31,7 +31,7 @@ region = Rect2(40, 160, 40, 40)
 [resource]
 script = ExtResource("1_oxkpe")
 name = "Charm Copycat"
-description = "+Mult equal to the bead’s points (1 per larva)"
+description = "+Mult equal to the bead's points (1 per larva)"
 long_description = "This bead generates bonus mult equal to the total points that the bead generates"
 icon = SubResource("AtlasTexture_dx5ym")
 active_icon = SubResource("AtlasTexture_mkjlo")

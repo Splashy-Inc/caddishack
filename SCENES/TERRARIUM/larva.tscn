@@ -672,7 +672,7 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"place_material_from_queue"
+"method": &"place_queued_material"
 }]
 }
 tracks/3/type = "value"
@@ -1021,7 +1021,7 @@ shape = SubResource("CapsuleShape2D_0gxko")
 [node name="CollectionArea" type="Area2D" parent="." unique_id=2072092902]
 position = Vector2(0, -3)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 96
 input_pickable = false
 monitoring = false
 
@@ -1074,6 +1074,7 @@ bus = &"SFX"
 
 [connection signal="died" from="." to="." method="_on_died"]
 [connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
+[connection signal="body_exited" from="CollectionArea" to="." method="_on_collection_area_body_exited"]
 [connection signal="body_entered" from="MagnetismArea" to="." method="_on_magnetism_area_body_entered"]
 [connection signal="body_exited" from="MagnetismArea" to="." method="_on_magnetism_area_body_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

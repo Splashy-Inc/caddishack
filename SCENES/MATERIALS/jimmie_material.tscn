@@ -21,8 +21,8 @@ shader_parameter/on = false
 atlas = ExtResource("4_hcane")
 region = Rect2(132, 66, 66, 66)
 
-[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["materials"]]
-collision_layer = 4
+[node name="JimmieMaterial" type="StaticBody2D" unique_id=1787224773 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["charm", "materials"]]
+collision_layer = 68
 collision_mask = 0
 script = ExtResource("1_60584")
 info = SubResource("Resource_4onm5")

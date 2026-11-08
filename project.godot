@@ -37,6 +37,7 @@ BeadEvents="*uid://qtffheqaf85"
 ScoringEvents="*uid://sjufwnrcp5ct"
 ParticlesCache="*uid://c0sb6nrlcp3hb"
 Shaker2D="*uid://dvn8qokgtg8g4"
+TerrariumEvents="*uid://n81hvt0ftwy"
 
 [debug]
 
@@ -77,6 +78,8 @@ larvae=""
 materials=""
 card_hand=""
 card_container=""
+sand=""
+charm=""
 
 [gui]
 
@@ -105,6 +108,8 @@ select={
 2d_physics/layer_3="materials"
 2d_physics/layer_4="Cards"
 2d_physics/layer_5="Playable Terrarium"
+2d_physics/layer_6="Sand"
+2d_physics/layer_7="Charm"
 
 [physics]
 

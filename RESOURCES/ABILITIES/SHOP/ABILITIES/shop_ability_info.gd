@@ -3,6 +3,7 @@ extends ShopItemInfo
 class_name ShopAbilityInfo
 
 @export var ability : AbilityInfo
+@export var weight := 100
 
 func get_icon():
 	icon = ability.icon

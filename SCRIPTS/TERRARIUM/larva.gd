@@ -20,7 +20,8 @@ var larva_scene := preload("res://SCENES/TERRARIUM/larva.tscn")
 @onready var collect_sound: AudioStreamPlayer = $CollectSound
 @onready var magnetism_area: Area2D = $MagnetismArea
 
-var material_queue : Array[MaterialInfo]
+var material_queue : Array[BeadMaterial]
+var material_info_to_place : MaterialInfo
 
 ## If true, deletes materials when picking them up 
 @export var exhaust_material := true
@@ -34,6 +35,8 @@ var lifespan_mod := 1.0
 @export var magnetic := false
 var magnetism_speed := SPEED * .5
 var materials_to_magnetize : Array[BeadMaterial]
+var greedy := false
+var dig_type : SpecialMaterialInfo.SpecialType
 
 @export var info : LarvaInfo
 @export var ability_icons : Array[TextureRect]
@@ -43,8 +46,15 @@ func _ready() -> void:
 		bead.completed.connect(_on_bead_completed)
 	set_lifespan(lifespan_sec)
 	initialize(info)
+	if greedy:
+		collection_area.collision_mask = 64
+	else:
+		collection_area.collision_mask = 32 + 64
 
 func _physics_process(delta: float) -> void:
+	if reserve_material_from_queue():
+		animation_player.play("collect")
+	
 	target = _get_closest_target()
 	can_move = making_bead and not (bead_completed or (animation_player.assigned_animation == "collect" and animation_player.is_playing()))
 	if can_move:
@@ -70,36 +80,50 @@ func _on_died(larva: Larva) -> void:
 	larva.queue_free()
 
 func _on_collection_area_body_entered(body: Node2D) -> void:
-	if material_queue.is_empty() and body is BeadMaterial:
-		if not body.collected:
-			if body.info is SandMaterialInfo:
-				# Make sure there's a colorless to replace
-				if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS]).is_empty():
-					# Make sure this color doesn't already exist on this bead
-					if not bead.info.sand.has_matching_color(body.info):
-						material_queue.append(body.info)
-						if exhaust_material:
-							body.collected = true
-							body.remove_from_group("materials")
-							body.queue_free()
-						animation_player.play("collect")
-			
-			if body.info is SpecialMaterialInfo:
-				if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
-					material_queue.append(body.info)
-					if exhaust_material:
-						body.collected = true
-						body.remove_from_group("materials")
-						body.queue_free()
-					animation_player.play("collect")
+	if body is BeadMaterial:
+		if body.info is SandMaterialInfo:
+			# Make sure there's a colorless to replace
+			if not bead.info.sand.get_matching_colors([SandMaterialInfo.SandColor.COLORLESS]).is_empty():
+				# Make sure this color doesn't already exist on this bead
+				if not bead.info.sand.has_matching_color(body.info):
+					material_queue.append(body)
+		
+		if body.info is SpecialMaterialInfo:
+			if bead.info.special.type == SpecialMaterialInfo.SpecialType.BASIC:
+				material_queue.append(body)
 
-func place_material_from_queue():
-	if not material_queue.is_empty():
-		var material_to_place = material_queue.pop_front()
-		if material_to_place is SandMaterialInfo:
-			bead.add_color(material_to_place.colors.front())
-		elif material_to_place is SpecialMaterialInfo:
-			bead.set_special(material_to_place.type)
+func _on_collection_area_body_exited(body: Node2D) -> void:
+	if body is BeadMaterial:
+		material_queue.erase(body)
+
+func reserve_material_from_queue() -> bool:
+	while not material_queue.is_empty():
+		if is_instance_valid(material_queue.front()) and not material_queue.front().collected:
+			var material_to_place = material_queue.front()
+			material_info_to_place = material_to_place.info
+			if material_info_to_place is SpecialMaterialInfo:
+				if material_info_to_place.type == SpecialMaterialInfo.SpecialType.SPADE:
+					if dig_type != SpecialMaterialInfo.SpecialType.BASIC:
+						var new_material_info := SpecialMaterialInfo.new()
+						new_material_info.type = dig_type
+						TerrariumEvents.material_spawn_requested.emit(new_material_info, global_position)
+			if exhaust_material:
+				material_to_place.collected = true
+				material_to_place.remove_from_group("materials")
+				material_to_place.remove_from_group("sand")
+				material_to_place.remove_from_group("charm")
+				material_to_place.queue_free()
+			return true
+		else:
+			material_queue.erase(material_queue.front())
+	return false
+
+func place_queued_material():
+	if is_instance_valid(material_info_to_place):
+		if material_info_to_place is SandMaterialInfo:
+			bead.add_color(material_info_to_place.colors.front())
+		elif not material_info_to_place is SandMaterialInfo:
+			bead.set_special(material_info_to_place.type)
 
 func _on_bead_completed():
 	if animation_player.current_animation == "collect" and animation_player.is_playing():
@@ -149,7 +173,12 @@ func _get_closest(nodes: Array) -> Node2D:
 		return closest_node
 
 func _get_closest_target():
-	return _get_closest(get_tree().get_nodes_in_group("materials"))
+	if greedy and not bead.has_charm() and get_tree().get_nodes_in_group("charm"):
+		collection_area.collision_mask = 64
+		return _get_closest(get_tree().get_nodes_in_group("charm"))
+	else:
+		collection_area.collision_mask = 32 + 64
+		return _get_closest(get_tree().get_nodes_in_group("materials"))
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	if can_move:

@@ -21,8 +21,8 @@ shader_parameter/on = false
 atlas = ExtResource("4_ffp77")
 region = Rect2(0, 66, 66, 66)
 
-[node name="PearlMaterial" type="StaticBody2D" unique_id=2002828585 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["materials"]]
-collision_layer = 4
+[node name="PearlMaterial" type="StaticBody2D" unique_id=2002828585 node_paths=PackedStringArray("highlight_enabled_sprite") groups=["charm", "materials"]]
+collision_layer = 68
 collision_mask = 0
 script = ExtResource("1_eoq1g")
 info = SubResource("Resource_5pe7c")
