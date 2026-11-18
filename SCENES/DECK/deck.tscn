@@ -86,13 +86,14 @@ states/wiggle/node = SubResource("AnimationNodeAnimation_k3x0k")
 states/wiggle/position = Vector2(374, 139)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_2mno7"), "RESET", "wiggle", SubResource("AnimationNodeStateMachineTransition_7a6ux"), "wiggle", "RESET", SubResource("AnimationNodeStateMachineTransition_hi3yf")]
 
-[node name="Deck" type="PanelContainer" unique_id=1656390780]
+[node name="Deck" type="PanelContainer" unique_id=1656390780 node_paths=PackedStringArray("center")]
 custom_minimum_size = Vector2(192, 192)
 size_flags_horizontal = 4
 offset_transform_enabled = true
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rh0j0")
 script = ExtResource("1_1msou")
+center = NodePath("Center")
 
 [node name="Cards" type="PanelContainer" parent="." unique_id=1610868122]
 custom_minimum_size = Vector2(176, -16)

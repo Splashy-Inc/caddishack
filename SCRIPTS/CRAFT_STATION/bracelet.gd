@@ -10,6 +10,7 @@ signal animated_value_calculated(value: int, vouchers: int)
 var travel_target_global_position : Vector2
 var travel_target_rotation : float
 var is_travelling := false
+var hide_scoring := false
 
 func _process(delta: float) -> void:
 	if is_travelling:
@@ -25,6 +26,8 @@ func _process(delta: float) -> void:
 
 func _container_ready():
 	bead_slots = get_bead_slots()
+	for slot in bead_slots:
+		slot.toggle_scoring_visibility(hide_scoring)
 	set_beads(info.get_bead_array_info())
 
 func position_bead(bead: Bead):

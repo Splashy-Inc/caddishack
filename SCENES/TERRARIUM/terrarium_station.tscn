@@ -241,7 +241,7 @@ size_flags_horizontal = 4
 
 [node name="RunInfo" parent="PanelContainer/VBoxContainer" unique_id=1126309375 instance=ExtResource("3_dugvo")]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 
 [node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=513006651]
 custom_minimum_size = Vector2(128, 0)
@@ -264,9 +264,6 @@ tree_root = SubResource("AnimationNodeStateMachine_rmx7e")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Deck" parent="PanelContainer/VBoxContainer" unique_id=1656390780 instance=ExtResource("8_3e80k")]
-layout_mode = 2
-
 [node name="TerrariumPlaySlot" type="Marker2D" parent="." unique_id=208628432]
 position = Vector2(550, 337)
 
@@ -279,7 +276,7 @@ z_index = 1
 position = Vector2(550, 637)
 
 [node name="CardHand" parent="HandSlot" unique_id=1587952838 node_paths=PackedStringArray("deck") instance=ExtResource("10_04exf")]
-deck = NodePath("../../PanelContainer/VBoxContainer/Deck")
+deck = NodePath("../../Deck")
 
 [node name="CardHandler" parent="." unique_id=2084620106 instance=ExtResource("2_04exf")]
 
@@ -295,8 +292,14 @@ label_settings = ExtResource("14_vl60u")
 visible = false
 position = Vector2(550, 582)
 
+[node name="Deck" parent="." unique_id=1656390780 instance=ExtResource("8_3e80k")]
+z_index = 1
+offset_left = 128.0
+offset_top = 223.0
+offset_right = 320.0
+offset_bottom = 431.0
+
 [node name="HandCountTracker" type="PanelContainer" parent="." unique_id=1288205798]
-visible = false
 offset_left = 342.0
 offset_top = 208.0
 offset_right = 758.0

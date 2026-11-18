@@ -501,6 +501,7 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Deck" parent="PanelContainer/HBoxContainer/UISection" unique_id=1656390780 instance=ExtResource("28_1qkbm")]
+visible = false
 layout_mode = 2
 clickable = true
 

@@ -3,12 +3,14 @@ extends Sprite2D
 class_name BeadSlot
 
 @onready var slot_center: Marker2D = $SlotCenter
+@onready var value_info: VBoxContainer = $Value
 @onready var points_label: Label = $Value/HBoxContainer/Points
 @onready var mult_label: Label = $Value/HBoxContainer/Mult
 @onready var vouchers_label: Label = $Value/Vouchers
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var fail_sound: AudioStreamPlayer = $FailSound
 
+@onready var ability_info: VBoxContainer = $AbilityIcons
 @export var ability_icons : Array[AbilityIcon]
 @export var sand_slot : Marker2D
 @export var charm_slot : Marker2D
@@ -21,10 +23,13 @@ var vouchers := 0
 
 var scoring_sound : AudioStreamPlayer
 
+var hide_scoring := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	reset_value()
 	reset_icons()
+	toggle_scoring_visibility(hide_scoring)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -251,3 +256,8 @@ func unlift_bead():
 
 func complete_bead_scoring():
 	ScoringEvents.bead_scored.emit(points, mult, vouchers)
+
+func toggle_scoring_visibility(is_hidden: bool):
+	hide_scoring = is_hidden
+	value_info.visible = hide_scoring
+	ability_info.visible = hide_scoring

@@ -14,6 +14,7 @@ class_name TerrariumStation
 @onready var hand_count_animation_player: AnimationPlayer = $HandCountTracker/AnimationPlayer
 @onready var larva_info_panel: LarvaInfoPanel = $LarvaInfoPanel
 @onready var bead_info_panel: BeadInfoPanel = $BeadInfoPanel
+@onready var deck: Deck = $Deck
 var num_hands := 2
 var hand_num := 1
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 	hand_count_animation_player.play_backwards("fade_out")
 	await hand_count_animation_player.animation_finished
 	await get_tree().create_timer(1).timeout
+	deck.hide()
 	hand_count_animation_player.play("fade_out")
 
 func _process(delta: float) -> void:
@@ -33,10 +35,12 @@ func _on_terrarium_larvae_done() -> void:
 	hand_num += 1
 	if hand_num <= num_hands:
 		hand_number_label.text = str(hand_num)
+		deck.show()
 		card_hand.draw_cards(7)
 		hand_count_animation_player.play_backwards("fade_out")
 		await hand_count_animation_player.animation_finished
 		await get_tree().create_timer(1).timeout
+		deck.hide()
 		hand_count_animation_player.play("fade_out")
 
 func _on_terrarium_larvae_started() -> void:

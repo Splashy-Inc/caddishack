@@ -4,7 +4,7 @@ class_name Deck
 
 signal pressed
 
-@onready var center: Node2D = $Center
+@export var center: Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var clickable := false
 
