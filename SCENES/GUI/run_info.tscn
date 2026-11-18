@@ -103,7 +103,7 @@ script = ExtResource("7_r5kio")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [node name="RunInfo" type="PanelContainer" unique_id=1126309375]
-custom_minimum_size = Vector2(192, 572)
+custom_minimum_size = Vector2(192, 638)
 offset_right = 192.0
 offset_bottom = 478.0
 size_flags_horizontal = 4
@@ -151,7 +151,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0.4, 0.4)
+offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot1/Center" unique_id=1435362116 instance=ExtResource("5_7rt1e")]
@@ -168,7 +168,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0.4, 0.4)
+offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot2/Center" unique_id=861112035 instance=ExtResource("5_7rt1e")]
@@ -185,7 +185,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0.4, 0.4)
+offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot3/Center" unique_id=1328784023 instance=ExtResource("5_7rt1e")]
