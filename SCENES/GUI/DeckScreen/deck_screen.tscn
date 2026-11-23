@@ -296,9 +296,12 @@ animations = [{
 }]
 
 [node name="DeckScreen" type="PanelContainer" unique_id=1723208829 node_paths=PackedStringArray("deck_view", "ability_laser_view")]
+custom_maximum_size = Vector2(-1, 720)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -319,6 +322,7 @@ alignment = 1
 [node name="DeckSection" type="VBoxContainer" parent="HBoxContainer" unique_id=365673137]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="HBoxContainer/DeckSection" unique_id=62143601]
 layout_mode = 2
@@ -406,6 +410,14 @@ layout_mode = 2
 
 [node name="CardSlot20" parent="HBoxContainer/DeckSection/DeckView/DeckGrid" unique_id=543250874 instance=ExtResource("2_q53bx")]
 layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="HBoxContainer/DeckSection" unique_id=47777975]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+script = ExtResource("16_pgajy")
 
 [node name="AbilityLaserView" type="PanelContainer" parent="HBoxContainer" unique_id=1697983391 node_paths=PackedStringArray("ability_item", "petri_dish")]
 layout_mode = 2
@@ -518,24 +530,16 @@ frame_progress = 1.0
 [node name="UISection" type="VBoxContainer" parent="HBoxContainer" unique_id=1144805401]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_constants/separation = 16
-
-[node name="RunInfo" parent="HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("14_44cau")]
-layout_mode = 2
-
-[node name="CancelButton" type="Button" parent="HBoxContainer/UISection" unique_id=47777975]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Back"
-script = ExtResource("16_pgajy")
+theme_override_constants/separation = 8
 
 [node name="PauseButton" parent="HBoxContainer/UISection" unique_id=374039595 instance=ExtResource("15_ss2ju")]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 10
+
+[node name="RunInfo" parent="HBoxContainer/UISection" unique_id=1126309375 instance=ExtResource("14_44cau")]
+layout_mode = 2
 
 [node name="CardHandler" parent="." unique_id=1151880614 instance=ExtResource("6_egpel")]
 
@@ -550,10 +554,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[connection signal="pressed" from="HBoxContainer/DeckSection/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="card_completed" from="HBoxContainer/AbilityLaserView" to="." method="_on_ability_laser_view_card_completed"]
 [connection signal="load_info_completed" from="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem" to="HBoxContainer/AbilityLaserView" method="_on_ability_item_load_info_completed"]
 [connection signal="larva_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_added"]
 [connection signal="larva_card_added" from="HBoxContainer/AbilityLaserView/VBoxContainer/PetriDishSpace/Center/PetriDish" to="HBoxContainer/AbilityLaserView" method="_on_petri_dish_larva_card_added"]
-[connection signal="pressed" from="HBoxContainer/UISection/CancelButton" to="." method="_on_cancel_button_pressed"]
 
 [editable path="HBoxContainer/AbilityLaserView/VBoxContainer/LaserSpace/Center/Laser/AbilitySlot/AbilityItem"]
