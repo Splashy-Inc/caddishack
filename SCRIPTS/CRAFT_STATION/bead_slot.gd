@@ -23,7 +23,7 @@ var vouchers := 0
 
 var scoring_sound : AudioStreamPlayer
 
-var hide_scoring := false
+@export var hide_scoring := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -259,5 +259,5 @@ func complete_bead_scoring():
 
 func toggle_scoring_visibility(is_hidden: bool):
 	hide_scoring = is_hidden
-	value_info.visible = hide_scoring
-	ability_info.visible = hide_scoring
+	value_info.visible = not hide_scoring
+	ability_info.visible = not hide_scoring

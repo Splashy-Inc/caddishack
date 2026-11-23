@@ -156,6 +156,7 @@ offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot1/Center" unique_id=1435362116 instance=ExtResource("5_7rt1e")]
 info = SubResource("Resource_r5kio")
+hide_scoring = true
 bead_array_info = SubResource("Resource_u273e")
 
 [node name="BraceletSlot2" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=1081141582]
@@ -173,6 +174,7 @@ offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot2/Center" unique_id=861112035 instance=ExtResource("5_7rt1e")]
 info = SubResource("Resource_omapo")
+hide_scoring = true
 bead_array_info = SubResource("Resource_ygyia")
 
 [node name="BraceletSlot3" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=246217762]
@@ -190,6 +192,7 @@ offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot3/Center" unique_id=1328784023 instance=ExtResource("5_7rt1e")]
 info = SubResource("Resource_wyces")
+hide_scoring = true
 bead_array_info = SubResource("Resource_d16db")
 
 [node name="Spacer" type="Control" parent="VBoxContainer" unique_id=1219021022]

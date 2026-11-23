@@ -10,7 +10,7 @@ signal animated_value_calculated(value: int, vouchers: int)
 var travel_target_global_position : Vector2
 var travel_target_rotation : float
 var is_travelling := false
-var hide_scoring := false
+@export var hide_scoring := false
 
 func _process(delta: float) -> void:
 	if is_travelling:
