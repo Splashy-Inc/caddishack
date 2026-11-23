@@ -5,13 +5,13 @@ class_name ShopStation
 @export var info : ShopInfo
 @export var terrariums : Array[Terrarium]
 @export var terrarium_buttons : Array[Button]
-@onready var next_button: Button = $PanelContainer/HBoxContainer/UISection/NextButton
+@onready var next_button: Button = $PanelContainer/HBoxContainer/VBoxContainer/NextButton
 @export var terrarium_zoom_point: ZoomPoint
 @onready var terrarium_select: PanelContainer = $TerrariumSelect
 @onready var terrarium_select_button: SelectButton = $TerrariumSelect/HBoxContainer/SelectButton
 @export var item_slots : Array[PanelContainer]
 @onready var reroll_button: UIButton = $PanelContainer/HBoxContainer/ItemSection/LowerSection/RerollButton
-@onready var terrariums_animation_tree: AnimationTree = $PanelContainer/HBoxContainer/TerrariumPanel/Terrariums/AnimationTree
+@onready var terrariums_animation_tree: AnimationTree = $PanelContainer/HBoxContainer/VBoxContainer/TerrariumPanel/Terrariums/AnimationTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
