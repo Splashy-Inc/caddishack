@@ -78,3 +78,4 @@ class_name RunInfo
 									preload("uid://cicaa6td8pnq"),
 ]
 @export var wombo_combo_base := preload("uid://2nv6ye62w0df")
+@export var quotas : Array[QuotaInfo]
