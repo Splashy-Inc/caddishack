@@ -34,14 +34,15 @@ region_rect = Rect2(0, 0, 184, 110)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dmvo"]
 atlas = ExtResource("7_3m3sy")
-region = Rect2(0, 704, 184, 120)
+region = Rect2(128, 384, 128, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7rfqe"]
 texture = SubResource("AtlasTexture_2dmvo")
 texture_margin_left = 10.0
 texture_margin_top = 6.0
 texture_margin_right = 10.0
-region_rect = Rect2(0, 0, 184, 110)
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 128, 126)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_of7f0"]
 atlas = ExtResource("7_3m3sy")
@@ -61,27 +62,29 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ts2r"]
 texture = SubResource("AtlasTexture_0lf1r")
 texture_margin_left = 6.0
-texture_margin_top = 6.0
+texture_margin_top = 10.0
 texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-expand_margin_left = 8.0
-expand_margin_right = 8.0
+texture_margin_bottom = 10.0
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+region_rect = Rect2(0, -4, 128, 136)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3m3sy"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0lf1r"]
 load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ts2r"]
-atlas = SubResource("CompressedTexture2D_3m3sy")
+atlas = SubResource("CompressedTexture2D_0lf1r")
 region = Rect2(128, 128, 128, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64won"]
 texture = SubResource("AtlasTexture_7ts2r")
 texture_margin_left = 6.0
-texture_margin_top = 6.0
+texture_margin_top = 10.0
 texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-expand_margin_left = 8.0
-expand_margin_right = 8.0
+texture_margin_bottom = 10.0
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+region_rect = Rect2(0, -4, 128, 136)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4xtah"]
 load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
@@ -93,25 +96,24 @@ region = Rect2(128, 256, 128, 128)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yeggv"]
 texture = SubResource("AtlasTexture_7aimf")
 texture_margin_left = 6.0
-texture_margin_top = 6.0
+texture_margin_top = 10.0
 texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-expand_margin_left = 8.0
-expand_margin_right = 8.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3byx6"]
-load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+texture_margin_bottom = 10.0
+expand_margin_left = 12.0
+expand_margin_right = 12.0
+region_rect = Rect2(0, -4, 128, 136)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5ywn"]
-atlas = SubResource("CompressedTexture2D_3byx6")
-region = Rect2(0, 128, 128, 128)
+atlas = ExtResource("7_3m3sy")
+region = Rect2(320, 0, 64, 704)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mq1x"]
 texture = SubResource("AtlasTexture_w5ywn")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
+texture_margin_left = 3.0
+texture_margin_top = 16.0
+texture_margin_right = 3.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(16, 48, 32, 608)
 
 [resource]
 Button/colors/font_color = Color(0.9411765, 0.827451, 0.7607843, 1)
