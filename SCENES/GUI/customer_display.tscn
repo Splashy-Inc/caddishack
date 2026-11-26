@@ -36,6 +36,7 @@ size_flags_vertical = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CustomerImage/Center" unique_id=342667033]
 sprite_frames = ExtResource("4_lrlw6")
+autoplay = "default"
 
 [node name="MaterialEffects" type="VBoxContainer" parent="." unique_id=1417698606]
 layout_mode = 2

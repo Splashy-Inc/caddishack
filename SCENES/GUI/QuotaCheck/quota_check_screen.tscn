@@ -119,13 +119,14 @@ resource_local_to_scene = true
 script = ExtResource("12_bakuk")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
-[node name="QuotaCheckScreen" type="PanelContainer" unique_id=2107446891]
+[node name="QuotaCheckScreen" type="PanelContainer" unique_id=2107446891 node_paths=PackedStringArray("customer_displays")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4aa6m")
+customer_displays = [NodePath("PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1/CustomerInfo"), NodePath("PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2/CustomerInfo"), NodePath("PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3/CustomerInfo")]
 
 [node name="StationBackgroun" parent="." unique_id=650297141 instance=ExtResource("1_i5igs")]
 

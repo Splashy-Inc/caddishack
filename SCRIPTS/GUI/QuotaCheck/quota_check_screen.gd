@@ -1,5 +1,10 @@
 extends PanelContainer
 
+class_name QuotaCheck
+
+@export var customer_displays : Array[CustomerDisplay]
+@export var bracelets : Array[Bracelet]
+
 @onready var title: Label = $PanelContainer/VBoxContainer/HBoxContainer2/Title
 @onready var next_button: UIButton = $PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer/NextButton
 @onready var restart_button: UIButton = $PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer/RestartButton
@@ -9,7 +14,7 @@ var quota_passed := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	load_quota_info(RunEvents.run_info.get_current_quota_info())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,3 +48,12 @@ func _on_next_button_pressed() -> void:
 		pass_quota()
 	else:
 		fail_quota()
+
+func load_quota_info(new_info: QuotaInfo):
+	for i in new_info.rounds.size():
+		if i <= customer_displays.size():
+			if new_info.rounds[i].customer != null:
+				customer_displays[i].set_info(new_info.rounds[i].customer)
+		if i <= bracelets.size():
+			if new_info.rounds[i].bracelet != null:
+				bracelets[i].set_beads(new_info.rounds[i].bracelet.bead_array_info)
