@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CustomerInfo" format=3 uid="uid://bs141hf4npn7k"]
+
+[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/customer_info.gd" id="1_rilte"]
+[ext_resource type="Texture2D" uid="uid://ciry1ieravs5e" path="res://ASSETS/Art/CUSTOMERS/Character_Orders_128X128.png" id="1_va1d2"]
+[ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="2_gwefc"]
+[ext_resource type="Script" uid="uid://cm33vxylxpkwp" path="res://RESOURCES/special_material_info.gd" id="2_va1d2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8qnl"]
+atlas = ExtResource("1_va1d2")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="Resource" id="Resource_vlhjw"]
+script = ExtResource("2_va1d2")
+type = 1
+metadata/_custom_type_script = "uid://cm33vxylxpkwp"
+
+[resource]
+script = ExtResource("1_rilte")
+image = SubResource("AtlasTexture_u8qnl")
+materials = Array[ExtResource("2_gwefc")]([SubResource("Resource_vlhjw")])
+effect = {
+"mult": 3,
+"points": 0,
+"vouchers": 0
+}
+metadata/_custom_type_script = "uid://cq1koymfkeadf"

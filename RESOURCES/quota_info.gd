@@ -16,7 +16,8 @@ func get_current_round_info() -> RoundInfo:
 
 func increment_round() -> bool:
 	if rounds.size() < max_rounds:
-		get_current_round_info().complete = true
+		if get_current_round_info():
+			get_current_round_info().complete = true
 		rounds.append(RoundInfo.new())
 		return true
 	return false

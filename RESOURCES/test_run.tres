@@ -54,6 +54,8 @@
 [ext_resource type="Resource" uid="uid://2nv6ye62w0df" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability.tres" id="34_wokw3"]
 [ext_resource type="Script" uid="uid://dcjd4nelwo0hq" path="res://RESOURCES/quota_info.gd" id="36_hb3b5"]
 [ext_resource type="Script" uid="uid://cbuh3mbii1m2m" path="res://RESOURCES/round_info.gd" id="37_mq5cx"]
+[ext_resource type="Resource" uid="uid://bs141hf4npn7k" path="res://RESOURCES/CUSTOMERS/customer_1.tres" id="38_7emab"]
+[ext_resource type="Resource" uid="uid://wiyxns6722ku" path="res://RESOURCES/CUSTOMERS/customer_2.tres" id="39_4kawv"]
 [ext_resource type="Resource" uid="uid://dfnqv318f6dtl" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/lone_wolf_color_bead_ability.tres" id="41_pirwq"]
 [ext_resource type="Resource" uid="uid://b6mil5n48aoqh" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/tri_color_bonus_bead_ability.tres" id="42_3awb7"]
 [ext_resource type="Resource" uid="uid://cdojupsya5lif" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/berserk_charm_bead_ability.tres" id="43_b2tvd"]
@@ -75,16 +77,19 @@
 
 [sub_resource type="Resource" id="Resource_oce3l"]
 script = ExtResource("37_mq5cx")
+customer = ExtResource("38_7emab")
 complete = true
 metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
 
 [sub_resource type="Resource" id="Resource_v5ylv"]
 script = ExtResource("37_mq5cx")
+customer = ExtResource("39_4kawv")
 complete = true
 metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
 
 [sub_resource type="Resource" id="Resource_ahkpx"]
 script = ExtResource("37_mq5cx")
+customer = ExtResource("38_7emab")
 metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
 
 [sub_resource type="Resource" id="Resource_jtchj"]

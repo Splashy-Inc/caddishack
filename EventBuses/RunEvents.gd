@@ -39,6 +39,7 @@ func get_round() -> int:
 
 func increment_round() -> bool:
 	if run_info.get_current_quota_info().increment_round():
+		run_info.get_current_round_info().customer = run_info.unlocked_customers.pick_random().duplicate(true)
 		return true
 	else:
 		round_max_reached.emit()
@@ -81,6 +82,8 @@ func change_vouchers(change: int, silent: bool = false):
 
 func reset_run():
 	load_run_info(new_run_info.duplicate(true))
+	if run_info.get_current_round_number() <= 0:
+		RunEvents.increment_round()
 
 func load_run_info(loaded_run_info: RunInfo):
 	set_quota(loaded_run_info.get_current_quota_info(), true)

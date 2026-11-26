@@ -38,8 +38,7 @@ class_name RunInfo
 										preload("uid://dfog0206isydh"), 
 										preload("uid://b1jk7j6nefy7u"), 
 										preload("uid://b5ys4k572bhad"), 
-										preload("uid://cymlsq4gi3s1c"),
-										] as Array[ShopAbilityInfo]
+										preload("uid://cymlsq4gi3s1c"),] as Array[ShopAbilityInfo]
 @export var unlocked_abilities := [preload("uid://bh14q3x27s0si"),
 									preload("uid://dcynpenj2s130"),
 									preload("uid://8cdcook8lkoo"),
@@ -72,9 +71,10 @@ class_name RunInfo
 									preload("uid://dm7x4flieu6r6"), 
 									preload("uid://delk3mfckbdh5"), 
 									preload("uid://d3k2847karyb5"), 
-									preload("uid://cicaa6td8pnq"),
-]
-@export var wombo_combo_base := preload("uid://2nv6ye62w0df")
+									preload("uid://cicaa6td8pnq"),] as Array[AbilityInfo]
+@export var wombo_combo_base := preload("uid://2nv6ye62w0df") as WomboComboBaseAbilityInfo
+@export var unlocked_customers := [preload("uid://bs141hf4npn7k"),
+									preload("uid://wiyxns6722ku"),] as Array[CustomerInfo]
 @export var quotas := [QuotaInfo.new()]
 ## Max number of quotas that can be played. 0 or lower is infinite play.
 @export var max_quotas := 0
@@ -109,3 +109,8 @@ func get_current_max_rounds() -> int:
 	if quotas.is_empty():
 		return 0
 	return quotas.back().max_rounds
+
+func get_current_customer() -> CustomerInfo:
+	if get_current_round_info():
+		return get_current_round_info().customer
+	return null
