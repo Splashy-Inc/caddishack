@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ropx1bfxcwq1"]
+
+[ext_resource type="Script" uid="uid://bi8pn6ih38sdo" path="res://SCRIPTS/GUI/customer_display.gd" id="1_jjvkj"]
+[ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="2_lrlw6"]
+[ext_resource type="Resource" uid="uid://do45p4kwcs13k" path="res://RESOURCES/CUSTOMERS/placeholder_customer.tres" id="2_wbp0v"]
+[ext_resource type="SpriteFrames" uid="uid://nu7lvcfc2mcn" path="res://RESOURCES/CUSTOMERS/placeholder_customer_sprite_frames.tres" id="4_lrlw6"]
+[ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/MATERIALS/sand_material.tscn" id="4_prt5q"]
+[ext_resource type="PackedScene" uid="uid://bval43aybs8wf" path="res://SCENES/MATERIALS/shell_material.tscn" id="5_45i1o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvkj"]
+atlas = ExtResource("2_lrlw6")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrlw6"]
+texture = SubResource("AtlasTexture_jjvkj")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="CustomerDisplay" type="HBoxContainer" unique_id=2068681764]
+script = ExtResource("1_jjvkj")
+customer_info = ExtResource("2_wbp0v")
+
+[node name="CustomerImage" type="PanelContainer" parent="." unique_id=86027053]
+custom_minimum_size = Vector2(128, 128)
+custom_maximum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lrlw6")
+
+[node name="Center" type="Control" parent="CustomerImage" unique_id=1026717998]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CustomerImage/Center" unique_id=342667033]
+sprite_frames = ExtResource("4_lrlw6")
+
+[node name="MaterialEffects" type="VBoxContainer" parent="." unique_id=1417698606]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SandControl" type="Control" parent="MaterialEffects" unique_id=1974174213]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="SandSlot" type="Marker2D" parent="MaterialEffects/SandControl" unique_id=1153459032]
+z_index = 7
+scale = Vector2(0.5, 0.5)
+
+[node name="SandMaterial" parent="MaterialEffects/SandControl/SandSlot" unique_id=1283433911 instance=ExtResource("4_prt5q")]
+
+[node name="CharmControl" type="Control" parent="MaterialEffects" unique_id=214170489]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="CharmSlot" type="Marker2D" parent="MaterialEffects/CharmControl" unique_id=617742213]
+z_index = 7
+scale = Vector2(0.5, 0.5)
+
+[node name="ShellMaterial" parent="MaterialEffects/CharmControl/CharmSlot" unique_id=97204412 instance=ExtResource("5_45i1o")]
+
+[node name="EffectLabel" type="Label" parent="MaterialEffects" unique_id=848055516]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "+1"

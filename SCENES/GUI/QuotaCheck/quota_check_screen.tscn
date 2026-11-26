@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_ln3bg"]
 [ext_resource type="Material" uid="uid://b4ewnxlowpn1d" path="res://pass_particle.tres" id="10_glxtm"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="10_gyywn"]
-[ext_resource type="PackedScene" uid="uid://ropx1bfxcwq1" path="res://SCENES/GUI/customer_info.tscn" id="10_u2cc5"]
+[ext_resource type="PackedScene" uid="uid://ropx1bfxcwq1" path="res://SCENES/GUI/customer_display.tscn" id="10_u2cc5"]
 [ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="11_s5p61"]
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="12_bakuk"]
 [ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="13_wlqqv"]
@@ -74,47 +74,47 @@ metadata/_custom_type_script = "uid://cf1jruerb1t6o"
 script = ExtResource("9_ln3bg")
 metadata/_custom_type_script = "uid://cf1jruerb1t6o"
 
-[sub_resource type="Resource" id="Resource_uncyn"]
-resource_local_to_scene = true
-script = ExtResource("12_bakuk")
-beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
-
-[sub_resource type="Resource" id="Resource_p3tbe"]
-resource_local_to_scene = true
-script = ExtResource("13_wlqqv")
-bead_array_info = SubResource("Resource_uncyn")
-
-[sub_resource type="Resource" id="Resource_4bw2v"]
-resource_local_to_scene = true
-script = ExtResource("12_bakuk")
-metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
-
-[sub_resource type="Resource" id="Resource_uwx5q"]
-resource_local_to_scene = true
-script = ExtResource("12_bakuk")
-beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
-
 [sub_resource type="Resource" id="Resource_u2cc5"]
 resource_local_to_scene = true
-script = ExtResource("13_wlqqv")
-bead_array_info = SubResource("Resource_uwx5q")
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
 
 [sub_resource type="Resource" id="Resource_ev1i0"]
 resource_local_to_scene = true
-script = ExtResource("12_bakuk")
-metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_u2cc5")
 
 [sub_resource type="Resource" id="Resource_ln3bg"]
 resource_local_to_scene = true
 script = ExtResource("12_bakuk")
-beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [sub_resource type="Resource" id="Resource_gyywn"]
 resource_local_to_scene = true
-script = ExtResource("13_wlqqv")
-bead_array_info = SubResource("Resource_ln3bg")
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
 
 [sub_resource type="Resource" id="Resource_s5p61"]
+resource_local_to_scene = true
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_gyywn")
+
+[sub_resource type="Resource" id="Resource_bakuk"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+
+[sub_resource type="Resource" id="Resource_wlqqv"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
+
+[sub_resource type="Resource" id="Resource_uncyn"]
+resource_local_to_scene = true
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_wlqqv")
+
+[sub_resource type="Resource" id="Resource_p3tbe"]
 resource_local_to_scene = true
 script = ExtResource("12_bakuk")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
@@ -248,9 +248,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1/Control" unique_id=1435362116 instance=ExtResource("8_ev1i0")]
-info = SubResource("Resource_p3tbe")
+info = SubResource("Resource_ev1i0")
 hide_scoring = true
-bead_array_info = SubResource("Resource_4bw2v")
+bead_array_info = SubResource("Resource_ln3bg")
 
 [node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1" unique_id=204352633]
 custom_minimum_size = Vector2(192, 0)
@@ -275,9 +275,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2/Control" unique_id=1225707326 instance=ExtResource("8_ev1i0")]
-info = SubResource("Resource_u2cc5")
+info = SubResource("Resource_s5p61")
 hide_scoring = true
-bead_array_info = SubResource("Resource_ev1i0")
+bead_array_info = SubResource("Resource_bakuk")
 
 [node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2" unique_id=1405876514]
 custom_minimum_size = Vector2(192, 0)
@@ -302,9 +302,9 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3/Control" unique_id=1707384944 instance=ExtResource("8_ev1i0")]
-info = SubResource("Resource_gyywn")
+info = SubResource("Resource_uncyn")
 hide_scoring = true
-bead_array_info = SubResource("Resource_s5p61")
+bead_array_info = SubResource("Resource_p3tbe")
 
 [node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3" unique_id=713928787]
 custom_minimum_size = Vector2(192, 0)

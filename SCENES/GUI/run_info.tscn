@@ -3,21 +3,15 @@
 [ext_resource type="StyleBox" uid="uid://bdnqesjlad0yx" path="res://RESOURCES/panel_run_info.tres" id="1_u273e"]
 [ext_resource type="Script" uid="uid://b6xk65j55ag6c" path="res://SCRIPTS/GUI/run_info.gd" id="2_isb0c"]
 [ext_resource type="LabelSettings" uid="uid://cl0nus6vr1r1s" path="res://ASSETS/Font/gui_label.tres" id="2_srsse"]
-[ext_resource type="Texture2D" uid="uid://ciry1ieravs5e" path="res://ASSETS/Art/CUSTOMERS/Character_Orders_128X128.png" id="3_dx0ry"]
+[ext_resource type="PackedScene" uid="uid://ropx1bfxcwq1" path="res://SCENES/GUI/customer_display.tscn" id="3_5mdan"]
 [ext_resource type="LabelSettings" uid="uid://tly00ucli80b" path="res://ASSETS/Font/gui_sublabel.tres" id="3_isb0c"]
-[ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/MATERIALS/sand_material.tscn" id="4_u273e"]
 [ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="5_7rt1e"]
 [ext_resource type="PackedScene" uid="uid://cxwi6x08rgjhh" path="res://SCENES/GUI/number_label.tscn" id="5_isb0c"]
-[ext_resource type="PackedScene" uid="uid://bval43aybs8wf" path="res://SCENES/MATERIALS/shell_material.tscn" id="5_tgf52"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="6_5mdan"]
 [ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="7_5mdan"]
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="7_r5kio"]
 [ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="8_r5kio"]
 [ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="8_u273e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j3pel"]
-atlas = ExtResource("3_dx0ry")
-region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmx7e"]
 
@@ -61,45 +55,45 @@ metadata/_custom_type_script = "uid://cf1jruerb1t6o"
 script = ExtResource("6_5mdan")
 metadata/_custom_type_script = "uid://cf1jruerb1t6o"
 
-[sub_resource type="Resource" id="Resource_5mdan"]
+[sub_resource type="Resource" id="Resource_r5kio"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
 beads = Array[ExtResource("6_5mdan")]([SubResource("Resource_pfo2p"), SubResource("Resource_yeyyo"), SubResource("Resource_u8mxa"), SubResource("Resource_eenkr"), SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku")])
 
-[sub_resource type="Resource" id="Resource_r5kio"]
-resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_5mdan")
-
 [sub_resource type="Resource" id="Resource_u273e"]
 resource_local_to_scene = true
-script = ExtResource("7_r5kio")
-metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+script = ExtResource("8_u273e")
+bead_array_info = SubResource("Resource_r5kio")
 
 [sub_resource type="Resource" id="Resource_tgf52"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [sub_resource type="Resource" id="Resource_omapo"]
 resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_tgf52")
+script = ExtResource("7_r5kio")
 
 [sub_resource type="Resource" id="Resource_ygyia"]
 resource_local_to_scene = true
-script = ExtResource("7_r5kio")
-metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+script = ExtResource("8_u273e")
+bead_array_info = SubResource("Resource_omapo")
 
 [sub_resource type="Resource" id="Resource_7dlgc"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [sub_resource type="Resource" id="Resource_wyces"]
 resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_7dlgc")
+script = ExtResource("7_r5kio")
 
 [sub_resource type="Resource" id="Resource_d16db"]
+resource_local_to_scene = true
+script = ExtResource("8_u273e")
+bead_array_info = SubResource("Resource_wyces")
+
+[sub_resource type="Resource" id="Resource_wx4il"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
@@ -112,50 +106,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_u273e")
 script = ExtResource("2_isb0c")
+theme_override_styles/panel = ExtResource("1_u273e")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=634661835]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=417659612]
+[node name="CustomerDisplay" parent="VBoxContainer" unique_id=2068681764 instance=ExtResource("3_5mdan")]
 layout_mode = 2
-
-[node name="CustomerImage" type="TextureRect" parent="VBoxContainer/HBoxContainer" unique_id=1845469717]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = SubResource("AtlasTexture_j3pel")
-
-[node name="MaterialEffects" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1849965077]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SandControl" type="Control" parent="VBoxContainer/HBoxContainer/MaterialEffects" unique_id=870062692]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-
-[node name="SandSlot" type="Marker2D" parent="VBoxContainer/HBoxContainer/MaterialEffects/SandControl" unique_id=690447960]
-z_index = 7
-scale = Vector2(0.5, 0.5)
-
-[node name="SandMaterial" parent="VBoxContainer/HBoxContainer/MaterialEffects/SandControl/SandSlot" unique_id=1283433911 instance=ExtResource("4_u273e")]
-
-[node name="CharmControl" type="Control" parent="VBoxContainer/HBoxContainer/MaterialEffects" unique_id=28520538]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-
-[node name="CharmSlot" type="Marker2D" parent="VBoxContainer/HBoxContainer/MaterialEffects/CharmControl" unique_id=779246639]
-z_index = 7
-scale = Vector2(0.5, 0.5)
-
-[node name="ShellMaterial" parent="VBoxContainer/HBoxContainer/MaterialEffects/CharmControl/CharmSlot" unique_id=97204412 instance=ExtResource("5_tgf52")]
-
-[node name="EffectLabel" type="Label" parent="VBoxContainer/HBoxContainer/MaterialEffects" unique_id=2039353474]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-text = "+1"
 
 [node name="InfoButton" type="Button" parent="VBoxContainer" unique_id=1833736680]
 layout_mode = 2
@@ -192,9 +149,9 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot1/Center" unique_id=1435362116 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_r5kio")
+info = SubResource("Resource_u273e")
 hide_scoring = true
-bead_array_info = SubResource("Resource_u273e")
+bead_array_info = SubResource("Resource_tgf52")
 
 [node name="BraceletSlot2" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=1081141582]
 layout_mode = 2
@@ -210,9 +167,9 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot2/Center" unique_id=861112035 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_omapo")
+info = SubResource("Resource_ygyia")
 hide_scoring = true
-bead_array_info = SubResource("Resource_ygyia")
+bead_array_info = SubResource("Resource_7dlgc")
 
 [node name="BraceletSlot3" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=246217762]
 layout_mode = 2
@@ -228,9 +185,9 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot3/Center" unique_id=1328784023 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_wyces")
+info = SubResource("Resource_d16db")
 hide_scoring = true
-bead_array_info = SubResource("Resource_d16db")
+bead_array_info = SubResource("Resource_wx4il")
 
 [node name="Spacer" type="Control" parent="VBoxContainer" unique_id=1219021022]
 visible = false

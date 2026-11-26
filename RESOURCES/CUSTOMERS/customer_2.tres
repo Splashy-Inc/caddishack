@@ -1,13 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerInfo" format=3 uid="uid://wiyxns6722ku"]
 
-[ext_resource type="Texture2D" uid="uid://ciry1ieravs5e" path="res://ASSETS/Art/CUSTOMERS/Character_Orders_128X128.png" id="1_iq2ry"]
 [ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="2_46hf1"]
 [ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_h84be"]
-[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/customer_info.gd" id="3_46hf1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u8qnl"]
-atlas = ExtResource("1_iq2ry")
-region = Rect2(0, 128, 128, 128)
+[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/CUSTOMERS/customer_info.gd" id="3_h84be"]
+[ext_resource type="SpriteFrames" uid="uid://crgfh3pf6man0" path="res://RESOURCES/CUSTOMERS/customer_2_sprite_frames.tres" id="4_46hf1"]
 
 [sub_resource type="Resource" id="Resource_omapo"]
 script = ExtResource("2_h84be")
@@ -15,8 +11,8 @@ colors = Array[int]([3])
 metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 
 [resource]
-script = ExtResource("3_46hf1")
-image = SubResource("AtlasTexture_u8qnl")
+script = ExtResource("3_h84be")
+sprite_frames = ExtResource("4_46hf1")
 materials = Array[ExtResource("2_46hf1")]([SubResource("Resource_omapo")])
 effect = {
 "mult": 0,

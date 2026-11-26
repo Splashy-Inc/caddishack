@@ -2,7 +2,7 @@ extends Resource
 
 class_name CustomerInfo
 
-@export var image : Texture2D
+@export var sprite_frames : SpriteFrames
 @export var materials : Array[MaterialInfo]
 @export var effect := {
 	"points": 0,

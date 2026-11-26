@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CustomerInfo" format=3 uid="uid://do45p4kwcs13k"]
+
+[ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="1_k78t0"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_nlr6x"]
+[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/CUSTOMERS/customer_info.gd" id="3_qs8l7"]
+[ext_resource type="SpriteFrames" uid="uid://nu7lvcfc2mcn" path="res://RESOURCES/CUSTOMERS/placeholder_customer_sprite_frames.tres" id="4_k78t0"]
+
+[sub_resource type="Resource" id="Resource_nh2fn"]
+script = ExtResource("2_nlr6x")
+metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
+
+[resource]
+script = ExtResource("3_qs8l7")
+sprite_frames = ExtResource("4_k78t0")
+materials = Array[ExtResource("1_k78t0")]([SubResource("Resource_nh2fn")])
+effect = {
+"mult": 0,
+"points": 0,
+"vouchers": 1
+}
+metadata/_custom_type_script = "uid://cq1koymfkeadf"
