@@ -35,12 +35,25 @@
 [ext_resource type="Resource" uid="uid://i06yjt8rmfwl" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_copycat_shop_ability.tres" id="22_yqj6v"]
 [ext_resource type="Resource" uid="uid://cwvxb068efqqx" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/magnetic_larva.tres" id="23_ashvb"]
 [ext_resource type="Resource" uid="uid://5bx2xh3vbjqi" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/speedy_larva_ability.tres" id="23_hha8g"]
+[ext_resource type="Resource" uid="uid://do1xney8sl50n" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/greedy_larva_shop_ability.tres" id="24_ua3o2"]
+[ext_resource type="Resource" uid="uid://n711ds1o2vde" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_affinity_heart_shop_ability.tres" id="25_shfm6"]
+[ext_resource type="Resource" uid="uid://bqgvf3xcdqhtl" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_affinity_jimmie_shop_ability.tres" id="26_7emab"]
+[ext_resource type="Resource" uid="uid://c5c5r2pxvl66l" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_affinity_pearl_shop_ability.tres" id="27_4kawv"]
+[ext_resource type="Resource" uid="uid://dld8tayv5f1ki" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_affinity_shell_shop_ability.tres" id="28_o61dl"]
+[ext_resource type="Resource" uid="uid://8teidxtsbf18" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_affinity_spade_shop_ability.tres" id="29_2h4ns"]
 [ext_resource type="Resource" uid="uid://c2b24aqm8ksg6" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/wealthy_larva_ability.tres" id="29_xgpw2"]
+[ext_resource type="Resource" uid="uid://dnjlppxggw1ge" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_excavator_pearl_shop_ability.tres" id="30_3owob"]
 [ext_resource type="Resource" uid="uid://c4hv0ggmu1bwy" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/long_lived_larva_ability.tres" id="30_xpny1"]
 [ext_resource type="Resource" uid="uid://c7u24lvgdwck" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/points_please_bead_ability.tres" id="31_cf512"]
+[ext_resource type="Resource" uid="uid://dfog0206isydh" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_excavator_heart_shop_ability.tres" id="31_o0xsy"]
 [ext_resource type="Resource" uid="uid://5878tyywqm83" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/even_steven_bead_ability.tres" id="32_hr84n"]
+[ext_resource type="Resource" uid="uid://b1jk7j6nefy7u" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_excavator_jimmie_shop_ability.tres" id="32_rn7ar"]
+[ext_resource type="Resource" uid="uid://b5ys4k572bhad" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_excavator_shell_shop_ability.tres" id="33_6wjcc"]
 [ext_resource type="Resource" uid="uid://oiu4b8v21yhr" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/odd_todd_bead_ability.tres" id="33_htwiy"]
+[ext_resource type="Resource" uid="uid://cymlsq4gi3s1c" path="res://RESOURCES/ABILITIES/SHOP/ABILITIES/charm_excavator_spade_shop_ability.tres" id="34_vgisv"]
 [ext_resource type="Resource" uid="uid://2nv6ye62w0df" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability.tres" id="34_wokw3"]
+[ext_resource type="Script" uid="uid://dcjd4nelwo0hq" path="res://RESOURCES/quota_info.gd" id="36_hb3b5"]
+[ext_resource type="Script" uid="uid://cbuh3mbii1m2m" path="res://RESOURCES/round_info.gd" id="37_mq5cx"]
 [ext_resource type="Resource" uid="uid://dfnqv318f6dtl" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/lone_wolf_color_bead_ability.tres" id="41_pirwq"]
 [ext_resource type="Resource" uid="uid://b6mil5n48aoqh" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/tri_color_bonus_bead_ability.tres" id="42_3awb7"]
 [ext_resource type="Resource" uid="uid://cdojupsya5lif" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/berserk_charm_bead_ability.tres" id="43_b2tvd"]
@@ -48,10 +61,40 @@
 [ext_resource type="Resource" uid="uid://bsbxutibgv8an" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/diverse_charms_bead_ability.tres" id="45_t30ne"]
 [ext_resource type="Resource" uid="uid://b463boxq3xrdn" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_copycat_bead_ability.tres" id="46_xnfnn"]
 [ext_resource type="Resource" uid="uid://de3nn0plx0syl" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/magnetic_larva_ability.tres" id="47_6b0yx"]
+[ext_resource type="Resource" uid="uid://djiv3v3hjuphj" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/greedy_larva_ability.tres" id="61_5u8yd"]
+[ext_resource type="Resource" uid="uid://cvppbqpryl06u" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_affinity_heart_bead_ability.tres" id="62_e8m6l"]
+[ext_resource type="Resource" uid="uid://bf27ltnpiwk1n" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_affinity_jimmie_bead_ability.tres" id="63_ke623"]
+[ext_resource type="Resource" uid="uid://ocey6md8iow5" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_affinity_pearl_bead_ability.tres" id="64_x6wno"]
+[ext_resource type="Resource" uid="uid://baad6pxuiwhxs" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_affinity_shell_bead_ability.tres" id="65_bpylu"]
+[ext_resource type="Resource" uid="uid://dtuxdbyjjf6pg" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_affinity_spade_bead_ability.tres" id="66_cb6wf"]
+[ext_resource type="Resource" uid="uid://dyg81p4pa4gla" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_pearl_larva_ability.tres" id="67_6etbr"]
+[ext_resource type="Resource" uid="uid://dm7x4flieu6r6" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_heart_larva_ability.tres" id="68_722gi"]
+[ext_resource type="Resource" uid="uid://delk3mfckbdh5" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_jimmie_larva_ability.tres" id="69_awrri"]
+[ext_resource type="Resource" uid="uid://d3k2847karyb5" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_shell_larva_ability.tres" id="70_se6xh"]
+[ext_resource type="Resource" uid="uid://cicaa6td8pnq" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_spade_larva_ability.tres" id="71_m6chr"]
+
+[sub_resource type="Resource" id="Resource_oce3l"]
+script = ExtResource("37_mq5cx")
+complete = true
+metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
+
+[sub_resource type="Resource" id="Resource_v5ylv"]
+script = ExtResource("37_mq5cx")
+complete = true
+metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
+
+[sub_resource type="Resource" id="Resource_ahkpx"]
+script = ExtResource("37_mq5cx")
+metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
+
+[sub_resource type="Resource" id="Resource_jtchj"]
+script = ExtResource("36_hb3b5")
+rounds = Array[ExtResource("37_mq5cx")]([SubResource("Resource_oce3l"), SubResource("Resource_v5ylv"), SubResource("Resource_ahkpx")])
+metadata/_custom_type_script = "uid://dcjd4nelwo0hq"
 
 [resource]
 script = ExtResource("3_41am5")
-cur_round = 3
 score = 400
 vouchers = 1000
 deck = ExtResource("1_oirf4")
+quotas = Array[ExtResource("36_hb3b5")]([SubResource("Resource_jtchj")])

@@ -2,9 +2,6 @@ extends Resource
 
 class_name RunInfo
 
-@export var cur_round := 0
-@export var max_rounds := 3
-@export var cur_quota := 100
 @export var score := 0
 @export var vouchers := 0
 @export var deck : DeckInfo
@@ -78,4 +75,37 @@ class_name RunInfo
 									preload("uid://cicaa6td8pnq"),
 ]
 @export var wombo_combo_base := preload("uid://2nv6ye62w0df")
-@export var quotas : Array[QuotaInfo]
+@export var quotas := [QuotaInfo.new()]
+## Max number of quotas that can be played. 0 or lower is infinite play.
+@export var max_quotas := 0
+
+func get_current_round_number() -> int:
+	if quotas.is_empty():
+		return 0
+	return quotas.back().get_current_round_number()
+
+func get_current_round_info() -> RoundInfo:
+	if quotas.is_empty():
+		return null
+	return quotas.back().get_current_round_info()
+
+func get_current_quota_number() -> int:
+	if quotas.is_empty():
+		return 0
+	return quotas.back().quota
+
+func get_current_quota_info() -> QuotaInfo:
+	if quotas.is_empty():
+		return null
+	return quotas.back()
+
+func set_new_quota(new_quota: QuotaInfo) -> bool:
+	if max_quotas <= 0 or quotas.size() < max_quotas:
+		quotas.append(new_quota)
+		return true
+	return false
+
+func get_current_max_rounds() -> int:
+	if quotas.is_empty():
+		return 0
+	return quotas.back().max_rounds

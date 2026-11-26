@@ -24,7 +24,6 @@ func pass_quota():
 	quota_passed = true
 	next_button.disabled = true
 	RunEvents.change_score(-RunEvents.get_quota())
-	RunEvents.change_quota(RunEvents.get_quota(), true)
 	await run_info.number_change_complete
 	next_button.disabled = false
 
@@ -38,9 +37,13 @@ func fail_quota():
 
 func _on_next_button_pressed() -> void:
 	if quota_passed:
-		RunEvents.set_round(1)
-		await get_tree().create_timer(1.0).timeout
-		ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+		var new_quota = QuotaInfo.new()
+		new_quota.quota = 2 * RunEvents.get_quota()
+		if RunEvents.set_new_quota(new_quota, true):
+			await get_tree().create_timer(1.0).timeout
+			ScreenEvents.request_screen(ScreenEvents.Screen.SHOP)
+		else:
+			print("Non-infinite game won!")
 	elif RunEvents.check_quota():
 		pass_quota()
 	else:

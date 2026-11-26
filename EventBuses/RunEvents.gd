@@ -32,33 +32,32 @@ func _process(delta: float) -> void:
 	pass
 
 func get_max_rounds() -> int:
-	return run_info.max_rounds
-
-func set_round(new_current_round: int, new_max_rounds: int = get_max_rounds()):
-	run_info.cur_round = new_current_round
-	run_info.max_rounds = new_max_rounds
-	round_updated.emit(run_info.cur_round, run_info.max_rounds)
+	return run_info.get_current_max_rounds()
 
 func get_round() -> int:
-	return run_info.cur_round
+	return run_info.get_current_round_number()
 
 func increment_round() -> bool:
-	if run_info.cur_round < run_info.max_rounds:
-		set_round(run_info.cur_round + 1, run_info.max_rounds)
+	if run_info.get_current_quota_info().increment_round():
 		return true
 	else:
 		round_max_reached.emit()
 		return false
 
-func set_quota(new_quota: int, silent: bool = false):
-	run_info.cur_quota = new_quota
-	quota_updated.emit(run_info.cur_quota, silent)
+func set_quota(new_quota_info: QuotaInfo, silent: bool = false):
+	run_info.get_current_quota_info().load_from_info(new_quota_info)
+	quota_updated.emit(run_info.get_current_quota_number(), silent)
+	round_updated.emit(run_info.get_current_round_number(), run_info.get_current_max_rounds())
 
 func get_quota() -> int:
-	return run_info.cur_quota
+	return run_info.get_current_quota_number()
 
-func change_quota(change: int, silent: bool = false):
-	set_quota(run_info.cur_quota + change, silent)
+func set_new_quota(new_quota: QuotaInfo, silent: bool = false):
+	if run_info.set_new_quota(new_quota):
+		increment_round()
+		quota_updated.emit(run_info.get_current_quota_number(), silent)
+		return true
+	return false
 
 func set_score(new_score: int, silent: bool = false):
 	run_info.score = new_score
@@ -84,8 +83,7 @@ func reset_run():
 	load_run_info(new_run_info.duplicate(true))
 
 func load_run_info(loaded_run_info: RunInfo):
-	set_round(loaded_run_info.cur_round, loaded_run_info.max_rounds)
-	set_quota(loaded_run_info.cur_quota, true)
+	set_quota(loaded_run_info.get_current_quota_info(), true)
 	set_score(loaded_run_info.score, true)
 	set_vouchers(loaded_run_info.vouchers, true)
 	set_deck_info(loaded_run_info.deck)

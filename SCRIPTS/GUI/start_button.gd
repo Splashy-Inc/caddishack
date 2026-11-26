@@ -4,6 +4,7 @@ extends UIButton
 
 func _on_pressed() -> void:
 	RunEvents.reset_run()
+	RunEvents.increment_round()
 	var random_terrarium = TerrariumInfo.new()
 	random_terrarium.randomize_materials()
 	RunEvents.set_current_terrarium_info(random_terrarium)
