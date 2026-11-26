@@ -3,142 +3,22 @@
 [ext_resource type="Script" uid="uid://bgep8w6p2mmj0" path="res://SCRIPTS/GUI/QuotaCheck/quota_check_screen.gd" id="1_4aa6m"]
 [ext_resource type="PackedScene" uid="uid://bf66yigpmnvq4" path="res://SCENES/station_background.tscn" id="1_i5igs"]
 [ext_resource type="PackedScene" uid="uid://fvqo1qe1kd3n" path="res://SCENES/GUI/main_menu/splash_screen.tscn" id="3_4aa6m"]
-[ext_resource type="PackedScene" uid="uid://dqdm71w8s3gpc" path="res://SCENES/GUI/run_info.tscn" id="4_0qco7"]
 [ext_resource type="FontFile" uid="uid://di1ynwh6doxnf" path="res://ASSETS/Font/m5x7.ttf" id="4_28rho"]
-[ext_resource type="AudioStream" uid="uid://bongt5p370jxs" path="res://ASSETS/Audio/quota_fail_bug.ogg" id="4_pxkcn"]
+[ext_resource type="Texture2D" uid="uid://bpg6s2uipgtmm" path="res://ASSETS/Art/GUI/main_menu_blending_sand.png" id="5_uwx5q"]
 [ext_resource type="Script" uid="uid://bht4bf1m4rfc3" path="res://SCRIPTS/GUI/ui_button.gd" id="6_toi61"]
 [ext_resource type="PackedScene" uid="uid://l63bub3q0j7s" path="res://SCENES/GUI/pause_button.tscn" id="7_0qco7"]
+[ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="8_ev1i0"]
 [ext_resource type="Texture2D" uid="uid://cyhd76hr4yeiy" path="res://ASSETS/Art/SHOP/Coin.png" id="9_glxtm"]
 [ext_resource type="PackedScene" uid="uid://067en6je8uvm" path="res://SCENES/GUI/restart_button.tscn" id="9_ikw0v"]
+[ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="9_ln3bg"]
 [ext_resource type="Material" uid="uid://b4ewnxlowpn1d" path="res://pass_particle.tres" id="10_glxtm"]
-
-[sub_resource type="Animation" id="Animation_ikw0v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(916, 503)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../MainMenuBackgoundOverlay:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pxkcn"]
-resource_name = "fail"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2, 2), Vector2(-2, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(916, 503), Vector2(1634, 503)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../MainMenuBackgoundOverlay:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.9959238, 0, 0.1692765, 1)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BugFailSound")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [0.0],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_glxtm"]
-resource_name = "pass"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -0.17453292519943295, 0.0, 0.17453292519943295, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxkcn"]
-_data = {
-&"RESET": SubResource("Animation_ikw0v"),
-&"fail": SubResource("Animation_pxkcn"),
-&"pass": SubResource("Animation_glxtm")
-}
+[ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="10_gyywn"]
+[ext_resource type="PackedScene" uid="uid://ropx1bfxcwq1" path="res://SCENES/GUI/customer_info.tscn" id="10_u2cc5"]
+[ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="11_s5p61"]
+[ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="12_bakuk"]
+[ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="13_wlqqv"]
+[ext_resource type="Script" uid="uid://bj7pshrtdtfbx" path="res://SCRIPTS/GUI/number_label.gd" id="17_ev1i0"]
+[ext_resource type="LabelSettings" uid="uid://dpdm2gqwudm4w" path="res://ASSETS/Font/gui_value_sublabel.tres" id="17_ln3bg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1msou"]
 
@@ -151,6 +31,93 @@ outline_color = Color(0.321569, 0.172549, 0.0745098, 1)
 shadow_size = 32
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ln3bg"]
+
+[sub_resource type="Resource" id="Resource_w2paf"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_12bmo"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_udr73"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_qwsa8"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_xd7rr"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_xe0ku"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_rifsc"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_a424m"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_6bq7s"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_0bwa3"]
+script = ExtResource("9_ln3bg")
+metadata/_custom_type_script = "uid://cf1jruerb1t6o"
+
+[sub_resource type="Resource" id="Resource_uncyn"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
+
+[sub_resource type="Resource" id="Resource_p3tbe"]
+resource_local_to_scene = true
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_uncyn")
+
+[sub_resource type="Resource" id="Resource_4bw2v"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+
+[sub_resource type="Resource" id="Resource_uwx5q"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
+
+[sub_resource type="Resource" id="Resource_u2cc5"]
+resource_local_to_scene = true
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_uwx5q")
+
+[sub_resource type="Resource" id="Resource_ev1i0"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+
+[sub_resource type="Resource" id="Resource_ln3bg"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+beads = Array[ExtResource("9_ln3bg")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
+
+[sub_resource type="Resource" id="Resource_gyywn"]
+resource_local_to_scene = true
+script = ExtResource("13_wlqqv")
+bead_array_info = SubResource("Resource_ln3bg")
+
+[sub_resource type="Resource" id="Resource_s5p61"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [node name="QuotaCheckScreen" type="PanelContainer" unique_id=2107446891]
 anchors_preset = 15
@@ -166,24 +133,38 @@ script = ExtResource("1_4aa6m")
 position = Vector2(1280, 0)
 scale = Vector2(-1, 1)
 
-[node name="OverlordAnimations" type="AnimationPlayer" parent="SplashScreen/BugOverlord1" parent_id_path=PackedInt32Array(987948715, 388369210) index="0" unique_id=1958366856]
-libraries/ = SubResource("AnimationLibrary_pxkcn")
+[node name="MainMenuSand" parent="SplashScreen" index="1" unique_id=559515230]
+position = Vector2(640, 446)
 
-[node name="BugFailSound" type="AudioStreamPlayer" parent="SplashScreen/BugOverlord1" parent_id_path=PackedInt32Array(987948715, 388369210) index="1" unique_id=1037060094]
-stream = ExtResource("4_pxkcn")
-volume_db = 5.0
-bus = &"SFX"
-
-[node name="MainMenuAmethyst" parent="SplashScreen" index="3" unique_id=1635407962]
+[node name="BugOverlord1" parent="SplashScreen" index="2" unique_id=388369210]
 visible = false
 
+[node name="MainMenuAmethyst" parent="SplashScreen" index="3" unique_id=1635407962]
+position = Vector2(1025, 667)
+scale = Vector2(1, 1)
+
 [node name="MainMenuBlendingSand" parent="SplashScreen" index="4" unique_id=2014287890]
+visible = false
 z_index = 4
-position = Vector2(282, 684)
+position = Vector2(106, 689)
 
 [node name="MainMenuBlendingSand2" parent="SplashScreen" index="5" unique_id=1550380399]
+visible = false
 z_index = 2
-position = Vector2(481, 683)
+position = Vector2(296, 690)
+scale = Vector2(-1, 1)
+
+[node name="MainMenuBlendingSand3" type="Sprite2D" parent="SplashScreen" unique_id=342282498]
+visible = false
+z_index = 2
+position = Vector2(470, 691)
+texture = ExtResource("5_uwx5q")
+
+[node name="MainMenuBlendingSand4" type="Sprite2D" parent="SplashScreen" unique_id=311742872]
+visible = false
+z_index = 2
+position = Vector2(610, 691)
+texture = ExtResource("5_uwx5q")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2092239943]
 custom_minimum_size = Vector2(400, 0)
@@ -193,82 +174,178 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_1msou")
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1689385044]
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1453581404]
-custom_minimum_size = Vector2(0, 32)
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1333181626]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1416419111]
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1249981532]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1416419111]
+layout_mode = 2
+size_flags_horizontal = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -24)
 text = "Quota Check!"
 label_settings = SubResource("LabelSettings_0qco7")
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=483160202]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=359770169]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1361465334]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=669617350]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1108951786]
+[node name="PauseButton" parent="PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=374039595 instance=ExtResource("7_0qco7")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 8
+size_flags_vertical = 6
 
-[node name="Control4" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=73139342]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control5" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=264512502]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="RunInfo" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1126309375 instance=ExtResource("4_0qco7")]
-custom_minimum_size = Vector2(320, 400)
-layout_mode = 2
-size_flags_horizontal = 6
-
-[node name="Spacer" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="2" unique_id=1219021022]
-custom_minimum_size = Vector2(0, 16)
-size_flags_vertical = 1
-
-[node name="QuotaNumber" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer/Quota" parent_id_path=PackedInt32Array(1126309375, 1067380109) index="1" unique_id=2067468411]
-is_silent = true
-
-[node name="Spacer2" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="5" unique_id=260567459]
-custom_minimum_size = Vector2(0, 16)
-size_flags_vertical = 1
-
-[node name="Vouchers" parent="PanelContainer/VBoxContainer/HBoxContainer/RunInfo/VBoxContainer" parent_id_path=PackedInt32Array(1126309375, 634661835) index="8" unique_id=40423095]
-visible = false
-
-[node name="Control3" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1592156889]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 32
-alignment = 1
-
-[node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer/Control3" unique_id=1434330463]
+[node name="NextButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1434330463]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 6
 text = "Next"
 script = ExtResource("6_toi61")
 
-[node name="RestartButton" parent="PanelContainer/VBoxContainer/HBoxContainer/Control3" unique_id=1516624254 instance=ExtResource("9_ikw0v")]
+[node name="RestartButton" parent="PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer" unique_id=1516624254 instance=ExtResource("9_ikw0v")]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 6
 text = "Restart"
 
-[node name="PauseButton" parent="PanelContainer/VBoxContainer/HBoxContainer/Control3" unique_id=374039595 instance=ExtResource("7_0qco7")]
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer" unique_id=483160202]
+visible = false
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 10
+
+[node name="QuotaSummary" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=359770169]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/QuotaSummary" unique_id=1361465334]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/QuotaSummary" unique_id=1059096429]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ln3bg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer" unique_id=379347655]
+layout_mode = 2
+
+[node name="CustomerRow1" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=1086769386]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="CustomerInfo" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1" unique_id=2068681764 instance=ExtResource("10_u2cc5")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1" unique_id=1901397150]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1/Control" unique_id=1435362116 instance=ExtResource("8_ev1i0")]
+info = SubResource("Resource_p3tbe")
+hide_scoring = true
+bead_array_info = SubResource("Resource_4bw2v")
+
+[node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1" unique_id=204352633]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000"
+label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
+script = ExtResource("17_ev1i0")
+metadata/_custom_type_script = "uid://bj7pshrtdtfbx"
+
+[node name="CustomerRow2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=1845536769]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="CustomerInfo" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2" unique_id=173908603 instance=ExtResource("10_u2cc5")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2" unique_id=740642656]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2/Control" unique_id=1225707326 instance=ExtResource("8_ev1i0")]
+info = SubResource("Resource_u2cc5")
+hide_scoring = true
+bead_array_info = SubResource("Resource_ev1i0")
+
+[node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2" unique_id=1405876514]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000"
+label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
+script = ExtResource("17_ev1i0")
+metadata/_custom_type_script = "uid://bj7pshrtdtfbx"
+
+[node name="CustomerRow3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=236913723]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="CustomerInfo" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3" unique_id=1496081223 instance=ExtResource("10_u2cc5")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3" unique_id=1367691955]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3/Control" unique_id=1707384944 instance=ExtResource("8_ev1i0")]
+info = SubResource("Resource_gyywn")
+hide_scoring = true
+bead_array_info = SubResource("Resource_s5p61")
+
+[node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3" unique_id=713928787]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000"
+label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
+script = ExtResource("17_ev1i0")
+metadata/_custom_type_script = "uid://bj7pshrtdtfbx"
+
+[node name="QuotaRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=2022827736]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/QuotaRow" unique_id=1110268413]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Target: "
+
+[node name="NumberLabel2" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/QuotaRow" unique_id=896438628]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000"
+script = ExtResource("17_ev1i0")
+metadata/_custom_type_script = "uid://bj7pshrtdtfbx"
+
+[node name="NumberLabel" type="Label" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/QuotaRow" unique_id=222240732]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0000000000"
+label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
+script = ExtResource("17_ev1i0")
+metadata/_custom_type_script = "uid://bj7pshrtdtfbx"
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/QuotaSummary" unique_id=401362317]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
 
 [node name="PassParticles" type="GPUParticles2D" parent="." unique_id=1318256973]
 position = Vector2(640, 207)
@@ -279,7 +356,6 @@ lifetime = 2.0
 one_shot = true
 process_material = ExtResource("10_glxtm")
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Control3/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer2/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 
 [editable path="SplashScreen"]
-[editable path="PanelContainer/VBoxContainer/HBoxContainer/RunInfo"]

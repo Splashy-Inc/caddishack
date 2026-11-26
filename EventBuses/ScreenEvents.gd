@@ -7,7 +7,8 @@ enum Screen {
 	SHOP,
 	DECK,
 	TERRARIUM,
-	QUOTA
+	QUOTA,
+	CUSTOMER_SELECT,
 }
 
 var screen_scenes := {
