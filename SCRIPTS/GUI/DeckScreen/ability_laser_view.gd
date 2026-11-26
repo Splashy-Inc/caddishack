@@ -30,7 +30,6 @@ func _on_petri_dish_larva_card_added(larva_card: LarvaCard) -> void:
 				animation_player.play("zapping")
 				await animation_player.animation_finished
 				ShopEvents.purchase_item(ability_item.info)
-				ability_item.queue_free()
 				card_completed.emit(larva_card, true)
 			else:
 				card_completed.emit(larva_card, false)
