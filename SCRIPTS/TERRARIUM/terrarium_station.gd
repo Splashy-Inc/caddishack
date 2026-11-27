@@ -66,6 +66,7 @@ func _on_terrarium_bead_limit_reached(full_terrarium: Terrarium) -> void:
 	bead_scorer.score_beads_animated(full_terrarium.get_beads())
 
 func _on_bead_scorer_beads_scored(score: int, vouchers: int) -> void:
+	RunEvents.run_info.get_current_round_info().bracelet = bead_scorer.bracelet_panel.bracelet.info
 	RunEvents.score_generated.emit(score)
 	RunEvents.vouchers_generated.emit(vouchers)
 	next_button.disabled = false

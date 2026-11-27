@@ -1,64 +1,11 @@
 [gd_scene format=4 uid="uid://8vogira8ngwj"]
 
 [ext_resource type="Script" uid="uid://browmvojpdalw" path="res://SCRIPTS/CRAFT_STATION/bracelet.gd" id="1_exnw4"]
-[ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="2_1i8yt"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="2_ojmal"]
-[ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="3_u8mxa"]
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="3_vwui2"]
-[ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="4_eenkr"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="5_ahedr"]
 [ext_resource type="PackedScene" uid="uid://5xn7k3avxu3y" path="res://SCENES/CRAFT_STATION/bead_slot.tscn" id="6_ahedr"]
 [ext_resource type="AudioStream" uid="uid://b7owejwec084n" path="res://ASSETS/Audio/bead_plink_1.ogg" id="7_pfo2p"]
-
-[sub_resource type="Resource" id="Resource_w2paf"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_12bmo"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_udr73"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_qwsa8"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_xd7rr"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_xe0ku"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_rifsc"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_a424m"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_6bq7s"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_0bwa3"]
-script = ExtResource("2_ojmal")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_six2j"]
-resource_local_to_scene = true
-script = ExtResource("3_vwui2")
-beads = Array[ExtResource("2_ojmal")]([SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku"), SubResource("Resource_rifsc"), SubResource("Resource_a424m"), SubResource("Resource_6bq7s"), SubResource("Resource_0bwa3")])
-
-[sub_resource type="Resource" id="Resource_1aj4p"]
-resource_local_to_scene = true
-script = ExtResource("2_1i8yt")
-bead_array_info = SubResource("Resource_six2j")
 
 [sub_resource type="Resource" id="Resource_ahedr"]
 resource_local_to_scene = true
@@ -81,7 +28,6 @@ size = Vector2(1394, 102)
 
 [node name="Bracelet" type="Node2D" unique_id=1435362116 node_paths=PackedStringArray("bead_container", "bead_container_shape")]
 script = ExtResource("1_exnw4")
-info = SubResource("Resource_1aj4p")
 bead_array_info = SubResource("Resource_ahedr")
 bead_container = NodePath("Beads/Container")
 bead_container_shape = NodePath("Beads/CollisionShape2D")

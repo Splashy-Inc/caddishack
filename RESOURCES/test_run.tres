@@ -54,11 +54,14 @@
 [ext_resource type="Resource" uid="uid://2nv6ye62w0df" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/wombo_combo_base_ability.tres" id="34_wokw3"]
 [ext_resource type="Script" uid="uid://dcjd4nelwo0hq" path="res://RESOURCES/quota_info.gd" id="36_hb3b5"]
 [ext_resource type="Script" uid="uid://cbuh3mbii1m2m" path="res://RESOURCES/round_info.gd" id="37_mq5cx"]
+[ext_resource type="Resource" uid="uid://d2uo3y4p3bm73" path="res://RESOURCES/test_bracelet_2.tres" id="38_3owob"]
 [ext_resource type="Resource" uid="uid://bs141hf4npn7k" path="res://RESOURCES/CUSTOMERS/customer_1.tres" id="38_7emab"]
 [ext_resource type="Resource" uid="uid://wiyxns6722ku" path="res://RESOURCES/CUSTOMERS/customer_2.tres" id="39_4kawv"]
+[ext_resource type="Resource" uid="uid://co71rcrxq8h4k" path="res://RESOURCES/test_bracelet.tres" id="40_o0xsy"]
 [ext_resource type="Resource" uid="uid://dfnqv318f6dtl" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/lone_wolf_color_bead_ability.tres" id="41_pirwq"]
 [ext_resource type="Resource" uid="uid://b6mil5n48aoqh" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/tri_color_bonus_bead_ability.tres" id="42_3awb7"]
 [ext_resource type="Resource" uid="uid://cdojupsya5lif" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/berserk_charm_bead_ability.tres" id="43_b2tvd"]
+[ext_resource type="Script" uid="uid://crss3ncuuw8n6" path="res://RESOURCES/ABILITIES/ability_info.gd" id="43_rn7ar"]
 [ext_resource type="Resource" uid="uid://cbtroclmkmpv1" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/same_charm_bead_ability.tres" id="44_ohaxl"]
 [ext_resource type="Resource" uid="uid://bsbxutibgv8an" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/diverse_charms_bead_ability.tres" id="45_t30ne"]
 [ext_resource type="Resource" uid="uid://b463boxq3xrdn" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/charm_copycat_bead_ability.tres" id="46_xnfnn"]
@@ -74,16 +77,19 @@
 [ext_resource type="Resource" uid="uid://delk3mfckbdh5" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_jimmie_larva_ability.tres" id="69_awrri"]
 [ext_resource type="Resource" uid="uid://d3k2847karyb5" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_shell_larva_ability.tres" id="70_se6xh"]
 [ext_resource type="Resource" uid="uid://cicaa6td8pnq" path="res://RESOURCES/ABILITIES/LARVA_ABILITIES/charm_excavator_spade_larva_ability.tres" id="71_m6chr"]
+[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/CUSTOMERS/customer_info.gd" id="77_6wjcc"]
 
 [sub_resource type="Resource" id="Resource_oce3l"]
 script = ExtResource("37_mq5cx")
 customer = ExtResource("38_7emab")
+bracelet = ExtResource("38_3owob")
 complete = true
 metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
 
 [sub_resource type="Resource" id="Resource_v5ylv"]
 script = ExtResource("37_mq5cx")
 customer = ExtResource("39_4kawv")
+bracelet = ExtResource("40_o0xsy")
 complete = true
 metadata/_custom_type_script = "uid://cbuh3mbii1m2m"
 

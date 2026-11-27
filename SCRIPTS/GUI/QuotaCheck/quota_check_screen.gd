@@ -51,9 +51,9 @@ func _on_next_button_pressed() -> void:
 
 func load_quota_info(new_info: QuotaInfo):
 	for i in new_info.rounds.size():
-		if i <= customer_displays.size():
+		if i < customer_displays.size():
 			if new_info.rounds[i].customer != null:
 				customer_displays[i].set_info(new_info.rounds[i].customer)
-		if i <= bracelets.size():
+		if i < bracelets.size():
 			if new_info.rounds[i].bracelet != null:
 				bracelets[i].set_beads(new_info.rounds[i].bracelet.bead_array_info)

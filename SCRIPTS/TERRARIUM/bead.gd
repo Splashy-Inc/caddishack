@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 func initialize(new_info: BeadInfo):
 	if not is_node_ready():
 		await ready
-	set_info(new_info)
+	set_info(new_info, true)
 
 func set_clickable(new_clickable: bool):
 	clickable_shape.disabled = not new_clickable
@@ -69,11 +69,11 @@ func travel_to(target_global_position: Vector2, target_scale: Vector2 = Vector2(
 func set_info(new_info: BeadInfo, force: bool = false):
 	if new_info == null:
 		new_info = BeadInfo.new()
-	info = new_info.duplicate(true)
-	if force or not info.sand.has_same_colors(new_info.sand):
-		set_sand(info.sand)
 	
-	set_special(info.special.type, force)
+	if force:
+		info = new_info.duplicate(true)
+		set_sand(info.sand)
+		set_special(info.special.type, force)
 	
 	load_abilities()
 

@@ -4,6 +4,8 @@ class_name RunInfoPanel
 
 signal number_change_complete
 
+@export var bracelets : Array[Bracelet]
+
 @onready var round_number: Label = $VBoxContainer/RoundNumber
 @onready var quota_number: NumberLabel = $VBoxContainer/Quota/QuotaNumber
 @onready var score_number: NumberLabel = $VBoxContainer/Score/ScoreNumber
@@ -29,7 +31,7 @@ func _ready() -> void:
 	set_score(RunEvents.get_score(), true, 0.0)
 	set_vouchers(RunEvents.get_vouchers(), true, 0.0)
 	
-	set_customer_info(RunEvents.run_info.get_current_customer())
+	set_quota_info(RunEvents.run_info.get_current_quota_info())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -55,6 +57,14 @@ func set_vouchers(current_vouchers: int, silent: bool = false, time : float = 2.
 
 func set_customer_info(new_customer: CustomerInfo):
 	customer_display.set_info(new_customer)
+
+func set_quota_info(new_quota_info: QuotaInfo):
+	if not new_quota_info.rounds.is_empty():
+		set_customer_info(new_quota_info.get_current_round_info().customer)
+	for i in new_quota_info.rounds.size():
+		if i < bracelets.size():
+			if new_quota_info.rounds[i].bracelet != null:
+				bracelets[i].set_beads(new_quota_info.rounds[i].bracelet.bead_array_info)
 
 func _on_quota_change_complete():
 	awaiting_quota_change = false

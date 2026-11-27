@@ -8,97 +8,26 @@
 [ext_resource type="PackedScene" uid="uid://8vogira8ngwj" path="res://SCENES/CRAFT_STATION/bracelet.tscn" id="5_7rt1e"]
 [ext_resource type="PackedScene" uid="uid://cxwi6x08rgjhh" path="res://SCENES/GUI/number_label.tscn" id="5_isb0c"]
 [ext_resource type="Script" uid="uid://cf1jruerb1t6o" path="res://RESOURCES/bead_info.gd" id="6_5mdan"]
-[ext_resource type="Script" uid="uid://dov6ag4dwk17v" path="res://RESOURCES/ABILITIES/BEAD_ABILITIES/bead_ability_info.gd" id="7_5mdan"]
 [ext_resource type="Script" uid="uid://bsvrqvguq7pyb" path="res://RESOURCES/bead_array_info.gd" id="7_r5kio"]
-[ext_resource type="Script" uid="uid://byyrv6d8ay7dp" path="res://RESOURCES/ABILITIES/BASE_ABILITIES/base_ability_info.gd" id="8_r5kio"]
-[ext_resource type="Script" uid="uid://bptnw12gam2kf" path="res://RESOURCES/bracelet_info.gd" id="8_u273e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmx7e"]
 
-[sub_resource type="Resource" id="Resource_pfo2p"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_yeyyo"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_u8mxa"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_eenkr"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_w2paf"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_12bmo"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_udr73"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_qwsa8"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_xd7rr"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_xe0ku"]
-script = ExtResource("6_5mdan")
-metadata/_custom_type_script = "uid://cf1jruerb1t6o"
-
-[sub_resource type="Resource" id="Resource_r5kio"]
-resource_local_to_scene = true
-script = ExtResource("7_r5kio")
-beads = Array[ExtResource("6_5mdan")]([SubResource("Resource_pfo2p"), SubResource("Resource_yeyyo"), SubResource("Resource_u8mxa"), SubResource("Resource_eenkr"), SubResource("Resource_w2paf"), SubResource("Resource_12bmo"), SubResource("Resource_udr73"), SubResource("Resource_qwsa8"), SubResource("Resource_xd7rr"), SubResource("Resource_xe0ku")])
-
-[sub_resource type="Resource" id="Resource_u273e"]
-resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_r5kio")
-
-[sub_resource type="Resource" id="Resource_tgf52"]
+[sub_resource type="Resource" id="Resource_58oti"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
-[sub_resource type="Resource" id="Resource_omapo"]
-resource_local_to_scene = true
-script = ExtResource("7_r5kio")
-
-[sub_resource type="Resource" id="Resource_ygyia"]
-resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_omapo")
-
-[sub_resource type="Resource" id="Resource_7dlgc"]
+[sub_resource type="Resource" id="Resource_dx0ry"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
-[sub_resource type="Resource" id="Resource_wyces"]
-resource_local_to_scene = true
-script = ExtResource("7_r5kio")
-
-[sub_resource type="Resource" id="Resource_d16db"]
-resource_local_to_scene = true
-script = ExtResource("8_u273e")
-bead_array_info = SubResource("Resource_wyces")
-
-[sub_resource type="Resource" id="Resource_wx4il"]
+[sub_resource type="Resource" id="Resource_7rt1e"]
 resource_local_to_scene = true
 script = ExtResource("7_r5kio")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
-[node name="RunInfo" type="PanelContainer" unique_id=1126309375]
+[node name="RunInfo" type="PanelContainer" unique_id=1126309375 node_paths=PackedStringArray("bracelets")]
 custom_minimum_size = Vector2(192, 638)
 offset_right = 192.0
 offset_bottom = 478.0
@@ -106,7 +35,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("1_u273e")
 script = ExtResource("2_isb0c")
-theme_override_styles/panel = ExtResource("1_u273e")
+bracelets = [NodePath("VBoxContainer/Bracelets/BraceletSlot1/Center/Bracelet"), NodePath("VBoxContainer/Bracelets/BraceletSlot2/Center/Bracelet"), NodePath("VBoxContainer/Bracelets/BraceletSlot3/Center/Bracelet")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=634661835]
 layout_mode = 2
@@ -149,9 +78,8 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot1/Center" unique_id=1435362116 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_u273e")
 hide_scoring = true
-bead_array_info = SubResource("Resource_tgf52")
+bead_array_info = SubResource("Resource_58oti")
 
 [node name="BraceletSlot2" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=1081141582]
 layout_mode = 2
@@ -167,9 +95,8 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot2/Center" unique_id=861112035 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_ygyia")
 hide_scoring = true
-bead_array_info = SubResource("Resource_7dlgc")
+bead_array_info = SubResource("Resource_dx0ry")
 
 [node name="BraceletSlot3" type="PanelContainer" parent="VBoxContainer/Bracelets" unique_id=246217762]
 layout_mode = 2
@@ -185,9 +112,8 @@ offset_transform_scale = Vector2(0.5, 0.5)
 offset_transform_rotation = 1.5707964
 
 [node name="Bracelet" parent="VBoxContainer/Bracelets/BraceletSlot3/Center" unique_id=1328784023 instance=ExtResource("5_7rt1e")]
-info = SubResource("Resource_d16db")
 hide_scoring = true
-bead_array_info = SubResource("Resource_wx4il")
+bead_array_info = SubResource("Resource_7rt1e")
 
 [node name="Spacer" type="Control" parent="VBoxContainer" unique_id=1219021022]
 visible = false

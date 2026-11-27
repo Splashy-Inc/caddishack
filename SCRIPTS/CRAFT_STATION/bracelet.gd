@@ -28,6 +28,8 @@ func _container_ready():
 	bead_slots = get_bead_slots()
 	for slot in bead_slots:
 		slot.toggle_scoring_visibility(hide_scoring)
+		if info == null:
+			info = BraceletInfo.new()
 	set_beads(info.get_bead_array_info())
 
 func position_bead(bead: Bead):

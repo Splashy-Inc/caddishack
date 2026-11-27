@@ -23,9 +23,12 @@ func _container_process(delta: float):
 
 func generate_beads():
 	clear_beads()
+	await get_tree().create_timer(.01).timeout
 	
-	for bead_info in bead_array_info.get_beads():
-		var new_bead = bead_scene.instantiate()
+	var beads := bead_array_info.get_beads().duplicate()
+	
+	for bead_info in beads:
+		var new_bead = bead_scene.instantiate() as Bead
 		new_bead.initialize(bead_info)
 		add_bead(new_bead)
 
