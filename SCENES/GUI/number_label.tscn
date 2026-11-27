@@ -9,12 +9,14 @@ random_pitch = 1.0116194
 streams_count = 1
 stream_0/stream = ExtResource("3_e53bh")
 
-[node name="NumberLabel" type="Label" unique_id=2067468411]
+[node name="NumberLabel" type="Label" unique_id=2067468411 node_paths=PackedStringArray("change_up_sound", "change_down_sound")]
 offset_transform_enabled = true
 text = "#"
 label_settings = ExtResource("1_jm284")
 horizontal_alignment = 1
 script = ExtResource("2_w8e8a")
+change_up_sound = NodePath("ChangeUpSound")
+change_down_sound = NodePath("ChangeDownSound")
 
 [node name="ChangeUpSound" type="AudioStreamPlayer" parent="." unique_id=1963055786]
 stream = SubResource("AudioStreamRandomizer_lj02w")

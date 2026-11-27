@@ -7,8 +7,8 @@ signal change_complete
 @export var shake_strength := 5.0
 @export var is_silent := false
 
-@onready var change_up_sound: AudioStreamPlayer = $ChangeUpSound
-@onready var change_down_sound: AudioStreamPlayer = $ChangeDownSound
+@export var change_up_sound: AudioStreamPlayer
+@export var change_down_sound: AudioStreamPlayer
 
 var number_target := 0
 var time_to_target = 2.0
@@ -24,11 +24,11 @@ func _process(delta: float) -> void:
 		if abs(number - number_target) > 0:
 			if number < number_target:
 				number = ceil(lerp(number, number_target, time_to_target * delta))
-				if not is_silent:
+				if not is_silent and is_instance_valid(change_up_sound):
 					change_up_sound.play()
 			else:
 				number = floor(lerp(number, number_target, time_to_target * delta))
-				if not is_silent:
+				if not is_silent and is_instance_valid(change_down_sound):
 					change_down_sound.play()
 			text = str(number)
 			offset_transform_position = Shaker2D.get_random_position_offset(shake_strength)

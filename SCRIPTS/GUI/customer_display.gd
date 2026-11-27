@@ -18,7 +18,8 @@ func _ready() -> void:
 func set_info(new_info: CustomerInfo):
 	if new_info != null:
 		animated_sprite_2d.sprite_frames = new_info.sprite_frames
-		animated_sprite_2d.play("idle")
+		if "idle" in animated_sprite_2d.sprite_frames.get_animation_names():
+			animated_sprite_2d.play("idle")
 		
 		for child in sand_slot.get_children():
 			child.queue_free()
