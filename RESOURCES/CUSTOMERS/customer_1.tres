@@ -67,7 +67,7 @@ sprite_frames = SubResource("SpriteFrames_ccv1r")
 materials = Array[ExtResource("2_gwefc")]([SubResource("Resource_vlhjw")])
 effect = Dictionary[int, int]({
 0: 0,
-1: 3,
+1: 2,
 2: 0
 })
 metadata/_custom_type_script = "uid://cq1koymfkeadf"

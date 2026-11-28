@@ -74,7 +74,11 @@ class_name RunInfo
 									preload("uid://cicaa6td8pnq"),] as Array[AbilityInfo]
 @export var wombo_combo_base := preload("uid://2nv6ye62w0df") as WomboComboBaseAbilityInfo
 @export var unlocked_customers := [preload("uid://bs141hf4npn7k"),
-									preload("uid://wiyxns6722ku"),] as Array[CustomerInfo]
+									preload("uid://wiyxns6722ku"),
+									preload("uid://dxion03rhi3bp"), 
+									preload("uid://dm7mupwaal2xt"), 
+									preload("uid://d27of2se835m0"), 
+									preload("uid://dhhvdkm0g4j3"),] as Array[CustomerInfo]
 @export var quotas := [QuotaInfo.new()]
 ## Max number of quotas that can be played. 0 or lower is infinite play.
 @export var max_quotas := 0

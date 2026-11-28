@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CustomerInfo" format=3 uid="uid://dhhvdkm0g4j3"]
+
+[ext_resource type="Script" uid="uid://dv7obe1357845" path="res://RESOURCES/material_info.gd" id="1_g7vvu"]
+[ext_resource type="Script" uid="uid://cy8jm1sqi6nnc" path="res://RESOURCES/sand_material_info.gd" id="2_3vc23"]
+[ext_resource type="Script" uid="uid://cq1koymfkeadf" path="res://RESOURCES/CUSTOMERS/customer_info.gd" id="3_v4p2a"]
+[ext_resource type="SpriteFrames" uid="uid://jbx3v8s4gsvu" path="res://RESOURCES/CUSTOMERS/customer_6_sprite_frames.tres" id="4_g7vvu"]
+
+[sub_resource type="Resource" id="Resource_omapo"]
+script = ExtResource("2_3vc23")
+colors = Array[int]([2])
+metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
+
+[resource]
+script = ExtResource("3_v4p2a")
+sprite_frames = ExtResource("4_g7vvu")
+materials = Array[ExtResource("1_g7vvu")]([SubResource("Resource_omapo")])
+effect = Dictionary[int, int]({
+0: 2,
+1: 0,
+2: 0
+})
+metadata/_custom_type_script = "uid://cq1koymfkeadf"
