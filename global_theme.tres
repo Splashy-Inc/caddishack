@@ -8,6 +8,22 @@
 [ext_resource type="StyleBox" uid="uid://cbdwcehhj6sux" path="res://RESOURCES/button_box_pressed.tres" id="5_7ts2r"]
 [ext_resource type="StyleBox" uid="uid://b26sjuefe0y7j" path="res://RESOURCES/panel_base.tres" id="7_0lf1r"]
 [ext_resource type="Texture2D" uid="uid://bek8ouauk0882" path="res://ASSETS/Art/GUI/CaddiGUI_64X64.png" id="7_3m3sy"]
+[ext_resource type="StyleBox" uid="uid://btlg5diojxo7t" path="res://RESOURCES/panel_gray.tres" id="7_7ts2r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7ts2r"]
+load_path = "res://.godot/imported/CaddiGUI_64X64.png-3e5537bf5a23684611df225883360d99.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64won"]
+atlas = SubResource("CompressedTexture2D_7ts2r")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4xtah"]
+texture = SubResource("AtlasTexture_64won")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ykhq"]
 atlas = ExtResource("7_3m3sy")
@@ -131,6 +147,9 @@ Button/styles/hover = ExtResource("2_vp42j")
 Button/styles/hover_pressed = ExtResource("3_3m3sy")
 Button/styles/normal = ExtResource("4_0lf1r")
 Button/styles/pressed = ExtResource("5_7ts2r")
+CheckBox/styles/disabled = ExtResource("7_7ts2r")
+CheckBox/styles/normal = ExtResource("7_0lf1r")
+CheckBox/styles/pressed = SubResource("StyleBoxTexture_4xtah")
 Label/colors/font_color = Color(0.9411765, 0.827451, 0.7607843, 1)
 Label/colors/font_outline_color = Color(0.32156864, 0.17254902, 0.07450981, 1)
 Label/constants/outline_size = 4

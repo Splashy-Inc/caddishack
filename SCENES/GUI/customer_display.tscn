@@ -41,7 +41,7 @@ sprite_frames = ExtResource("4_lrlw6")
 
 [node name="MaterialEffects" type="VBoxContainer" parent="." unique_id=1417698606]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 
 [node name="SandControl" type="Control" parent="MaterialEffects" unique_id=1974174213]
 layout_mode = 2
