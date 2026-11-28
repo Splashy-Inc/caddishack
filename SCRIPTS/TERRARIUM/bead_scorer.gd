@@ -4,6 +4,8 @@ class_name BeadScorer
 
 signal beads_scored(score: int, vouchers: int)
 
+@export var customer_display : CustomerDisplay
+
 @onready var info_panel: BraceletInfoPanel = $InfoPanel
 @onready var bracelet_panel: BraceletContructionPanel = $BraceletContructionPanel
 
@@ -25,16 +27,19 @@ func set_beads(beads: Array[Bead]):
 			await get_tree().create_timer(.1).timeout
 
 func score_beads(beads: Array[Bead]):
+	var customer : CustomerInfo
+	if is_instance_valid(customer_display):
+		customer = customer_display.customer_info
 	set_beads(beads)
-	score = bracelet_panel.bracelet.calculate_value()
-	vouchers = bracelet_panel.bracelet.calculate_vouchers()
+	score = bracelet_panel.bracelet.calculate_value(customer)
+	vouchers = bracelet_panel.bracelet.calculate_vouchers(customer)
 	beads_scored.emit(score, vouchers)
 
 func score_beads_animated(beads: Array[Bead]):
 	await set_beads(beads)
 	if not bracelet_panel.bracelet.animated_value_calculated.is_connected(_on_animated_value_calculated):
 		bracelet_panel.bracelet.animated_value_calculated.connect(_on_animated_value_calculated)
-	bracelet_panel.bracelet.calculate_value_animated()
+	bracelet_panel.bracelet.calculate_value_animated(customer_display)
 
 func _on_animated_value_calculated(value: int, new_vouchers: int):
 	score = value

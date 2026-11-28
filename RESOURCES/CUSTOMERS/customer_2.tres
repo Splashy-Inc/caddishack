@@ -14,9 +14,9 @@ metadata/_custom_type_script = "uid://cy8jm1sqi6nnc"
 script = ExtResource("3_h84be")
 sprite_frames = ExtResource("4_46hf1")
 materials = Array[ExtResource("2_46hf1")]([SubResource("Resource_omapo")])
-effect = {
-"mult": 0,
-"points": 2,
-"vouchers": 0
-}
+effect = Dictionary[int, int]({
+0: 2,
+1: 0,
+2: 0
+})
 metadata/_custom_type_script = "uid://cq1koymfkeadf"

@@ -64,7 +64,7 @@ func load_quota_info(new_info: QuotaInfo):
 		if i < bracelets.size():
 			if new_info.rounds[i].bracelet != null:
 				bracelets[i].set_beads(new_info.rounds[i].bracelet.bead_array_info)
-				var bracelet_score = new_info.rounds[i].bracelet.calculate_value()
+				var bracelet_score = new_info.rounds[i].bracelet.calculate_value(new_info.rounds[i].customer)
 				scores_labels[i].set_number(bracelet_score, 1.0)
 				total_score += bracelet_score
 	

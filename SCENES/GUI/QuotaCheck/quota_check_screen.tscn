@@ -32,17 +32,17 @@ shadow_offset = Vector2(8, 8)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ln3bg"]
 
+[sub_resource type="Resource" id="Resource_xer5g"]
+resource_local_to_scene = true
+script = ExtResource("12_bakuk")
+metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
+
 [sub_resource type="Resource" id="Resource_uwx5q"]
 resource_local_to_scene = true
 script = ExtResource("12_bakuk")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
 
 [sub_resource type="Resource" id="Resource_u2cc5"]
-resource_local_to_scene = true
-script = ExtResource("12_bakuk")
-metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
-
-[sub_resource type="Resource" id="Resource_ev1i0"]
 resource_local_to_scene = true
 script = ExtResource("12_bakuk")
 metadata/_custom_type_script = "uid://bsvrqvguq7pyb"
@@ -180,11 +180,13 @@ size_flags_vertical = 4
 
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1/Control" unique_id=1435362116 instance=ExtResource("8_ev1i0")]
 hide_scoring = true
-bead_array_info = SubResource("Resource_uwx5q")
+bead_array_info = SubResource("Resource_xer5g")
 
 [node name="NumberLabel" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow1" unique_id=2067468411 instance=ExtResource("13_uwx5q")]
+custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
 is_silent = true
 
 [node name="CustomerRow2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=1845536769]
@@ -201,11 +203,13 @@ size_flags_vertical = 4
 
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2/Control" unique_id=1225707326 instance=ExtResource("8_ev1i0")]
 hide_scoring = true
-bead_array_info = SubResource("Resource_u2cc5")
+bead_array_info = SubResource("Resource_uwx5q")
 
 [node name="NumberLabel" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow2" unique_id=1189418897 instance=ExtResource("13_uwx5q")]
+custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
 is_silent = true
 
 [node name="CustomerRow3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=236913723]
@@ -223,11 +227,13 @@ size_flags_vertical = 4
 [node name="Bracelet" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3/Control" unique_id=1707384944 instance=ExtResource("8_ev1i0")]
 info = ExtResource("15_xer5g")
 hide_scoring = true
-bead_array_info = SubResource("Resource_ev1i0")
+bead_array_info = SubResource("Resource_u2cc5")
 
 [node name="NumberLabel" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer/CustomerRow3" unique_id=6868267 instance=ExtResource("13_uwx5q")]
+custom_minimum_size = Vector2(192, 0)
 layout_mode = 2
 label_settings = ExtResource("17_ln3bg")
+horizontal_alignment = 2
 is_silent = true
 
 [node name="QuotaRow" type="HBoxContainer" parent="PanelContainer/VBoxContainer/QuotaSummary/PanelContainer/VBoxContainer" unique_id=2022827736]

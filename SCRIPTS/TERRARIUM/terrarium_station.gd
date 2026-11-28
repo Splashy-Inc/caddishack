@@ -15,12 +15,14 @@ class_name TerrariumStation
 @onready var larva_info_panel: LarvaInfoPanel = $LarvaInfoPanel
 @onready var bead_info_panel: BeadInfoPanel = $BeadInfoPanel
 @onready var deck: Deck = $Deck
+@onready var run_info_panel: RunInfoPanel = $PanelContainer/VBoxContainer/RunInfo
 var num_hands := 2
 var hand_num := 1
 
 func _ready() -> void:
 	terrarium.travel_to(terrarium_play_slot.transform)
 	load_run_info()
+	bead_scorer.customer_display = run_info_panel.customer_display
 	hand_count_tracker.show()
 	hand_count_animation_player.play_backwards("fade_out")
 	await hand_count_animation_player.animation_finished

@@ -1,6 +1,7 @@
 extends Node
 
 signal bead_scored(points: int, mult: int, vouchers: int)
+signal customer_scored(points: int, mult: int, vouchers: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -15,6 +15,7 @@ var vouchers := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	ScoringEvents.bead_scored.connect(_on_bead_scored)
+	ScoringEvents.customer_scored.connect(_on_customer_scored)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -26,6 +27,7 @@ func reset():
 	set_value(0)
 	set_vouchers(0)
 
+# TODO: Figure out if this is used. If used, make sure it's updated with customer bonus consideration.
 func update_bracelet_info(bracelet: Bracelet):
 	set_value(bracelet.calculate_value())
 	set_points(bracelet.info.calculate_points())
@@ -61,7 +63,12 @@ func set_vouchers(new_vouchers : int):
 	vouchers = new_vouchers
 	vouchers_number.text = str(vouchers)
 
-func _on_bead_scored(bead_points: int, bead_mult: int, vouchers: int):
+func _on_bead_scored(bead_points: int, bead_mult: int, bead_vouchers: int):
 	change_points(bead_points)
 	change_mult(bead_mult)
-	change_vouchers(vouchers)
+	change_vouchers(bead_vouchers)
+
+func _on_customer_scored(customer_points: int, customer_mult: int, customer_vouchers: int):
+	change_points(customer_points)
+	change_mult(customer_mult)
+	change_vouchers(customer_vouchers)

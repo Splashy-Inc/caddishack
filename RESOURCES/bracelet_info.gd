@@ -28,16 +28,24 @@ func calculate_mult() -> int:
 	
 	return mult
 
-func calculate_value() -> int:
+func calculate_value(customer: CustomerInfo = null) -> int:
 	points = calculate_points()
 	mult = calculate_mult()
+	if customer:
+		points += customer.calculate_bonus(bead_array_info, CustomerInfo.EffectType.POINTS)
+		mult += customer.calculate_bonus(bead_array_info, CustomerInfo.EffectType.MULT)
 	value = points * mult
 	return value
 
-func calculate_vouchers() -> int:
+func calculate_vouchers(customer: CustomerInfo = null) -> int:
 	vouchers = 0
+	
 	for bead in bead_array_info.get_beads():
 		vouchers += bead.calculate_vouchers(bead_array_info)
+	
+	if customer:
+		vouchers += customer.calculate_bonus(bead_array_info, CustomerInfo.EffectType.VOUCHERS)
+	
 	return vouchers
 
 func get_bead_array_info() -> BeadArrayInfo:
