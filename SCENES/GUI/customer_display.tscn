@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://do45p4kwcs13k" path="res://RESOURCES/CUSTOMERS/placeholder_customer.tres" id="2_wbp0v"]
 [ext_resource type="SpriteFrames" uid="uid://nu7lvcfc2mcn" path="res://RESOURCES/CUSTOMERS/placeholder_customer_sprite_frames.tres" id="4_lrlw6"]
 [ext_resource type="PackedScene" uid="uid://c3tsqigy40bnd" path="res://SCENES/MATERIALS/sand_material.tscn" id="4_prt5q"]
+[ext_resource type="Material" uid="uid://cf3tuv5aidq14" path="res://RESOURCES/SHADERS/highlight/highlight_material.tres" id="4_wbp0v"]
 [ext_resource type="PackedScene" uid="uid://bval43aybs8wf" path="res://SCENES/MATERIALS/shell_material.tscn" id="5_45i1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjvkj"]
@@ -35,8 +36,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CustomerImage/Center" unique_id=342667033]
+material = ExtResource("4_wbp0v")
 sprite_frames = ExtResource("4_lrlw6")
-autoplay = "default"
 
 [node name="MaterialEffects" type="VBoxContainer" parent="." unique_id=1417698606]
 layout_mode = 2

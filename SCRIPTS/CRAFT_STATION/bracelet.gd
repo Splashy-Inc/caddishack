@@ -50,17 +50,11 @@ func calculate_vouchers(customer: CustomerInfo = null) -> int:
 	return info.calculate_vouchers(customer)
 
 func calculate_value_animated(customer_display: CustomerDisplay = null):
-	var customer : CustomerInfo
 	for slot in bead_slots:
-		await slot.calculate_value_animated(info.get_bead_array_info(), scoring_sound)
+		await slot.calculate_value_animated(info.get_bead_array_info(), customer_display, scoring_sound)
 		scoring_sound.pitch_scale += .025
-	
-	if is_instance_valid(customer_display):
-		customer = customer_display.customer_info
-		await customer_display.calculate_bonus_animated(info.get_bead_array_info())
-	
 	scoring_sound.pitch_scale = .5
-	animated_value_calculated.emit(info.calculate_value(customer), info.calculate_vouchers(customer))
+	animated_value_calculated.emit(info.calculate_value(customer_display.customer_info), info.calculate_vouchers(customer_display.customer_info))
 
 func is_complete() -> bool:
 	return get_beads().size() >= bead_slots.size()

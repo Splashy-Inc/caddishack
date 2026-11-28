@@ -60,32 +60,13 @@ func set_info(new_info: CustomerInfo):
 				effect_label.show()
 				break
 
-func calculate_bonus_animated(bead_array_info: BeadArrayInfo):
-	var affected_beads : Array[BeadInfo]
-	for bead_info in bead_array_info.beads:
-		var is_match := true
-		for material in customer_info.materials:
-			if material is SandMaterialInfo:
-				for color in material.colors:
-					if not color in bead_info.sand.colors:
-						is_match = false
-						break
-			elif material is SpecialMaterialInfo:
-				if material.type != bead_info.special.type:
-					is_match = false
-					break
-		
-		if is_match and not bead_info in affected_beads:
-			affected_beads.append(bead_info)
-			BeadEvents.bead_color_highlight_toggle_requested.emit(bead_info, true)
-			BeadEvents.bead_charm_highlight_toggle_requested.emit(bead_info, true)
-	
-	var bonus_points = customer_info.calculate_bonus(bead_array_info, CustomerInfo.EffectType.POINTS)
-	var bonus_mult = customer_info.calculate_bonus(bead_array_info, CustomerInfo.EffectType.MULT)
-	var bonus_vouchers = customer_info.calculate_bonus(bead_array_info, CustomerInfo.EffectType.VOUCHERS)
-	ScoringEvents.customer_scored.emit(bonus_points, bonus_mult, bonus_vouchers)
-	await get_tree().create_timer(.5).timeout
-	
-	for bead_info in affected_beads:
-		BeadEvents.bead_color_highlight_toggle_requested.emit(bead_info, false)
-		BeadEvents.bead_charm_highlight_toggle_requested.emit(bead_info, false)
+func set_idle():
+	if "idle" in animated_sprite_2d.sprite_frames.get_animation_names():
+		animated_sprite_2d.play("idle")
+
+func set_happy():
+	if "happy" in animated_sprite_2d.sprite_frames.get_animation_names():
+		animated_sprite_2d.play("happy")
+
+func toggle_highlight(is_highlighted: bool):
+	animated_sprite_2d.material.set_shader_parameter("on", is_highlighted)

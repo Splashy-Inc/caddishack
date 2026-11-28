@@ -44,33 +44,53 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Slot1" parent="Beads/Container" unique_id=1263753534 instance=ExtResource("6_ahedr")]
 position = Vector2(-575, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot2" parent="Beads/Container" unique_id=847836181 instance=ExtResource("6_ahedr")]
 position = Vector2(-447, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot3" parent="Beads/Container" unique_id=156782909 instance=ExtResource("6_ahedr")]
 position = Vector2(-319, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot4" parent="Beads/Container" unique_id=569183971 instance=ExtResource("6_ahedr")]
 position = Vector2(-191, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot5" parent="Beads/Container" unique_id=2130031254 instance=ExtResource("6_ahedr")]
 position = Vector2(-63, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot6" parent="Beads/Container" unique_id=403590063 instance=ExtResource("6_ahedr")]
 position = Vector2(65, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot7" parent="Beads/Container" unique_id=1127287816 instance=ExtResource("6_ahedr")]
 position = Vector2(193, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot8" parent="Beads/Container" unique_id=981046999 instance=ExtResource("6_ahedr")]
 position = Vector2(321, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot9" parent="Beads/Container" unique_id=2058276120 instance=ExtResource("6_ahedr")]
 position = Vector2(449, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="Slot10" parent="Beads/Container" unique_id=1165788055 instance=ExtResource("6_ahedr")]
 position = Vector2(577, 0)
+highlight_timeout = 0.25
+hide_scoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beads" unique_id=578044380]
 visible = false

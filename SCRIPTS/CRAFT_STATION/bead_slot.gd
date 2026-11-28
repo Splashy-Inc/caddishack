@@ -131,23 +131,25 @@ func check_wombo() -> bool:
 			has_wombo = false
 	return has_wombo
 
-func calculate_value(info: BeadArrayInfo):
+func calculate_value(info: BeadArrayInfo, customer_info: CustomerInfo):
 	var bead := get_bead()
 	if is_instance_valid(bead):
 		for bead_info in info.beads:
 			if bead.info == bead_info:
-				set_points(bead_info.calculate_points(info) * bead_info.calculate_base_multiplier(info))
-				set_mult(bead_info.calculate_mult(info) * bead_info.calculate_base_multiplier(info))
-				set_vouchers(bead_info.calculate_vouchers(info))
+				set_points(bead_info.calculate_points(info) * bead_info.calculate_base_multiplier(info) + customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.POINTS))
+				set_mult(bead_info.calculate_mult(info) * bead_info.calculate_base_multiplier(info) + customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.MULT))
+				set_vouchers(bead_info.calculate_vouchers(info) + customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.VOUCHERS))
 				check_wombo()
 
-func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound: AudioStreamPlayer = null):
+func calculate_value_animated(bead_array_info: BeadArrayInfo, customer_display: CustomerDisplay, new_scoring_sound: AudioStreamPlayer = null):
 	var bead := get_bead()
 	if is_instance_valid(bead):
 		for bead_info in bead_array_info.beads:
 			if bead.info == bead_info:
 				scoring_sound = new_scoring_sound
 				lift_bead()
+				
+				# Score base points, mult, and vouchers
 				var value_breakdown := bead_info.get_value_breakdown(bead_array_info)
 				var bead_points = value_breakdown["color_points"]
 				var bead_mult = value_breakdown["charm_mult"]
@@ -170,6 +172,7 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 				bead.toggle_charm_highlight(false)
 				bead.toggle_color_highlight(false)
 				
+				# Score ability effects and wombo combo, as applicable
 				for ability_info in bead_info.abilities + bead_info.base_abilities:
 					for icon in ability_icons:
 						if icon.info == ability_info:
@@ -239,11 +242,38 @@ func calculate_value_animated(bead_array_info: BeadArrayInfo, new_scoring_sound:
 								sand.toggle_highlight(false)
 							if charm is BeadMaterial:
 								charm.toggle_highlight(false)
-						
+				
+				# Score customer effect(s), as applicable
+				if customer_display.customer_info != null:
+					for customer_effect in CustomerInfo.EffectType.values():
+						var customer_bonus := customer_display.customer_info.calculate_bonus(bead_info, customer_effect)
+						if customer_bonus > 0:
+							for material_info in customer_display.customer_info.materials:
+								if material_info is SandMaterialInfo:
+									bead.toggle_color_highlight(true)
+									customer_display.toggle_highlight(true)
+									customer_display.set_happy()
+								elif material_info is SpecialMaterialInfo:
+									bead.toggle_charm_highlight(true)
+									customer_display.toggle_highlight(true)
+									customer_display.set_happy()
+							match customer_effect:
+								CustomerInfo.EffectType.POINTS:
+									set_points(points + customer_bonus)
+								CustomerInfo.EffectType.MULT:
+									set_mult(mult + customer_bonus)
+								CustomerInfo.EffectType.VOUCHERS:
+									set_vouchers(vouchers + customer_bonus)
+							await get_tree().create_timer(highlight_timeout*4).timeout
+							bead.toggle_color_highlight(false)
+							bead.toggle_charm_highlight(false)
+							customer_display.toggle_highlight(false)
+							customer_display.set_idle()
+				
 				scoring_sound = null
-				set_points(bead_info.calculate_points(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
-				set_mult(bead_info.calculate_mult(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info))
-				set_vouchers(bead_info.calculate_vouchers(bead_array_info))
+				set_points(bead_info.calculate_points(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info) + customer_display.customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.POINTS))
+				set_mult(bead_info.calculate_mult(bead_array_info) * bead_info.calculate_base_multiplier(bead_array_info) + customer_display.customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.MULT))
+				set_vouchers(bead_info.calculate_vouchers(bead_array_info) + customer_display.customer_info.calculate_bonus(bead_info, CustomerInfo.EffectType.VOUCHERS))
 				check_wombo()
 				complete_bead_scoring()
 				unlift_bead()
